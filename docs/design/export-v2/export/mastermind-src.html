@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#101B2D">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#101B2D"></rect>
+    <line x1="500" y1="250" x2="600" y2="520" stroke="#F1ECDF" stroke-width="14" stroke-linecap="round"></line>
+    <line x1="700" y1="250" x2="600" y2="520" stroke="#C9A24C" stroke-width="14" stroke-linecap="round"></line>
+    <line x1="556" y1="566" x2="644" y2="566" stroke="#C9A24C" stroke-width="8"></line>
+  </svg>
+</template>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #0B0F16; }
+  a { color: #C15A2C; text-decoration: none; }
+  a:hover { color: #C15A2C; text-decoration: underline; text-underline-offset: 3px; }
+  ::selection { background: #C9A24C; color: #101B2D; }
+  @keyframes vq-fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  [data-vqfade] { animation: vq-fade 0.55s cubic-bezier(0.23,1,0.32,1) both; }
+  details[open] [data-faqmark] { transform: rotate(45deg); }
+  [data-faqmark] { transition: transform 0.25s cubic-bezier(0.23,1,0.32,1); }
+  @media (prefers-reduced-motion: reduce) { [data-vqfade] { animation-duration: 0.01s !important; } }
+</style>
+</helmet>
+<section style="display: flex; flex-wrap: wrap; gap: 64px; padding: 64px; align-items: flex-start; font-family: 'Space Grotesk', sans-serif;">
+
+  <div id="1a" data-screen-label="Mastermind — desktop" style="display: flex; flex-direction: column; gap: 14px;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <span style="display: inline-flex; border: 1px solid #C9A24C; color: #C9A24C; font-size: 11px; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 2px;">1a</span>
+      <span style="color: rgba(241,236,223,0.65); font-size: 13px;">The Mastermind — desktop 1440 · investment Variant A (tweakable)</span>
+    </div>
+    <div style="width: 1440px; background: #101B2D;">
+
+      <div style="background: #0B0F16; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 80px; position: relative;">
+        <span style="font-size: 13.5px; color: rgba(241,236,223,0.85);">The Ventriq Summit · free · virtual · <span style="font-variant-numeric: tabular-nums;">Aug 10–21</span> — <a href="#1a" style="color: #C15A2C;">Save your seat →</a></span>
+        <button aria-label="Dismiss" style="position: absolute; right: 24px; top: 50%; transform: translateY(-50%); background: none; border: none; color: rgba(241,236,223,0.5); font-size: 15px; font-family: inherit; cursor: pointer; padding: 4px;">×</button>
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 80px; height: 78px; border-bottom: 1px solid rgba(241,236,223,0.1);">
+        <svg viewBox="0 0 4181 1320" role="img" aria-label="Ventriq" style="height: 30px; width: auto; display: block;">
+          <g transform="translate(120,880) scale(1,-1)">
+            <g fill="#F1ECDF">
+              <path transform="translate(0,0)" d="M253 0 28 700H95L304 37H316L525 700H592L367 0Z"></path>
+              <path transform="translate(610,0)" d="M312 -14Q237 -14 181.5 17.5Q126 49 95.0 106.0Q64 163 64 237V249Q64 324 95.0 380.5Q126 437 180.5 468.5Q235 500 305 500Q373 500 425.5 471.5Q478 443 508.0 389.5Q538 336 538 262V230H124Q127 139 179.5 89.5Q232 40 312 40Q380 40 417.5 71.0Q455 102 475 147L529 123Q514 90 487.5 58.5Q461 27 419.0 6.5Q377 -14 312 -14ZM125 282H477Q473 361 426.0 403.5Q379 446 305 446Q232 446 184.0 403.5Q136 361 125 282Z"></path>
+              <path transform="translate(1198,0)" d="M88 0V486H146V396H158Q176 435 217.0 465.5Q258 496 336 496Q389 496 433.0 474.0Q477 452 503.5 407.5Q530 363 530 296V0H470V292Q470 372 430.0 407.0Q390 442 323 442Q248 442 198.0 392.5Q148 343 148 243V0Z"></path>
+              <path transform="translate(1800,0)" d="M264 0Q225 0 205.5 20.0Q186 40 186 76V432H30V486H186V668H246V486H416V432H246V84Q246 54 276 54H390V0Z"></path>
+              <path transform="translate(2252,0)" d="M88 0V486H146V425H158Q172 458 199.5 473.0Q227 488 276 488H333V432H269Q214 432 181.0 401.0Q148 370 148 304V0Z"></path>
+              <path transform="translate(2611,0)" d="M88 0V486H148V0ZM118 570Q96 570 81.0 585.0Q66 600 66 622Q66 645 81.0 659.5Q96 674 118 674Q141 674 155.5 659.5Q170 645 170 622Q170 600 155.5 585.0Q141 570 118 570Z"></path>
+              <path transform="translate(2837,0)" d="M498 -200V85H486Q473 61 449.5 38.0Q426 15 389.0 0.5Q352 -14 298 -14Q233 -14 179.5 16.5Q126 47 95.0 103.5Q64 160 64 237V249Q64 327 95.5 383.0Q127 439 180.0 469.5Q233 500 298 500Q378 500 422.5 468.5Q467 437 488 397H500V486H558V-200ZM312 40Q395 40 446.5 93.0Q498 146 498 239V247Q498 340 446.5 393.0Q395 446 312 446Q230 446 178.0 393.0Q126 340 126 247V239Q126 146 178.0 93.0Q230 40 312 40Z"></path>
+            </g>
+            <path fill="#C9A24C" d="M3381 -60 L3941 -140 L3381 -220 Z"></path>
+          </g>
+        </svg>
+        <div style="display: flex; align-items: center; gap: 36px;">
+          <a href="#1a" style="color: rgba(241,236,223,0.85); font-size: 15px;" style-hover="color: #F1ECDF; text-decoration: none;">The Summit</a>
+          <a href="#1a" style="color: #C9A24C; font-size: 15px;" style-hover="color: #C9A24C; text-decoration: none;">The Mastermind</a>
+          <a href="#1a" style="color: rgba(241,236,223,0.85); font-size: 15px;" style-hover="color: #F1ECDF; text-decoration: none;">About</a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <a href="#1a" style="display: inline-flex; align-items: center; border: 1px solid rgba(201,162,76,0.75); color: #C9A24C; font-size: 14.5px; font-weight: 500; padding: 10px 18px; border-radius: 2px; text-decoration: none;" style-hover="background: rgba(201,162,76,0.12); color: #C9A24C; text-decoration: none;" style-focus="outline: 2px solid #C9A24C; outline-offset: 2px;">Donate</a>
+          <a href="#1a" style="display: inline-flex; align-items: center; background: #C9A24C; color: #0B0F16; font-size: 14.5px; font-weight: 600; padding: 11px 18px; border-radius: 2px; text-decoration: none;" style-hover="background: #BB9440; color: #0B0F16; text-decoration: none;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Register for the Summit</a>
+        </div>
+      </div>
+
+      <div data-screen-label="Mastermind S1 · hero" style="position: relative; overflow: hidden; padding: 112px 80px 96px; color: #F1ECDF;">
+        <div style="position: absolute; inset: 0; background: radial-gradient(700px 460px at 74% 42%, rgba(201,162,76,0.09), rgba(201,162,76,0) 70%);"></div>
+        <svg viewBox="0 0 1440 520" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+          <line x1="0" y1="80" x2="1150" y2="300" stroke="#C9A24C" stroke-width="1" opacity="0.3"></line>
+          <line x1="0" y1="470" x2="1150" y2="300" stroke="#C9A24C" stroke-width="1" opacity="0.3"></line>
+          <circle cx="1150" cy="300" r="2" fill="#C9A24C" opacity="0.55"></circle>
+        </svg>
+        <div style="position: relative; max-width: 900px; display: flex; flex-direction: column; align-items: flex-start;">
+          <div style="display: flex; align-items: center; gap: 14px;" data-vqfade="1">
+            <span style="display: block; width: 44px; height: 1px; background: #C9A24C;"></span>
+            <span style="font-variant: small-caps; font-variant-numeric: tabular-nums; letter-spacing: 0.16em; font-size: 15px; color: #C9A24C;">cohort 2 · September–December 2026 · 10 seats</span>
+          </div>
+          <h1 style="margin: 26px 0 0; font-size: 64px; line-height: 1.05; font-weight: 500; letter-spacing: -0.015em; max-width: 17ch; animation-delay: 0.15s;" data-vqfade="1">The room for what comes after the plan.</h1>
+          <p style="margin: 26px 0 0; font-size: 19px; line-height: 1.6; color: rgba(241,236,223,0.85); max-width: 56ch; animation-delay: 0.3s;" data-vqfade="1">You've done the course. You've got the strategy deck. Ninety days of installing it is what's rare — ten founders, weekly working sessions, a dashboard that keeps score, and advisors who've built before you.</p>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 36px; animation-delay: 0.45s;" data-vqfade="1">
+            <a href="#1a" style="display: inline-flex; align-items: center; background: #C9A24C; color: #0B0F16; font-size: 17px; font-weight: 600; padding: 16px 28px; border-radius: 2px; text-decoration: none;" style-hover="background: #BB9440; color: #0B0F16; text-decoration: none;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Start your application</a>
+            <span style="font-size: 14.5px; color: rgba(241,236,223,0.75);">Applications close <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(241,236,223,0.55);">[APP-DEADLINE]</span>. The committee reads every one.</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="Mastermind S2 · who this is for" style="background: #F1ECDF; padding: 88px 80px; color: #0B0F16;">
+        <div style="display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start;">
+          <h2 style="margin: 0; font-size: 44px; font-weight: 500; letter-spacing: -0.01em;">This is for you if</h2>
+          <div style="display: flex; flex-direction: column;">
+            <div style="border-top: 1px solid rgba(11,15,22,0.2); padding: 20px 0; display: flex; gap: 16px;"><span style="display: block; width: 14px; height: 1px; background: #C9A24C; flex-shrink: 0; margin-top: 13px;"></span><span style="font-size: 17.5px; line-height: 1.6;">There's a real business: revenue, customers, something to grow — not just a deck.</span></div>
+            <div style="border-top: 1px solid rgba(11,15,22,0.12); padding: 20px 0; display: flex; gap: 16px;"><span style="display: block; width: 14px; height: 1px; background: #C9A24C; flex-shrink: 0; margin-top: 13px;"></span><span style="font-size: 17.5px; line-height: 1.6;">You're the bottleneck. Decisions, quality, follow-through: it all routes through you, and it's costing you.</span></div>
+            <div style="border-top: 1px solid rgba(11,15,22,0.12); padding: 20px 0; display: flex; gap: 16px;"><span style="display: block; width: 14px; height: 1px; background: #C9A24C; flex-shrink: 0; margin-top: 13px;"></span><span style="font-size: 17.5px; line-height: 1.6;">You can commit 90 minutes a week live, plus the work between sessions.</span></div>
+            <div style="border-top: 1px solid rgba(11,15,22,0.12); border-bottom: 1px solid rgba(11,15,22,0.2); padding: 20px 0; display: flex; gap: 16px;"><span style="display: block; width: 14px; height: 1px; background: #C9A24C; flex-shrink: 0; margin-top: 13px;"></span><span style="font-size: 17.5px; line-height: 1.6;">You're coachable. You want a thinking partner and a room that pushes back — not a lecture.</span></div>
+            <p style="margin: 26px 0 0; font-size: 16px; line-height: 1.6; color: rgba(11,15,22,0.7);"><span style="font-weight: 600; color: #0B0F16;">And plainly:</span> this isn't for coaches selling coaching, spectators, or anyone who wants applause more than progress.</p>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="Mastermind S3 · three pillars" style="background: #101B2D; padding: 96px 80px; color: #F1ECDF;">
+        <h2 style="margin: 0; font-size: 44px; font-weight: 500; letter-spacing: -0.01em;">Ninety days, three pillars</h2>
+        <svg viewBox="0 0 1120 132" style="display: block; width: 1120px; max-width: 100%; height: auto; margin-top: 48px;" role="img" aria-label="Diagram: one structure line dropping to the room, the scoreboard, and the systems" data-comment-anchor="pillar-diagram">
+          <line x1="0" y1="24" x2="1040" y2="24" stroke="#C9A24C" stroke-width="1"></line>
+          <line x1="0.5" y1="17" x2="0.5" y2="31" stroke="#C9A24C" stroke-width="1"></line>
+          <path d="M1040 24 L1032 20.5 L1032 27.5 Z" fill="#C9A24C"></path>
+          <line x1="60.5" y1="24" x2="60.5" y2="76" stroke="#C9A24C" stroke-width="1"></line>
+          <circle cx="60.5" cy="80" r="2.2" fill="#C9A24C"></circle>
+          <line x1="440.5" y1="24" x2="440.5" y2="76" stroke="#C9A24C" stroke-width="1"></line>
+          <circle cx="440.5" cy="80" r="2.2" fill="#C9A24C"></circle>
+          <line x1="820.5" y1="24" x2="820.5" y2="76" stroke="#C9A24C" stroke-width="1"></line>
+          <circle cx="820.5" cy="80" r="2.2" fill="#C9A24C"></circle>
+          <text x="76" y="86" fill="rgba(241,236,223,0.85)" font-size="15" font-family="Space Grotesk, sans-serif">the room</text>
+          <text x="456" y="86" fill="rgba(241,236,223,0.85)" font-size="15" font-family="Space Grotesk, sans-serif">the scoreboard</text>
+          <text x="836" y="86" fill="rgba(241,236,223,0.85)" font-size="15" font-family="Space Grotesk, sans-serif">the systems</text>
+        </svg>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 56px; margin-top: 20px; max-width: 1240px;">
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px;">
+            <span style="font-size: 20px; font-weight: 600; line-height: 1.35;">Collaboration — the room.</span>
+            <span style="font-size: 15.5px; line-height: 1.6; color: rgba(241,236,223,0.8);">Ten founders max, cross-industry, every week. Your roadblocks get worked in-session by people who've hit them; marketplace opportunities move across the table because the industries don't compete. Plus one-on-one time with a strategic advisor throughout.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 24px;">
+            <span style="font-size: 20px; font-weight: 600; line-height: 1.35;">Acceleration — the scoreboard.</span>
+            <span style="font-size: 15.5px; line-height: 1.6; color: rgba(241,236,223,0.8);">In week one you make your declaration pitch: what you're building this quarter, in front of the cohort. Then the dashboard tracks the metrics you chose — leads, sales, margin, hours — every week, in the open. Write the plan and make it plain.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 48px;">
+            <span style="font-size: 20px; font-weight: 600; line-height: 1.35;">Escalation — the systems.</span>
+            <span style="font-size: 15.5px; line-height: 1.6; color: rgba(241,236,223,0.8);">Forge sessions turn what's working into documented process — so the business runs on systems, and stops running on you.</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="Mastermind S4 · the format, stated plainly" style="background: #F1ECDF; padding: 88px 80px; color: #0B0F16;">
+        <div style="display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start;">
+          <div style="display: flex; flex-direction: column; align-items: flex-start;">
+            <h2 style="margin: 0; font-size: 44px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.12;">The format, stated plainly</h2>
+          </div>
+          <div style="background: #101B2D; border-radius: 2px; color: #F1ECDF;" data-comment-anchor="spec-sheet">
+            <div style="height: 2px; background: #C9A24C;"></div>
+            <div style="padding: 12px 36px 36px;">
+              <div style="border-bottom: 1px solid rgba(241,236,223,0.15); padding: 20px 0; display: grid; grid-template-columns: 170px 1fr; gap: 24px;">
+                <span style="display: flex; align-items: center; gap: 10px;"><span style="display: block; width: 12px; height: 1px; background: #C9A24C;"></span><span style="font-variant: small-caps; letter-spacing: 0.1em; font-size: 14.5px; color: rgba(241,236,223,0.7);">length</span></span>
+                <span style="font-variant-numeric: tabular-nums; font-size: 16px; line-height: 1.55;">90 days — <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(241,236,223,0.55);">[COHORT-DATES]</span></span>
+              </div>
+              <div style="border-bottom: 1px solid rgba(241,236,223,0.15); padding: 20px 0; display: grid; grid-template-columns: 170px 1fr; gap: 24px;">
+                <span style="display: flex; align-items: center; gap: 10px;"><span style="display: block; width: 12px; height: 1px; background: #C9A24C;"></span><span style="font-variant: small-caps; letter-spacing: 0.1em; font-size: 14.5px; color: rgba(241,236,223,0.7);">sessions</span></span>
+                <span style="font-variant-numeric: tabular-nums; font-size: 16px; line-height: 1.55;">weekly, Monday evenings, 60–90 minutes, live on Zoom</span>
+              </div>
+              <div style="border-bottom: 1px solid rgba(241,236,223,0.15); padding: 20px 0; display: grid; grid-template-columns: 170px 1fr; gap: 24px;">
+                <span style="display: flex; align-items: center; gap: 10px;"><span style="display: block; width: 12px; height: 1px; background: #C9A24C;"></span><span style="font-variant: small-caps; letter-spacing: 0.1em; font-size: 14.5px; color: rgba(241,236,223,0.7);">cohort</span></span>
+                <span style="font-variant-numeric: tabular-nums; font-size: 16px; line-height: 1.55;">10 founders, maximum — chosen by committee for mix and fit</span>
+              </div>
+              <div style="border-bottom: 1px solid rgba(241,236,223,0.15); padding: 20px 0; display: grid; grid-template-columns: 170px 1fr; gap: 24px;">
+                <span style="display: flex; align-items: center; gap: 10px;"><span style="display: block; width: 12px; height: 1px; background: #C9A24C;"></span><span style="font-variant: small-caps; letter-spacing: 0.1em; font-size: 14.5px; color: rgba(241,236,223,0.7);">between sessions</span></span>
+                <span style="font-size: 16px; line-height: 1.55;">private performance dashboard + the cohort community + 1:1 advisor access</span>
+              </div>
+              <div style="border-bottom: 1px solid rgba(241,236,223,0.15); padding: 20px 0; display: grid; grid-template-columns: 170px 1fr; gap: 24px;">
+                <span style="display: flex; align-items: center; gap: 10px;"><span style="display: block; width: 12px; height: 1px; background: #C9A24C;"></span><span style="font-variant: small-caps; letter-spacing: 0.1em; font-size: 14.5px; color: rgba(241,236,223,0.7);">graduation</span></span>
+                <span style="font-variant-numeric: tabular-nums; font-size: 16px; line-height: 1.55;">hit 80% of your declared goals and fulfill the requirements — then you graduate, certificate and celebration included. Miss it, and you don't. The bar is the point.</span>
+              </div>
+              <sc-if value="{{ isVariantA }}" hint-placeholder-val="{{ true }}">
+                <div style="padding: 20px 0 4px; display: grid; grid-template-columns: 170px 1fr; gap: 24px;">
+                  <span style="display: flex; align-items: center; gap: 10px;"><span style="display: block; width: 12px; height: 1px; background: #C9A24C;"></span><span style="font-variant: small-caps; letter-spacing: 0.1em; font-size: 14.5px; color: rgba(241,236,223,0.7);">investment</span></span>
+                  <span style="font-variant-numeric: tabular-nums; font-size: 16px; line-height: 1.55;"><span style="font-weight: 600; color: #C9A24C;">$[INVESTMENT]</span>, invoiced on acceptance. Partial scholarships exist — ask in your application. <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(241,236,223,0.55);">[README #3 — Justin's call]</span></span>
+                </div>
+              </sc-if>
+              <sc-if value="{{ isVariantB }}" hint-placeholder-val="{{ false }}">
+                <div style="padding: 20px 0 4px; display: grid; grid-template-columns: 170px 1fr; gap: 24px;">
+                  <span style="display: flex; align-items: center; gap: 10px;"><span style="display: block; width: 12px; height: 1px; background: #C9A24C;"></span><span style="font-variant: small-caps; letter-spacing: 0.1em; font-size: 14.5px; color: rgba(241,236,223,0.7);">investment</span></span>
+                  <span style="font-size: 16px; line-height: 1.55;">Discussed at acceptance — your acceptance letter arrives with the investment invoice and a window to commit. <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(241,236,223,0.55);">[README #3 — Justin's call]</span></span>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="Mastermind S5 · what graduates leave with" style="background: #F1ECDF; padding: 0 80px 88px; color: #0B0F16;">
+        <div style="max-width: 880px;">
+          <h2 style="margin: 0 0 8px; font-size: 34px; font-weight: 500; letter-spacing: -0.01em;">What graduates leave with</h2>
+          <div style="border-top: 1px solid rgba(11,15,22,0.2); margin-top: 20px; padding: 18px 0;"><span style="font-size: 18px; line-height: 1.6;">Two to three systems documented and installed, not just planned.</span></div>
+          <div style="border-top: 1px solid rgba(11,15,22,0.12); padding: 18px 0;"><span style="font-size: 18px; line-height: 1.6;">A tracking method you'll keep long after the ninety days.</span></div>
+          <div style="border-top: 1px solid rgba(11,15,22,0.12); border-bottom: 1px solid rgba(11,15,22,0.2); padding: 18px 0;"><span style="font-size: 18px; line-height: 1.6;">And hours back — most founders reclaim five to ten a week by the end.</span></div>
+          <span style="display: inline-block; margin-top: 14px; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(11,15,22,0.55);">[Program claims from cohort 1 design — replace with measured cohort-1 outcomes when Justin provides them; dropped the "15–100% revenue" range as unprintably wide]</span>
+        </div>
+      </div>
+
+      <div data-screen-label="Mastermind S6 · the application" style="background: #F1ECDF; padding: 0 80px 96px; color: #0B0F16;">
+        <div style="border-top: 1px solid rgba(11,15,22,0.15); padding-top: 64px;">
+          <h2 style="margin: 0 0 44px; font-size: 44px; font-weight: 500; letter-spacing: -0.01em;">The application, step by step</h2>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 44px; max-width: 1240px;">
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 20px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 38px; font-weight: 600; line-height: 1; color: #C9A24C;">1</span>
+              <span style="font-size: 19px; font-weight: 600;">Apply.</span>
+              <span style="font-size: 15px; line-height: 1.6; color: rgba(11,15,22,0.78);">About seven minutes. Honest answers beat polished ones — the committee is reading for fit, not grammar.</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 20px; margin-top: 26px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 38px; font-weight: 600; line-height: 1; color: #C9A24C;">2</span>
+              <span style="font-size: 19px; font-weight: 600;">Committee review.</span>
+              <span style="font-size: 15px; line-height: 1.6; color: rgba(11,15,22,0.78);">Every application gets read. Decisions land by <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10.5px; color: rgba(11,15,22,0.55);">[DECISION-DATE]</span>.</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 20px; margin-top: 52px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 38px; font-weight: 600; line-height: 1; color: #C9A24C;">3</span>
+              <span style="font-size: 19px; font-weight: 600;">Acceptance.</span>
+              <span style="font-size: 15px; line-height: 1.6; color: rgba(11,15,22,0.78);">Your letter arrives with the details and the invoice, and a window to commit your seat.</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 20px; margin-top: 78px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 38px; font-weight: 600; line-height: 1; color: #C9A24C;">4</span>
+              <span style="font-size: 19px; font-weight: 600;">Declaration pitch.</span>
+              <span style="font-size: 15px; line-height: 1.6; color: rgba(11,15,22,0.78);">Onboarding, then you tell the room what you're building this quarter — and they hold you to it.</span>
+            </div>
+          </div>
+          <p style="margin: 40px 0 0; font-size: 16.5px; line-height: 1.6; color: rgba(11,15,22,0.8); max-width: 62ch;">Not accepted this cohort? You'll hear it straight, with the why — and Founders After Hours is open to you either way.</p>
+        </div>
+      </div>
+
+      <div data-screen-label="Mastermind S7 · founder letter" style="background: #F1ECDF; padding: 0 80px 96px; color: #0B0F16;">
+        <div style="display: grid; grid-template-columns: 4fr 7fr; gap: 72px; align-items: center; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 72px;">
+          <div style="position: relative; height: 360px; border-radius: 2px; overflow: hidden; background: linear-gradient(165deg, oklch(0.42 0.05 60), oklch(0.3 0.03 255) 62%, #101B2D);">
+            <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(16,27,45,0.5), rgba(16,27,45,0.15) 55%);"></div>
+            <div style="position: absolute; inset: 0; background-image: url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22120%22%20height=%22120%22%3E%3Cfilter%20id=%22n%22%3E%3CfeTurbulence%20type=%22fractalNoise%22%20baseFrequency=%220.85%22%20numOctaves=%222%22/%3E%3C/filter%3E%3Crect%20width=%22120%22%20height=%22120%22%20filter=%22%75rl(%23n)%22%20opacity=%220.3%22/%3E%3C/svg%3E');"></div>
+            <span style="position: absolute; left: 16px; bottom: 14px; font-size: 12px; color: rgba(241,236,223,0.75);">[PHOTO: Justin Shaw — warm, navy-tinted grade]</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start;">
+            <p style="margin: 0; font-size: 20px; line-height: 1.65;">I've sat in rooms that changed my business — and paid for a few that didn't. The difference was never the content. It was whether the room expected something of me.</p>
+            <p style="margin: 18px 0 0; font-size: 20px; line-height: 1.65;">This one does.</p>
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px; margin: 26px 0 0;" data-comment-anchor="letter-pull">
+              <svg width="64" height="10" viewBox="0 0 64 10" style="display: block;"><line x1="0" y1="5" x2="64" y2="5" stroke="#C9A24C" stroke-width="1"></line><line x1="0.5" y1="0" x2="0.5" y2="10" stroke="#C9A24C" stroke-width="1"></line></svg>
+              <span style="font-size: 27px; line-height: 1.4; font-weight: 500; max-width: 28ch;">"We're not here to make you feel good; we're here to forge founders who can scale the thing."</span>
+              <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(11,15,22,0.55);">[⚠️ paraphrased from his interviews — verify before setting as a pull-quote]</span>
+            </div>
+            <p style="margin: 24px 0 0; font-size: 20px; line-height: 1.65;">If that reads as pressure, it isn't your room yet. If it reads as relief — apply.</p>
+            <span style="margin-top: 26px; font-size: 17px; font-weight: 600;">— Justin Shaw</span>
+            <span style="display: block; width: 56px; height: 1px; background: #C9A24C; margin-top: 12px;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="Mastermind S8 · FAQ" style="background: #F1ECDF; padding: 0 80px 96px; color: #0B0F16;">
+        <div style="display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 64px;">
+          <h2 style="margin: 0; font-size: 44px; font-weight: 500; letter-spacing: -0.01em;">Questions, answered</h2>
+          <div style="display: flex; flex-direction: column;">
+            <details style="border-top: 1px solid rgba(11,15,22,0.2);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; cursor: pointer; list-style: none;"><span style="font-size: 18px; font-weight: 500;">What does it cost?</span><svg width="16" height="16" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 40px 8px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);"><span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(11,15,22,0.55);">[Justin's call — two variants]</span> Variant A: It's $[INVESTMENT], invoiced on acceptance — and partial scholarships exist; ask in your application. · Variant B: The investment is shared at acceptance, with time to decide before you commit.</p>
+              <p style="margin: 0; padding: 0 40px 20px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Either way: no surprise fees, no upsells inside the room.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; cursor: pointer; list-style: none;"><span style="font-size: 18px; font-weight: 500;">What if I miss a week?</span><svg width="16" height="16" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 40px 20px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Life happens; patterns don't get to. Sessions are recorded for the cohort, but the room only works if you're in it — miss enough and graduation math gets hard.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; cursor: pointer; list-style: none;"><span style="font-size: 18px; font-weight: 500;">Why only ten?</span><svg width="16" height="16" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 40px 20px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Because twelve is a class and eight is a clique. Ten founders means everyone's business gets worked on, every month, out loud.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; cursor: pointer; list-style: none;"><span style="font-size: 18px; font-weight: 500;">What's the dashboard?</span><svg width="16" height="16" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 40px 20px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">A private tracker for the metrics you declared — updated weekly, visible to your cohort. Not surveillance; a scoreboard. The board doesn't lie.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; cursor: pointer; list-style: none;"><span style="font-size: 18px; font-weight: 500;">What if I don't hit 80%?</span><svg width="16" height="16" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 40px 20px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Then you don't graduate — and we'll both know exactly why, which is worth more than the certificate.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; cursor: pointer; list-style: none;"><span style="font-size: 18px; font-weight: 500;">How is this different from an accelerator or 10KSB?</span><svg width="16" height="16" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 40px 20px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Those programs teach, some brilliantly — and many are free; go do them. This room is for installing what you already know, with people who won't let you drift. Think of it as the after-program.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; cursor: pointer; list-style: none;"><span style="font-size: 18px; font-weight: 500;">Is this the IAMJS mastermind?</span><svg width="16" height="16" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 40px 20px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">It grew from it. The pilot cohort ran January–March 2026 under IAMJS; Ventriq now runs it as a nonprofit program, same architect.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12); border-bottom: 1px solid rgba(11,15,22,0.2);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; cursor: pointer; list-style: none;"><span style="font-size: 18px; font-weight: 500;">When is cohort 3?</span><svg width="16" height="16" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 40px 20px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Early 2027, most likely. But you're reading this now, and the September room has ten seats.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="Mastermind S9 · final CTA" style="position: relative; overflow: hidden; background: #101B2D; padding: 104px 80px; color: #F1ECDF;">
+        <div style="position: absolute; inset: 0; background: radial-gradient(700px 420px at 70% 40%, rgba(201,162,76,0.09), rgba(201,162,76,0) 70%);"></div>
+        <div style="position: relative; display: flex; flex-direction: column; align-items: flex-start;">
+          <h2 style="margin: 0; font-size: 52px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.1;">Declare it. Track it. Build it.</h2>
+          <div style="display: flex; align-items: center; gap: 26px; margin-top: 34px; flex-wrap: wrap;">
+            <a href="#1a" style="display: inline-flex; align-items: center; background: #C9A24C; color: #0B0F16; font-size: 17px; font-weight: 600; padding: 16px 28px; border-radius: 2px; text-decoration: none;" style-hover="background: #BB9440; color: #0B0F16; text-decoration: none;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Start your application</a>
+            <span style="font-variant-numeric: tabular-nums; font-size: 15px; color: rgba(241,236,223,0.8);">Applications close <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(241,236,223,0.55);">[APP-DEADLINE]</span> · decisions by <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(241,236,223,0.55);">[DECISION-DATE]</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: #101B2D; border-top: 1px solid rgba(241,236,223,0.1); padding: 64px 80px 40px; color: #F1ECDF;">
+        <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 56px; align-items: start;">
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 18px;">
+            <svg viewBox="0 0 512 512" role="img" aria-label="Ventriq monogram" style="width: 34px; height: 34px; display: block;"><path fill="#F1ECDF" d="M81 97 L204.0 97 L256.0 373 L256.0 415 Z"></path><path fill="#C9A24C" d="M308.0 97 L431 97 L256.0 415 L256.0 373 Z"></path></svg>
+            <p style="margin: 0; font-size: 15px; line-height: 1.6; color: rgba(241,236,223,0.75); max-width: 34ch;">Ventriq (ven-TREEK) is a nonprofit equipping founders with capital, programming, and council — rooted in Baltimore, built to travel.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.1em; color: rgba(241,236,223,0.5);">Programs</span>
+            <a href="#1a" style="color: rgba(241,236,223,0.85); font-size: 15px;" style-hover="color: #F1ECDF;">The Summit</a>
+            <a href="#1a" style="color: rgba(241,236,223,0.85); font-size: 15px;" style-hover="color: #F1ECDF;">The Mastermind</a>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.1em; color: rgba(241,236,223,0.5);">Pages</span>
+            <a href="#1a" style="color: rgba(241,236,223,0.85); font-size: 15px;" style-hover="color: #F1ECDF;">About</a>
+            <a href="#1a" style="color: rgba(241,236,223,0.85); font-size: 15px;" style-hover="color: #F1ECDF;">Donate</a>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.1em; color: rgba(241,236,223,0.5);">Contact</span>
+            <span style="color: rgba(241,236,223,0.85); font-size: 15px;">[EMAIL] · Baltimore, MD</span>
+          </div>
+        </div>
+        <div style="margin-top: 48px;">
+          <span style="display: block; width: 100%; height: 1px; background: rgba(201,162,76,0.6);"></span>
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-top: 20px;">
+            <span style="font-size: 13px; color: rgba(241,236,223,0.6);">© 2026 Ventriq. A nonprofit organization. <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.3); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(241,236,223,0.5);">[EIN — add when issued; NO deductibility language until determination letter — see README law #3]</span></span>
+            <div style="display: flex; gap: 22px;">
+              <a href="#1a" style="color: rgba(241,236,223,0.7); font-size: 13px;" style-hover="color: #F1ECDF;">Privacy</a>
+              <a href="#1a" style="color: rgba(241,236,223,0.7); font-size: 13px;" style-hover="color: #F1ECDF;">Contact</a>
+              <a href="#1a" style="color: rgba(241,236,223,0.7); font-size: 13px;" style-hover="color: #F1ECDF;">Press kit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 64px;">
+
+    <div id="1c" data-screen-label="Mastermind spec sheet — Variant B" style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="display: inline-flex; border: 1px solid #C9A24C; color: #C9A24C; font-size: 11px; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 2px;">1c</span>
+        <span style="color: rgba(241,236,223,0.65); font-size: 13px;">S4 investment row — Variant B (swap of <a href="#1a" style="color: #C9A24C;">1a</a>; also a Tweaks prop)</span>
+      </div>
+      <div style="width: 820px; background: #F1ECDF; padding: 48px; box-sizing: border-box;">
+        <div style="background: #101B2D; border-radius: 2px; color: #F1ECDF;">
+          <div style="height: 2px; background: #C9A24C;"></div>
+          <div style="padding: 12px 36px 36px;">
+            <div style="border-bottom: 1px solid rgba(241,236,223,0.15); padding: 20px 0; display: grid; grid-template-columns: 170px 1fr; gap: 24px;">
+              <span style="display: flex; align-items: center; gap: 10px;"><span style="display: block; width: 12px; height: 1px; background: #C9A24C;"></span><span style="font-variant: small-caps; letter-spacing: 0.1em; font-size: 14.5px; color: rgba(241,236,223,0.7);">graduation</span></span>
+              <span style="font-variant-numeric: tabular-nums; font-size: 16px; line-height: 1.55;">hit 80% of your declared goals and fulfill the requirements — then you graduate, certificate and celebration included. Miss it, and you don't. The bar is the point.</span>
+            </div>
+            <div style="padding: 20px 0 4px; display: grid; grid-template-columns: 170px 1fr; gap: 24px;">
+              <span style="display: flex; align-items: center; gap: 10px;"><span style="display: block; width: 12px; height: 1px; background: #C9A24C;"></span><span style="font-variant: small-caps; letter-spacing: 0.1em; font-size: 14.5px; color: rgba(241,236,223,0.7);">investment</span></span>
+              <span style="font-size: 16px; line-height: 1.55;">Discussed at acceptance — your acceptance letter arrives with the investment invoice and a window to commit. <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(241,236,223,0.55);">[README #3 — Justin's call]</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="1b" data-screen-label="Mastermind — mobile" style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="display: inline-flex; border: 1px solid #C9A24C; color: #C9A24C; font-size: 11px; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 2px;">1b</span>
+        <span style="color: rgba(241,236,223,0.65); font-size: 13px;">The Mastermind — mobile 390</span>
+      </div>
+      <div style="width: 390px; background: #101B2D;">
+        <div style="background: #0B0F16; display: flex; align-items: flex-start; gap: 8px; padding: 9px 14px;">
+          <span style="font-size: 11.5px; line-height: 1.45; color: rgba(241,236,223,0.85); flex: 1;">The Ventriq Summit · free · virtual · <span style="font-variant-numeric: tabular-nums;">Aug 10–21</span> — <a href="#1b" style="color: #C15A2C;">Save your seat →</a></span>
+          <button aria-label="Dismiss" style="background: none; border: none; color: rgba(241,236,223,0.5); font-size: 14px; font-family: inherit; cursor: pointer; padding: 0 2px;">×</button>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 60px; border-bottom: 1px solid rgba(241,236,223,0.1);">
+          <svg viewBox="0 0 4181 1320" role="img" aria-label="Ventriq" style="height: 24px; width: auto; display: block;">
+            <g transform="translate(120,880) scale(1,-1)">
+              <g fill="#F1ECDF">
+                <path transform="translate(0,0)" d="M253 0 28 700H95L304 37H316L525 700H592L367 0Z"></path>
+                <path transform="translate(610,0)" d="M312 -14Q237 -14 181.5 17.5Q126 49 95.0 106.0Q64 163 64 237V249Q64 324 95.0 380.5Q126 437 180.5 468.5Q235 500 305 500Q373 500 425.5 471.5Q478 443 508.0 389.5Q538 336 538 262V230H124Q127 139 179.5 89.5Q232 40 312 40Q380 40 417.5 71.0Q455 102 475 147L529 123Q514 90 487.5 58.5Q461 27 419.0 6.5Q377 -14 312 -14ZM125 282H477Q473 361 426.0 403.5Q379 446 305 446Q232 446 184.0 403.5Q136 361 125 282Z"></path>
+                <path transform="translate(1198,0)" d="M88 0V486H146V396H158Q176 435 217.0 465.5Q258 496 336 496Q389 496 433.0 474.0Q477 452 503.5 407.5Q530 363 530 296V0H470V292Q470 372 430.0 407.0Q390 442 323 442Q248 442 198.0 392.5Q148 343 148 243V0Z"></path>
+                <path transform="translate(1800,0)" d="M264 0Q225 0 205.5 20.0Q186 40 186 76V432H30V486H186V668H246V486H416V432H246V84Q246 54 276 54H390V0Z"></path>
+                <path transform="translate(2252,0)" d="M88 0V486H146V425H158Q172 458 199.5 473.0Q227 488 276 488H333V432H269Q214 432 181.0 401.0Q148 370 148 304V0Z"></path>
+                <path transform="translate(2611,0)" d="M88 0V486H148V0ZM118 570Q96 570 81.0 585.0Q66 600 66 622Q66 645 81.0 659.5Q96 674 118 674Q141 674 155.5 659.5Q170 645 170 622Q170 600 155.5 585.0Q141 570 118 570Z"></path>
+                <path transform="translate(2837,0)" d="M498 -200V85H486Q473 61 449.5 38.0Q426 15 389.0 0.5Q352 -14 298 -14Q233 -14 179.5 16.5Q126 47 95.0 103.5Q64 160 64 237V249Q64 327 95.5 383.0Q127 439 180.0 469.5Q233 500 298 500Q378 500 422.5 468.5Q467 437 488 397H500V486H558V-200ZM312 40Q395 40 446.5 93.0Q498 146 498 239V247Q498 340 446.5 393.0Q395 446 312 446Q230 446 178.0 393.0Q126 340 126 247V239Q126 146 178.0 93.0Q230 40 312 40Z"></path>
+              </g>
+              <path fill="#C9A24C" d="M3381 -60 L3941 -140 L3381 -220 Z"></path>
+            </g>
+          </svg>
+          <button aria-label="Menu" style="background: none; border: none; padding: 8px; cursor: pointer;"><svg width="22" height="14" viewBox="0 0 22 14"><line x1="0" y1="1" x2="22" y2="1" stroke="#F1ECDF" stroke-width="1.5"></line><line x1="0" y1="7" x2="22" y2="7" stroke="#F1ECDF" stroke-width="1.5"></line><line x1="6" y1="13" x2="22" y2="13" stroke="#F1ECDF" stroke-width="1.5"></line></svg></button>
+        </div>
+
+        <div style="position: relative; overflow: hidden; padding: 56px 20px 48px; color: #F1ECDF;">
+          <div style="position: absolute; inset: 0; background: radial-gradient(360px 280px at 75% 30%, rgba(201,162,76,0.09), rgba(201,162,76,0) 70%);"></div>
+          <div style="position: relative; display: flex; flex-direction: column; align-items: flex-start;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="display: block; width: 32px; height: 1px; background: #C9A24C;"></span>
+              <span style="font-variant: small-caps; font-variant-numeric: tabular-nums; letter-spacing: 0.12em; font-size: 12px; color: #C9A24C;">cohort 2 · September–December 2026 · 10 seats</span>
+            </div>
+            <h1 style="margin: 18px 0 0; font-size: 38px; line-height: 1.08; font-weight: 500; letter-spacing: -0.01em;">The room for what comes after the plan.</h1>
+            <p style="margin: 18px 0 0; font-size: 16px; line-height: 1.6; color: rgba(241,236,223,0.85);">You've done the course. You've got the strategy deck. Ninety days of installing it is what's rare — ten founders, weekly working sessions, a dashboard that keeps score, and advisors who've built before you.</p>
+            <a href="#1b" style="display: flex; justify-content: center; box-sizing: border-box; width: 100%; margin-top: 26px; background: #C9A24C; color: #0B0F16; font-size: 16px; font-weight: 600; padding: 15px 24px; border-radius: 2px; text-decoration: none;" style-hover="background: #BB9440; color: #0B0F16; text-decoration: none;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Start your application</a>
+            <span style="font-size: 13px; color: rgba(241,236,223,0.75); margin-top: 10px;">Applications close <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(241,236,223,0.55);">[APP-DEADLINE]</span>. The committee reads every one.</span>
+          </div>
+        </div>
+
+        <div style="background: #F1ECDF; padding: 48px 20px; color: #0B0F16;">
+          <h2 style="margin: 0 0 6px; font-size: 30px; font-weight: 500; letter-spacing: -0.01em;">This is for you if</h2>
+          <div style="border-top: 1px solid rgba(11,15,22,0.2); margin-top: 16px; padding: 16px 0; display: flex; gap: 12px;"><span style="display: block; width: 12px; height: 1px; background: #C9A24C; flex-shrink: 0; margin-top: 12px;"></span><span style="font-size: 15.5px; line-height: 1.6;">There's a real business: revenue, customers, something to grow — not just a deck.</span></div>
+          <div style="border-top: 1px solid rgba(11,15,22,0.12); padding: 16px 0; display: flex; gap: 12px;"><span style="display: block; width: 12px; height: 1px; background: #C9A24C; flex-shrink: 0; margin-top: 12px;"></span><span style="font-size: 15.5px; line-height: 1.6;">You're the bottleneck. Decisions, quality, follow-through: it all routes through you, and it's costing you.</span></div>
+          <div style="border-top: 1px solid rgba(11,15,22,0.12); padding: 16px 0; display: flex; gap: 12px;"><span style="display: block; width: 12px; height: 1px; background: #C9A24C; flex-shrink: 0; margin-top: 12px;"></span><span style="font-size: 15.5px; line-height: 1.6;">You can commit 90 minutes a week live, plus the work between sessions.</span></div>
+          <div style="border-top: 1px solid rgba(11,15,22,0.12); border-bottom: 1px solid rgba(11,15,22,0.2); padding: 16px 0; display: flex; gap: 12px;"><span style="display: block; width: 12px; height: 1px; background: #C9A24C; flex-shrink: 0; margin-top: 12px;"></span><span style="font-size: 15.5px; line-height: 1.6;">You're coachable. You want a thinking partner and a room that pushes back — not a lecture.</span></div>
+          <p style="margin: 20px 0 0; font-size: 15px; line-height: 1.6; color: rgba(11,15,22,0.7);"><span style="font-weight: 600; color: #0B0F16;">And plainly:</span> this isn't for coaches selling coaching, spectators, or anyone who wants applause more than progress.</p>
+        </div>
+
+        <div style="background: #101B2D; padding: 56px 20px; color: #F1ECDF;">
+          <h2 style="margin: 0; font-size: 30px; font-weight: 500; letter-spacing: -0.01em;">Ninety days, three pillars</h2>
+          <svg viewBox="0 0 350 96" style="display: block; width: 100%; height: auto; margin-top: 28px;" role="img" aria-label="Diagram: one structure line dropping to the room, the scoreboard, and the systems">
+            <line x1="0" y1="16" x2="330" y2="16" stroke="#C9A24C" stroke-width="1"></line>
+            <line x1="0.5" y1="10" x2="0.5" y2="22" stroke="#C9A24C" stroke-width="1"></line>
+            <path d="M330 16 L322 12.5 L322 19.5 Z" fill="#C9A24C"></path>
+            <line x1="24.5" y1="16" x2="24.5" y2="52" stroke="#C9A24C" stroke-width="1"></line><circle cx="24.5" cy="55" r="2" fill="#C9A24C"></circle>
+            <line x1="132.5" y1="16" x2="132.5" y2="52" stroke="#C9A24C" stroke-width="1"></line><circle cx="132.5" cy="55" r="2" fill="#C9A24C"></circle>
+            <line x1="252.5" y1="16" x2="252.5" y2="52" stroke="#C9A24C" stroke-width="1"></line><circle cx="252.5" cy="55" r="2" fill="#C9A24C"></circle>
+            <text x="12" y="78" fill="rgba(241,236,223,0.85)" font-size="11.5" font-family="Space Grotesk, sans-serif">the room</text>
+            <text x="106" y="78" fill="rgba(241,236,223,0.85)" font-size="11.5" font-family="Space Grotesk, sans-serif">the scoreboard</text>
+            <text x="232" y="78" fill="rgba(241,236,223,0.85)" font-size="11.5" font-family="Space Grotesk, sans-serif">the systems</text>
+          </svg>
+          <div style="display: flex; flex-direction: column; gap: 26px; margin-top: 16px;">
+            <div style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 18px; font-weight: 600;">Collaboration — the room.</span><span style="font-size: 15px; line-height: 1.6; color: rgba(241,236,223,0.8);">Ten founders max, cross-industry, every week. Your roadblocks get worked in-session by people who've hit them; marketplace opportunities move across the table because the industries don't compete. Plus one-on-one time with a strategic advisor throughout.</span></div>
+            <div style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 18px; font-weight: 600;">Acceleration — the scoreboard.</span><span style="font-size: 15px; line-height: 1.6; color: rgba(241,236,223,0.8);">In week one you make your declaration pitch: what you're building this quarter, in front of the cohort. Then the dashboard tracks the metrics you chose — leads, sales, margin, hours — every week, in the open. Write the plan and make it plain.</span></div>
+            <div style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 18px; font-weight: 600;">Escalation — the systems.</span><span style="font-size: 15px; line-height: 1.6; color: rgba(241,236,223,0.8);">Forge sessions turn what's working into documented process — so the business runs on systems, and stops running on you.</span></div>
+          </div>
+        </div>
+
+        <div style="background: #F1ECDF; padding: 48px 20px; color: #0B0F16;">
+          <h2 style="margin: 0 0 20px; font-size: 30px; font-weight: 500; letter-spacing: -0.01em;">The format, stated plainly</h2>
+          <div style="background: #101B2D; border-radius: 2px; color: #F1ECDF;">
+            <div style="height: 2px; background: #C9A24C;"></div>
+            <div style="padding: 8px 20px 24px;">
+              <div style="border-bottom: 1px solid rgba(241,236,223,0.15); padding: 14px 0; display: flex; flex-direction: column; gap: 5px;"><span style="font-variant: small-caps; letter-spacing: 0.1em; font-size: 13px; color: rgba(241,236,223,0.7);">length</span><span style="font-variant-numeric: tabular-nums; font-size: 15px; line-height: 1.55;">90 days — <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(241,236,223,0.55);">[COHORT-DATES]</span></span></div>
+              <div style="border-bottom: 1px solid rgba(241,236,223,0.15); padding: 14px 0; display: flex; flex-direction: column; gap: 5px;"><span style="font-variant: small-caps; letter-spacing: 0.1em; font-size: 13px; color: rgba(241,236,223,0.7);">sessions</span><span style="font-variant-numeric: tabular-nums; font-size: 15px; line-height: 1.55;">weekly, Monday evenings, 60–90 minutes, live on Zoom</span></div>
+              <div style="border-bottom: 1px solid rgba(241,236,223,0.15); padding: 14px 0; display: flex; flex-direction: column; gap: 5px;"><span style="font-variant: small-caps; letter-spacing: 0.1em; font-size: 13px; color: rgba(241,236,223,0.7);">cohort</span><span style="font-variant-numeric: tabular-nums; font-size: 15px; line-height: 1.55;">10 founders, maximum — chosen by committee for mix and fit</span></div>
+              <div style="border-bottom: 1px solid rgba(241,236,223,0.15); padding: 14px 0; display: flex; flex-direction: column; gap: 5px;"><span style="font-variant: small-caps; letter-spacing: 0.1em; font-size: 13px; color: rgba(241,236,223,0.7);">between sessions</span><span style="font-size: 15px; line-height: 1.55;">private performance dashboard + the cohort community + 1:1 advisor access</span></div>
+              <div style="border-bottom: 1px solid rgba(241,236,223,0.15); padding: 14px 0; display: flex; flex-direction: column; gap: 5px;"><span style="font-variant: small-caps; letter-spacing: 0.1em; font-size: 13px; color: rgba(241,236,223,0.7);">graduation</span><span style="font-variant-numeric: tabular-nums; font-size: 15px; line-height: 1.55;">hit 80% of your declared goals and fulfill the requirements — then you graduate, certificate and celebration included. Miss it, and you don't. The bar is the point.</span></div>
+              <sc-if value="{{ isVariantA }}" hint-placeholder-val="{{ true }}">
+                <div style="padding: 14px 0 4px; display: flex; flex-direction: column; gap: 5px;"><span style="font-variant: small-caps; letter-spacing: 0.1em; font-size: 13px; color: rgba(241,236,223,0.7);">investment</span><span style="font-variant-numeric: tabular-nums; font-size: 15px; line-height: 1.55;"><span style="font-weight: 600; color: #C9A24C;">$[INVESTMENT]</span>, invoiced on acceptance. Partial scholarships exist — ask in your application. <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(241,236,223,0.55);">[README #3 — Justin's call]</span></span></div>
+              </sc-if>
+              <sc-if value="{{ isVariantB }}" hint-placeholder-val="{{ false }}">
+                <div style="padding: 14px 0 4px; display: flex; flex-direction: column; gap: 5px;"><span style="font-variant: small-caps; letter-spacing: 0.1em; font-size: 13px; color: rgba(241,236,223,0.7);">investment</span><span style="font-size: 15px; line-height: 1.55;">Discussed at acceptance — your acceptance letter arrives with the investment invoice and a window to commit. <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(241,236,223,0.55);">[README #3 — Justin's call]</span></span></div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #F1ECDF; padding: 0 20px 48px; color: #0B0F16;">
+          <h2 style="margin: 0; font-size: 26px; font-weight: 500; letter-spacing: -0.01em;">What graduates leave with</h2>
+          <div style="border-top: 1px solid rgba(11,15,22,0.2); margin-top: 14px; padding: 14px 0;"><span style="font-size: 16px; line-height: 1.6;">Two to three systems documented and installed, not just planned.</span></div>
+          <div style="border-top: 1px solid rgba(11,15,22,0.12); padding: 14px 0;"><span style="font-size: 16px; line-height: 1.6;">A tracking method you'll keep long after the ninety days.</span></div>
+          <div style="border-top: 1px solid rgba(11,15,22,0.12); border-bottom: 1px solid rgba(11,15,22,0.2); padding: 14px 0;"><span style="font-size: 16px; line-height: 1.6;">And hours back — most founders reclaim five to ten a week by the end.</span></div>
+          <span style="display: inline-block; margin-top: 12px; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(11,15,22,0.55);">[Program claims from cohort 1 design — replace with measured cohort-1 outcomes when Justin provides them; dropped the "15–100% revenue" range as unprintably wide]</span>
+        </div>
+
+        <div style="background: #F1ECDF; padding: 0 20px 48px; color: #0B0F16;">
+          <h2 style="margin: 0 0 24px; font-size: 30px; font-weight: 500; letter-spacing: -0.01em;">The application, step by step</h2>
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 16px;"><span style="font-variant-numeric: tabular-nums; font-size: 30px; font-weight: 600; line-height: 1; color: #C9A24C;">1</span><span style="font-size: 17px; font-weight: 600;">Apply.</span><span style="font-size: 15px; line-height: 1.6; color: rgba(11,15,22,0.78);">About seven minutes. Honest answers beat polished ones — the committee is reading for fit, not grammar.</span></div>
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 16px;"><span style="font-variant-numeric: tabular-nums; font-size: 30px; font-weight: 600; line-height: 1; color: #C9A24C;">2</span><span style="font-size: 17px; font-weight: 600;">Committee review.</span><span style="font-size: 15px; line-height: 1.6; color: rgba(11,15,22,0.78);">Every application gets read. Decisions land by <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(11,15,22,0.55);">[DECISION-DATE]</span>.</span></div>
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 16px;"><span style="font-variant-numeric: tabular-nums; font-size: 30px; font-weight: 600; line-height: 1; color: #C9A24C;">3</span><span style="font-size: 17px; font-weight: 600;">Acceptance.</span><span style="font-size: 15px; line-height: 1.6; color: rgba(11,15,22,0.78);">Your letter arrives with the details and the invoice, and a window to commit your seat.</span></div>
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 16px;"><span style="font-variant-numeric: tabular-nums; font-size: 30px; font-weight: 600; line-height: 1; color: #C9A24C;">4</span><span style="font-size: 17px; font-weight: 600;">Declaration pitch.</span><span style="font-size: 15px; line-height: 1.6; color: rgba(11,15,22,0.78);">Onboarding, then you tell the room what you're building this quarter — and they hold you to it.</span></div>
+          </div>
+          <p style="margin: 26px 0 0; font-size: 15px; line-height: 1.6; color: rgba(11,15,22,0.8);">Not accepted this cohort? You'll hear it straight, with the why — and Founders After Hours is open to you either way.</p>
+        </div>
+
+        <div style="background: #F1ECDF; padding: 0 20px 48px; color: #0B0F16;">
+          <div style="border-top: 1px solid rgba(11,15,22,0.15); padding-top: 32px;">
+            <p style="margin: 0; font-size: 17px; line-height: 1.65;">I've sat in rooms that changed my business — and paid for a few that didn't. The difference was never the content. It was whether the room expected something of me.</p>
+            <p style="margin: 14px 0 0; font-size: 17px; line-height: 1.65;">This one does.</p>
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 20px;">
+              <svg width="48" height="10" viewBox="0 0 48 10" style="display: block;"><line x1="0" y1="5" x2="48" y2="5" stroke="#C9A24C" stroke-width="1"></line><line x1="0.5" y1="0" x2="0.5" y2="10" stroke="#C9A24C" stroke-width="1"></line></svg>
+              <span style="font-size: 21px; line-height: 1.4; font-weight: 500;">"We're not here to make you feel good; we're here to forge founders who can scale the thing."</span>
+              <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(11,15,22,0.55);">[⚠️ paraphrased from his interviews — verify before setting as a pull-quote]</span>
+            </div>
+            <p style="margin: 18px 0 0; font-size: 17px; line-height: 1.65;">If that reads as pressure, it isn't your room yet. If it reads as relief — apply.</p>
+            <span style="display: block; margin-top: 20px; font-size: 15.5px; font-weight: 600;">— Justin Shaw</span>
+            <span style="display: block; width: 48px; height: 1px; background: #C9A24C; margin-top: 10px;"></span>
+          </div>
+        </div>
+
+        <div style="background: #F1ECDF; padding: 0 20px 56px; color: #0B0F16;">
+          <h2 style="margin: 0 0 18px; font-size: 28px; font-weight: 500; letter-spacing: -0.01em;">Questions, answered</h2>
+          <div style="display: flex; flex-direction: column;">
+            <details style="border-top: 1px solid rgba(11,15,22,0.2);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; cursor: pointer; list-style: none;"><span style="font-size: 16px; font-weight: 500;">What does it cost?</span><svg width="14" height="14" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 24px 6px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);"><span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(11,15,22,0.55);">[Justin's call — two variants]</span> Variant A: It's $[INVESTMENT], invoiced on acceptance — and partial scholarships exist; ask in your application. · Variant B: The investment is shared at acceptance, with time to decide before you commit.</p>
+              <p style="margin: 0; padding: 0 24px 16px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Either way: no surprise fees, no upsells inside the room.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; cursor: pointer; list-style: none;"><span style="font-size: 16px; font-weight: 500;">What if I miss a week?</span><svg width="14" height="14" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 24px 16px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Life happens; patterns don't get to. Sessions are recorded for the cohort, but the room only works if you're in it — miss enough and graduation math gets hard.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; cursor: pointer; list-style: none;"><span style="font-size: 16px; font-weight: 500;">Why only ten?</span><svg width="14" height="14" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 24px 16px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Because twelve is a class and eight is a clique. Ten founders means everyone's business gets worked on, every month, out loud.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; cursor: pointer; list-style: none;"><span style="font-size: 16px; font-weight: 500;">What's the dashboard?</span><svg width="14" height="14" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 24px 16px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">A private tracker for the metrics you declared — updated weekly, visible to your cohort. Not surveillance; a scoreboard. The board doesn't lie.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; cursor: pointer; list-style: none;"><span style="font-size: 16px; font-weight: 500;">What if I don't hit 80%?</span><svg width="14" height="14" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 24px 16px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Then you don't graduate — and we'll both know exactly why, which is worth more than the certificate.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; cursor: pointer; list-style: none;"><span style="font-size: 16px; font-weight: 500;">How is this different from an accelerator or 10KSB?</span><svg width="14" height="14" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 24px 16px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Those programs teach, some brilliantly — and many are free; go do them. This room is for installing what you already know, with people who won't let you drift. Think of it as the after-program.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; cursor: pointer; list-style: none;"><span style="font-size: 16px; font-weight: 500;">Is this the IAMJS mastermind?</span><svg width="14" height="14" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 24px 16px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">It grew from it. The pilot cohort ran January–March 2026 under IAMJS; Ventriq now runs it as a nonprofit program, same architect.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12); border-bottom: 1px solid rgba(11,15,22,0.2);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; cursor: pointer; list-style: none;"><span style="font-size: 16px; font-weight: 500;">When is cohort 3?</span><svg width="14" height="14" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 24px 16px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Early 2027, most likely. But you're reading this now, and the September room has ten seats.</p>
+            </details>
+          </div>
+        </div>
+
+        <div style="position: relative; overflow: hidden; background: #101B2D; padding: 64px 20px; color: #F1ECDF;">
+          <div style="position: absolute; inset: 0; background: radial-gradient(360px 260px at 70% 30%, rgba(201,162,76,0.09), rgba(201,162,76,0) 70%);"></div>
+          <div style="position: relative; display: flex; flex-direction: column; align-items: flex-start;">
+            <h2 style="margin: 0; font-size: 32px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.15;">Declare it. Track it. Build it.</h2>
+            <a href="#1b" style="display: flex; justify-content: center; box-sizing: border-box; width: 100%; margin-top: 26px; background: #C9A24C; color: #0B0F16; font-size: 16px; font-weight: 600; padding: 15px 24px; border-radius: 2px; text-decoration: none;" style-hover="background: #BB9440; color: #0B0F16; text-decoration: none;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Start your application</a>
+            <span style="font-variant-numeric: tabular-nums; font-size: 13px; color: rgba(241,236,223,0.8); margin-top: 12px;">Applications close <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(241,236,223,0.55);">[APP-DEADLINE]</span> · decisions by <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(241,236,223,0.55);">[DECISION-DATE]</span></span>
+          </div>
+        </div>
+
+        <div style="background: #101B2D; border-top: 1px solid rgba(241,236,223,0.1); padding: 44px 20px 30px; color: #F1ECDF;">
+          <svg viewBox="0 0 512 512" role="img" aria-label="Ventriq monogram" style="width: 30px; height: 30px; display: block;"><path fill="#F1ECDF" d="M81 97 L204.0 97 L256.0 373 L256.0 415 Z"></path><path fill="#C9A24C" d="M308.0 97 L431 97 L256.0 415 L256.0 373 Z"></path></svg>
+          <p style="margin: 14px 0 0; font-size: 14px; line-height: 1.6; color: rgba(241,236,223,0.75);">Ventriq (ven-TREEK) is a nonprofit equipping founders with capital, programming, and council — rooted in Baltimore, built to travel.</p>
+          <span style="display: block; width: 100%; height: 1px; background: rgba(201,162,76,0.6); margin-top: 28px;"></span>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 14px;">
+            <span style="font-size: 12px; color: rgba(241,236,223,0.6);">© 2026 Ventriq. A nonprofit organization.</span>
+            <div style="display: flex; gap: 18px;">
+              <a href="#1b" style="color: rgba(241,236,223,0.7); font-size: 12px;" style-hover="color: #F1ECDF;">Privacy</a>
+              <a href="#1b" style="color: rgba(241,236,223,0.7); font-size: 12px;" style-hover="color: #F1ECDF;">Contact</a>
+              <a href="#1b" style="color: rgba(241,236,223,0.7); font-size: 12px;" style-hover="color: #F1ECDF;">Press kit</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;investmentVariant&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;A&quot;, &quot;options&quot;: [&quot;A&quot;, &quot;B&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;S4 · investment row (Justin's call)&quot; }
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const v = this.props.investmentVariant ?? 'A';
+    return {
+      isVariantA: v === 'A',
+      isVariantB: v === 'B'
+    };
+  }
+}
+</script>
+</body>
+</html>

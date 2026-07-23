@@ -1,0 +1,26 @@
+/* Ventriq design tokens — from the brand system in Justin's Claude logo chat (July 2026).
+   Accent: burnt orange committed provisionally; teal documented as the swap. */
+:root {
+  /* Foundation (~90%) */
+  --ventriq-midnight: #101B2D;
+  --ventriq-cream: #F1ECDF;
+  --ventriq-ink: #0B0F16;
+
+  /* Signature */
+  --ventriq-gold: #C9A24C;
+
+  /* Accent — pick ONE (orange is the provisional commit; teal is the alternate) */
+  --ventriq-accent: #C15A2C;        /* burnt orange */
+  --ventriq-accent-alt: #22B0A0;    /* electric teal — swap into --ventriq-accent if ratified */
+
+  /* Semantic assignments for the site build */
+  --bg-dark: var(--ventriq-midnight);
+  --bg-light: var(--ventriq-cream);
+  --text-on-light: var(--ventriq-ink);
+  --text-on-dark: var(--ventriq-cream);
+  --brand-signature: var(--ventriq-gold);
+  --interactive: var(--ventriq-accent);
+
+  /* Type: Space Grotesk (SemiBold 600 for display), pending bespoke redraw of wordmark letterforms */
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+}

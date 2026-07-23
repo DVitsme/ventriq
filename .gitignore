@@ -1,0 +1,30 @@
+# --- Next.js / Node (ready for the scaffold) ---
+node_modules/
+.next/
+out/
+build/
+next-env.d.ts
+*.tsbuildinfo
+
+# env
+.env
+.env.*
+!.env.example
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+pnpm-debug.log*
+.vercel
+
+# --- project ---
+# Local-only Claude Code overrides (keep .claude/settings.json + skills committed)
+.claude/settings.local.json
+
+# Uncomment to keep the repo light (87MB of research screenshots):
+# docs/competition/screenshots/
+
+# from create-next-app scaffold
+/coverage
+.pnp.*

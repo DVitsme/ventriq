@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #0B0F16; }
+  a { color: #C15A2C; text-decoration: none; }
+  a:hover { color: #C15A2C; text-decoration: underline; text-underline-offset: 3px; }
+  ::selection { background: #C9A24C; color: #101B2D; }
+  @keyframes vq-draw { to { stroke-dashoffset: 0; } }
+  @keyframes vq-fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @keyframes vq-tick { from { opacity: 0; } }
+  @keyframes vq-marquee { to { transform: translateX(-50%); } }
+  [data-vqfade] { animation: vq-fade 0.55s cubic-bezier(0.23,1,0.32,1) both; }
+  [data-vqtick] { animation: vq-tick 0.4s ease-out both; }
+  [data-vqmarquee] { display: inline-flex; animation: vq-marquee 46s linear infinite; }
+  details[open] [data-faqmark] { transform: rotate(45deg); }
+  [data-faqmark] { transition: transform 0.25s cubic-bezier(0.23,1,0.32,1); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-vqdraw] { animation: none !important; stroke-dashoffset: 0 !important; }
+    [data-vqfade] { animation-duration: 0.01s !important; }
+    [data-vqtick] { animation-duration: 0.01s !important; }
+    [data-vqmarquee] { animation: none !important; }
+  }
+</style>
+</helmet>
+<section style="display: flex; flex-wrap: wrap; gap: 64px; padding: 64px; align-items: flex-start; font-family: 'Space Grotesk', sans-serif;">
+
+  <div id="1a" data-screen-label="Summit — desktop (State A)" style="display: flex; flex-direction: column; gap: 14px;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <span style="display: inline-flex; border: 1px solid #C9A24C; color: #C9A24C; font-size: 11px; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 2px;">1a</span>
+      <span style="color: rgba(241,236,223,0.65); font-size: 13px;">Forge The Future — desktop 1440 · hero State A (pre-announcement)</span>
+    </div>
+    <div style="width: 1440px; background: #101B2D;">
+
+      <div style="background: #0B0F16; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 80px; position: relative;">
+        <span style="font-size: 13.5px; color: rgba(241,236,223,0.85);">Forge The Future · free · virtual · <span style="font-variant-numeric: tabular-nums;">Aug 10–20</span> — <a href="#1a" style="color: #C15A2C;">Save your seat →</a></span>
+        <button aria-label="Dismiss" style="position: absolute; right: 24px; top: 50%; transform: translateY(-50%); background: none; border: none; color: rgba(241,236,223,0.5); font-size: 15px; font-family: inherit; cursor: pointer; padding: 4px;">×</button>
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 80px; height: 78px; border-bottom: 1px solid rgba(241,236,223,0.1);">
+        <svg viewBox="0 0 4181 1320" role="img" aria-label="Ventriq" style="height: 30px; width: auto; display: block;">
+          <g transform="translate(120,880) scale(1,-1)">
+            <g fill="#F1ECDF">
+              <path transform="translate(0,0)" d="M253 0 28 700H95L304 37H316L525 700H592L367 0Z"></path>
+              <path transform="translate(610,0)" d="M312 -14Q237 -14 181.5 17.5Q126 49 95.0 106.0Q64 163 64 237V249Q64 324 95.0 380.5Q126 437 180.5 468.5Q235 500 305 500Q373 500 425.5 471.5Q478 443 508.0 389.5Q538 336 538 262V230H124Q127 139 179.5 89.5Q232 40 312 40Q380 40 417.5 71.0Q455 102 475 147L529 123Q514 90 487.5 58.5Q461 27 419.0 6.5Q377 -14 312 -14ZM125 282H477Q473 361 426.0 403.5Q379 446 305 446Q232 446 184.0 403.5Q136 361 125 282Z"></path>
+              <path transform="translate(1198,0)" d="M88 0V486H146V396H158Q176 435 217.0 465.5Q258 496 336 496Q389 496 433.0 474.0Q477 452 503.5 407.5Q530 363 530 296V0H470V292Q470 372 430.0 407.0Q390 442 323 442Q248 442 198.0 392.5Q148 343 148 243V0Z"></path>
+              <path transform="translate(1800,0)" d="M264 0Q225 0 205.5 20.0Q186 40 186 76V432H30V486H186V668H246V486H416V432H246V84Q246 54 276 54H390V0Z"></path>
+              <path transform="translate(2252,0)" d="M88 0V486H146V425H158Q172 458 199.5 473.0Q227 488 276 488H333V432H269Q214 432 181.0 401.0Q148 370 148 304V0Z"></path>
+              <path transform="translate(2611,0)" d="M88 0V486H148V0ZM118 570Q96 570 81.0 585.0Q66 600 66 622Q66 645 81.0 659.5Q96 674 118 674Q141 674 155.5 659.5Q170 645 170 622Q170 600 155.5 585.0Q141 570 118 570Z"></path>
+              <path transform="translate(2837,0)" d="M498 -200V85H486Q473 61 449.5 38.0Q426 15 389.0 0.5Q352 -14 298 -14Q233 -14 179.5 16.5Q126 47 95.0 103.5Q64 160 64 237V249Q64 327 95.5 383.0Q127 439 180.0 469.5Q233 500 298 500Q378 500 422.5 468.5Q467 437 488 397H500V486H558V-200ZM312 40Q395 40 446.5 93.0Q498 146 498 239V247Q498 340 446.5 393.0Q395 446 312 446Q230 446 178.0 393.0Q126 340 126 247V239Q126 146 178.0 93.0Q230 40 312 40Z"></path>
+            </g>
+            <path fill="#C9A24C" d="M3381 -60 L3941 -140 L3381 -220 Z"></path>
+          </g>
+        </svg>
+        <div style="display: flex; align-items: center; gap: 36px;">
+          <a href="#1a" style="color: #C9A24C; font-size: 15px;" style-hover="color: #C9A24C; text-decoration: none;">The Summit</a>
+          <a href="#1a" style="color: rgba(241,236,223,0.85); font-size: 15px;" style-hover="color: #F1ECDF; text-decoration: none;">Founders After Hours</a>
+          <a href="#1a" style="color: rgba(241,236,223,0.85); font-size: 15px;" style-hover="color: #F1ECDF; text-decoration: none;">The Mastermind</a>
+          <a href="#1a" style="color: rgba(241,236,223,0.85); font-size: 15px;" style-hover="color: #F1ECDF; text-decoration: none;">About</a>
+        </div>
+        <a href="#1a" style="display: inline-flex; align-items: center; background: #C9A24C; color: #0B0F16; font-size: 14.5px; font-weight: 600; padding: 11px 18px; border-radius: 2px; text-decoration: none;" style-hover="background: #BB9440; color: #0B0F16; text-decoration: none;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Register for the Summit</a>
+      </div>
+
+      <div data-screen-label="Summit S1 · hero (State A)" style="position: relative; overflow: hidden; height: 700px;">
+        {{ corridorHero }}
+        {{ grain1 }}
+        <div style="position: relative; box-sizing: border-box; height: 100%; padding: 96px 80px 48px; display: flex; flex-direction: column;">
+          <div style="max-width: 960px; display: flex; flex-direction: column; align-items: flex-start;">
+            <div style="display: flex; align-items: center; gap: 14px;" data-vqfade="1">
+              <span style="display: block; width: 44px; height: 1px; background: #C9A24C;"></span>
+              <span style="font-variant: small-caps; font-variant-numeric: tabular-nums; letter-spacing: 0.16em; font-size: 15px; color: #C9A24C;">Forge The Future · a Ventriq summit · Aug 10–20 · virtual · free</span>
+            </div>
+            <h1 style="margin: 28px 0 0; font-size: 72px; line-height: 1.04; font-weight: 600; letter-spacing: -0.015em; color: #F1ECDF; display: flex; flex-direction: column; align-items: flex-start;">
+              <span data-vqfade="1" style="animation-delay: 0.15s;">Not just education.</span>
+              <span data-vqfade="1" style="animation-delay: 0.65s;">Implementation.</span>
+            </h1>
+            <svg width="440" height="8" viewBox="0 0 440 8" style="display: block; margin-top: 18px;" aria-hidden="true">
+              <line x1="0" y1="4" x2="424" y2="4" stroke="#C9A24C" stroke-width="1.5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" data-vqdraw="1" style="animation: vq-draw 0.7s cubic-bezier(0.23,1,0.32,1) 1.15s forwards;"></line>
+              <line x1="424.5" y1="0" x2="424.5" y2="8" stroke="#C9A24C" stroke-width="1" data-vqtick="1" style="animation-delay: 1.8s;"></line>
+            </svg>
+            <p style="margin: 24px 0 0; font-size: 20px; line-height: 1.55; color: rgba(241,236,223,0.85); max-width: 58ch; display: flex; flex-direction: column;">
+              <span data-vqfade="1" style="animation-delay: 1.3s;">Eight nights across two weeks — one session a night, ninety minutes each.</span>
+              <span data-vqfade="1" style="animation-delay: 1.5s;">Each one pointed at something you can do the next morning.</span>
+            </p>
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 34px;" data-vqfade="1" style="animation-delay: 1.7s;">
+              <a href="#1a" style="display: inline-flex; align-items: center; background: #C9A24C; color: #0B0F16; font-size: 17px; font-weight: 600; padding: 16px 28px; border-radius: 2px; text-decoration: none;" style-hover="background: #BB9440; color: #0B0F16; text-decoration: none;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Save your free seat</a>
+              <span style="font-size: 13.5px; color: rgba(241,236,223,0.6);">Registration runs on Luma — about a minute, free.</span>
+              <span style="font-size: 14.5px; line-height: 1.55; color: rgba(241,236,223,0.75); max-width: 56ch;">Free. Ninety minutes a night, Monday through Thursday. Replays live in Founders After Hours, the membership community.</span>
+            </div>
+          </div>
+          <div style="margin-top: auto; display: flex; flex-direction: column; align-items: flex-start; gap: 6px;" data-vqfade="1" style="animation-delay: 1.9s;">
+            <span style="font-variant: small-caps; letter-spacing: 0.14em; font-size: 13px; color: rgba(241,236,223,0.55);">doors open in</span>
+            <span style="font-variant-numeric: tabular-nums; letter-spacing: 0.1em; font-size: 14px; color: rgba(241,236,223,0.75);">AUG 10–20 · 6:30–8:00 PM ET · ZOOM · FREE · T-[D]D.[H]H.[M]M</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="Summit · ticker" style="background: #0B0F16; border-top: 1px solid rgba(201,162,76,0.35); border-bottom: 1px solid rgba(201,162,76,0.35); overflow: hidden; padding: 13px 0; white-space: nowrap;">
+        <div data-vqmarquee="1">
+          <span style="font-variant: small-caps; letter-spacing: 0.22em; font-size: 15px; color: #C9A24C; padding-right: 48px;">forged together · built to last · aug 10–20 · free · eight nights ·&nbsp;</span>
+          <span aria-hidden="true" style="font-variant: small-caps; letter-spacing: 0.22em; font-size: 15px; color: #C9A24C; padding-right: 48px;">forged together · built to last · aug 10–20 · free · eight nights ·&nbsp;</span>
+        </div>
+      </div>
+
+      <div data-screen-label="Summit S2 · corridor-draw scene" style="position: relative; overflow: hidden; background: #101B2D; padding: 96px 80px; color: #F1ECDF;">
+        {{ sceneMarkA }}
+        {{ corridorScene }}
+        {{ grain2 }}
+        <div style="position: relative; display: flex; flex-direction: column; align-items: flex-start;">
+          <div style="display: flex; align-items: flex-start; gap: 72px; flex-wrap: wrap;">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 66px; font-weight: 600; line-height: 1; color: #C9A24C;">{{ nNights }}</span>
+              <span style="font-size: 15px; color: rgba(241,236,223,0.75);">nights</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 66px; font-weight: 600; line-height: 1; color: #C9A24C;">{{ nSessions }}</span>
+              <span style="font-size: 15px; color: rgba(241,236,223,0.75);">sessions</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 66px; font-weight: 600; line-height: 1; color: #C9A24C;">{{ nMinutes }}</span>
+              <span style="font-size: 15px; color: rgba(241,236,223,0.75);">minutes a night</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 66px; font-weight: 600; line-height: 1; color: #C9A24C;">{{ nWeeks }}</span>
+              <span style="font-size: 15px; color: rgba(241,236,223,0.75);">weeks</span>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-top: 64px;">
+            <span style="font-size: 27px; font-weight: 600; animation: vq-fade 0.5s cubic-bezier(0.23,1,0.32,1) 0.3s both; animation-play-state: {{ scenePSA }};">Eight nights.</span>
+            <span style="font-size: 27px; font-weight: 600; animation: vq-fade 0.5s cubic-bezier(0.23,1,0.32,1) 0.85s both; animation-play-state: {{ scenePSA }};">One door.</span>
+            <span style="font-size: 27px; font-weight: 600; animation: vq-fade 0.5s cubic-bezier(0.23,1,0.32,1) 1.4s both; animation-play-state: {{ scenePSA }};">Walk through.</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="Summit S3 · manifesto" style="background: #101B2D; border-top: 1px solid rgba(241,236,223,0.08); padding: 120px 80px; color: #F1ECDF;">
+        {{ maniMarkA }}
+        <p style="margin: 0; font-size: 38px; line-height: 1.5; font-weight: 500; max-width: 28ch; text-wrap: pretty;">{{ manifestoA }}</p>
+      </div>
+
+      <div data-screen-label="Summit S4 · how it works" style="background: #F1ECDF; padding: 88px 80px; color: #0B0F16;">
+        <h2 style="margin: 0 0 44px; font-size: 44px; font-weight: 500; letter-spacing: -0.01em;">How it works</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; max-width: 1240px;">
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 20px;">
+            <span style="font-variant-numeric: tabular-nums; font-size: 38px; font-weight: 600; line-height: 1; color: #C9A24C;">1</span>
+            <span style="font-size: 19px; font-weight: 600;">Save your free seat.</span>
+            <span style="font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Takes a minute on Luma. Your confirmation email carries the calendar invite; add it before you forget.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 20px; margin-top: 28px;">
+            <span style="font-variant-numeric: tabular-nums; font-size: 38px; font-weight: 600; line-height: 1; color: #C9A24C;">2</span>
+            <span style="font-size: 19px; font-weight: 600;">Show up live.</span>
+            <span style="font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Monday through Thursday nights, 6:30–8:00 PM ET, for two weeks. Seventy percent teaching, thirty percent your questions. Then Friday through Sunday — go build with it.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 20px; margin-top: 56px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 38px; font-weight: 600; line-height: 1; color: #C9A24C;">3</span>
+              <svg width="22" height="30" viewBox="0 0 22 30" aria-hidden="true"><line x1="1" y1="1" x2="1" y2="29" stroke="#C9A24C" stroke-width="1.5"></line><line x1="21" y1="1" x2="21" y2="29" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="1.5" x2="21" y2="1.5" stroke="#C9A24C" stroke-width="1" opacity="0.6"></line><line x1="-2" y1="29" x2="25" y2="29" stroke="#C9A24C" stroke-width="2"></line></svg>
+            </div>
+            <span style="font-size: 19px; font-weight: 600;">Keep the room.</span>
+            <span style="font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Founders After Hours holds every replay 24 hours after each session, along with speaker office hours and the founders you met in the chat. Membership from $39/month.</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="Summit S5 · the lineup" style="position: relative; overflow: hidden; background: #101B2D; padding: 96px 80px; color: #F1ECDF;">
+        {{ grain3 }}
+        <div style="position: relative;">
+          <h2 style="margin: 0; font-size: 44px; font-weight: 500; letter-spacing: -0.01em;">The 2026 speakers</h2>
+          <p style="margin: 16px 0 0; font-size: 18px; line-height: 1.6; color: rgba(241,236,223,0.82); max-width: 58ch;">The full lineup lands <span style="display: inline-block; vertical-align: 2px; border: 1px dashed rgba(241,236,223,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(241,236,223,0.55);">[ANNOUNCE-DATE]</span>. Thirty-plus builders, operators, and funders — no professional motivators.</p>
+          <a href="#1a" style="display: inline-block; font-size: 16px; font-weight: 600; margin-top: 18px;">Get the speaker announcement →</a>
+          <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 44px;">
+            <div data-comment-anchor="speaker-01" style="position: relative; height: 168px; border: 1px solid rgba(241,236,223,0.13); border-radius: 2px;">
+              <svg width="14" height="14" viewBox="0 0 14 14" style="position: absolute; top: 6px; left: 6px;" aria-hidden="true"><path d="M1 13 L1 1 L13 1" fill="none" stroke="#C9A24C" stroke-width="1" opacity="0.6"></path></svg>
+              <svg width="14" height="14" viewBox="0 0 14 14" style="position: absolute; bottom: 6px; right: 6px;" aria-hidden="true"><path d="M1 13 L13 13 L13 1" fill="none" stroke="#C9A24C" stroke-width="1" opacity="0.6"></path></svg>
+              <svg viewBox="0 0 100 100" style="position: absolute; top: 46%; left: 50%; transform: translate(-50%,-50%); width: 62px; height: 62px;" aria-hidden="true"><circle cx="50" cy="32" r="13" fill="none" stroke="rgba(241,236,223,0.25)" stroke-width="1"></circle><path d="M18 88 C30 60, 70 60, 82 88" fill="none" stroke="rgba(241,236,223,0.25)" stroke-width="1"></path></svg>
+              <span style="position: absolute; left: 12px; bottom: 10px; font-variant: small-caps; font-variant-numeric: tabular-nums; letter-spacing: 0.14em; font-size: 12.5px; color: rgba(241,236,223,0.6);">speaker 01</span>
+            </div>
+            <sc-for list="{{ pendingSpeakersRest }}" as="sp" hint-placeholder-count="14">
+              <div style="position: relative; height: 168px; border: 1px solid rgba(241,236,223,0.13); border-radius: 2px;">
+                <svg width="14" height="14" viewBox="0 0 14 14" style="position: absolute; top: 6px; left: 6px;" aria-hidden="true"><path d="M1 13 L1 1 L13 1" fill="none" stroke="#C9A24C" stroke-width="1" opacity="0.6"></path></svg>
+                <svg width="14" height="14" viewBox="0 0 14 14" style="position: absolute; bottom: 6px; right: 6px;" aria-hidden="true"><path d="M1 13 L13 13 L13 1" fill="none" stroke="#C9A24C" stroke-width="1" opacity="0.6"></path></svg>
+                <svg viewBox="0 0 100 100" style="position: absolute; top: 46%; left: 50%; transform: translate(-50%,-50%); width: 62px; height: 62px;" aria-hidden="true"><circle cx="50" cy="32" r="13" fill="none" stroke="rgba(241,236,223,0.25)" stroke-width="1"></circle><path d="M18 88 C30 60, 70 60, 82 88" fill="none" stroke="rgba(241,236,223,0.25)" stroke-width="1"></path></svg>
+                <span style="position: absolute; left: 12px; bottom: 10px; font-variant: small-caps; font-variant-numeric: tabular-nums; letter-spacing: 0.14em; font-size: 12.5px; color: rgba(241,236,223,0.6);">speaker {{ sp.nn }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display: flex; align-items: flex-end; gap: 24px; margin-top: 44px; flex-wrap: wrap;">
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <span style="font-size: 11px; letter-spacing: 0.12em; color: rgba(241,236,223,0.45);">Revealed card — swaps in per speaker</span>
+              <div data-comment-anchor="speaker-revealed-demo" style="width: 250px; border: 1px solid rgba(241,236,223,0.16); border-radius: 2px; background: rgba(241,236,223,0.03);">
+                <div style="position: relative; height: 200px; overflow: hidden; background: linear-gradient(165deg, oklch(0.42 0.05 60), oklch(0.3 0.03 255) 62%, #101B2D);">
+                  <div style="position: absolute; inset: 0; background-image: url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22120%22%20height=%22120%22%3E%3Cfilter%20id=%22n%22%3E%3CfeTurbulence%20type=%22fractalNoise%22%20baseFrequency=%220.85%22%20numOctaves=%222%22/%3E%3C/filter%3E%3Crect%20width=%22120%22%20height=%22120%22%20filter=%22url(%23n)%22%20opacity=%220.3%22/%3E%3C/svg%3E');"></div>
+                  <span style="position: absolute; left: 12px; bottom: 10px; font-size: 11px; color: rgba(241,236,223,0.75);">[PHOTO — original headshot, navy grade]</span>
+                </div>
+                <div style="padding: 16px 18px 20px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px;">
+                  <span style="font-size: 18px; font-weight: 600;">[NAME]</span>
+                  <span style="font-size: 13.5px; line-height: 1.5; color: rgba(241,236,223,0.75);">[TITLE, COMPANY]</span>
+                  <span style="display: inline-block; margin-top: 6px; border: 1px solid rgba(201,162,76,0.6); border-radius: 2px; padding: 2px 8px; font-variant: small-caps; font-variant-numeric: tabular-nums; letter-spacing: 0.12em; font-size: 12px; color: #C9A24C;">night 0[n] — aug [dd]</span>
+                </div>
+              </div>
+            </div>
+            <span style="font-size: 13px; line-height: 1.6; color: rgba(241,236,223,0.55); max-width: 40ch;">Wall scales to thirty-plus: cards stay this size, the grid grows rows, grouped by night once the mapping lands.</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="Summit S6 · two weeks, mapped" style="background: #F1ECDF; padding: 88px 80px; color: #0B0F16;">
+        <h2 style="margin: 0 0 44px; font-size: 44px; font-weight: 500; letter-spacing: -0.01em;">Two weeks, mapped</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px;">
+          <div style="display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 8px;">
+              <span style="display: block; width: 32px; height: 1px; background: #C9A24C;"></span>
+              <span style="font-variant: small-caps; letter-spacing: 0.16em; font-size: 14px; color: rgba(11,15,22,0.6);">week one</span>
+            </div>
+            <div style="border-top: 1px solid rgba(11,15,22,0.2); padding: 18px 0; display: grid; grid-template-columns: 118px 1fr; gap: 18px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 600; color: #AF5026;">Mon Aug 10</span>
+              <span style="font-size: 16px; line-height: 1.55;"><span style="font-weight: 600;">The Weight and the Vision</span> — a fireside conversation on leading from the inside out <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(11,15,22,0.55);">[SPEAKERS]</span></span>
+            </div>
+            <div style="border-top: 1px solid rgba(11,15,22,0.12); padding: 18px 0; display: grid; grid-template-columns: 118px 1fr; gap: 18px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 600; color: #AF5026;">Tue Aug 11</span>
+              <span style="font-size: 16px; line-height: 1.55;"><span style="font-weight: 600;">The Art of Desire</span> — building a brand that commands the room <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(11,15,22,0.55);">[SPEAKERS]</span></span>
+            </div>
+            <div style="border-top: 1px solid rgba(11,15,22,0.12); padding: 18px 0; display: grid; grid-template-columns: 118px 1fr; gap: 18px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 600; color: #AF5026;">Wed Aug 12</span>
+              <span style="font-size: 16px; line-height: 1.55;"><span style="font-weight: 600;">Renowned</span> — the art of influence, press &amp; becoming a movement <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(11,15,22,0.55);">[SPEAKERS]</span></span>
+            </div>
+            <div style="border-top: 1px solid rgba(11,15,22,0.12); border-bottom: 1px solid rgba(11,15,22,0.2); padding: 18px 0; display: grid; grid-template-columns: 118px 1fr; gap: 18px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 600; color: #AF5026;">Thu Aug 13</span>
+              <span style="font-size: 16px; line-height: 1.55;"><span style="font-weight: 600;">The Rainmaker's Craft</span> — turning passion into profit <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(11,15,22,0.55);">[SPEAKERS]</span></span>
+            </div>
+            <div style="border: 1px dashed rgba(11,15,22,0.25); border-radius: 2px; margin-top: 18px; padding: 12px 16px; display: flex; align-items: center; gap: 14px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 13px; letter-spacing: 0.1em; color: rgba(11,15,22,0.55);">AUG 14–16</span>
+              <svg width="120" height="10" viewBox="0 0 120 10" aria-hidden="true"><line x1="0" y1="5" x2="120" y2="5" stroke="rgba(11,15,22,0.3)" stroke-width="1" stroke-dasharray="2 5"></line></svg>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 8px;">
+              <span style="display: block; width: 32px; height: 1px; background: #C9A24C;"></span>
+              <span style="font-variant: small-caps; letter-spacing: 0.16em; font-size: 14px; color: rgba(11,15,22,0.6);">week two</span>
+            </div>
+            <div style="border-top: 1px solid rgba(11,15,22,0.2); padding: 18px 0; display: grid; grid-template-columns: 118px 1fr; gap: 18px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 600; color: #AF5026;">Mon Aug 17</span>
+              <span style="font-size: 16px; line-height: 1.55;"><span style="font-weight: 600;">The Modern Advantage</span> — tech, AI &amp; doing more with less <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(11,15,22,0.55);">[SPEAKERS]</span></span>
+            </div>
+            <div style="border-top: 1px solid rgba(11,15,22,0.12); padding: 18px 0; display: grid; grid-template-columns: 118px 1fr; gap: 18px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 600; color: #AF5026;">Tue Aug 18</span>
+              <span style="font-size: 16px; line-height: 1.55;"><span style="font-weight: 600;">Capital &amp; Command</span> — mastering business finances and funding <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(11,15,22,0.55);">[SPEAKERS]</span></span>
+            </div>
+            <div style="border-top: 1px solid rgba(11,15,22,0.12); padding: 18px 0; display: grid; grid-template-columns: 118px 1fr; gap: 18px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 600; color: #AF5026;">Wed Aug 19</span>
+              <span style="font-size: 16px; line-height: 1.55;"><span style="font-weight: 600;">The Endgame</span> — preparing for an exit before you need one <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(11,15,22,0.55);">[SPEAKERS]</span></span>
+            </div>
+            <div style="border-top: 1px solid rgba(11,15,22,0.12); border-bottom: 1px solid rgba(11,15,22,0.2); padding: 18px 0; display: grid; grid-template-columns: 118px 1fr; gap: 18px;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 600; color: #AF5026;">Thu Aug 20</span>
+              <span style="font-size: 16px; line-height: 1.55;"><span style="font-weight: 600;">The End of the Beginning</span> — the real cost &amp; reward of building <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(11,15,22,0.55);">[SPEAKERS]</span></span>
+            </div>
+          </div>
+        </div>
+        <p style="margin: 32px 0 0; font-size: 16.5px; line-height: 1.6; color: rgba(11,15,22,0.8);">All sessions 6:30–8:00 PM ET. Fridays through Sundays are yours — go build with the week.</p>
+        <div data-comment-anchor="agenda-row-states" style="margin-top: 48px; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 28px; max-width: 880px;">
+          <span style="font-size: 11px; letter-spacing: 0.12em; color: rgba(11,15,22,0.5);">Row states — during the event</span>
+          <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="border-left: none; background: rgba(201,162,76,0.08); border-top: 2px solid #C9A24C; padding: 14px 16px; display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 600; color: #AF5026;">Wed Aug 12</span>
+              <span style="font-size: 16px; font-weight: 600;">Renowned</span>
+              <span style="font-variant: small-caps; letter-spacing: 0.14em; font-size: 13px; color: #0B0F16; font-weight: 600;">tonight · join live 6:30 PM ET</span>
+            </div>
+            <div style="padding: 6px 16px; display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; opacity: 0.75;">
+              <span style="font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 600; color: #AF5026;">Tue Aug 11</span>
+              <span style="font-size: 16px; font-weight: 600;">The Art of Desire</span>
+              <a href="#1a" style="font-variant: small-caps; letter-spacing: 0.12em; font-size: 13px; color: #AF5026; font-weight: 600;">replay in the community →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="Summit S7 · who it's for" style="background: #F1ECDF; padding: 0 80px 96px; color: #0B0F16;">
+        <div style="display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 64px;">
+          <h2 style="margin: 0; font-size: 44px; font-weight: 500; letter-spacing: -0.01em;">Who it's for</h2>
+          <div style="display: flex; flex-direction: column;">
+            <div style="border-top: 1px solid rgba(11,15,22,0.2); padding: 20px 0; display: flex; gap: 16px;"><span style="display: block; width: 14px; height: 1px; background: #C9A24C; flex-shrink: 0; margin-top: 13px;"></span><span style="font-size: 17.5px; line-height: 1.6;"><span style="font-weight: 600;">Small business owners</span> past the idea stage — there's revenue, customers, a real thing to grow.</span></div>
+            <div style="border-top: 1px solid rgba(11,15,22,0.12); padding: 20px 0; display: flex; gap: 16px;"><span style="display: block; width: 14px; height: 1px; background: #C9A24C; flex-shrink: 0; margin-top: 13px;"></span><span style="font-size: 17.5px; line-height: 1.6;"><span style="font-weight: 600;">Startup founders</span> from first traction to first raise, tired of advice that assumes a Stanford network.</span></div>
+            <div style="border-top: 1px solid rgba(11,15,22,0.12); border-bottom: 1px solid rgba(11,15,22,0.2); padding: 20px 0; display: flex; gap: 16px;"><span style="display: block; width: 14px; height: 1px; background: #C9A24C; flex-shrink: 0; margin-top: 13px;"></span><span style="font-size: 17.5px; line-height: 1.6;"><span style="font-weight: 600;">Nonprofit builders</span> who run their organization like founders, because they are.</span></div>
+            <p style="margin: 26px 0 0; font-size: 18px; font-weight: 600;">If you're serious, you belong here.</p>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="Summit S8 · why Justin built it" style="background: #F1ECDF; padding: 0 80px 96px; color: #0B0F16;">
+        <div style="display: grid; grid-template-columns: 4fr 7fr; gap: 72px; align-items: center; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 64px;">
+          <div style="position: relative; height: 320px; border-radius: 2px; overflow: hidden; background: linear-gradient(165deg, oklch(0.42 0.05 60), oklch(0.3 0.03 255) 62%, #101B2D);">
+            <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(16,27,45,0.5), rgba(16,27,45,0.15) 55%);"></div>
+            <div style="position: absolute; inset: 0; background-image: url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22120%22%20height=%22120%22%3E%3Cfilter%20id=%22n%22%3E%3CfeTurbulence%20type=%22fractalNoise%22%20baseFrequency=%220.85%22%20numOctaves=%222%22/%3E%3C/filter%3E%3Crect%20width=%22120%22%20height=%22120%22%20filter=%22url(%23n)%22%20opacity=%220.3%22/%3E%3C/svg%3E');"></div>
+            <span style="position: absolute; left: 14px; bottom: 12px; font-size: 11.5px; color: rgba(241,236,223,0.75);">[PHOTO: Justin Shaw — warm, navy-tinted grade]</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start;">
+            <p style="margin: 0; font-size: 20px; line-height: 1.65;">August is National Black Business Month, and every fall the big conferences arrive with big stages and bigger badges. This is the other thing: eight nights in the summer, ninety minutes at a time, where the point isn't who's in the room — it's what you do when you leave it. That's the whole Ventriq idea, in miniature.</p>
+            <span style="margin-top: 24px; font-size: 17px; font-weight: 600;">— Justin Shaw</span>
+            <span style="display: block; width: 56px; height: 1px; background: #C9A24C; margin-top: 12px;"></span>
+            <a href="#1a" style="display: inline-block; color: #AF5026; font-size: 16px; font-weight: 600; margin-top: 20px;">Read the full story →</a>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="Summit S9 · sponsors" style="background: #F1ECDF; padding: 0 80px 96px; color: #0B0F16;">
+        <div data-comment-anchor="sponsor-card" style="background: #101B2D; border-radius: 2px; color: #F1ECDF; max-width: 980px;">
+          <div style="height: 2px; background: #C9A24C;"></div>
+          <div style="padding: 40px 48px 44px; display: flex; flex-direction: column; align-items: flex-start;">
+            <h2 style="margin: 0; font-size: 30px; font-weight: 500; letter-spacing: -0.01em;">Put your name behind the builders</h2>
+            <p style="margin: 14px 0 0; font-size: 16.5px; line-height: 1.6; color: rgba(241,236,223,0.82); max-width: 60ch;">Summit sessions can be underwritten by companies and foundations that want to reach serious founders — visibly and usefully.</p>
+            <a href="#1a" style="display: inline-flex; align-items: center; background: #C9A24C; color: #0B0F16; font-size: 15.5px; font-weight: 600; padding: 13px 22px; border-radius: 2px; text-decoration: none; margin-top: 24px;" style-hover="background: #BB9440; color: #0B0F16; text-decoration: none;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Sponsor the Summit</a>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="Summit S10 · FAQ" style="background: #F1ECDF; padding: 0 80px 96px; color: #0B0F16;">
+        <div style="display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 64px;">
+          <h2 style="margin: 0; font-size: 44px; font-weight: 500; letter-spacing: -0.01em;">Questions, answered</h2>
+          <div style="display: flex; flex-direction: column;">
+            <details style="border-top: 1px solid rgba(11,15,22,0.2);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; cursor: pointer; list-style: none;"><span style="font-size: 18px; font-weight: 500;">What does it cost?</span><svg width="16" height="16" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 40px 20px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Nothing — the seat is free. Register on Luma and you're in every night live.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; cursor: pointer; list-style: none;"><span style="font-size: 18px; font-weight: 500;">What if I can't make a session live?</span><svg width="16" height="16" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 40px 20px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Every replay lands in Founders After Hours 24 hours after the session — that's the membership community, from $39/month. The live seat is the free one; save it and show up.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; cursor: pointer; list-style: none;"><span style="font-size: 18px; font-weight: 500;">How much time is this, honestly?</span><svg width="16" height="16" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 40px 20px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Ninety minutes a night, Monday through Thursday, for two weeks. Fridays through Sundays are yours. It's built for people running businesses, because you are.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; cursor: pointer; list-style: none;"><span style="font-size: 18px; font-weight: 500;">Who are the speakers?</span><svg width="16" height="16" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 40px 20px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Operators, builders, and funders — people who've done the thing they're teaching. Thirty-plus of them across the eight nights. Full lineup lands <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(11,15,22,0.55);">[ANNOUNCE-DATE]</span>.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; cursor: pointer; list-style: none;"><span style="font-size: 18px; font-weight: 500;">Will I be pitched?</span><svg width="16" height="16" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 40px 20px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Every session is seventy percent teaching, thirty percent questions. Nobody's selling you a course at the end. The only call-to-action you'll hear is Founders After Hours — and its price is on the label.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; cursor: pointer; list-style: none;"><span style="font-size: 18px; font-weight: 500;">What do I need?</span><svg width="16" height="16" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 40px 20px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Zoom, a notebook, and one real challenge in your business you want to move.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; cursor: pointer; list-style: none;"><span style="font-size: 18px; font-weight: 500;">Can I send my team?</span><svg width="16" height="16" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 40px 20px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Yes — registration is per person, so have them grab their own seats. <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(11,15,22,0.55);">[⚠️ 02 v1.2 closes this answer with a stray pay-what-you-want sentence — stale per findings/12 "free confirmed"; dropped here, confirm the replacement line]</span></p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12); border-bottom: 1px solid rgba(11,15,22,0.2);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; cursor: pointer; list-style: none;"><span style="font-size: 18px; font-weight: 500;">What's Founders After Hours?</span><svg width="16" height="16" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 40px 20px 0; font-size: 15.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Ventriq's working community: replays, office hours with advisors, webinars, and a monthly in-person hour where founders do the work together. <a href="#1a" style="font-weight: 600;">Read about it →</a></p>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <div data-screen-label="Summit S11 · final CTA" style="position: relative; overflow: hidden; background: #101B2D; padding: 104px 80px; color: #F1ECDF;">
+        <div style="position: absolute; inset: 0; background: radial-gradient(700px 420px at 68% 40%, rgba(201,162,76,0.1), rgba(201,162,76,0) 70%);"></div>
+        {{ grain4 }}
+        <div style="position: relative; display: flex; flex-direction: column; align-items: flex-start;">
+          <h2 style="margin: 0; font-size: 52px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.1;">Eight nights. Two weeks. Your move.</h2>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 34px;">
+            <a href="#1a" style="display: inline-flex; align-items: center; background: #C9A24C; color: #0B0F16; font-size: 17px; font-weight: 600; padding: 16px 28px; border-radius: 2px; text-decoration: none;" style-hover="background: #BB9440; color: #0B0F16; text-decoration: none;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Save your free seat</a>
+            <span style="font-variant-numeric: tabular-nums; font-size: 14.5px; color: rgba(241,236,223,0.75);">Aug 10–20 · 6:30–8:00 PM ET · live on Zoom · free</span>
+            <span style="font-variant-numeric: tabular-nums; letter-spacing: 0.1em; font-size: 13px; color: rgba(241,236,223,0.55);"><span style="font-variant: small-caps; letter-spacing: 0.14em;">doors open in</span> T-[D]D.[H]H.[M]M</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: #101B2D; border-top: 1px solid rgba(241,236,223,0.1); padding: 64px 80px 40px; color: #F1ECDF;">
+        <div style="display: grid; grid-template-columns: 1.3fr 0.7fr 0.9fr 1.3fr; gap: 56px; align-items: start;">
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 18px;">
+            <svg viewBox="0 0 512 512" role="img" aria-label="Ventriq monogram" style="width: 34px; height: 34px; display: block;"><path fill="#F1ECDF" d="M81 97 L204.0 97 L256.0 373 L256.0 415 Z"></path><path fill="#C9A24C" d="M308.0 97 L431 97 L256.0 415 L256.0 373 Z"></path></svg>
+            <p style="margin: 0; font-size: 15px; line-height: 1.6; color: rgba(241,236,223,0.75); max-width: 32ch;">Ventriq (ven-TREEK) is a nonprofit equipping founders with capital, programming, and council — rooted in Baltimore, built to travel.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.1em; color: rgba(241,236,223,0.5);">Pages</span>
+            <a href="#1a" style="color: rgba(241,236,223,0.85); font-size: 15px;" style-hover="color: #F1ECDF;">About</a>
+            <a href="#1a" style="color: rgba(241,236,223,0.85); font-size: 15px;" style-hover="color: #F1ECDF;">Contact</a>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.1em; color: rgba(241,236,223,0.5);">Programs</span>
+            <a href="#1a" style="color: rgba(241,236,223,0.85); font-size: 15px;" style-hover="color: #F1ECDF;">The Summit</a>
+            <a href="#1a" style="color: rgba(241,236,223,0.85); font-size: 15px;" style-hover="color: #F1ECDF;">Founders After Hours</a>
+            <a href="#1a" style="color: rgba(241,236,223,0.85); font-size: 15px;" style-hover="color: #F1ECDF;">The Mastermind</a>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px;">
+            <span style="font-size: 13px; letter-spacing: 0.1em; color: rgba(241,236,223,0.5);">Contact</span>
+            <span style="color: rgba(241,236,223,0.85); font-size: 15px;">[EMAIL] · Baltimore, MD</span>
+            <span style="font-size: 16px; font-weight: 600; margin-top: 14px;">The Founder Digest</span>
+            <span style="font-size: 13.5px; line-height: 1.55; color: rgba(241,236,223,0.7);">One useful email a week — what's working, what's funding, what's next.</span>
+            <div style="display: flex; gap: 10px; width: 100%;">
+              <input type="email" name="digest" placeholder="[EMAIL]" style="flex: 1; min-width: 0; background: rgba(241,236,223,0.05); border: 1px solid rgba(241,236,223,0.3); border-radius: 2px; padding: 11px 13px; font-family: inherit; font-size: 14px; color: #F1ECDF; outline: none; box-sizing: border-box;" style-focus="border-color: #C9A24C; box-shadow: 0 0 0 1px #C9A24C;">
+              <button type="button" style="background: #C9A24C; color: #0B0F16; font-family: inherit; font-size: 14px; font-weight: 600; padding: 11px 16px; border-radius: 2px; border: none; cursor: pointer;" style-hover="background: #BB9440;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Send it to me</button>
+            </div>
+            <span style="font-size: 12.5px; color: rgba(241,236,223,0.55);">No spam. Unsubscribe anytime.</span>
+          </div>
+        </div>
+        <div style="margin-top: 48px;">
+          <span style="display: block; width: 100%; height: 1px; background: rgba(201,162,76,0.6);"></span>
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-top: 20px;">
+            <span style="font-size: 13px; color: rgba(241,236,223,0.6);">© 2026 Ventriq. A nonprofit organization. <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.3); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(241,236,223,0.5);">[EIN — add when issued; NO deductibility language until determination letter — see README law #3]</span></span>
+            <div style="display: flex; gap: 22px;">
+              <a href="#1a" style="color: rgba(241,236,223,0.7); font-size: 13px;" style-hover="color: #F1ECDF;">Privacy</a>
+              <a href="#1a" style="color: rgba(241,236,223,0.7); font-size: 13px;" style-hover="color: #F1ECDF;">Contact</a>
+              <a href="#1a" style="color: rgba(241,236,223,0.7); font-size: 13px;" style-hover="color: #F1ECDF;">Press kit</a>
+              <a href="#1a" style="color: rgba(241,236,223,0.7); font-size: 13px;" style-hover="color: #F1ECDF;">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 64px;">
+
+    <div id="1c" data-screen-label="Summit hero — State C (live night)" style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="display: inline-flex; border: 1px solid #C9A24C; color: #C9A24C; font-size: 11px; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 2px;">1c</span>
+        <span style="color: rgba(241,236,223,0.65); font-size: 13px;">Hero State C — a session night (same component as <a href="#1a" style="color: #C9A24C;">1a</a>, content swap)</span>
+      </div>
+      <div style="width: 1100px; height: 480px; background: #101B2D; position: relative; overflow: hidden;">
+        {{ corridorC }}
+        <div style="position: relative; box-sizing: border-box; height: 100%; padding: 72px 64px 44px; display: flex; flex-direction: column;">
+          <div style="max-width: 820px; display: flex; flex-direction: column; align-items: flex-start;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <span style="display: block; width: 44px; height: 1px; background: #C9A24C;"></span>
+              <span style="font-variant: small-caps; font-variant-numeric: tabular-nums; letter-spacing: 0.16em; font-size: 15px; color: #C9A24C;">tonight · night [n] of 8</span>
+            </div>
+            <h1 style="margin: 22px 0 0; font-size: 58px; line-height: 1.05; font-weight: 600; letter-spacing: -0.015em; color: #F1ECDF;">[NIGHT-TITLE]</h1>
+            <p style="margin: 18px 0 0; font-size: 19px; line-height: 1.55; color: rgba(241,236,223,0.85);">[night subtitle] — live at 6:30 PM ET.</p>
+            <div style="display: flex; align-items: center; gap: 22px; margin-top: 28px; flex-wrap: wrap;">
+              <a href="#1c" style="display: inline-flex; align-items: center; background: #C9A24C; color: #0B0F16; font-size: 16px; font-weight: 600; padding: 15px 26px; border-radius: 2px; text-decoration: none;" style-hover="background: #BB9440; color: #0B0F16; text-decoration: none;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Join live</a>
+              <span style="font-size: 14.5px; color: rgba(241,236,223,0.75);">Registered? Your link is in your inbox.</span>
+            </div>
+          </div>
+          <div style="margin-top: auto; display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap;">
+            <span style="font-variant: small-caps; letter-spacing: 0.14em; font-size: 13px; color: rgba(241,236,223,0.55);">live in</span>
+            <span style="font-variant-numeric: tabular-nums; letter-spacing: 0.1em; font-size: 14px; color: rgba(241,236,223,0.75);">T-[H]H.[M]M</span>
+            <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.35); border-radius: 2px; padding: 1px 6px; font-size: 11px; color: rgba(241,236,223,0.55);">[during the session the label reads LIVE NOW]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="2a" data-screen-label="Summit hero — State D (between sessions)" style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="display: inline-flex; border: 1px solid #C9A24C; color: #C9A24C; font-size: 11px; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 2px;">2a</span>
+        <span style="color: rgba(241,236,223,0.65); font-size: 13px;">Hero State D — Fri–Sun between the weeks (new in v1.2)</span>
+      </div>
+      <div style="width: 1100px; height: 440px; background: #101B2D; position: relative; overflow: hidden;">
+        {{ corridorD }}
+        <div style="position: relative; box-sizing: border-box; height: 100%; padding: 72px 64px 44px; display: flex; flex-direction: column;">
+          <div style="max-width: 820px; display: flex; flex-direction: column; align-items: flex-start;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <span style="display: block; width: 44px; height: 1px; background: #C9A24C;"></span>
+              <span style="font-variant: small-caps; letter-spacing: 0.16em; font-size: 15px; color: #C9A24C;">between sessions</span>
+            </div>
+            <h1 style="margin: 22px 0 0; font-size: 64px; line-height: 1.05; font-weight: 600; letter-spacing: -0.015em; color: #F1ECDF;">Go build.</h1>
+            <p style="margin: 18px 0 0; font-size: 19px; line-height: 1.55; color: rgba(241,236,223,0.85); max-width: 54ch;">Next up: [NIGHT-TITLE], [DAY] at 6:30 PM ET. This week's replays are already in the community.</p>
+            <div style="display: flex; align-items: center; gap: 16px; margin-top: 28px; flex-wrap: wrap;">
+              <a href="#2a" style="display: inline-flex; align-items: center; background: #C9A24C; color: #0B0F16; font-size: 16px; font-weight: 600; padding: 15px 26px; border-radius: 2px; text-decoration: none;" style-hover="background: #BB9440; color: #0B0F16; text-decoration: none;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Catch the replays</a>
+              <a href="#2a" style="display: inline-flex; align-items: center; border: 1px solid rgba(201,162,76,0.75); color: #C9A24C; font-size: 16px; font-weight: 500; padding: 14px 25px; border-radius: 2px; text-decoration: none;" style-hover="background: rgba(201,162,76,0.12); color: #C9A24C; text-decoration: none;" style-focus="outline: 2px solid #C9A24C; outline-offset: 2px;">Save your free seat</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="1d" data-screen-label="Summit hero — State E (post-event)" style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="display: inline-flex; border: 1px solid #C9A24C; color: #C9A24C; font-size: 11px; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 2px;">1d</span>
+        <span style="color: rgba(241,236,223,0.65); font-size: 13px;">Hero State E — post-event (after Aug 20)</span>
+      </div>
+      <div style="width: 1100px; height: 440px; background: #101B2D; position: relative; overflow: hidden;">
+        {{ corridorE }}
+        <div style="position: relative; box-sizing: border-box; height: 100%; padding: 72px 64px 44px; display: flex; flex-direction: column;">
+          <div style="max-width: 820px; display: flex; flex-direction: column; align-items: flex-start;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <span style="display: block; width: 44px; height: 1px; background: #C9A24C;"></span>
+              <span style="font-variant: small-caps; font-variant-numeric: tabular-nums; letter-spacing: 0.16em; font-size: 15px; color: #C9A24C;">Forge The Future · August 2026</span>
+            </div>
+            <h1 style="margin: 22px 0 0; font-size: 56px; line-height: 1.06; font-weight: 600; letter-spacing: -0.015em; color: #F1ECDF;">The room keeps what you missed.</h1>
+            <p style="margin: 18px 0 0; font-size: 19px; line-height: 1.55; color: rgba(241,236,223,0.85); max-width: 54ch;">All eight sessions live in Founders After Hours — replays, office hours, and the founders who showed up. Membership from $39/month.</p>
+            <a href="#1d" style="display: inline-flex; align-items: center; background: #C9A24C; color: #0B0F16; font-size: 16px; font-weight: 600; padding: 15px 26px; border-radius: 2px; text-decoration: none; margin-top: 28px;" style-hover="background: #BB9440; color: #0B0F16; text-decoration: none;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Join Founders After Hours</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="1b" data-screen-label="Summit — mobile" style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="display: inline-flex; border: 1px solid #C9A24C; color: #C9A24C; font-size: 11px; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 2px;">1b</span>
+        <span style="color: rgba(241,236,223,0.65); font-size: 13px;">Forge The Future — mobile 390</span>
+      </div>
+      <div style="width: 390px; background: #101B2D;">
+        <div style="background: #0B0F16; display: flex; align-items: flex-start; gap: 8px; padding: 9px 14px;">
+          <span style="font-size: 11.5px; line-height: 1.45; color: rgba(241,236,223,0.85); flex: 1;">Forge The Future · <span style="font-variant-numeric: tabular-nums;">Aug 10–20</span> — <a href="#1b" style="color: #C15A2C;">Save your seat →</a></span>
+          <button aria-label="Dismiss" style="background: none; border: none; color: rgba(241,236,223,0.5); font-size: 14px; font-family: inherit; cursor: pointer; padding: 0 2px;">×</button>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 60px; border-bottom: 1px solid rgba(241,236,223,0.1);">
+          <svg viewBox="0 0 4181 1320" role="img" aria-label="Ventriq" style="height: 24px; width: auto; display: block;">
+            <g transform="translate(120,880) scale(1,-1)">
+              <g fill="#F1ECDF">
+                <path transform="translate(0,0)" d="M253 0 28 700H95L304 37H316L525 700H592L367 0Z"></path>
+                <path transform="translate(610,0)" d="M312 -14Q237 -14 181.5 17.5Q126 49 95.0 106.0Q64 163 64 237V249Q64 324 95.0 380.5Q126 437 180.5 468.5Q235 500 305 500Q373 500 425.5 471.5Q478 443 508.0 389.5Q538 336 538 262V230H124Q127 139 179.5 89.5Q232 40 312 40Q380 40 417.5 71.0Q455 102 475 147L529 123Q514 90 487.5 58.5Q461 27 419.0 6.5Q377 -14 312 -14ZM125 282H477Q473 361 426.0 403.5Q379 446 305 446Q232 446 184.0 403.5Q136 361 125 282Z"></path>
+                <path transform="translate(1198,0)" d="M88 0V486H146V396H158Q176 435 217.0 465.5Q258 496 336 496Q389 496 433.0 474.0Q477 452 503.5 407.5Q530 363 530 296V0H470V292Q470 372 430.0 407.0Q390 442 323 442Q248 442 198.0 392.5Q148 343 148 243V0Z"></path>
+                <path transform="translate(1800,0)" d="M264 0Q225 0 205.5 20.0Q186 40 186 76V432H30V486H186V668H246V486H416V432H246V84Q246 54 276 54H390V0Z"></path>
+                <path transform="translate(2252,0)" d="M88 0V486H146V425H158Q172 458 199.5 473.0Q227 488 276 488H333V432H269Q214 432 181.0 401.0Q148 370 148 304V0Z"></path>
+                <path transform="translate(2611,0)" d="M88 0V486H148V0ZM118 570Q96 570 81.0 585.0Q66 600 66 622Q66 645 81.0 659.5Q96 674 118 674Q141 674 155.5 659.5Q170 645 170 622Q170 600 155.5 585.0Q141 570 118 570Z"></path>
+                <path transform="translate(2837,0)" d="M498 -200V85H486Q473 61 449.5 38.0Q426 15 389.0 0.5Q352 -14 298 -14Q233 -14 179.5 16.5Q126 47 95.0 103.5Q64 160 64 237V249Q64 327 95.5 383.0Q127 439 180.0 469.5Q233 500 298 500Q378 500 422.5 468.5Q467 437 488 397H500V486H558V-200ZM312 40Q395 40 446.5 93.0Q498 146 498 239V247Q498 340 446.5 393.0Q395 446 312 446Q230 446 178.0 393.0Q126 340 126 247V239Q126 146 178.0 93.0Q230 40 312 40Z"></path>
+              </g>
+              <path fill="#C9A24C" d="M3381 -60 L3941 -140 L3381 -220 Z"></path>
+            </g>
+          </svg>
+          <button aria-label="Menu" style="background: none; border: none; padding: 8px; cursor: pointer;"><svg width="22" height="14" viewBox="0 0 22 14"><line x1="0" y1="1" x2="22" y2="1" stroke="#F1ECDF" stroke-width="1.5"></line><line x1="0" y1="7" x2="22" y2="7" stroke="#F1ECDF" stroke-width="1.5"></line><line x1="6" y1="13" x2="22" y2="13" stroke="#F1ECDF" stroke-width="1.5"></line></svg></button>
+        </div>
+
+        <div style="position: relative; overflow: hidden;">
+          {{ corridorHeroM }}
+          <div style="position: relative; box-sizing: border-box; padding: 56px 20px 44px; display: flex; flex-direction: column; align-items: flex-start;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="display: block; width: 32px; height: 1px; background: #C9A24C;"></span>
+              <span style="font-variant: small-caps; font-variant-numeric: tabular-nums; letter-spacing: 0.1em; font-size: 11.5px; color: #C9A24C;">Forge The Future · a Ventriq summit · Aug 10–20 · virtual · free</span>
+            </div>
+            <h1 style="margin: 18px 0 0; font-size: 42px; line-height: 1.06; font-weight: 600; letter-spacing: -0.01em; color: #F1ECDF; display: flex; flex-direction: column;"><span>Not just education.</span><span>Implementation.</span></h1>
+            <svg width="220" height="8" viewBox="0 0 220 8" style="display: block; margin-top: 12px;" aria-hidden="true">
+              <line x1="0" y1="4" x2="210" y2="4" stroke="#C9A24C" stroke-width="1.5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" data-vqdraw="1" style="animation: vq-draw 0.7s cubic-bezier(0.23,1,0.32,1) 1s forwards;"></line>
+              <line x1="210.5" y1="0" x2="210.5" y2="8" stroke="#C9A24C" stroke-width="1" data-vqtick="1" style="animation-delay: 1.6s;"></line>
+            </svg>
+            <p style="margin: 16px 0 0; font-size: 16px; line-height: 1.6; color: rgba(241,236,223,0.85);">Eight nights across two weeks — one session a night, ninety minutes each. Each one pointed at something you can do the next morning.</p>
+            <a href="#1b" style="display: flex; justify-content: center; box-sizing: border-box; width: 100%; margin-top: 26px; background: #C9A24C; color: #0B0F16; font-size: 16px; font-weight: 600; padding: 15px 24px; border-radius: 2px; text-decoration: none;" style-hover="background: #BB9440; color: #0B0F16; text-decoration: none;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Save your free seat</a>
+            <span style="font-size: 12px; color: rgba(241,236,223,0.6); margin-top: 8px;">Registration runs on Luma — about a minute, free.</span>
+            <span style="font-size: 13px; line-height: 1.55; color: rgba(241,236,223,0.75); margin-top: 10px;">Free. Ninety minutes a night, Monday through Thursday. Replays live in Founders After Hours, the membership community.</span>
+            <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 28px;">
+              <span style="font-variant: small-caps; letter-spacing: 0.14em; font-size: 12px; color: rgba(241,236,223,0.55);">doors open in</span>
+              <span style="font-variant-numeric: tabular-nums; letter-spacing: 0.06em; font-size: 12px; color: rgba(241,236,223,0.75);">AUG 10–20 · 6:30–8:00 PM ET · ZOOM · FREE · T-[D]D.[H]H.[M]M</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #0B0F16; border-top: 1px solid rgba(201,162,76,0.35); border-bottom: 1px solid rgba(201,162,76,0.35); overflow: hidden; padding: 10px 0; white-space: nowrap;">
+          <div data-vqmarquee="1">
+            <span style="font-variant: small-caps; letter-spacing: 0.2em; font-size: 12.5px; color: #C9A24C; padding-right: 36px;">forged together · built to last · aug 10–20 · free · eight nights ·&nbsp;</span>
+            <span aria-hidden="true" style="font-variant: small-caps; letter-spacing: 0.2em; font-size: 12.5px; color: #C9A24C; padding-right: 36px;">forged together · built to last · aug 10–20 · free · eight nights ·&nbsp;</span>
+          </div>
+        </div>
+
+        <div style="position: relative; overflow: hidden; background: #101B2D; padding: 56px 20px; color: #F1ECDF;">
+          {{ sceneMarkB }}
+          {{ corridorSceneM }}
+          <div style="position: relative; display: flex; flex-direction: column; align-items: flex-start;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px 32px;">
+              <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-variant-numeric: tabular-nums; font-size: 46px; font-weight: 600; line-height: 1; color: #C9A24C;">{{ nNights }}</span><span style="font-size: 13.5px; color: rgba(241,236,223,0.75);">nights</span></div>
+              <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-variant-numeric: tabular-nums; font-size: 46px; font-weight: 600; line-height: 1; color: #C9A24C;">{{ nSessions }}</span><span style="font-size: 13.5px; color: rgba(241,236,223,0.75);">sessions</span></div>
+              <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-variant-numeric: tabular-nums; font-size: 46px; font-weight: 600; line-height: 1; color: #C9A24C;">{{ nMinutes }}</span><span style="font-size: 13.5px; color: rgba(241,236,223,0.75);">minutes a night</span></div>
+              <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-variant-numeric: tabular-nums; font-size: 46px; font-weight: 600; line-height: 1; color: #C9A24C;">{{ nWeeks }}</span><span style="font-size: 13.5px; color: rgba(241,236,223,0.75);">weeks</span></div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-top: 40px;">
+              <span style="font-size: 21px; font-weight: 600; animation: vq-fade 0.5s cubic-bezier(0.23,1,0.32,1) 0.3s both; animation-play-state: {{ scenePSB }};">Eight nights.</span>
+              <span style="font-size: 21px; font-weight: 600; animation: vq-fade 0.5s cubic-bezier(0.23,1,0.32,1) 0.85s both; animation-play-state: {{ scenePSB }};">One door.</span>
+              <span style="font-size: 21px; font-weight: 600; animation: vq-fade 0.5s cubic-bezier(0.23,1,0.32,1) 1.4s both; animation-play-state: {{ scenePSB }};">Walk through.</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #101B2D; border-top: 1px solid rgba(241,236,223,0.08); padding: 64px 20px; color: #F1ECDF;">
+          {{ maniMarkB }}
+          <p style="margin: 0; font-size: 23px; line-height: 1.55; font-weight: 500; text-wrap: pretty;">{{ manifestoB }}</p>
+        </div>
+
+        <div style="background: #F1ECDF; padding: 48px 20px; color: #0B0F16;">
+          <h2 style="margin: 0 0 24px; font-size: 30px; font-weight: 500; letter-spacing: -0.01em;">How it works</h2>
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 16px;"><span style="font-variant-numeric: tabular-nums; font-size: 30px; font-weight: 600; line-height: 1; color: #C9A24C;">1</span><span style="font-size: 17px; font-weight: 600;">Save your free seat.</span><span style="font-size: 15px; line-height: 1.6; color: rgba(11,15,22,0.78);">Takes a minute on Luma. Your confirmation email carries the calendar invite; add it before you forget.</span></div>
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 16px;"><span style="font-variant-numeric: tabular-nums; font-size: 30px; font-weight: 600; line-height: 1; color: #C9A24C;">2</span><span style="font-size: 17px; font-weight: 600;">Show up live.</span><span style="font-size: 15px; line-height: 1.6; color: rgba(11,15,22,0.78);">Monday through Thursday nights, 6:30–8:00 PM ET, for two weeks. Seventy percent teaching, thirty percent your questions. Then Friday through Sunday — go build with it.</span></div>
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; border-top: 1px solid rgba(11,15,22,0.15); padding-top: 16px;"><span style="font-variant-numeric: tabular-nums; font-size: 30px; font-weight: 600; line-height: 1; color: #C9A24C;">3</span><span style="font-size: 17px; font-weight: 600;">Keep the room.</span><span style="font-size: 15px; line-height: 1.6; color: rgba(11,15,22,0.78);">Founders After Hours holds every replay 24 hours after each session, along with speaker office hours and the founders you met in the chat. Membership from $39/month.</span></div>
+          </div>
+        </div>
+
+        <div style="background: #101B2D; padding: 56px 20px; color: #F1ECDF;">
+          <h2 style="margin: 0; font-size: 30px; font-weight: 500; letter-spacing: -0.01em;">The 2026 speakers</h2>
+          <p style="margin: 12px 0 0; font-size: 15.5px; line-height: 1.6; color: rgba(241,236,223,0.82);">The full lineup lands <span style="display: inline-block; border: 1px dashed rgba(241,236,223,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(241,236,223,0.55);">[ANNOUNCE-DATE]</span>. Thirty-plus builders, operators, and funders — no professional motivators.</p>
+          <a href="#1b" style="display: inline-block; font-size: 15px; font-weight: 600; margin-top: 14px;">Get the speaker announcement →</a>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 28px;">
+            <sc-for list="{{ pendingSpeakersM }}" as="sp" hint-placeholder-count="9">
+              <div style="position: relative; height: 108px; border: 1px solid rgba(241,236,223,0.13); border-radius: 2px;">
+                <svg viewBox="0 0 100 100" style="position: absolute; top: 42%; left: 50%; transform: translate(-50%,-50%); width: 44px; height: 44px;" aria-hidden="true"><circle cx="50" cy="32" r="13" fill="none" stroke="rgba(241,236,223,0.25)" stroke-width="1"></circle><path d="M18 88 C30 60, 70 60, 82 88" fill="none" stroke="rgba(241,236,223,0.25)" stroke-width="1"></path></svg>
+                <span style="position: absolute; left: 8px; bottom: 7px; font-variant: small-caps; font-variant-numeric: tabular-nums; letter-spacing: 0.1em; font-size: 10.5px; color: rgba(241,236,223,0.6);">speaker {{ sp.nn }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <span style="display: block; margin-top: 12px; font-variant-numeric: tabular-nums; font-size: 12.5px; color: rgba(241,236,223,0.55);">+ the wall grows to thirty-plus</span>
+        </div>
+
+        <div style="background: #F1ECDF; padding: 48px 20px; color: #0B0F16;">
+          <h2 style="margin: 0 0 20px; font-size: 30px; font-weight: 500; letter-spacing: -0.01em;">Two weeks, mapped</h2>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 6px;"><span style="display: block; width: 24px; height: 1px; background: #C9A24C;"></span><span style="font-variant: small-caps; letter-spacing: 0.14em; font-size: 12.5px; color: rgba(11,15,22,0.6);">week one</span></div>
+          <div style="border-top: 1px solid rgba(11,15,22,0.2); padding: 14px 0; display: flex; flex-direction: column; gap: 4px;"><span style="font-variant-numeric: tabular-nums; font-size: 13.5px; font-weight: 600; color: #AF5026;">Mon Aug 10</span><span style="font-size: 15px; line-height: 1.5;"><span style="font-weight: 600;">The Weight and the Vision</span> — a fireside conversation on leading from the inside out <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(11,15,22,0.55);">[SPEAKERS]</span></span></div>
+          <div style="border-top: 1px solid rgba(11,15,22,0.12); padding: 14px 0; display: flex; flex-direction: column; gap: 4px;"><span style="font-variant-numeric: tabular-nums; font-size: 13.5px; font-weight: 600; color: #AF5026;">Tue Aug 11</span><span style="font-size: 15px; line-height: 1.5;"><span style="font-weight: 600;">The Art of Desire</span> — building a brand that commands the room <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(11,15,22,0.55);">[SPEAKERS]</span></span></div>
+          <div style="border-top: 1px solid rgba(11,15,22,0.12); padding: 14px 0; display: flex; flex-direction: column; gap: 4px;"><span style="font-variant-numeric: tabular-nums; font-size: 13.5px; font-weight: 600; color: #AF5026;">Wed Aug 12</span><span style="font-size: 15px; line-height: 1.5;"><span style="font-weight: 600;">Renowned</span> — the art of influence, press &amp; becoming a movement <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(11,15,22,0.55);">[SPEAKERS]</span></span></div>
+          <div style="border-top: 1px solid rgba(11,15,22,0.12); border-bottom: 1px solid rgba(11,15,22,0.2); padding: 14px 0; display: flex; flex-direction: column; gap: 4px;"><span style="font-variant-numeric: tabular-nums; font-size: 13.5px; font-weight: 600; color: #AF5026;">Thu Aug 13</span><span style="font-size: 15px; line-height: 1.5;"><span style="font-weight: 600;">The Rainmaker's Craft</span> — turning passion into profit <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(11,15,22,0.55);">[SPEAKERS]</span></span></div>
+          <div style="border: 1px dashed rgba(11,15,22,0.25); border-radius: 2px; margin-top: 14px; padding: 9px 12px; display: flex; align-items: center; gap: 12px;"><span style="font-variant-numeric: tabular-nums; font-size: 12px; letter-spacing: 0.1em; color: rgba(11,15,22,0.55);">AUG 14–16</span><svg width="80" height="10" viewBox="0 0 80 10" aria-hidden="true"><line x1="0" y1="5" x2="80" y2="5" stroke="rgba(11,15,22,0.3)" stroke-width="1" stroke-dasharray="2 5"></line></svg></div>
+          <div style="display: flex; align-items: center; gap: 12px; margin: 22px 0 6px;"><span style="display: block; width: 24px; height: 1px; background: #C9A24C;"></span><span style="font-variant: small-caps; letter-spacing: 0.14em; font-size: 12.5px; color: rgba(11,15,22,0.6);">week two</span></div>
+          <div style="border-top: 1px solid rgba(11,15,22,0.2); padding: 14px 0; display: flex; flex-direction: column; gap: 4px;"><span style="font-variant-numeric: tabular-nums; font-size: 13.5px; font-weight: 600; color: #AF5026;">Mon Aug 17</span><span style="font-size: 15px; line-height: 1.5;"><span style="font-weight: 600;">The Modern Advantage</span> — tech, AI &amp; doing more with less <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(11,15,22,0.55);">[SPEAKERS]</span></span></div>
+          <div style="border-top: 1px solid rgba(11,15,22,0.12); padding: 14px 0; display: flex; flex-direction: column; gap: 4px;"><span style="font-variant-numeric: tabular-nums; font-size: 13.5px; font-weight: 600; color: #AF5026;">Tue Aug 18</span><span style="font-size: 15px; line-height: 1.5;"><span style="font-weight: 600;">Capital &amp; Command</span> — mastering business finances and funding <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(11,15,22,0.55);">[SPEAKERS]</span></span></div>
+          <div style="border-top: 1px solid rgba(11,15,22,0.12); padding: 14px 0; display: flex; flex-direction: column; gap: 4px;"><span style="font-variant-numeric: tabular-nums; font-size: 13.5px; font-weight: 600; color: #AF5026;">Wed Aug 19</span><span style="font-size: 15px; line-height: 1.5;"><span style="font-weight: 600;">The Endgame</span> — preparing for an exit before you need one <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(11,15,22,0.55);">[SPEAKERS]</span></span></div>
+          <div style="border-top: 1px solid rgba(11,15,22,0.12); border-bottom: 1px solid rgba(11,15,22,0.2); padding: 14px 0; display: flex; flex-direction: column; gap: 4px;"><span style="font-variant-numeric: tabular-nums; font-size: 13.5px; font-weight: 600; color: #AF5026;">Thu Aug 20</span><span style="font-size: 15px; line-height: 1.5;"><span style="font-weight: 600;">The End of the Beginning</span> — the real cost &amp; reward of building <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(11,15,22,0.55);">[SPEAKERS]</span></span></div>
+          <p style="margin: 20px 0 0; font-size: 15px; line-height: 1.6; color: rgba(11,15,22,0.8);">All sessions 6:30–8:00 PM ET. Fridays through Sundays are yours — go build with the week.</p>
+        </div>
+
+        <div style="background: #F1ECDF; padding: 0 20px 48px; color: #0B0F16;">
+          <div style="border-top: 1px solid rgba(11,15,22,0.15); padding-top: 32px;">
+            <h2 style="margin: 0 0 16px; font-size: 28px; font-weight: 500; letter-spacing: -0.01em;">Who it's for</h2>
+            <div style="border-top: 1px solid rgba(11,15,22,0.2); padding: 14px 0; display: flex; gap: 12px;"><span style="display: block; width: 12px; height: 1px; background: #C9A24C; flex-shrink: 0; margin-top: 12px;"></span><span style="font-size: 15.5px; line-height: 1.6;"><span style="font-weight: 600;">Small business owners</span> past the idea stage — there's revenue, customers, a real thing to grow.</span></div>
+            <div style="border-top: 1px solid rgba(11,15,22,0.12); padding: 14px 0; display: flex; gap: 12px;"><span style="display: block; width: 12px; height: 1px; background: #C9A24C; flex-shrink: 0; margin-top: 12px;"></span><span style="font-size: 15.5px; line-height: 1.6;"><span style="font-weight: 600;">Startup founders</span> from first traction to first raise, tired of advice that assumes a Stanford network.</span></div>
+            <div style="border-top: 1px solid rgba(11,15,22,0.12); border-bottom: 1px solid rgba(11,15,22,0.2); padding: 14px 0; display: flex; gap: 12px;"><span style="display: block; width: 12px; height: 1px; background: #C9A24C; flex-shrink: 0; margin-top: 12px;"></span><span style="font-size: 15.5px; line-height: 1.6;"><span style="font-weight: 600;">Nonprofit builders</span> who run their organization like founders, because they are.</span></div>
+            <p style="margin: 18px 0 0; font-size: 16px; font-weight: 600;">If you're serious, you belong here.</p>
+          </div>
+        </div>
+
+        <div style="background: #F1ECDF; padding: 0 20px 48px; color: #0B0F16;">
+          <div style="border-top: 1px solid rgba(11,15,22,0.15); padding-top: 32px;">
+            <p style="margin: 0; font-size: 17px; line-height: 1.65;">August is National Black Business Month, and every fall the big conferences arrive with big stages and bigger badges. This is the other thing: eight nights in the summer, ninety minutes at a time, where the point isn't who's in the room — it's what you do when you leave it. That's the whole Ventriq idea, in miniature.</p>
+            <span style="display: block; margin-top: 18px; font-size: 15.5px; font-weight: 600;">— Justin Shaw</span>
+            <span style="display: block; width: 48px; height: 1px; background: #C9A24C; margin-top: 10px;"></span>
+            <a href="#1b" style="display: inline-block; color: #AF5026; font-size: 15.5px; font-weight: 600; margin-top: 16px;">Read the full story →</a>
+          </div>
+        </div>
+
+        <div style="background: #F1ECDF; padding: 0 20px 48px; color: #0B0F16;">
+          <div style="background: #101B2D; border-radius: 2px; color: #F1ECDF;">
+            <div style="height: 2px; background: #C9A24C;"></div>
+            <div style="padding: 26px 22px 30px; display: flex; flex-direction: column; align-items: flex-start;">
+              <h2 style="margin: 0; font-size: 23px; font-weight: 500;">Put your name behind the builders</h2>
+              <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: rgba(241,236,223,0.82);">Summit sessions can be underwritten by companies and foundations that want to reach serious founders — visibly and usefully.</p>
+              <a href="#1b" style="display: flex; justify-content: center; box-sizing: border-box; width: 100%; margin-top: 18px; background: #C9A24C; color: #0B0F16; font-size: 15px; font-weight: 600; padding: 13px 20px; border-radius: 2px; text-decoration: none;" style-hover="background: #BB9440; color: #0B0F16; text-decoration: none;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Sponsor the Summit</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #F1ECDF; padding: 0 20px 56px; color: #0B0F16;">
+          <h2 style="margin: 0 0 18px; font-size: 28px; font-weight: 500; letter-spacing: -0.01em;">Questions, answered</h2>
+          <div style="display: flex; flex-direction: column;">
+            <details style="border-top: 1px solid rgba(11,15,22,0.2);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; cursor: pointer; list-style: none;"><span style="font-size: 16px; font-weight: 500;">What does it cost?</span><svg width="14" height="14" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 24px 16px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Nothing — the seat is free. Register on Luma and you're in every night live.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; cursor: pointer; list-style: none;"><span style="font-size: 16px; font-weight: 500;">What if I can't make a session live?</span><svg width="14" height="14" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 24px 16px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Every replay lands in Founders After Hours 24 hours after the session — that's the membership community, from $39/month. The live seat is the free one; save it and show up.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; cursor: pointer; list-style: none;"><span style="font-size: 16px; font-weight: 500;">How much time is this, honestly?</span><svg width="14" height="14" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 24px 16px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Ninety minutes a night, Monday through Thursday, for two weeks. Fridays through Sundays are yours. It's built for people running businesses, because you are.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; cursor: pointer; list-style: none;"><span style="font-size: 16px; font-weight: 500;">Who are the speakers?</span><svg width="14" height="14" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 24px 16px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Operators, builders, and funders — people who've done the thing they're teaching. Thirty-plus of them across the eight nights. Full lineup lands <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(11,15,22,0.55);">[ANNOUNCE-DATE]</span>.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; cursor: pointer; list-style: none;"><span style="font-size: 16px; font-weight: 500;">Will I be pitched?</span><svg width="14" height="14" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 24px 16px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Every session is seventy percent teaching, thirty percent questions. Nobody's selling you a course at the end. The only call-to-action you'll hear is Founders After Hours — and its price is on the label.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; cursor: pointer; list-style: none;"><span style="font-size: 16px; font-weight: 500;">What do I need?</span><svg width="14" height="14" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 24px 16px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Zoom, a notebook, and one real challenge in your business you want to move.</p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; cursor: pointer; list-style: none;"><span style="font-size: 16px; font-weight: 500;">Can I send my team?</span><svg width="14" height="14" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 24px 16px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Yes — registration is per person, so have them grab their own seats. <span style="display: inline-block; border: 1px dashed rgba(11,15,22,0.35); border-radius: 2px; padding: 1px 5px; font-size: 10px; color: rgba(11,15,22,0.55);">[⚠️ 02 v1.2 closes this answer with a stray pay-what-you-want sentence — stale per findings/12; dropped here, confirm the replacement line]</span></p>
+            </details>
+            <details style="border-top: 1px solid rgba(11,15,22,0.12); border-bottom: 1px solid rgba(11,15,22,0.2);">
+              <summary style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; cursor: pointer; list-style: none;"><span style="font-size: 16px; font-weight: 500;">What's Founders After Hours?</span><svg width="14" height="14" viewBox="0 0 16 16" data-faqmark="1" style="flex-shrink: 0;"><line x1="8" y1="1" x2="8" y2="15" stroke="#C9A24C" stroke-width="1.5"></line><line x1="1" y1="8" x2="15" y2="8" stroke="#C9A24C" stroke-width="1.5"></line></svg></summary>
+              <p style="margin: 0; padding: 0 24px 16px 0; font-size: 14.5px; line-height: 1.6; color: rgba(11,15,22,0.78);">Ventriq's working community: replays, office hours with advisors, webinars, and a monthly in-person hour where founders do the work together. <a href="#1b" style="font-weight: 600;">Read about it →</a></p>
+            </details>
+          </div>
+        </div>
+
+        <div style="position: relative; overflow: hidden; background: #101B2D; padding: 64px 20px; color: #F1ECDF;">
+          <div style="position: absolute; inset: 0; background: radial-gradient(360px 260px at 70% 30%, rgba(201,162,76,0.1), rgba(201,162,76,0) 70%);"></div>
+          <div style="position: relative; display: flex; flex-direction: column; align-items: flex-start;">
+            <h2 style="margin: 0; font-size: 32px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.15;">Eight nights. Two weeks. Your move.</h2>
+            <a href="#1b" style="display: flex; justify-content: center; box-sizing: border-box; width: 100%; margin-top: 26px; background: #C9A24C; color: #0B0F16; font-size: 16px; font-weight: 600; padding: 15px 24px; border-radius: 2px; text-decoration: none;" style-hover="background: #BB9440; color: #0B0F16; text-decoration: none;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Save your free seat</a>
+            <span style="font-variant-numeric: tabular-nums; font-size: 13px; color: rgba(241,236,223,0.75); margin-top: 12px;">Aug 10–20 · 6:30–8:00 PM ET · live on Zoom · free</span>
+          </div>
+        </div>
+
+        <div style="background: #101B2D; border-top: 1px solid rgba(241,236,223,0.1); padding: 44px 20px 30px; color: #F1ECDF;">
+          <svg viewBox="0 0 512 512" role="img" aria-label="Ventriq monogram" style="width: 30px; height: 30px; display: block;"><path fill="#F1ECDF" d="M81 97 L204.0 97 L256.0 373 L256.0 415 Z"></path><path fill="#C9A24C" d="M308.0 97 L431 97 L256.0 415 L256.0 373 Z"></path></svg>
+          <p style="margin: 14px 0 0; font-size: 14px; line-height: 1.6; color: rgba(241,236,223,0.75);">Ventriq (ven-TREEK) is a nonprofit equipping founders with capital, programming, and council — rooted in Baltimore, built to travel.</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 30px;">
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+              <span style="font-size: 12px; letter-spacing: 0.1em; color: rgba(241,236,223,0.5);">Pages</span>
+              <a href="#1b" style="color: rgba(241,236,223,0.85); font-size: 14.5px;" style-hover="color: #F1ECDF;">About</a>
+              <a href="#1b" style="color: rgba(241,236,223,0.85); font-size: 14.5px;" style-hover="color: #F1ECDF;">Contact</a>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+              <span style="font-size: 12px; letter-spacing: 0.1em; color: rgba(241,236,223,0.5);">Programs</span>
+              <a href="#1b" style="color: rgba(241,236,223,0.85); font-size: 14.5px;" style-hover="color: #F1ECDF;">The Summit</a>
+              <a href="#1b" style="color: rgba(241,236,223,0.85); font-size: 14.5px;" style-hover="color: #F1ECDF;">Founders After Hours</a>
+              <a href="#1b" style="color: rgba(241,236,223,0.85); font-size: 14.5px;" style-hover="color: #F1ECDF;">The Mastermind</a>
+            </div>
+          </div>
+          <span style="display: block; font-size: 14.5px; color: rgba(241,236,223,0.85); margin-top: 24px;">[EMAIL] · Baltimore, MD</span>
+          <span style="display: block; font-size: 15.5px; font-weight: 600; margin-top: 24px;">The Founder Digest</span>
+          <span style="display: block; font-size: 13px; line-height: 1.55; color: rgba(241,236,223,0.7); margin-top: 6px;">One useful email a week — what's working, what's funding, what's next.</span>
+          <input type="email" name="digest-m" placeholder="[EMAIL]" style="width: 100%; margin-top: 12px; background: rgba(241,236,223,0.05); border: 1px solid rgba(241,236,223,0.3); border-radius: 2px; padding: 12px 13px; font-family: inherit; font-size: 14px; color: #F1ECDF; outline: none; box-sizing: border-box;" style-focus="border-color: #C9A24C; box-shadow: 0 0 0 1px #C9A24C;">
+          <button type="button" style="width: 100%; margin-top: 10px; background: #C9A24C; color: #0B0F16; font-family: inherit; font-size: 14.5px; font-weight: 600; padding: 12px 16px; border-radius: 2px; border: none; cursor: pointer;" style-hover="background: #BB9440;" style-focus="outline: 2px solid #F1ECDF; outline-offset: 2px;">Send it to me</button>
+          <span style="display: block; font-size: 12px; color: rgba(241,236,223,0.55); margin-top: 8px;">No spam. Unsubscribe anytime.</span>
+          <span style="display: block; width: 100%; height: 1px; background: rgba(201,162,76,0.6); margin-top: 28px;"></span>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 14px;">
+            <span style="font-size: 12px; color: rgba(241,236,223,0.6);">© 2026 Ventriq. A nonprofit organization.</span>
+            <div style="display: flex; gap: 18px; flex-wrap: wrap;">
+              <a href="#1b" style="color: rgba(241,236,223,0.7); font-size: 12px;" style-hover="color: #F1ECDF;">Privacy</a>
+              <a href="#1b" style="color: rgba(241,236,223,0.7); font-size: 12px;" style-hover="color: #F1ECDF;">Contact</a>
+              <a href="#1b" style="color: rgba(241,236,223,0.7); font-size: 12px;" style-hover="color: #F1ECDF;">Press kit</a>
+              <a href="#1b" style="color: rgba(241,236,223,0.7); font-size: 12px;" style-hover="color: #F1ECDF;">Instagram</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;corridorIntensity&quot;: { &quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 0.6, &quot;min&quot;: 0.15, &quot;max&quot;: 1.2, &quot;step&quot;: 0.05, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Corridor lines&quot; },
+  &quot;drawIn&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Corridor lines&quot; }
+}">
+class Component extends DCLogic {
+  state = { sceneA: false, sceneB: false, sceneP: 0, maniA: 0, maniB: 0 };
+
+  buildCorridor(cfg) {
+    const { w, h, vx, vy, rays, intensity, animate, playState } = cfg;
+    const paths = [], ticks = [];
+    rays.forEach((r, i) => {
+      const [sx, sy, ext, op, tickTs] = r;
+      const dx = vx - sx, dy = vy - sy;
+      const st = animate ? { animation: 'vq-draw 1.1s cubic-bezier(0.23,1,0.32,1) ' + (100 + i * 70) + 'ms forwards' } : null;
+      if (st && playState) st.animationPlayState = playState;
+      paths.push(React.createElement('path', {
+        key: 'p' + i, d: 'M ' + sx + ' ' + sy + ' L ' + (vx + dx * ext) + ' ' + (vy + dy * ext),
+        stroke: '#C9A24C', strokeWidth: 1, fill: 'none', pathLength: 1, strokeDasharray: 1,
+        strokeDashoffset: animate ? 1 : 0, opacity: Math.min(1, op * intensity), 'data-vqdraw': '1', style: st
+      }));
+      (tickTs || []).forEach((t, j) => {
+        const px = sx + dx * t, py = sy + dy * t;
+        const len = Math.hypot(dx, dy) || 1, nx = -dy / len, ny = dx / len, L = 4.5;
+        const ts = animate ? { animationDelay: (750 + i * 70) + 'ms', animationDuration: '0.4s' } : null;
+        if (ts && playState) ts.animationPlayState = playState;
+        ticks.push(React.createElement('line', {
+          key: 't' + i + '-' + j, x1: px - nx * L, y1: py - ny * L, x2: px + nx * L, y2: py + ny * L,
+          stroke: '#C9A24C', strokeWidth: 1, opacity: Math.min(1, 0.9 * intensity), 'data-vqtick': '1', style: ts
+        }));
+      });
+    });
+    const ms = animate ? { animationDelay: '1150ms' } : null;
+    if (ms && playState) ms.animationPlayState = playState;
+    const marker = React.createElement('g', { key: 'vp', 'data-vqtick': '1', opacity: Math.min(1, 0.95 * intensity), style: ms },
+      React.createElement('circle', { cx: vx, cy: vy, r: 2.2, fill: '#C9A24C' }),
+      React.createElement('line', { x1: vx - 11, y1: vy, x2: vx - 5, y2: vy, stroke: '#C9A24C', strokeWidth: 1 }),
+      React.createElement('line', { x1: vx + 5, y1: vy, x2: vx + 11, y2: vy, stroke: '#C9A24C', strokeWidth: 1 }),
+      React.createElement('line', { x1: vx, y1: vy - 11, x2: vx, y2: vy - 5, stroke: '#C9A24C', strokeWidth: 1 }),
+      React.createElement('line', { x1: vx, y1: vy + 5, x2: vx, y2: vy + 11, stroke: '#C9A24C', strokeWidth: 1 }));
+    return React.createElement('div', { style: { position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden' }, 'aria-hidden': true },
+      React.createElement('div', { style: { position: 'absolute', inset: 0, background: 'radial-gradient(640px 440px at ' + (vx / w * 100) + '% ' + (vy / h * 100) + '%, rgba(201,162,76,0.10), rgba(201,162,76,0) 70%)' } }),
+      React.createElement('svg', { viewBox: '0 0 ' + w + ' ' + h, style: { position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block' } }, paths.concat(ticks, [marker])));
+  }
+
+  grainEl() {
+    return React.createElement('div', { 'aria-hidden': true, style: { position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.5,
+      backgroundImage: "url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22120%22%20height=%22120%22%3E%3Cfilter%20id=%22n%22%3E%3CfeTurbulence%20type=%22fractalNoise%22%20baseFrequency=%220.85%22%20numOctaves=%222%22/%3E%3C/filter%3E%3Crect%20width=%22120%22%20height=%22120%22%20filter=%22url(%23n)%22%20opacity=%220.07%22/%3E%3C/svg%3E')" } });
+  }
+
+  marker(key) {
+    return React.createElement('div', { ref: (el) => { this['el_' + key] = el; }, style: { width: '1px', height: '1px' }, 'aria-hidden': true });
+  }
+
+  manifesto(progress) {
+    const words = "Every August, the stages get bigger and the badges get pricier. This is the other thing. Eight nights in the summer. Ninety minutes at a time. People who've built, telling you exactly how — and a room that keeps the receipts. The resources are out there. For two weeks, they're not camouflaged.".split(' ');
+    const lit = Math.round(progress * words.length);
+    return words.map((w, i) => React.createElement('span', {
+      key: i,
+      style: { color: i < lit ? '#F1ECDF' : 'rgba(201,162,76,0.38)', transition: 'color 0.35s cubic-bezier(0.23,1,0.32,1)' }
+    }, w + (i < words.length - 1 ? ' ' : '')));
+  }
+
+  componentDidMount() {
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) { this.setState({ sceneA: true, sceneB: true, sceneP: 1, maniA: 1, maniB: 1 }); return; }
+    const tick = () => {
+      const vh = window.innerHeight;
+      ['sceneA', 'sceneB'].forEach((k) => {
+        if (this.state[k]) return;
+        const el = this['el_' + (k === 'sceneA' ? 'scA' : 'scB')];
+        if (!el) return;
+        const r = el.getBoundingClientRect();
+        if (r.top < vh * 0.85 && r.top > -vh) {
+          this.setState({ [k]: true });
+          if (!this._cntStart) {
+            this._cntStart = performance.now();
+            const cnt = (now) => {
+              const p = Math.min(1, (now - this._cntStart) / 1100);
+              this.setState({ sceneP: 1 - Math.pow(1 - p, 3) });
+              if (p < 1) requestAnimationFrame(cnt);
+            };
+            requestAnimationFrame(cnt);
+          }
+        }
+      });
+      [['maniA', 'mA'], ['maniB', 'mB']].forEach(([k, ek]) => {
+        const el = this['el_' + ek];
+        if (!el) return;
+        const r = el.getBoundingClientRect();
+        const p = Math.max(0, Math.min(1, (vh * 0.85 - r.top) / (vh * 0.6)));
+        if (Math.abs(p - this.state[k]) > 0.02) this.setState({ [k]: p });
+      });
+      this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+  }
+
+  componentWillUnmount() { if (this._raf) cancelAnimationFrame(this._raf); }
+
+  renderVals() {
+    const intensity = this.props.corridorIntensity ?? 0.6;
+    const animate = this.props.drawIn ?? true;
+    const p = this.state.sceneP;
+    const heroRays = [
+      [-60, -40, 0.42, 0.55, [0.45]], [200, -60, 0.3, 0.35, []], [0, 140, 0.55, 0.4, []],
+      [0, 330, 0.4, 0.7, [0.34, 0.62]], [0, 530, 0.5, 0.38, []], [-40, 730, 0.42, 0.6, [0.52]],
+      [460, 770, 0.36, 0.42, []], [940, 790, 0.3, 0.55, [0.58]]
+    ];
+    const stateRays = [
+      [-50, -30, 0.4, 0.5, [0.45]], [0, 120, 0.5, 0.4, []], [0, 300, 0.4, 0.65, [0.4]], [-30, 520, 0.42, 0.45, [0.55]], [400, 560, 0.32, 0.4, []]
+    ];
+    const speakers = [];
+    for (let i = 1; i <= 15; i++) speakers.push({ nn: (i < 10 ? '0' : '') + i });
+    return {
+      corridorHero: this.buildCorridor({ w: 1440, h: 700, vx: 1060, vy: 340, rays: heroRays, intensity, animate }),
+      corridorHeroM: this.buildCorridor({ w: 390, h: 720, vx: 322, vy: 190, intensity: intensity * 0.9, animate, rays: [
+        [-30, -30, 0.35, 0.55, [0.48]], [0, 100, 0.45, 0.4, []], [-20, 380, 0.32, 0.65, [0.5]], [0, 600, 0.36, 0.38, []], [130, 750, 0.3, 0.5, [0.55]]
+      ] }),
+      corridorC: this.buildCorridor({ w: 1100, h: 480, vx: 830, vy: 230, rays: stateRays, intensity: intensity * 0.9, animate }),
+      corridorD: this.buildCorridor({ w: 1100, h: 440, vx: 830, vy: 210, rays: stateRays, intensity: intensity * 0.75, animate }),
+      corridorE: this.buildCorridor({ w: 1100, h: 440, vx: 830, vy: 210, rays: stateRays, intensity: intensity * 0.75, animate }),
+      corridorScene: this.buildCorridor({ w: 1280, h: 520, vx: 1010, vy: 280, intensity: intensity * 0.9, animate, playState: this.state.sceneA ? 'running' : 'paused', rays: [
+        [-40, -30, 0.4, 0.5, [0.45]], [0, 150, 0.5, 0.42, []], [0, 360, 0.42, 0.68, [0.38, 0.64]], [-30, 560, 0.44, 0.4, [0.52]], [520, 590, 0.34, 0.5, []]
+      ] }),
+      corridorSceneM: this.buildCorridor({ w: 390, h: 520, vx: 330, vy: 150, intensity: intensity * 0.8, animate, playState: this.state.sceneB ? 'running' : 'paused', rays: [
+        [-20, -20, 0.35, 0.5, [0.45]], [0, 200, 0.4, 0.6, [0.5]], [-15, 420, 0.34, 0.4, []], [120, 540, 0.3, 0.48, [0.55]]
+      ] }),
+      grain1: this.grainEl(), grain2: this.grainEl(), grain3: this.grainEl(), grain4: this.grainEl(),
+      sceneMarkA: this.marker('scA'), sceneMarkB: this.marker('scB'),
+      maniMarkA: this.marker('mA'), maniMarkB: this.marker('mB'),
+      scenePSA: this.state.sceneA ? 'running' : 'paused',
+      scenePSB: this.state.sceneB ? 'running' : 'paused',
+      nNights: String(Math.round(8 * p)), nSessions: String(Math.round(8 * p)),
+      nMinutes: String(Math.round(90 * p)), nWeeks: String(Math.round(2 * p)),
+      manifestoA: this.manifesto(this.state.maniA),
+      manifestoB: this.manifesto(this.state.maniB),
+      pendingSpeakers: speakers,
+      pendingSpeakersRest: speakers.slice(1),
+      pendingSpeakersM: speakers.slice(0, 9)
+    };
+  }
+}
+</script>
+</body>
+</html>
