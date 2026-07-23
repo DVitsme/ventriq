@@ -1,65 +1,84 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: { absolute: "Ventriq — capital, programming & council for founders" },
+  alternates: { canonical: "/" },
+};
+
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ventriq.io/#org",
+      name: "Ventriq",
+      url: "https://ventriq.io",
+      description:
+        "A Baltimore-rooted nonprofit equipping founders with capital, programming, and council.",
+      email: "jshaw@ventriq.io",
+      areaServed: "US",
+      sameAs: [
+        "https://www.instagram.com/ventriqofficial",
+        "https://luma.com/user/Ventriqofficial",
+        "https://www.iamjs.io",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ventriq.io/#website",
+      url: "https://ventriq.io",
+      name: "Ventriq",
+      publisher: { "@id": "https://ventriq.io/#org" },
+    },
+  ],
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+    <main className="mx-auto max-w-[960px] px-5 py-20 md:px-20 md:py-32">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+      />
+      <p className="text-sm tracking-[0.15em] text-gold [font-variant:small-caps]">
+        ven-treek · a nonprofit for founders
+      </p>
+      <h1 className="mt-6 max-w-[21ch] text-4xl font-medium leading-[1.08] tracking-[-0.015em] md:text-6xl">
+        The resources are out there. They&rsquo;re just camouflaged.
+      </h1>
+      <p className="mt-8 max-w-[52ch] text-lg leading-relaxed text-cream/85">
+        Ventriq points the way in: capital, programming, and council for small
+        business owners, startups, and nonprofits doing the real work — every
+        serious founder welcome, with a focus on the builders the old models
+        overlook.
+      </p>
+      <div className="mt-10 flex flex-wrap items-center gap-6">
+        <a
+          href="https://luma.com/lp9z8iav"
+          className="rounded-[2px] bg-gold px-6 py-4 font-semibold text-ink hover:bg-gold-hover"
+        >
+          Register for the Summit
+        </a>
+        <a href="/summit" className="text-accent hover:underline">
+          Forge The Future · Aug 10–20 →
+        </a>
+      </div>
+      <footer className="mt-24 border-t border-cream/15 pt-6 text-sm text-cream/60">
+        <p>
+          Ventriq (ven-TREEK) is a nonprofit equipping founders with capital,
+          programming, and council — rooted in Baltimore, built to travel.
+        </p>
+        <p className="mt-2">
+          jshaw@ventriq.io · Baltimore, MD ·{" "}
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="https://www.instagram.com/ventriqofficial"
+            className="text-accent hover:underline"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+            Instagram
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        </p>
+        <p className="mt-2">© 2026 Ventriq. A nonprofit organization.</p>
+      </footer>
+    </main>
   );
 }
