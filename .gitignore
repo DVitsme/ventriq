@@ -32,3 +32,9 @@ pnpm-debug.log*
 # supabase local artifacts
 supabase/.temp/
 supabase/.branches/
+
+# cloudflare / opennext
+.open-next/
+.wrangler/
+.dev.vars
+cloudflare-env.d.ts
