@@ -2,6 +2,10 @@
 
 Next.js 16 marketing site for Ventriq (Baltimore nonprofit for founders). App code lives at the repo root (`app/`, `public/`); all project intelligence lives in `docs/`.
 
+## PROGRESS.md — the client-facing work log (root)
+
+**Standing rule: when meaningful work completes, add it to `PROGRESS.md` in the same turn** — newest-first under today's date, plain language a non-technical client (Justin) can read ("set up hosting," "fixed email so it doesn't go to spam"), one line per accomplishment. It is the source for client updates; exhaustive but never jargon-heavy.
+
 ## TODO.md — the living skipped/deferred list (root)
 
 **Standing rule: whenever a task is raised but not fully handled** — flagged to the user, deferred, partially done, or blocked on someone else — **add it to `TODO.md` in the same turn**, under the right level (🔴 time-sensitive / 🟠 important / 🟡 watch), with the date, why it matters, and the exact unblock condition. When an item completes, move it to the ✅ Done log with the date — never silently delete. Check TODO.md at the start of substantive sessions; surface anything 🔴 that has gone stale.
