@@ -51,6 +51,12 @@ important, not yet blocking · 🟡 watch / later.
   link in the description · claim `luma.com/ventriq` · align "How did you
   hear" options to `docs/utm-registry.md` · re-export the 4 typo'd speaker
   cards · claim LinkedIn `/company/ventriq`.
+- [ ] **Founder Digest field in the footer** — canonical footer includes the
+  newsletter field; shipped without it (a dead form is worse than none).
+  Lands with the Phase 3 newsletter server action. *(Deferred Jul 23.)*
+- [ ] **Privacy page + footer link** — legal-page set (privacy naming GA4 +
+  Resend + Supabase) not yet written; footer ships Contact + Instagram only
+  until then. *(Deferred Jul 23.)*
 - [ ] **Calendar-util unit tests** — `lib/calendar.ts` drives all seven state
   machines; boundary tests (ET flips, Aug 14–16 gap, post-Aug-20) before the
   Summit page ships (Phase 2 gate).

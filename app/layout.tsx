@@ -23,12 +23,19 @@ export const metadata: Metadata = {
   },
 };
 
+import { TopChrome } from "@/components/chrome";
+import { Footer } from "@/components/footer";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={spaceGrotesk.className}>
-      <body className="bg-midnight text-cream antialiased">{children}</body>
+      <body className="bg-midnight text-cream antialiased">
+        <TopChrome />
+        {children}
+        <Footer />
+      </body>
       {process.env.NODE_ENV === "production" && (
         <GoogleAnalytics gaId="G-T0FTLZC27P" />
       )}

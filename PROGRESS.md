@@ -5,6 +5,14 @@ first. Written so it can be pasted straight into a client update for Justin.
 
 ## July 23, 2026
 
+**Site navigation and structure live.** Every page now has the real header
+(announcement bar that changes with the event calendar, navigation, the
+registration button that opens Luma right on the page) and footer; all six
+pages exist at their final addresses — home and summit in full starter form,
+the others as clean single-screen previews with real copy. The 404 page got
+its brand treatment. Registration clicks are now tracked by placement
+(homepage vs summit vs nav) for channel reporting.
+
 **The site is live.** https://ventriq.io now serves a real (starter) version of
 the site — homepage + summit page with the event details, registration link,
 and everything search engines need to start finding it. The full designed site

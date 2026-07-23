@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import { Eyebrow } from "@/components/primitives";
+import { LumaRegisterButton } from "@/components/luma-register-button";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: { absolute: "Ventriq — capital, programming & council for founders" },
@@ -40,9 +44,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
       />
-      <p className="text-sm tracking-[0.15em] text-gold [font-variant:small-caps]">
-        ven-treek · a nonprofit for founders
-      </p>
+      <Eyebrow>ven-treek · a nonprofit for founders</Eyebrow>
       <h1 className="mt-6 max-w-[21ch] text-4xl font-medium leading-[1.08] tracking-[-0.015em] md:text-6xl">
         The resources are out there. They&rsquo;re just camouflaged.
       </h1>
@@ -53,32 +55,13 @@ export default function Home() {
         overlook.
       </p>
       <div className="mt-10 flex flex-wrap items-center gap-6">
-        <a
-          href="https://luma.com/lp9z8iav"
-          className="rounded-[2px] bg-gold px-6 py-4 font-semibold text-ink hover:bg-gold-hover"
-        >
+        <LumaRegisterButton ctaLocation="home-hero">
           Register for the Summit
-        </a>
+        </LumaRegisterButton>
         <a href="/summit" className="text-accent hover:underline">
           Forge The Future · Aug 10–20 →
         </a>
       </div>
-      <footer className="mt-24 border-t border-cream/15 pt-6 text-sm text-cream/60">
-        <p>
-          Ventriq (ven-TREEK) is a nonprofit equipping founders with capital,
-          programming, and council — rooted in Baltimore, built to travel.
-        </p>
-        <p className="mt-2">
-          jshaw@ventriq.io · Baltimore, MD ·{" "}
-          <a
-            href="https://www.instagram.com/ventriqofficial"
-            className="text-accent hover:underline"
-          >
-            Instagram
-          </a>
-        </p>
-        <p className="mt-2">© 2026 Ventriq. A nonprofit organization.</p>
-      </footer>
     </main>
   );
 }

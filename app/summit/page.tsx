@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import { Eyebrow } from "@/components/primitives";
+import { LumaRegisterButton } from "@/components/luma-register-button";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: {
@@ -51,9 +55,7 @@ export default function SummitPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
       />
-      <p className="text-sm tracking-[0.15em] text-gold [font-variant:small-caps]">
-        forge the future · a Ventriq summit · Aug 10–20 · virtual · free
-      </p>
+      <Eyebrow>forge the future · a Ventriq summit · Aug 10–20 · virtual · free</Eyebrow>
       <h1 className="mt-6 text-4xl font-medium leading-[1.08] tracking-[-0.015em] md:text-6xl">
         Not just education. Implementation.
       </h1>
@@ -66,12 +68,9 @@ export default function SummitPage() {
         Forged together. Built to last.
       </p>
       <div className="mt-10 flex flex-wrap items-center gap-6">
-        <a
-          href="https://luma.com/lp9z8iav"
-          className="rounded-[2px] bg-gold px-6 py-4 font-semibold text-ink hover:bg-gold-hover"
-        >
+        <LumaRegisterButton ctaLocation="summit-hero">
           Save your free seat
-        </a>
+        </LumaRegisterButton>
         <span className="text-sm text-cream/60">
           Registration runs on Luma — about a minute, free.
         </span>
@@ -100,22 +99,11 @@ export default function SummitPage() {
       </p>
 
       <div className="mt-16">
-        <a
-          href="https://luma.com/lp9z8iav"
-          className="rounded-[2px] bg-gold px-6 py-4 font-semibold text-ink hover:bg-gold-hover"
-        >
+        <LumaRegisterButton ctaLocation="summit-final">
           Save your free seat
-        </a>
+        </LumaRegisterButton>
       </div>
 
-      <footer className="mt-24 border-t border-cream/15 pt-6 text-sm text-cream/60">
-        <p>
-          <a href="/" className="text-accent hover:underline">
-            ← Ventriq
-          </a>{" "}
-          · presented by Ventriq, a nonprofit for founders · Baltimore, MD
-        </p>
-      </footer>
     </main>
   );
 }
