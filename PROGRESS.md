@@ -5,6 +5,14 @@ first. Written so it can be pasted straight into a client update for Justin.
 
 ## July 23, 2026
 
+**Forms engine + automated quality gates written and staged.** The entire
+backend for the three forms (newsletter with confirm-your-email flow,
+contact, chapter interest) is code-complete — spam protection, rate
+limiting, the database tables, notification emails to Justin — waiting
+only on two security keys to switch on. And the site now has an automated
+test suite: 40 calendar-logic tests (passing), accessibility scans for
+every page, and performance budgets that run on every change.
+
 **All six pages now built in full — the whole site is real.** Mastermind
 (the acceptance-letter page: who it's for, the three pillars diagram, the
 plain-stated format spec sheet, application steps, Justin's letter, FAQ),

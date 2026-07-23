@@ -61,8 +61,26 @@ important, not yet blocking · 🟡 watch / later.
   the Jul 23 stress test (all pass, incl. the opening-day fix) but lives
   outside the repo; port it to a committed Playwright/vitest spec as the
   Phase 2 gate.
+- [x] ~~QA harness activation~~ *(done Jul 23 — deps installed, banners removed, 40/40 vitest green; first `pnpm e2e` run still pending: needs a local preview run + will surface real a11y findings)*
+- [ ] **First e2e + lhci run** — `pnpm add -D vitest
+  @playwright/test @axe-core/playwright @lhci/cli` + add scripts test/e2e,
+  then wire qa.yml (written Jul 23, agent). First run will surface real
+  violations to fix.
+  - Activation must also delete the `// @ts-nocheck` banner at the top of
+    `vitest.config.ts`, `playwright.config.ts`, `tests/calendar.test.ts`, and
+    `e2e/*.spec.ts` — it's there so `next build`'s typecheck (tsconfig
+    includes `**/*.ts`) stays green while the QA deps are absent.
 
 ## 🟡 Watch / later
+
+- [ ] **lib/calendar.ts seams (QA-agent findings, Jul 23):** (a) on session
+  nights 8 PM–midnight the announcement bar still says "is live — tonight"
+  while the agenda row already shows replay — day-granularity is deliberate,
+  but consider a post-8PM string variant before Aug 10; (b) `etDateString`'s
+  fixed -04:00 breaks for any NEW caller after Nov 1 2026 (EST) — safe today
+  only via early returns; (c) navCta's Sept 30 mastermind-close is a
+  placeholder — the test suite pins it so the real [APP-DEADLINE] forces an
+  update; (d) LINEUP_ANNOUNCED flip = source edit + redeploy (fine, planned).
 
 - [ ] **Cloudflare AI-crawler defaults change again Sept 15, 2026**
   (allow-search / block-training becomes the default) — re-audit AI Crawl

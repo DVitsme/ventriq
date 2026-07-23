@@ -1,0 +1,30 @@
+{
+  "ci": {
+    "collect": {
+      "numberOfRuns": 3,
+      "startServerCommand": "pnpm preview",
+      "startServerReadyPattern": "Ready on",
+      "startServerReadyTimeout": 180000,
+      "url": [
+        "http://localhost:8787/",
+        "http://localhost:8787/summit",
+        "http://localhost:8787/founders-after-hours"
+      ]
+    },
+    "assert": {
+      "preset": "lighthouse:recommended",
+      "assertions": {
+        "categories:performance": ["error", { "minScore": 0.95 }],
+        "categories:accessibility": ["error", { "minScore": 1 }],
+        "largest-contentful-paint": ["error", { "maxNumericValue": 2000 }],
+        "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
+        "total-blocking-time": ["error", { "maxNumericValue": 200 }],
+        "resource-summary:script:size": ["error", { "maxNumericValue": 250000 }],
+        "resource-summary:font:size": ["error", { "maxNumericValue": 120000 }]
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}

@@ -4,12 +4,12 @@ import type { NextConfig } from "next";
 // nonce CSP forces every page dynamic. Revisit when the webapp phase lands.
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://embed.lu.ma",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://embed.lu.ma https://challenges.cloudflare.com",
   "style-src 'self' 'unsafe-inline' https://embed.lu.ma",
   "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com",
   "img-src 'self' https://*.google-analytics.com https://www.googletagmanager.com https://embed.lu.ma https://images.lumacdn.com data:",
   "font-src 'self'",
-  "frame-src https://lu.ma https://luma.com",
+  "frame-src https://lu.ma https://luma.com https://challenges.cloudflare.com",
   "base-uri 'self'",
   "form-action 'self'",
 ].join("; ");

@@ -1,0 +1,60 @@
+# QA gate — unit (vitest) → e2e/a11y (Playwright + axe) → Lighthouse CI budgets.
+#
+# NOTE: deploys are Workers Builds' job (connected in the Cloudflare dashboard,
+# Jul 23) — this workflow never builds-to-publish anything; it only gates.
+#
+# Dormant until activation (TODO.md → "QA harness written, needs activation"):
+# the QA devDependencies must land first (`pnpm add -D vitest @playwright/test
+# @axe-core/playwright @lhci/cli`) or every step below fails. Expect the first
+# real run to surface genuine violations to fix, not to be green.
+
+name: QA
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: qa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 20
+
+      - uses: pnpm/action-setup@v4
+        with:
+          # package.json has no "packageManager" field, so the action can't
+          # auto-detect; lockfileVersion 9.0 == pnpm 10 locally.
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          # Floor is 22: supabase-js dropped Node 20 on Jun 30, 2026 (TODO.md).
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Unit — calendar/agenda boundary matrix
+        run: pnpm vitest run
+
+      - name: Install Playwright browser (chromium only — all three projects run on it)
+        run: pnpm exec playwright install --with-deps chromium
+
+      # playwright.config.ts starts the server itself: `pnpm preview` builds
+      # via OpenNext and serves the real workerd runtime on :8787.
+      - name: E2E — smoke + axe a11y
+        run: pnpm exec playwright test
+
+      # Budgets are advisory until the first clean pass (real violations are
+      # expected on run #1 — see TODO.md). Drop continue-on-error once green
+      # so regressions actually gate.
+      - name: Lighthouse CI
+        run: pnpm exec lhci autorun
+        continue-on-error: true
