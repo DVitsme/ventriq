@@ -5,6 +5,13 @@ first. Written so it can be pasted straight into a client update for Justin.
 
 ## July 23, 2026
 
+**Homepage built in full** — the complete designed page is live: the
+corridor-line hero, the facts band, the three staggered program cards
+(Summit / community / Mastermind with real dates and pricing), the
+"One structure. Three doors." drawn diagram, Justin's letter with photo
+slot, three founder quotes, and the sponsor section. Animations layer on
+next; the page reads finished today.
+
 **Stress-tested the new chrome and fixed five findings** — the event
 "clock" now treats opening day correctly all day (hero and banner agree),
 the announcement banner is visible to search engines and doesn't shift the
