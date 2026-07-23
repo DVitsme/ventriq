@@ -57,9 +57,10 @@ important, not yet blocking · 🟡 watch / later.
 - [ ] **Privacy page + footer link** — legal-page set (privacy naming GA4 +
   Resend + Supabase) not yet written; footer ships Contact + Instagram only
   until then. *(Deferred Jul 23.)*
-- [ ] **Calendar-util unit tests** — `lib/calendar.ts` drives all seven state
-  machines; boundary tests (ET flips, Aug 14–16 gap, post-Aug-20) before the
-  Summit page ships (Phase 2 gate).
+- [ ] **Calendar-util tests → formalize** — a 10-case boundary suite ran in
+  the Jul 23 stress test (all pass, incl. the opening-day fix) but lives
+  outside the repo; port it to a committed Playwright/vitest spec as the
+  Phase 2 gate.
 
 ## 🟡 Watch / later
 

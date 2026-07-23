@@ -5,6 +5,13 @@ first. Written so it can be pasted straight into a client update for Justin.
 
 ## July 23, 2026
 
+**Stress-tested the new chrome and fixed five findings** — the event
+"clock" now treats opening day correctly all day (hero and banner agree),
+the announcement banner is visible to search engines and doesn't shift the
+page, the registration overlay's styles are no longer blocked by our
+security policy, the sitemap lists all six pages, and banner links were
+recolored to meet accessibility contrast. Verified live after deploy.
+
 **Site navigation and structure live.** Every page now has the real header
 (announcement bar that changes with the event calendar, navigation, the
 registration button that opens Luma right on the page) and footer; all six
