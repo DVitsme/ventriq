@@ -5,6 +5,11 @@ first. Written so it can be pasted straight into a client update for Justin.
 
 ## July 23, 2026
 
+**Forms infrastructure switched on in production** — security keys
+installed on the server, the database tables created and verified, spam
+protection configured. One item left before the forms appear on the site:
+creating the newsletter audience list (2 minutes) and mounting the forms.
+
 **Forms engine + automated quality gates written and staged.** The entire
 backend for the three forms (newsletter with confirm-your-email flow,
 contact, chapter interest) is code-complete — spam protection, rate

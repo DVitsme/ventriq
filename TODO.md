@@ -37,12 +37,12 @@ important, not yet blocking · 🟡 watch / later.
 - [ ] **Sentry project + DSN** — account/project creation is dashboard-side;
   once a DSN exists, `@sentry/cloudflare` wiring is a small PR (our compat
   date already qualifies). Until then: Workers Logs only.
-- [ ] **Turnstile site + secret keys** — create in the Cloudflare dashboard
-  before Phase 3 (forms). Secret goes in via `wrangler secret put
-  TURNSTILE_SECRET_KEY`; site key into env as `NEXT_PUBLIC_TURNSTILE_SITE_KEY`.
-- [ ] **Production secrets** — `wrangler secret put` for RESEND_API_KEY,
-  SUPABASE_SECRET_KEY (+ Turnstile above) when Phase 3 server actions land;
-  mirror build-needed vars into Workers Builds "Build variables and secrets."
+- [ ] **Forms go-live, two steps left:** (1) create the Resend **Audience**
+  (dashboard → Audiences → "Founder Digest") → put its id in env as
+  RESEND_AUDIENCE_ID + `wrangler secret put RESEND_AUDIENCE_ID`; (2) mount
+  the three built form components (footer / contact card / FAH your-city) —
+  20-minute wiring pass. Also mirror NEXT_PUBLIC_TURNSTILE_SITE_KEY into
+  Workers Builds "Build variables and secrets" so CI builds inline it.
 - [ ] **DMARC report address** — the imported `_dmarc` record sends aggregate
   reports (`rua=`) to a third-party mailbox from the GoDaddy era
   ("onsec…"). Decide who should actually receive DMARC reports and update.
