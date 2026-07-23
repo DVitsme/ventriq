@@ -14,10 +14,12 @@ export function AnnouncementBar({
   state: AnnouncementState;
   nightTitle?: string;
 }) {
-  const [dismissed, setDismissed] = useState(true); // avoid flash; reveal after mount
+  // SSR-visible (crawlers/no-JS see it; no layout shift on load). Users who
+  // dismissed get a brief flash on next visit — the right trade vs CLS-for-all.
+  const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
-    setDismissed(localStorage.getItem(`vq-announce-${state}`) === "1");
+    if (localStorage.getItem(`vq-announce-${state}`) === "1") setDismissed(true);
   }, [state]);
 
   if (dismissed) return null;
@@ -36,7 +38,7 @@ export function AnnouncementBar({
             <span className="[font-variant-numeric:tabular-nums]">Aug 10–20</span>{" "}
             —{" "}
           </span>
-          <a href={LUMA_URL} className="text-accent hover:underline">
+          <a href={LUMA_URL} className="text-gold hover:underline">
             Save your seat →
           </a>
         </>
@@ -45,7 +47,7 @@ export function AnnouncementBar({
         <>
           <span aria-hidden className="mr-2 inline-block size-1.5 bg-gold align-middle" />
           Forge The Future is live — tonight: {nightTitle}, 6:30 PM ET{" "}
-          <a href={LUMA_URL} className="text-accent hover:underline">
+          <a href={LUMA_URL} className="text-gold hover:underline">
             →
           </a>
         </>
@@ -53,7 +55,7 @@ export function AnnouncementBar({
       {state === "post" && (
         <>
           Missed the summit? Every replay lives in{" "}
-          <a href="/founders-after-hours" className="text-accent hover:underline">
+          <a href="/founders-after-hours" className="text-gold hover:underline">
             Founders After Hours →
           </a>
         </>

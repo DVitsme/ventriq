@@ -47,7 +47,10 @@ export function isLiveNow(now: Date): boolean {
 
 export function eventPhase(now: Date): EventPhase {
   if (now > EVENT_END) return "post";
-  if (now < EVENT_START) return LINEUP_ANNOUNCED ? "announced" : "pre";
+  // "pre" ends at ET midnight of opening day — a session DAY is State C
+  // all day (hero shows "tonight… Live in"), matching the announcement bar.
+  if (etDateString(now) < NIGHTS[0].date)
+    return LINEUP_ANNOUNCED ? "announced" : "pre";
   // Inside the range: session day or between?
   return nightOf(now) ? "live-night" : "between";
 }

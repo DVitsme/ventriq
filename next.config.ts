@@ -5,9 +5,9 @@ import type { NextConfig } from "next";
 const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://embed.lu.ma",
-  "style-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline' https://embed.lu.ma",
   "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com",
-  "img-src 'self' https://*.google-analytics.com https://www.googletagmanager.com data:",
+  "img-src 'self' https://*.google-analytics.com https://www.googletagmanager.com https://embed.lu.ma https://images.lumacdn.com data:",
   "font-src 'self'",
   "frame-src https://lu.ma https://luma.com",
   "base-uri 'self'",
