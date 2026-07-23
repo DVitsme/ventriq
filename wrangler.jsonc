@@ -4,6 +4,12 @@
   "name": "ventriq",
   "compatibility_date": "2026-03-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "workers_dev": false,
+  "preview_urls": true,
+  "routes": [
+    { "pattern": "ventriq.io", "custom_domain": true },
+    { "pattern": "www.ventriq.io", "custom_domain": true }
+  ],
   "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
   "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "ventriq" }],
   "images": { "binding": "IMAGES" },
