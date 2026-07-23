@@ -37,12 +37,12 @@ important, not yet blocking · 🟡 watch / later.
 - [ ] **Sentry project + DSN** — account/project creation is dashboard-side;
   once a DSN exists, `@sentry/cloudflare` wiring is a small PR (our compat
   date already qualifies). Until then: Workers Logs only.
-- [ ] **Forms go-live, two steps left:** (1) create the Resend **Audience**
-  (dashboard → Audiences → "Founder Digest") → put its id in env as
-  RESEND_AUDIENCE_ID + `wrangler secret put RESEND_AUDIENCE_ID`; (2) mount
-  the three built form components (footer / contact card / FAH your-city) —
-  20-minute wiring pass. Also mirror NEXT_PUBLIC_TURNSTILE_SITE_KEY into
-  Workers Builds "Build variables and secrets" so CI builds inline it.
+- [ ] **Forms: one human test submission** — automated verification stops
+  at the bot-gate (correctly!). Derrick: submit the contact form once,
+  confirm "Got it." renders + the notification lands at jshaw@ventriq.io,
+  and try the footer Digest signup end-to-end (confirm email → /confirm).
+- [ ] Mirror NEXT_PUBLIC_TURNSTILE_SITE_KEY into Workers Builds "Build
+  variables and secrets" so git-triggered builds inline it.
 - [ ] **DMARC report address** — the imported `_dmarc` record sends aggregate
   reports (`rua=`) to a third-party mailbox from the GoDaddy era
   ("onsec…"). Decide who should actually receive DMARC reports and update.

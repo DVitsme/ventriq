@@ -5,6 +5,13 @@ first. Written so it can be pasted straight into a client update for Justin.
 
 ## July 23, 2026
 
+**All three forms are LIVE on the site** — newsletter signup in the footer
+(with confirm-your-email flow), the full contact form, and the chapter
+interest form on the community page. Spam protection verified working in
+production: an automated test submission was correctly blocked by the
+human-check, exactly as designed. One human test submission will confirm
+the final step (the notification email to jshaw@ventriq.io).
+
 **Forms infrastructure switched on in production** — security keys
 installed on the server, the database tables created and verified, spam
 protection configured. One item left before the forms appear on the site:

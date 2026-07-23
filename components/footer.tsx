@@ -1,6 +1,7 @@
 import { Monogram } from "./monogram";
 import { RedlineChip } from "./primitives";
 import { EMAIL } from "@/content/placeholders";
+import { NewsletterForm } from "./newsletter-form";
 
 /** Canonical footer (Global System 1b), minus the Founder Digest field —
  *  that arrives with the Phase 3 newsletter action (tracked in TODO.md).
@@ -45,6 +46,9 @@ export function Footer() {
             <a href={`mailto:${EMAIL}`} className="hover:text-cream">{EMAIL}</a>{" "}
             · Baltimore, MD
           </p>
+          <div className="mt-7">
+            <NewsletterForm source="footer" />
+          </div>
         </div>
       </div>
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">

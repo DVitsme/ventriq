@@ -19,16 +19,16 @@ import { TurnstileField } from "./turnstile-field";
 const initialState: FormState = { status: "idle" };
 
 const inputClass =
-  "mt-1.5 w-full rounded-[2px] border border-cream/30 bg-cream/10 px-3.5 py-2.5 text-[15px] text-cream placeholder:text-cream/40";
+  "mt-1.5 w-full rounded-[2px] border border-ink/30 bg-cream px-3.5 py-2.5 text-[15px] text-ink placeholder:text-ink/40";
 // Solid ground on the select so the dropdown list inherits midnight, not alpha.
 const selectClass =
-  "mt-1.5 w-full rounded-[2px] border border-cream/30 bg-midnight px-3.5 py-2.5 text-[15px] text-cream";
-const labelClass = "block text-sm font-medium text-cream/75";
+  "mt-1.5 w-full rounded-[2px] border border-ink/30 bg-cream px-3.5 py-2.5 text-[15px] text-ink";
+const labelClass = "block text-sm font-medium text-ink/75";
 
 function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) return null;
   return (
-    <p id={id} className="mt-1.5 border-l-2 border-accent pl-2 text-[13px] text-cream/90">
+    <p id={id} className="mt-1.5 border-l-2 border-accent-deep pl-2 text-[13px] text-ink/85">
       {message}
     </p>
   );
@@ -67,25 +67,25 @@ export function ContactForm({ defaultTopic }: { defaultTopic?: ContactSubject })
     errors[name]?.message ?? state.fieldErrors?.[name]?.[0];
 
   return (
-    <section className="rounded-[2px] border border-cream/20 border-t-2 border-t-gold px-7 py-6">
+    <section className="">
       {state.status === "success" ? (
         <div>
-          <h2 className="text-2xl font-medium text-cream">Got it.</h2>
-          <p className="mt-2 max-w-[52ch] text-[15.5px] leading-relaxed text-cream/85">
+          <h2 className="text-2xl font-medium text-ink">Got it.</h2>
+          <p className="mt-2 max-w-[52ch] text-[15.5px] leading-relaxed text-ink/78">
             A real person reads every one — expect a reply within two business
             days.
           </p>
-          <p className="mt-4 text-[15.5px] leading-relaxed text-cream/85">
+          <p className="mt-4 text-[15.5px] leading-relaxed text-ink/78">
             While you&rsquo;re here: the Summit is free and the
             community&rsquo;s open.
           </p>
           <p className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
-            <a href="/summit" className="font-medium text-gold hover:underline">
+            <a href="/summit" className="font-medium text-accent-deep hover:underline">
               Register for the Summit →
             </a>
             <a
               href="/founders-after-hours"
-              className="font-medium text-gold hover:underline"
+              className="font-medium text-accent-deep hover:underline"
             >
               Join Founders After Hours →
             </a>
@@ -198,9 +198,9 @@ export function ContactForm({ defaultTopic }: { defaultTopic?: ContactSubject })
             {pending ? "Sending…" : "Send it"}
           </button>
 
-          <p className="mt-4 text-sm text-cream/60">
+          <p className="mt-4 text-sm text-ink/60">
             Prefer email?{" "}
-            <a href={`mailto:${EMAIL}`} className="text-cream/85 hover:text-cream">
+            <a href={`mailto:${EMAIL}`} className="text-accent-deep hover:underline">
               {EMAIL}
             </a>
           </p>
@@ -212,7 +212,7 @@ export function ContactForm({ defaultTopic }: { defaultTopic?: ContactSubject })
         role="status"
         className={
           state.status === "error" && state.message
-            ? "mt-4 border-l-2 border-accent pl-2 text-[13.5px] text-cream/90"
+            ? "mt-4 border-l-2 border-accent pl-2 text-[13.5px] text-ink/90"
             : "sr-only"
         }
       >

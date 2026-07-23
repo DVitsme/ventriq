@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Eyebrow, RedlineChip, PhotoGrade } from "@/components/primitives";
+import { ChapterForm } from "@/components/chapter-form";
 
 export const dynamic = "force-dynamic";
 
@@ -256,10 +257,9 @@ export default function FahPage() {
               steps up. Organizers get training, the format, and the brand —
               and a room full of builders who show up.
             </p>
-            <p className="mt-4">
-              <a href="/contact" className="font-medium text-accent-deep hover:underline">Raise your hand →</a>{" "}
-              <RedlineChip onCream>FORM/EMAIL</RedlineChip>
-            </p>
+            <div className="mt-5">
+              <ChapterForm />
+            </div>
           </article>
         </div>
       </section>

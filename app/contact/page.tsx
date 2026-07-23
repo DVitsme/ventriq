@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { RedlineChip } from "@/components/primitives";
+import { ContactForm } from "@/components/contact-form";
 import { EMAIL } from "@/content/placeholders";
 
 export const dynamic = "force-dynamic";
@@ -29,8 +30,6 @@ export default async function ContactPage({
   searchParams: Promise<{ topic?: string }>;
 }) {
   const { topic } = await searchParams;
-  const topicDefault =
-    topic === "sponsorship" ? "Sponsorship & partnerships" : "";
 
   return (
     <main className="bg-cream text-ink">
@@ -48,59 +47,9 @@ export default async function ContactPage({
           </p>
         </div>
 
-        {/* Form card — UI shell only; the server action lands in Phase 3 */}
+        {/* Form card — live (Phase 3 wired) */}
         <div className="rounded-[2px] border border-ink/18 border-t-2 border-t-gold bg-cream px-6 py-7 md:px-9 md:py-8">
-          <form className="grid gap-5">
-            <div className="grid gap-5 sm:grid-cols-2">
-              <label className="grid gap-2">
-                <span className="text-sm text-ink/70">Your name</span>
-                <input type="text" name="name" className={field} />
-              </label>
-              <label className="grid gap-2">
-                <span className="text-sm text-ink/70">Your email</span>
-                <input type="email" name="email" className={field} />
-              </label>
-            </div>
-            <label className="grid gap-2">
-              <span className="text-sm text-ink/70">
-                What&rsquo;s this about?
-              </span>
-              <select name="topic" defaultValue={topicDefault} className={field}>
-                <option value="" disabled>
-                  Pick one
-                </option>
-                {TOPICS.map((t) => (
-                  <option key={t}>{t}</option>
-                ))}
-              </select>
-            </label>
-            <label className="grid gap-2">
-              <span className="text-sm text-ink/70">Your message</span>
-              <textarea
-                name="message"
-                rows={5}
-                className={`${field} resize-y`}
-              />
-            </label>
-            <button
-              type="submit"
-              disabled
-              aria-disabled="true"
-              title="Form goes live with the full site — email us meanwhile"
-              className="w-fit rounded-[2px] bg-gold px-6 py-[15px] font-semibold leading-none text-ink disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              Send it
-            </button>
-          </form>
-          <p className="mt-5 border-t border-ink/12 pt-4 text-[15.5px] text-ink/78">
-            Prefer email?{" "}
-            <a
-              href={`mailto:${EMAIL}`}
-              className="font-semibold text-accent-deep hover:underline"
-            >
-              {EMAIL}
-            </a>
-          </p>
+          <ContactForm defaultTopic={topic === "sponsorship" ? "sponsorship" : undefined} />
         </div>
       </section>
 
