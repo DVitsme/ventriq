@@ -28,3 +28,7 @@ pnpm-debug.log*
 # from create-next-app scaffold
 /coverage
 .pnp.*
+
+# supabase local artifacts
+supabase/.temp/
+supabase/.branches/
