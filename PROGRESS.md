@@ -5,6 +5,13 @@ first. Written so it can be pasted straight into a client update for Justin.
 
 ## July 23, 2026
 
+**Founders After Hours page built in full** — tally-mark hero, the three
+role cards, the mapped hour (7:00 brief / 7:15 the hour / 8:15 the tally /
+8:30 the room), the "board doesn't lie" pull-quote, both membership tiers
+($39 digital, in-person pending Justin's price confirm), the
+starts-at-zero board, what's-inside, Baltimore + your-city chapter cards,
+FAQ, and the closing call.
+
 **Summit page built in full** — the flagship: a hero that changes itself
 with the calendar (tonight's session title on live nights, "Go build."
 on the off-weekend, replay mode after Aug 20), the scrolling tagline
