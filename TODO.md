@@ -7,12 +7,11 @@ important, not yet blocking · 🟡 watch / later.
 
 ## 🔴 Time-sensitive
 
-- [ ] **Workspace DKIM** — SPF is fixed (Jul 23), but there's no
-  `google._domainkey` record and DMARC is `p=quarantine`, so Justin's outbound
-  Gmail still risks spam/quarantine at strict receivers. **Unblock:** Google
-  Admin console → Apps → Google Workspace → Gmail → Authenticate email →
-  Generate key → paste the TXT value here/to Claude → gets added via the DNS
-  API in one call. *(Raised Jul 23.)*
+- [ ] **DKIM: click "Start authentication"** — the 2048-bit key was generated
+  and the `google._domainkey` TXT record is live in DNS (verified resolving).
+  Final step: back in Google Admin → Gmail → Authenticate email, press
+  **Start authentication** so Google verifies the record and begins signing
+  outbound mail. 30 seconds. *(Record added Jul 23.)*
 - [ ] **Google Workspace trial billing** — the Ventriq Workspace was created
   Jul 10 on a 14-day trial → **bills ~Jul 24 (now)**. Card on file or the
   ventriq.io mailboxes stop. Google for Nonprofits (free) only after the
@@ -84,6 +83,9 @@ important, not yet blocking · 🟡 watch / later.
 
 ## ✅ Done (moved from above)
 
+- [x] *Jul 23* — **DKIM record added**: 2048-bit `google._domainkey` TXT
+  created via DNS API, verified resolving (only the Start-authentication
+  click remains, tracked above).
 - [x] *Jul 23* — **Apex SPF fixed**: added `include:_spf.google.com` via DNS
   API (was GoDaddy-forwarding-only under `p=quarantine`).
 - [x] *Jul 23* — **Workers Builds connected** (Derrick, dashboard).

@@ -17,8 +17,9 @@ replaces it on the same links around Aug 1.
   (www redirects to the main address).
 - **Protected email deliverability** — found that mail from jshaw@ventriq.io
   was at risk of landing in spam (missing authentication). Fixed the SPF
-  record; one 2-minute step remains on Justin's side (DKIM — instructions
-  provided) to finish it.
+  record and installed the DKIM signing key (2048-bit) in DNS — the full
+  SPF + DKIM + DMARC chain is in place once "Start authentication" is
+  clicked in the Google admin panel.
 - **Email sending set up** — Resend (our email service) connected with
   ventriq.io verified as the sending domain; confirmation and newsletter
   emails will come from jshaw@ventriq.io.
