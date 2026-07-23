@@ -7,11 +7,6 @@ important, not yet blocking · 🟡 watch / later.
 
 ## 🔴 Time-sensitive
 
-- [ ] **DKIM: click "Start authentication"** — the 2048-bit key was generated
-  and the `google._domainkey` TXT record is live in DNS (verified resolving).
-  Final step: back in Google Admin → Gmail → Authenticate email, press
-  **Start authentication** so Google verifies the record and begins signing
-  outbound mail. 30 seconds. *(Record added Jul 23.)*
 - [ ] **Google Workspace trial billing** — the Ventriq Workspace was created
   Jul 10 on a 14-day trial → **bills ~Jul 24 (now)**. Card on file or the
   ventriq.io mailboxes stop. Google for Nonprofits (free) only after the
@@ -83,9 +78,9 @@ important, not yet blocking · 🟡 watch / later.
 
 ## ✅ Done (moved from above)
 
-- [x] *Jul 23* — **DKIM record added**: 2048-bit `google._domainkey` TXT
-  created via DNS API, verified resolving (only the Start-authentication
-  click remains, tracked above).
+- [x] *Jul 23* — **Email authentication COMPLETE**: SPF fixed + 2048-bit DKIM
+  record added via DNS API + Start-authentication clicked in Google Admin —
+  jshaw@ventriq.io now passes SPF/DKIM/DMARC end to end.
 - [x] *Jul 23* — **Apex SPF fixed**: added `include:_spf.google.com` via DNS
   API (was GoDaddy-forwarding-only under `p=quarantine`).
 - [x] *Jul 23* — **Workers Builds connected** (Derrick, dashboard).

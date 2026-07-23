@@ -6,6 +6,10 @@ Next.js 16 marketing site for Ventriq (Baltimore nonprofit for founders). App co
 
 **Standing rule: when meaningful work completes, add it to `PROGRESS.md` in the same turn** — newest-first under today's date, plain language a non-technical client (Justin) can read ("set up hosting," "fixed email so it doesn't go to spam"), one line per accomplishment. It is the source for client updates; exhaustive but never jargon-heavy.
 
+## TODO-JUSTIN.md — the client's task list (root)
+
+**Standing rule: anything only Justin can do goes in `TODO-JUSTIN.md`, not TODO.md** — plain language, why-it-matters + time estimate per item, urgency tiers, ✅ log when he completes things. Update it the same turn a Justin-dependency appears or resolves; it doubles as the "here's where we need you" half of client updates (PROGRESS.md is the "here's what's done" half).
+
 ## TODO.md — the living skipped/deferred list (root)
 
 **Standing rule: whenever a task is raised but not fully handled** — flagged to the user, deferred, partially done, or blocked on someone else — **add it to `TODO.md` in the same turn**, under the right level (🔴 time-sensitive / 🟠 important / 🟡 watch), with the date, why it matters, and the exact unblock condition. When an item completes, move it to the ✅ Done log with the date — never silently delete. Check TODO.md at the start of substantive sessions; surface anything 🔴 that has gone stale.

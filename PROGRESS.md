@@ -15,11 +15,13 @@ replaces it on the same links around Aug 1.
 - **Connected ventriq.io to the new site** — moved the domain's DNS to
   Cloudflare, cleaned out leftover GoDaddy records, and attached the domain
   (www redirects to the main address).
-- **Protected email deliverability** — found that mail from jshaw@ventriq.io
-  was at risk of landing in spam (missing authentication). Fixed the SPF
-  record and installed the DKIM signing key (2048-bit) in DNS — the full
-  SPF + DKIM + DMARC chain is in place once "Start authentication" is
-  clicked in the Google admin panel.
+- **Email deliverability fully secured** — found that mail from
+  jshaw@ventriq.io was at risk of landing in spam (missing authentication).
+  Fixed the SPF record, installed the 2048-bit DKIM signing key in DNS, and
+  authentication was activated in Google Admin — the full SPF + DKIM + DMARC
+  chain now passes end to end.
+- **Created Justin's task list** (`TODO-JUSTIN.md`) — everything only he can
+  do, in plain language with time estimates, kept current as the build moves.
 - **Email sending set up** — Resend (our email service) connected with
   ventriq.io verified as the sending domain; confirmation and newsletter
   emails will come from jshaw@ventriq.io.
