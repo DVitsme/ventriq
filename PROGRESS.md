@@ -5,6 +5,14 @@ first. Written so it can be pasted straight into a client update for Justin.
 
 ## July 23, 2026
 
+**Summit page built in full** — the flagship: a hero that changes itself
+with the calendar (tonight's session title on live nights, "Go build."
+on the off-weekend, replay mode after Aug 20), the scrolling tagline
+ribbon, the 8-nights stats band, the manifesto, how-it-works, the
+15-slot speaker wall awaiting the reveal, the full two-week agenda with
+live "tonight"/"replay" states, who-it's-for, Justin's letter, sponsor
+card, 8-question FAQ, and the closing call. Animations layer on next.
+
 **Homepage built in full** — the complete designed page is live: the
 corridor-line hero, the facts band, the three staggered program cards
 (Summit / community / Mastermind with real dates and pricing), the

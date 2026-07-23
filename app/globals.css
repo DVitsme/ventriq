@@ -19,3 +19,9 @@
   outline: 2px solid var(--color-gold);
   outline-offset: 2px;
 }
+
+/* Summit ticker — CSS-only marquee, motion-safe */
+@media (prefers-reduced-motion: no-preference) {
+  .vq-marquee { animation: vq-marquee 46s linear infinite; }
+  @keyframes vq-marquee { to { transform: translateX(-50%); } }
+}
