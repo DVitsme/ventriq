@@ -5,6 +5,14 @@ first. Written so it can be pasted straight into a client update for Justin.
 
 ## July 24, 2026
 
+- **The motion layer is live** — the site now draws itself: corridor lines
+  sweep to their vanishing point behind the homepage headline, the summit
+  title lands in two beats with its gold rule drawing beneath, tally marks
+  stroke in on the community page, the stats count up as you reach them,
+  and the summit manifesto lights word by word as you scroll. Every effect
+  respects "reduce motion" settings (verified) and the content is always
+  readable even with scripts off.
+
 - **Newsletter signup verified end to end** — footer signup → confirmation
   email → one click → subscriber stored in the "Founder Digest" audience,
   ready for the first broadcast. All three forms now proven with real

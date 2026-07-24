@@ -8,6 +8,7 @@ import {
   OutlineLink,
 } from "@/components/primitives";
 import { LumaRegisterButton } from "@/components/luma-register-button";
+import { Reveal } from "@/components/motion";
 import { EMAIL } from "@/content/placeholders";
 
 export const dynamic = "force-dynamic";
@@ -63,15 +64,15 @@ function CorridorRays() {
       fill="none"
     >
       {edges.map(([x, y], i) => (
-        <line key={i} x1={x} y1={y} x2={vp.x} y2={vp.y} stroke="#C9A24C" strokeWidth="0.75" />
+        <line key={i} className="vq-draw" pathLength={1} style={{ ["--vqd" as string]: `${i * 0.06}s` }} x1={x} y1={y} x2={vp.x} y2={vp.y} stroke="#C9A24C" strokeWidth="0.75" />
       ))}
       {/* dimension ticks on two rays */}
       <line x1="368" y1="216" x2="374" y2="228" stroke="#C9A24C" strokeWidth="1" />
       <line x1="704" y1="504" x2="712" y2="514" stroke="#C9A24C" strokeWidth="1" />
       {/* vanishing-point crosshair */}
-      <circle cx={vp.x} cy={vp.y} r="2.2" fill="#C9A24C" />
+      <circle className="vq-tick" cx={vp.x} cy={vp.y} r="2.2" fill="#C9A24C" />
       {[[-14, 0, -6, 0], [6, 0, 14, 0], [0, -14, 0, -6], [0, 6, 0, 14]].map(([a, b, c, d], i) => (
-        <line key={`c${i}`} x1={vp.x + a} y1={vp.y + b} x2={vp.x + c} y2={vp.y + d} stroke="#C9A24C" strokeWidth="1" />
+        <line key={`c${i}`} className="vq-tick" x1={vp.x + a} y1={vp.y + b} x2={vp.x + c} y2={vp.y + d} stroke="#C9A24C" strokeWidth="1" />
       ))}
     </svg>
   );
@@ -94,7 +95,7 @@ function ConvergenceDiagram() {
         [0, 230, "The Mastermind", 224],
       ].map(([x, y, label, ly], i) => (
         <g key={i}>
-          <line x1={x as number} y1={y as number} x2="510" y2="130" stroke="#C9A24C" strokeWidth="1" />
+          <line className="vq-draw" pathLength={1} style={{ ["--vqd" as string]: `${i * 0.18}s` }} x1={x as number} y1={y as number} x2="510" y2="130" stroke="#C9A24C" strokeWidth="1" />
           <text x="8" y={(ly as number) - 8} fill="#F1ECDF" fontSize="15">
             {label as string}
           </text>
@@ -110,12 +111,12 @@ function ConvergenceDiagram() {
       <line x1="510" y1="116" x2="510" y2="123" stroke="#C9A24C" strokeWidth="1" />
       <line x1="510" y1="137" x2="510" y2="144" stroke="#C9A24C" strokeWidth="1" />
       {/* doorway: jambs + 60% lintel + 2px threshold + exit arrow */}
-      <line x1="580" y1="55" x2="580" y2="205" stroke="#C9A24C" strokeWidth="1.5" />
-      <line x1="640" y1="55" x2="640" y2="205" stroke="#C9A24C" strokeWidth="1.5" />
+      <line className="vq-draw" pathLength={1} style={{ ["--vqd" as string]: "0.7s" }} x1="580" y1="55" x2="580" y2="205" stroke="#C9A24C" strokeWidth="1.5" />
+      <line className="vq-draw" pathLength={1} style={{ ["--vqd" as string]: "0.7s" }} x1="640" y1="55" x2="640" y2="205" stroke="#C9A24C" strokeWidth="1.5" />
       <line x1="580" y1="55" x2="640" y2="55" stroke="#C9A24C" strokeWidth="1" opacity="0.6" />
-      <line x1="572" y1="207" x2="648" y2="207" stroke="#C9A24C" strokeWidth="2" />
-      <line x1="640" y1="130" x2="692" y2="130" stroke="#C9A24C" strokeWidth="1" />
-      <path d="M692 130 l-9 -4.5 v9 Z" fill="#C9A24C" />
+      <line className="vq-draw" pathLength={1} style={{ ["--vqd" as string]: "0.7s" }} x1="572" y1="207" x2="648" y2="207" stroke="#C9A24C" strokeWidth="2" />
+      <line className="vq-draw" pathLength={1} style={{ ["--vqd" as string]: "0.7s" }} x1="640" y1="130" x2="692" y2="130" stroke="#C9A24C" strokeWidth="1" />
+      <path className="vq-tick" style={{ ["--vqd" as string]: "1.5s" }} d="M692 130 l-9 -4.5 v9 Z" fill="#C9A24C" />
     </svg>
   );
 }
@@ -131,19 +132,19 @@ export default function Home() {
       {/* S1 · Hero — midnight, asymmetric 5/7, corridor rays behind */}
       <section className="relative overflow-hidden bg-midnight">
         <CorridorRays />
-        <div className="relative mx-auto max-w-[1440px] px-5 py-24 md:px-20 md:py-36">
-          <Eyebrow>ven-treek · a nonprofit for founders</Eyebrow>
-          <h1 className="mt-6 max-w-[21ch] text-4xl font-medium leading-[1.08] tracking-[-0.015em] md:text-[60px]">
+        <div className="vq-hero relative mx-auto max-w-[1440px] px-5 py-24 md:px-20 md:py-36">
+          <div className="vq-in"><Eyebrow>ven-treek · a nonprofit for founders</Eyebrow></div>
+          <h1 style={{ ["--vqd" as string]: "0.15s" }} className="vq-in mt-6 max-w-[21ch] text-4xl font-medium leading-[1.08] tracking-[-0.015em] md:text-[60px]">
             The resources are out there. They&rsquo;re just camouflaged.
           </h1>
-          <p className="mt-8 max-w-[54ch] text-lg leading-relaxed text-cream/85">
+          <p style={{ ["--vqd" as string]: "0.6s" }} className="vq-in mt-8 max-w-[54ch] text-lg leading-relaxed text-cream/85">
             Ventriq points the way in: capital, programming, and council for
             small business owners, startups, and nonprofits doing the real work
             — every serious founder welcome, with a focus on the builders the
             old models overlook.{" "}
             <RedlineChip>COUNSEL-REVIEW</RedlineChip>
           </p>
-          <div className="mt-10 flex flex-wrap items-center gap-6">
+          <div style={{ ["--vqd" as string]: "0.95s" }} className="vq-in mt-10 flex flex-wrap items-center gap-6">
             <LumaRegisterButton ctaLocation="home-hero">
               Register for the Summit
             </LumaRegisterButton>
@@ -240,7 +241,7 @@ export default function Home() {
               has to choose which kind of help to go find alone.
             </p>
           </div>
-          <ConvergenceDiagram />
+          <Reveal><ConvergenceDiagram /></Reveal>
         </div>
       </section>
 

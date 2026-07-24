@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Eyebrow, RedlineChip, PhotoGrade } from "@/components/primitives";
 import { ChapterForm } from "@/components/chapter-form";
+import { CountUp } from "@/components/motion";
 
 export const dynamic = "force-dynamic";
 
@@ -26,10 +27,10 @@ function TallyMarks() {
       {groups.map((g, gi) => (
         <g key={gi} transform={`rotate(${g.r} ${g.x} ${g.y})`}>
           {Array.from({ length: Math.min(g.n, 4) }, (_, i) => (
-            <line key={i} x1={g.x + i * 14 + (i % 2)} y1={g.y + (i % 3)} x2={g.x + i * 14 - (i % 2)} y2={g.y + 56 - (i % 3)} stroke="#C9A24C" strokeWidth="2" strokeLinecap="round" />
+            <line key={i} className="vq-draw" pathLength={1} style={{ ["--vqd" as string]: `${gi * 0.48 + i * 0.095}s` }} x1={g.x + i * 14 + (i % 2)} y1={g.y + (i % 3)} x2={g.x + i * 14 - (i % 2)} y2={g.y + 56 - (i % 3)} stroke="#C9A24C" strokeWidth="2" strokeLinecap="round" />
           ))}
           {g.n === 5 && (
-            <line x1={g.x - 10} y1={g.y + 46} x2={g.x + 52} y2={g.y + 8} stroke="#C9A24C" strokeWidth="2" strokeLinecap="round" />
+            <line className="vq-draw" pathLength={1} style={{ ["--vqd" as string]: `${gi * 0.48 + 0.45}s` }} x1={g.x - 10} y1={g.y + 46} x2={g.x + 52} y2={g.y + 8} stroke="#C9A24C" strokeWidth="2" strokeLinecap="round" />
           )}
         </g>
       ))}
@@ -43,7 +44,7 @@ export default function FahPage() {
       {/* Hero — tally strokes, the one gesture; no ticker on this page */}
       <section className="relative overflow-hidden bg-midnight">
         <TallyMarks />
-        <div className="relative mx-auto max-w-[1440px] px-5 py-24 md:px-20 md:py-32">
+        <div className="vq-hero relative mx-auto max-w-[1440px] px-5 py-24 md:px-20 md:py-32">
           <Eyebrow>a Ventriq community · Baltimore first</Eyebrow>
           <h1 className="mt-6 max-w-[15ch] text-4xl font-medium leading-[1.08] tracking-[-0.015em] md:text-[60px]">
             Come do the work. We&rsquo;ll count it.

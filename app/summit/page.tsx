@@ -3,6 +3,7 @@ import { Eyebrow, RedlineChip } from "@/components/primitives";
 import { LumaRegisterButton } from "@/components/luma-register-button";
 import { NIGHTS, LUMA_URL } from "@/lib/agenda";
 import { eventPhase, nightOf, nextNight, agendaRowState } from "@/lib/calendar";
+import { CountUp, Reveal, ScrollLit } from "@/components/motion";
 
 export const dynamic = "force-dynamic";
 
@@ -36,7 +37,7 @@ function Rays() {
   return (
     <svg aria-hidden viewBox="0 0 1440 620" preserveAspectRatio="xMidYMid slice" className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.26]" fill="none">
       {edges.map(([x, y], i) => (
-        <line key={i} x1={x} y1={y} x2={vp.x} y2={vp.y} stroke="#C9A24C" strokeWidth="0.75" />
+        <line key={i} className="vq-draw" pathLength={1} style={{ ["--vqd" as string]: `${i * 0.07}s` }} x1={x} y1={y} x2={vp.x} y2={vp.y} stroke="#C9A24C" strokeWidth="0.75" />
       ))}
       <circle cx={vp.x} cy={vp.y} r="2.2" fill="#C9A24C" />
       {[[-14, 0, -6, 0], [6, 0, 14, 0], [0, -14, 0, -6], [0, 6, 0, 14]].map(([a, b, c, d], i) => (
@@ -111,18 +112,19 @@ function Hero() {
   // pre / announced (State A/B)
   return (
     <>
-      <Eyebrow>forge the future · aug 10–20, 2026 · virtual · free</Eyebrow>
+      <div className="vq-in"><Eyebrow>forge the future · aug 10–20, 2026 · virtual · free</Eyebrow></div>
       <h1 className="mt-6 text-4xl font-medium leading-[1.08] tracking-[-0.015em] md:text-[60px]">
-        Not just education. Implementation.
+        <span className="vq-in inline-block" style={{ ["--vqd" as string]: "0.15s" }}>Not just education.</span>{" "}
+        <span className="vq-in inline-block" style={{ ["--vqd" as string]: "0.65s" }}>Implementation.</span>
       </h1>
       <svg aria-hidden viewBox="0 0 440 8" className="mt-4 w-full max-w-[440px]" fill="none">
-        <line x1="0" y1="4" x2="440" y2="4" stroke="#C9A24C" strokeWidth="1.5" />
-        <line x1="440" y1="0" x2="440" y2="8" stroke="#C9A24C" strokeWidth="1.5" />
+        <line className="vq-draw" pathLength={1} style={{ ["--vqd" as string]: "1.15s" }} x1="0" y1="4" x2="440" y2="4" stroke="#C9A24C" strokeWidth="1.5" />
+        <line className="vq-tick" style={{ ["--vqd" as string]: "1.8s" }} x1="440" y1="0" x2="440" y2="8" stroke="#C9A24C" strokeWidth="1.5" />
       </svg>
-      <p className="mt-6 max-w-[54ch] text-lg leading-relaxed text-cream/85">
+      <p style={{ ["--vqd" as string]: "1.3s" }} className="vq-in mt-6 max-w-[54ch] text-lg leading-relaxed text-cream/85">
         Eight nights across two weeks — one session a night, ninety minutes each. Each one pointed at something you can do the next morning.
       </p>
-      <div className="mt-10 flex flex-wrap items-center gap-6">
+      <div style={{ ["--vqd" as string]: "1.7s" }} className="vq-in mt-10 flex flex-wrap items-center gap-6">
         <LumaRegisterButton ctaLocation="summit-hero">Save your free seat</LumaRegisterButton>
         <span className="text-sm text-cream/60">Registration runs on Luma — about a minute, free.</span>
       </div>
@@ -154,7 +156,7 @@ export default function SummitPage() {
       {/* Hero — state machine, rays behind */}
       <section className="relative overflow-hidden bg-midnight">
         <Rays />
-        <div className="relative mx-auto max-w-[1440px] px-5 py-24 md:px-20 md:py-32">
+        <div className="vq-hero relative mx-auto max-w-[1440px] px-5 py-24 md:px-20 md:py-32">
           <Hero />
         </div>
       </section>
@@ -178,9 +180,11 @@ export default function SummitPage() {
       {/* The shape of it — count-up band (static; NumberFlow in Phase 4) */}
       <section className="bg-midnight">
         <div className="mx-auto flex max-w-[1440px] flex-wrap gap-x-14 gap-y-8 px-5 py-16 md:px-20">
-          {[["8", "nights"], ["8", "sessions"], ["90", "minutes a night"], ["2", "weeks"]].map(([n, l]) => (
-            <div key={l}>
-              <p className="text-6xl font-semibold text-gold [font-variant-numeric:tabular-nums] md:text-[66px]">{n}</p>
+          {[[8, "nights"], [8, "sessions"], [90, "minutes a night"], [2, "weeks"]].map(([n, l]) => (
+            <div key={l as string}>
+              <p className="text-6xl font-semibold text-gold [font-variant-numeric:tabular-nums] md:text-[66px]">
+                <CountUp value={n as number} />
+              </p>
               <p className="mt-1 text-sm text-cream/70">{l}</p>
             </div>
           ))}
@@ -191,11 +195,7 @@ export default function SummitPage() {
       <section className="bg-midnight">
         <div className="mx-auto max-w-[1440px] px-5 pb-20 md:px-20 md:pb-28">
           <p className="max-w-[28ch] text-[28px] font-medium leading-[1.5] text-cream md:text-[38px]">
-            Every August, the stages get bigger and the badges get pricier. This
-            is the other thing. Eight nights in the summer. Ninety minutes at a
-            time. People who&rsquo;ve built, telling you exactly how — and a
-            room that keeps the receipts. The resources are out there. For two
-            weeks, they&rsquo;re not camouflaged.
+            <ScrollLit text={"Every August, the stages get bigger and the badges get pricier. This is the other thing. Eight nights in the summer. Ninety minutes at a time. People who\u2019ve built, telling you exactly how \u2014 and a room that keeps the receipts. The resources are out there. For two weeks, they\u2019re not camouflaged."} />
           </p>
         </div>
       </section>
