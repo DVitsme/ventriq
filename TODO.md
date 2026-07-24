@@ -37,9 +37,7 @@ important, not yet blocking · 🟡 watch / later.
 - [ ] **Sentry project + DSN** — account/project creation is dashboard-side;
   once a DSN exists, `@sentry/cloudflare` wiring is a small PR (our compat
   date already qualifies). Until then: Workers Logs only.
-- [ ] **Digest signup human test** — contact form PASSED Jul 24 ("Got it."
-  + email received). Still untested end-to-end: footer Digest signup →
-  confirm email → /confirm → "You're on the list".
+
 - [ ] **Email spam placement (first sends)** — the first notification landed
   in spam. Fixed the biggest trigger (was from==to on jshaw@; notifications
   now send from site@ventriq.io). Remaining hygiene: mark that first email
@@ -110,6 +108,11 @@ important, not yet blocking · 🟡 watch / later.
   build.
 
 ## ✅ Done (moved from above)
+
+- [x] *Jul 24* — **Both form pipelines human-verified end to end**: contact
+  ("Got it." + notification email) and Digest double-opt-in (confirm email
+  → /confirm → contact landed in the Resend "Founder Digest" audience).
+  Phase 3 closed.
 
 - [x] *Jul 23* — **Email authentication COMPLETE**: SPF fixed + 2048-bit DKIM
   record added via DNS API + Start-authentication clicked in Google Admin —

@@ -5,6 +5,10 @@ first. Written so it can be pasted straight into a client update for Justin.
 
 ## July 24, 2026
 
+- **Newsletter signup verified end to end** — footer signup → confirmation
+  email → one click → subscriber stored in the "Founder Digest" audience,
+  ready for the first broadcast. All three forms now proven with real
+  submissions.
 - **Contact form verified end to end by a real submission** — human check
   rendered cleanly, "Got it." confirmed, message stored, notification email
   delivered. Two follow-ups shipped immediately: notifications now come
