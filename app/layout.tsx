@@ -20,7 +20,9 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: "Ventriq",
     type: "website",
+    images: [{ url: "/og/home.png", width: 1200, height: 630 }],
   },
+  twitter: { card: "summary_large_image" },
 };
 
 import { TopChrome } from "@/components/chrome";

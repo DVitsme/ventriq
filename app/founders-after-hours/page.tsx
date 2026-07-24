@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "A Ventriq membership: session replays, advisor office hours, and a monthly in-person hour where founders make the calls, send the emails, and tally the wins. From $39/month.",
   alternates: { canonical: "/founders-after-hours" },
+  openGraph: { images: [{ url: "/og/founders-after-hours.png", width: 1200, height: 630 }] },
 };
 
 /** Static tally strokes (draw-in arrives Phase 4): groups of five with jitter,

@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   description:
     "A nonprofit backing small business owners, startups, and nonprofit builders — the Forge The Future summit Aug 10–20, a working founder community, and a 90-day mastermind. Rooted in Baltimore.",
   alternates: { canonical: "/" },
+  openGraph: { images: [{ url: "/og/home.png", width: 1200, height: 630 }] },
 };
 
 const orgJsonLd = {

@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   description:
     "Eight nights, two weeks — brand, influence, revenue, capital, AI, exit. Each session ends with a move you can make the next morning. Free, live on Zoom.",
   alternates: { canonical: "/summit" },
+  openGraph: { images: [{ url: "/og/summit.png", width: 1200, height: 630 }] },
 };
 
 const eventJsonLd = {

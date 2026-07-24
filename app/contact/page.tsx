@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Question about a program, a city, a sponsorship, a story? Send it. A real person reads every message — expect a reply within two business days.",
   alternates: { canonical: "/contact" },
+  openGraph: { images: [{ url: "/og/contact.png", width: 1200, height: 630 }] },
 };
 
 const TOPICS = [

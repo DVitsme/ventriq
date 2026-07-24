@@ -34,6 +34,12 @@ important, not yet blocking · 🟡 watch / later.
 
 ## 🟠 Important, not yet blocking
 
+- [ ] **GA4 admin config (Phase 5's dashboard half, ~10 min):** Enhanced
+  Measurement ON with history events, form-interactions OFF; retention
+  2→14 months; mark key events luma_register_click / generate_lead /
+  sign_up; custom channel group (^ig- / ^speaker- / ^hbcu- / linkedin /
+  email); internal-traffic filter for your + Justin's IPs. *(Raised Jul 24.)*
+
 - [ ] **Sentry project + DSN** — account/project creation is dashboard-side;
   once a DSN exists, `@sentry/cloudflare` wiring is a small PR (our compat
   date already qualifies). Until then: Workers Logs only.

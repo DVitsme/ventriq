@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Ten founders, ninety days, weekly working sessions, a dashboard that keeps score — and a graduation bar you have to earn. Cohort 2 starts September 2026. Apply now.",
   alternates: { canonical: "/mastermind" },
+  openGraph: { images: [{ url: "/og/mastermind.png", width: 1200, height: 630 }] },
 };
 
 /** Static hero gesture: two construction hairlines converging on a single

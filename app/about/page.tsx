@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "Ventriq (ven-TREEK) is a nonprofit built by Justin Shaw — Baltimore founder, Goldman Sachs 10KSB alum — to hand other builders the map he never got.",
   alternates: { canonical: "/about" },
+  openGraph: { images: [{ url: "/og/about.png", width: 1200, height: 630 }] },
 };
 
 /** Static corridor line pair behind the hero heading — two faint gold
