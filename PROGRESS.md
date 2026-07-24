@@ -5,6 +5,12 @@ first. Written so it can be pasted straight into a client update for Justin.
 
 ## July 24, 2026
 
+- **Contact form verified end to end by a real submission** — human check
+  rendered cleanly, "Got it." confirmed, message stored, notification email
+  delivered. Two follow-ups shipped immediately: notifications now come
+  from site@ventriq.io (fixes the spam trigger of an address emailing
+  itself), and our security policy now permits Cloudflare's own analytics
+  beacon.
 - **Fixed the contact-form security check** — the human-verification widget
   was configured with keys from a different project (a copy-paste artifact
   in the environment file), so it rejected everyone. Created the proper

@@ -4,9 +4,9 @@ import type { NextConfig } from "next";
 // nonce CSP forces every page dynamic. Revisit when the webapp phase lands.
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://embed.lu.ma https://challenges.cloudflare.com",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://embed.lu.ma https://challenges.cloudflare.com https://static.cloudflareinsights.com",
   "style-src 'self' 'unsafe-inline' https://embed.lu.ma",
-  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com",
+  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://cloudflareinsights.com",
   "img-src 'self' https://*.google-analytics.com https://www.googletagmanager.com https://embed.lu.ma https://images.lumacdn.com data:",
   "font-src 'self'",
   "frame-src https://lu.ma https://luma.com https://challenges.cloudflare.com",

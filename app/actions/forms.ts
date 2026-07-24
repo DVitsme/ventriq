@@ -39,7 +39,10 @@ const MSG = {
   chapterSuccess: "Hand raised — we'll be in touch when your city stirs.",
 } as const;
 
-const FROM = "Ventriq <jshaw@ventriq.io>";
+const FROM = "Ventriq <jshaw@ventriq.io>"; // subscriber-facing (DOI confirm)
+// Internal notifications use a distinct mailbox: from==to on the same address
+// via third-party infra is a classic spam heuristic (bit us on first test).
+const NOTIFY_FROM = "Ventriq site <site@ventriq.io>";
 const NOTIFY_TO = EMAIL; // jshaw@ventriq.io — content/placeholders.ts, resolved Jul 23
 
 // Shape of the Workers rate-limit binding (wrangler.jsonc "ratelimits";
@@ -230,7 +233,7 @@ export async function submitContact(
         attribution,
       });
       await getResend().emails.send({
-        from: FROM,
+        from: NOTIFY_FROM,
         to: NOTIFY_TO,
         replyTo: parsed.data.email,
         subject: note.subject,
@@ -280,7 +283,7 @@ export async function submitChapter(
     try {
       const note = chapterNotification({ ...parsed.data, attribution });
       await getResend().emails.send({
-        from: FROM,
+        from: NOTIFY_FROM,
         to: NOTIFY_TO,
         replyTo: parsed.data.email,
         subject: note.subject,

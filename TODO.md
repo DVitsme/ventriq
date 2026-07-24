@@ -37,12 +37,14 @@ important, not yet blocking · 🟡 watch / later.
 - [ ] **Sentry project + DSN** — account/project creation is dashboard-side;
   once a DSN exists, `@sentry/cloudflare` wiring is a small PR (our compat
   date already qualifies). Until then: Workers Logs only.
-- [ ] **Forms: one human test submission** *(unblocked Jul 24 — the 110200
-  error was a wrong-project Turnstile key; a real `ventriq` widget now
-  exists, keys rotated, verified live)*. Derrick: submit the contact form
-  once — expect the widget to render cleanly and "Got it." on send, with
-  the notification at jshaw@ventriq.io — then the footer Digest signup
-  end-to-end (confirm email → /confirm → "You're on the list").
+- [ ] **Digest signup human test** — contact form PASSED Jul 24 ("Got it."
+  + email received). Still untested end-to-end: footer Digest signup →
+  confirm email → /confirm → "You're on the list".
+- [ ] **Email spam placement (first sends)** — the first notification landed
+  in spam. Fixed the biggest trigger (was from==to on jshaw@; notifications
+  now send from site@ventriq.io). Remaining hygiene: mark that first email
+  "Not spam" in Gmail (trains the filter), and expect placement to improve
+  as the new domain builds reputation. Re-check after a few real messages.
 - [ ] **Env hygiene** — `.env.local` was seeded from another project's
   template (silence-between-us): Turnstile keys were that project's
   (fixed), and `.env.example` still lists its Stripe/shadcnblocks/Stitch
