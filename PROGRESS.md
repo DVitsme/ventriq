@@ -3,6 +3,14 @@
 A running, plain-language record of everything done on this engagement. Newest
 first. Written so it can be pasted straight into a client update for Justin.
 
+## July 24, 2026
+
+- **Fixed the contact-form security check** — the human-verification widget
+  was configured with keys from a different project (a copy-paste artifact
+  in the environment file), so it rejected everyone. Created the proper
+  Ventriq widget, rotated the keys, redeployed, verified live. Forms are
+  ready for a real submission test.
+
 ## July 23, 2026
 
 **All three forms are LIVE on the site** — newsletter signup in the footer

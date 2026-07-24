@@ -37,10 +37,16 @@ important, not yet blocking · 🟡 watch / later.
 - [ ] **Sentry project + DSN** — account/project creation is dashboard-side;
   once a DSN exists, `@sentry/cloudflare` wiring is a small PR (our compat
   date already qualifies). Until then: Workers Logs only.
-- [ ] **Forms: one human test submission** — automated verification stops
-  at the bot-gate (correctly!). Derrick: submit the contact form once,
-  confirm "Got it." renders + the notification lands at jshaw@ventriq.io,
-  and try the footer Digest signup end-to-end (confirm email → /confirm).
+- [ ] **Forms: one human test submission** *(unblocked Jul 24 — the 110200
+  error was a wrong-project Turnstile key; a real `ventriq` widget now
+  exists, keys rotated, verified live)*. Derrick: submit the contact form
+  once — expect the widget to render cleanly and "Got it." on send, with
+  the notification at jshaw@ventriq.io — then the footer Digest signup
+  end-to-end (confirm email → /confirm → "You're on the list").
+- [ ] **Env hygiene** — `.env.local` was seeded from another project's
+  template (silence-between-us): Turnstile keys were that project's
+  (fixed), and `.env.example` still lists its Stripe/shadcnblocks/Stitch
+  vars. Prune both files to Ventriq-only vars. *(Raised Jul 24.)*
 - [ ] Mirror NEXT_PUBLIC_TURNSTILE_SITE_KEY into Workers Builds "Build
   variables and secrets" so git-triggered builds inline it.
 - [ ] **DMARC report address** — the imported `_dmarc` record sends aggregate
