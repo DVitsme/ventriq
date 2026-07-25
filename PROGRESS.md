@@ -5,6 +5,10 @@ first. Written so it can be pasted straight into a client update for Justin.
 
 ## July 24, 2026
 
+- **All of today's accessibility and speed work is live on ventriq.io** —
+  deployed, spot-verified page by page (contrast fixes, underlined links,
+  lighter loading all confirmed on the live site), and the code is backed
+  up to GitHub.
 - **First full accessibility audit ran — and the site now passes it clean.**
   Every page was scanned against the WCAG 2.2 AA standard (the legal-grade
   accessibility bar) on desktop, mobile, and reduced-motion profiles — the
