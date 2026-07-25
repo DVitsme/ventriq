@@ -1,5 +1,3 @@
-// (`pnpm add -D vitest @playwright/test @axe-core/playwright @lhci/cli`).
-// It keeps `next build`'s typecheck green while the harness is dormant.
 import { expect, test } from "@playwright/test";
 import type { Page } from "@playwright/test";
 

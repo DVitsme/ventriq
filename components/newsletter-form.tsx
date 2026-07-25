@@ -3,7 +3,7 @@
 import { startTransition, useActionState, useEffect, useRef, useState } from "react";
 import type { TurnstileInstance } from "@marsidev/react-turnstile";
 import { submitNewsletter, type FormState } from "@/app/actions/forms";
-import { VALIDATION } from "@/lib/schemas";
+import { VALIDATION } from "@/lib/validation-strings";
 import { track } from "@/lib/analytics";
 import { TurnstileField } from "./turnstile-field";
 
@@ -117,7 +117,7 @@ export function NewsletterForm({ source = "footer" }: { source?: string }) {
         {state.status === "success" ? state.message : (formError ?? "")}
       </p>
 
-      <p className="mt-3 text-[13px] text-cream/50">
+      <p className="mt-3 text-[13px] text-cream/60">
         No spam. Unsubscribe anytime.
       </p>
     </div>

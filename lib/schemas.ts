@@ -1,14 +1,12 @@
 import { z } from "zod";
+import { VALIDATION } from "./validation-strings";
 
 /** Shared zod schemas (zod v4) — one source of truth for react-hook-form on
- *  the client and the server actions at the boundary. Validation strings are
- *  LAW from docs/build-handoff/copy-source/00-global.md §Forms. */
+ *  the client and the server actions at the boundary. Validation strings live
+ *  in lib/validation-strings.ts (zod-free for the layout-level footer form);
+ *  re-exported here so schema consumers keep one import. */
 
-export const VALIDATION = {
-  required: "We need this one.",
-  badEmail: "That email doesn't look right — one more look?",
-  messageShort: "Give us a sentence or two more to work with.",
-} as const;
+export { VALIDATION };
 
 /** Empty gets the required line; anything present must actually be an email. */
 const emailField = z

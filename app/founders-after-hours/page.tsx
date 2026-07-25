@@ -155,7 +155,7 @@ export default function FahPage() {
           <h2 className="text-3xl font-medium md:text-[40px]">Two ways to hold a seat.</h2>
           <div className="mt-10 grid gap-8 md:grid-cols-[1.15fr_1fr] md:gap-6">
             <article className="border border-ink/18 border-t-2 border-t-gold bg-cream px-7 py-6 rounded-[2px]">
-              <p className="text-4xl font-semibold text-gold [font-variant-numeric:tabular-nums]">$39<span className="text-lg text-ink/55">/month</span></p>
+              <p className="text-4xl font-semibold text-ink [font-variant-numeric:tabular-nums]">$39<span className="text-lg text-ink/65">/month</span></p>
               <h3 className="mt-3 text-2xl font-medium">Digital</h3>
               <p className="mt-3 text-[15.5px] leading-relaxed text-ink/78">
                 The full digital home, anywhere: every Summit replay 24 hours
@@ -166,7 +166,7 @@ export default function FahPage() {
               <p className="mt-4"><a href="/contact" className="font-medium text-accent-deep hover:underline">Join Founders After Hours →</a></p>
             </article>
             <article className="border border-ink/18 border-t-2 border-t-gold bg-cream px-7 py-6 rounded-[2px] md:mt-[34px]">
-              <p className="text-4xl font-semibold text-gold [font-variant-numeric:tabular-nums]">$[89–99]<span className="text-lg text-ink/55">/month</span></p>
+              <p className="text-4xl font-semibold text-ink [font-variant-numeric:tabular-nums]">$[89–99]<span className="text-lg text-ink/65">/month</span></p>
               <p className="mt-1"><RedlineChip onCream>PRICE — confirm exact figure</RedlineChip></p>
               <h3 className="mt-2 text-2xl font-medium">In person</h3>
               <p className="mt-3 text-[15.5px] leading-relaxed text-ink/78">
@@ -209,7 +209,7 @@ export default function FahPage() {
       <section className="bg-cream text-ink">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-20 md:grid-cols-2 md:gap-20 md:px-20 md:py-28">
           <div>
-            <p className="text-sm tracking-[0.14em] text-ink/55 [font-variant:small-caps]">what&rsquo;s inside</p>
+            <p className="text-sm tracking-[0.14em] text-ink/65 [font-variant:small-caps]">what&rsquo;s inside</p>
             <ul className="mt-4">
               {[
                 "Summit session replays (24 hours after each airs)",

@@ -34,7 +34,7 @@ export function RedlineChip({
   return (
     <span
       className={`inline-block rounded-[2px] border border-dashed px-1.5 py-px align-middle text-[11px] tracking-[0.06em] ${
-        onCream ? "border-ink/35 text-ink/55" : "border-cream/35 text-cream/55"
+        onCream ? "border-ink/35 text-ink/65" : "border-cream/35 text-cream/55"
       }`}
     >
       {children}
@@ -102,18 +102,20 @@ export function ThresholdCard({
     <article
       className={`border border-ink/18 border-t-2 border-t-gold bg-cream px-7 py-6 rounded-[2px] ${className}`}
     >
-      <p className="text-4xl font-semibold text-gold [font-variant-numeric:tabular-nums]">
+      {/* Numerals on cream are ink — gold text can't clear AA on this
+          ground at any size; the gold top rule is the card's recognition. */}
+      <p className="text-4xl font-semibold text-ink [font-variant-numeric:tabular-nums]">
         {numeral}
       </p>
       <h3 className="mt-3 text-2xl font-medium text-ink">
         {title}
         {titleNote && (
-          <span className="ml-2 text-base font-normal text-ink/55">{titleNote}</span>
+          <span className="ml-2 text-base font-normal text-ink/65">{titleNote}</span>
         )}
       </h3>
       <p className="mt-2 font-semibold text-ink">{strap}</p>
       <p className="mt-2 text-[15.5px] leading-relaxed text-ink/78">{body}</p>
-      <p className="mt-3 text-sm tracking-[0.02em] text-ink/55">{meta}</p>
+      <p className="mt-3 text-sm tracking-[0.02em] text-ink/65">{meta}</p>
       <p className="mt-4">
         <a href={cta.href} className="font-medium text-accent-deep hover:underline">
           {cta.label} →
@@ -155,7 +157,7 @@ export function PhotoGrade({
         </filter>
         <rect width="100%" height="100%" filter="url(#vq-grain)" />
       </svg>
-      <span className="absolute bottom-3 left-3 text-[11px] tracking-[0.06em] text-cream/60">
+      <span className="absolute bottom-3 left-3 text-[11px] tracking-[0.06em] text-cream/85">
         [PHOTO: {label}]
       </span>
     </div>

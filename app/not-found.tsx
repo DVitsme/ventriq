@@ -21,7 +21,7 @@ export default function NotFound() {
         The site is new and still being built — if something you needed is
         missing, tell us and we&rsquo;ll fix it.
       </p>
-      <p className="mt-8 flex flex-wrap gap-6 text-accent">
+      <p className="mt-8 flex flex-wrap gap-6 text-gold">
         <a href="/" className="hover:underline">Home</a>
         <a href="/summit" className="hover:underline">The Summit</a>
         <a href="/founders-after-hours" className="hover:underline">Founders After Hours</a>

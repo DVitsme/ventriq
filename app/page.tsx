@@ -149,7 +149,12 @@ export default function Home() {
             <LumaRegisterButton ctaLocation="home-hero">
               Register for the Summit
             </LumaRegisterButton>
-            <a href="/founders-after-hours" className="text-accent hover:underline">
+            {/* Cream, not accent: #C15A2C is 3.9:1 on midnight — fails AA
+                for body-size text. Underline carries the affordance. */}
+            <a
+              href="/founders-after-hours"
+              className="text-cream underline decoration-cream/40 underline-offset-4 hover:decoration-cream"
+            >
               Or step into the community → Founders After Hours
             </a>
           </div>
@@ -319,7 +324,10 @@ export default function Home() {
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-6">
             <PrimaryLink href="/contact">Sponsor the Summit</PrimaryLink>
-            <a href={`mailto:${EMAIL}`} className="text-accent hover:underline">
+            <a
+              href={`mailto:${EMAIL}`}
+              className="text-cream underline decoration-cream/40 underline-offset-4 hover:decoration-cream"
+            >
               Talk partnerships →
             </a>
           </div>

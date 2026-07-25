@@ -38,3 +38,8 @@ supabase/.branches/
 .wrangler/
 .dev.vars
 cloudflare-env.d.ts
+
+# QA artifacts
+.lighthouseci/
+playwright-report/
+test-results/

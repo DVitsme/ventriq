@@ -1,6 +1,3 @@
-// (`pnpm add -D vitest @playwright/test @axe-core/playwright @lhci/cli`).
-// It keeps `next build`'s typecheck green while the harness is dormant,
-// because tsconfig.json includes `**/*.ts`.
 import { describe, expect, test } from "vitest";
 import {
   EVENT_END,

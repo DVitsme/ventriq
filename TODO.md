@@ -73,18 +73,42 @@ important, not yet blocking · 🟡 watch / later.
   the Jul 23 stress test (all pass, incl. the opening-day fix) but lives
   outside the repo; port it to a committed Playwright/vitest spec as the
   Phase 2 gate.
-- [x] ~~QA harness activation~~ *(done Jul 23 — deps installed, banners removed, 40/40 vitest green; first `pnpm e2e` run still pending: needs a local preview run + will surface real a11y findings)*
-- [ ] **First e2e + lhci run** — `pnpm add -D vitest
-  @playwright/test @axe-core/playwright @lhci/cli` + add scripts test/e2e,
-  then wire qa.yml (written Jul 23, agent). First run will surface real
-  violations to fix.
-  - Activation must also delete the `// @ts-nocheck` banner at the top of
-    `vitest.config.ts`, `playwright.config.ts`, `tests/calendar.test.ts`, and
-    `e2e/*.spec.ts` — it's there so `next build`'s typecheck (tsconfig
-    includes `**/*.ts`) stays green while the QA deps are absent.
+- [x] ~~QA harness activation~~ *(done Jul 23 — deps installed, banners removed, 40/40 vitest green)*
+- [ ] **Production Lighthouse baseline + budget calibration** — the local
+  lhci run can't judge performance (dev box runs workerd + Chrome together;
+  numbers swing 2×). After the Jul 24 deploy, get a PageSpeed Insights
+  baseline for `/`, `/summit`, `/founders-after-hours` (mobile), then
+  recalibrate `lighthouserc.json`: the 250KB script budget is arithmetically
+  impossible while gtag.js alone is 163KB + our ~215KB, and TBT ≤200ms
+  competes with third parties. Either budget for "our JS only" or raise
+  ceilings to what prod actually measures — otherwise qa.yml reds every PR
+  on arrival. Also: bf-cache scores 0 because force-dynamic pages send
+  `no-store` (the A2 date-state architecture, deliberate) — revisit with
+  route-level ISR + R2 cache post-launch if back/forward UX ever matters.
+  *(Raised Jul 24.)*
 
 ## 🟡 Watch / later
 
+- [ ] **Design round-trip: AA-driven divergences from the v2 design refs**
+  (all shipped Jul 24, flag at the next claude.ai/design sync): numerals on
+  cream grounds are ink, not gold (gold maxes at 2.03:1 on cream — the gold
+  top-rules stay); announcement-bar + in-text links carry persistent
+  underlines; hero + sponsor secondary links are cream-underlined, not
+  orange (#C15A2C is 3.9:1 on midnight, fails body-size AA); accent-deep
+  darkened #af5026 → #a84d24; summit manifesto's dim resting state
+  brightened to 0.6 gold (2.09 → 3.39:1).
+- [ ] **`pnpm preview` leaves orphans when killed** — opennextjs spawns
+  `wrangler dev` internally; killing the visible process leaves the wrangler
+  tree alive, respawning workerd. Accumulated orphans caused wrangler's
+  "Network connection lost" crashes under parallel e2e (Jul 24, 3×). Stop it
+  with `pkill -f "wrangler.js dev"; pkill -f "workerd serve"` — or add a
+  preview-stop script if this keeps biting.
+- [ ] **Headless Chromium never ticks the CSS animation clock** (no frame
+  production → `document.timeline` stays 0), so entrance animations hold
+  opacity:0 forever and axe silently skips hero text. e2e now finishes
+  document-timeline animations before scanning (`settleAnimations`,
+  e2e/a11y.spec.ts); any future screenshot tooling must do the same or
+  heroes capture empty.
 - [ ] **lib/calendar.ts seams (QA-agent findings, Jul 23):** (a) on session
   nights 8 PM–midnight the announcement bar still says "is live — tonight"
   while the agenda row already shows replay — day-granularity is deliberate,
@@ -114,6 +138,15 @@ important, not yet blocking · 🟡 watch / later.
   build.
 
 ## ✅ Done (moved from above)
+
+- [x] *Jul 24* — **First e2e + Lighthouse sweep executed — a11y sweep green.**
+  49/49 Playwright tests pass (7 routes × desktop/mobile/reduced-motion,
+  axe WCAG 2.2 AA + smoke + mobile-nav state); ~110 contrast/landmark/
+  heading/link violations found on the first-ever run, all fixed same day;
+  Lighthouse accessibility = 1.0 on all nine runs. Perf half → new 🟠
+  baseline item above. Harness fixes that made it runnable: networkidle →
+  load+h1 readiness (Turnstile never idles), axe legacy mode (closed shadow
+  root iframe hangs the frame walk), 120s scan budget, settleAnimations.
 
 - [x] *Jul 24* — **Both form pipelines human-verified end to end**: contact
   ("Got it." + notification email) and Digest double-opt-in (confirm email

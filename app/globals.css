@@ -7,7 +7,10 @@
   --color-gold: #c9a24c;
   --color-gold-hover: #bb9440;
   --color-accent: #c15a2c;
-  --color-accent-deep: #af5026;
+  /* Deep accent is the body-link color on cream — must hold ≥4.5:1 there
+     (this value: 4.75). The lighter accent (3.74 on cream) is large-text
+     and decorative use only. */
+  --color-accent-deep: #a84d24;
 }
 
 ::selection {
@@ -62,10 +65,13 @@
   @keyframes vq-in { to { opacity: 1; transform: none; } }
 
   /* scroll-lit manifesto: per-word dim gold -> cream, scroll-driven.
-     Firefox (no animation-timeline) simply shows the lit base state. */
+     Firefox (no animation-timeline) simply shows the lit base state.
+     The dim state is the RESTING state a mid-scroll reader sees — at 0.6
+     over midnight it blends to 3.39:1, clearing AA large-text (the
+     manifesto is 28px+ at every breakpoint). Don't dim below this. */
   @supports (animation-timeline: view()) {
     .vq-lit span {
-      color: rgba(201, 162, 76, 0.38);
+      color: rgba(201, 162, 76, 0.6);
       animation: vq-light 1ms linear forwards;
       animation-timeline: view();
       animation-range: entry 30% cover 55%;

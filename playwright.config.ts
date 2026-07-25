@@ -1,5 +1,3 @@
-// (`pnpm add -D vitest @playwright/test @axe-core/playwright @lhci/cli`).
-// It keeps `next build`'s typecheck green while the harness is dormant.
 import { defineConfig, devices } from "@playwright/test";
 
 /** E2E + a11y against the real Workers runtime: `pnpm preview` builds via

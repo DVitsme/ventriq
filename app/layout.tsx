@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { DeferredGA } from "@/components/deferred-ga";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -39,7 +39,7 @@ export default function RootLayout({
         <Footer />
       </body>
       {process.env.NODE_ENV === "production" && (
-        <GoogleAnalytics gaId="G-T0FTLZC27P" />
+        <DeferredGA gaId="G-T0FTLZC27P" />
       )}
     </html>
   );

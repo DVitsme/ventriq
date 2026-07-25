@@ -203,6 +203,8 @@ export default function SummitPage() {
 
       {/* How it works */}
       <section className="bg-cream text-ink">
+        {/* The three cards are h3s; without this the outline skips h1 → h3. */}
+        <h2 className="sr-only">How it works</h2>
         <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-20 md:grid-cols-3 md:px-20 md:py-28">
           {[
             ["1", "Save your free seat.", "Takes a minute on Luma. Your confirmation email carries the calendar invite; add it before you forget."],
@@ -210,7 +212,7 @@ export default function SummitPage() {
             ["3", "Keep the room.", "Founders After Hours holds every replay 24 hours after each session, along with speaker office hours and the founders you met in the chat. Membership from $39/month."],
           ].map(([n, t, b]) => (
             <div key={n} className="border-t border-ink/20 pt-5">
-              <p className="text-3xl font-semibold text-gold [font-variant-numeric:tabular-nums]">{n}</p>
+              <p className="text-3xl font-semibold text-ink [font-variant-numeric:tabular-nums]">{n}</p>
               <h3 className="mt-3 text-xl font-semibold">{t}</h3>
               <p className="mt-2 text-[15.5px] leading-relaxed text-ink/78">{b}</p>
             </div>
@@ -227,7 +229,7 @@ export default function SummitPage() {
               The full lineup lands <RedlineChip>ANNOUNCE-DATE</RedlineChip>.
               Thirty-plus builders, operators, and funders — no professional
               motivators.{" "}
-              <a href="/contact" className="text-accent hover:underline">
+              <a href="/contact" className="text-gold underline underline-offset-4 hover:text-gold-hover">
                 Get the speaker announcement →
               </a>
             </p>
@@ -261,7 +263,7 @@ export default function SummitPage() {
           <div className="mt-10 grid gap-12 md:grid-cols-2 md:gap-16">
             {[NIGHTS.slice(0, 4), NIGHTS.slice(4)].map((week, w) => (
               <div key={w}>
-                <p className="text-sm tracking-[0.14em] text-ink/55 [font-variant:small-caps]">
+                <p className="text-sm tracking-[0.14em] text-ink/65 [font-variant:small-caps]">
                   week {w === 0 ? "one" : "two"}
                 </p>
                 <ul className="mt-2">
@@ -273,10 +275,10 @@ export default function SummitPage() {
                         className={`border-t py-4 ${st === "tonight" ? "border-t-2 border-gold" : "border-ink/15"}`}
                       >
                         <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:gap-5">
-                          <span className={`w-28 shrink-0 font-semibold [font-variant-numeric:tabular-nums] ${st === "replay" ? "text-ink/45" : "text-ink"}`}>
+                          <span className={`w-28 shrink-0 font-semibold [font-variant-numeric:tabular-nums] ${st === "replay" ? "text-ink/65" : "text-ink"}`}>
                             {night.day.split(" ").slice(1).join(" ")}
                           </span>
-                          <span className={st === "replay" ? "text-ink/50" : ""}>
+                          <span className={st === "replay" ? "text-ink/65" : ""}>
                             <strong className="font-semibold">{night.title}</strong>
                             <span className="text-ink/70"> — {night.subtitle}</span>{" "}
                             <RedlineChip onCream>SPEAKERS</RedlineChip>
@@ -296,7 +298,7 @@ export default function SummitPage() {
                     );
                   })}
                   {w === 0 && (
-                    <li className="border-t border-dashed border-ink/25 py-4 text-sm tracking-[0.12em] text-ink/50 [font-variant:small-caps]">
+                    <li className="border-t border-dashed border-ink/25 py-4 text-sm tracking-[0.12em] text-ink/65 [font-variant:small-caps]">
                       aug 14–16 · off — go build
                     </li>
                   )}

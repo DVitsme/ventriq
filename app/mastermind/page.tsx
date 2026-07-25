@@ -202,7 +202,7 @@ export default function MastermindPage() {
                 ["4", "Declaration pitch.", "Onboarding, then you tell the room what you're building this quarter — and they hold you to it.", "md:mt-[78px]"],
               ] as [string, string, React.ReactNode, string][]).map(([n, t, b, m]) => (
                 <div key={n} className={`border-t border-ink/15 pt-5 ${m}`}>
-                  <p className="text-[38px] font-semibold leading-none text-gold [font-variant-numeric:tabular-nums]">{n}</p>
+                  <p className="text-[38px] font-semibold leading-none text-ink [font-variant-numeric:tabular-nums]">{n}</p>
                   <h3 className="mt-3 text-[19px] font-semibold">{t}</h3>
                   <p className="mt-3 text-[15px] leading-relaxed text-ink/78">{b}</p>
                 </div>
