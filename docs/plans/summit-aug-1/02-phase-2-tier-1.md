@@ -7,9 +7,51 @@ public."*
 **Next:** [`03-phase-3-tier-2.md`](./03-phase-3-tier-2.md) ·
 **Index:** [`00-README.md`](./00-README.md)
 
-Everything here is verified live on `ventriq.io` as of Jul 29 (Phase 1 §7).
-None of it needs a decision, an asset, or a design pass. It is internal build
-scaffolding that a visitor can read right now.
+Everything here is verified live on `ventriq.io` as of Jul 29 (Phase 1 §7). It
+is internal build scaffolding that a visitor can read right now.
+
+---
+
+## ✅ Decisions taken — Derrick, Jul 29. Phase 2 is fully unblocked.
+
+Four choices were blocking this phase. All four are now settled. **Do not
+re-open these; they are recorded here so a later session doesn't re-litigate
+them.**
+
+**D-A · `ven-TREEK` dies.** Derrick was in the room on Jul 23 and confirms the
+decision stands. Justin's brief §15 keeps it in the replacement footer copy —
+**that is his error, not a reversal.** This is the one place in the whole plan
+where we knowingly depart from the brief's verbatim copy. See T1·3.
+
+**D-B · The speaker section ships the five emailed bios.** Text-forward cards
+built from Justin's own Jul 23 broadcast (Phase 1 §10.1) — Jerone Anthony
+Tyler, Cedric Powell, Theodore Savage, Tiffany Bethea, Jeffrey Scruggs, each
+with the credential and proof line he wrote. **Rationale: it is the only
+option we can fully build today** — the copy is already public, so it's cleared
+by definition, and it needs no image files. It also happens to be the
+strongest proof on the page ($30M raised · 1,500 employees led · an M&A
+partner at Squire Patton Boggs), which is precisely why he led his own subject
+line with it.
+⚠️ Use the **email's** spellings — *Jerone **Anthony** Tyler*, *Jeffrey*
+not *Jeff*. He wrote those for publication.
+⚠️ This is a **text-first** treatment. The photo grid and flip cards
+([design brief §4.4](../../design/07-23-2026-design-change-brief.md)) wait for
+real headshots and the Phase 5 rebuild.
+
+**D-C · `ANNOUNCE-DATE` becomes "More announced weekly."**
+⚠️ **A deliberate third path** — the brief offered only "a real date, or cut
+the sentence." This keeps a reason to return without inventing a date, and the
+phrase is lifted verbatim from Justin's own broadcast (*"More announced
+weekly."*), so it is his language and it is already true. Flagged as a
+departure so it reads as a choice, not a drift.
+
+**D-D · The footer says "entrepreneurs."** Copy-is-law: the brief writes
+*entrepreneurs* into final copy twice for Ventriq's self-description — the
+footer identity line and the hero trust line. **O1** reserves the
+*founders→entrepreneurs* question for the **audience block**, which is a
+different surface and stays untouched.
+
+---
 
 > **Ordering note.** Justin's brief lists placeholders first and the footer
 > legal note second. **This file leads with the footer note** — it is the only

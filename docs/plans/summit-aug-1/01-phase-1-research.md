@@ -592,8 +592,8 @@ line to Justin, since a chapter head reading this calendar would show up at
 
 | # | Question | Owner | Source |
 |---|---|---|---|
-| **O1** | *founders* vs *entrepreneurs* sitewide. Written the recommended way (scoped to the "Who this is for" block only). Brief: *"Do not resolve it independently."* | **Justin** | brief §10 |
-| **O2** | `ANNOUNCE-DATE` — a real date, or cut the sentence? Brief: *"A visible placeholder costs more than a missing date."* | **Justin** | brief §08, §12 |
+| **O1** | *founders* vs *entrepreneurs* **in the audience block**. Still Justin's. Brief: *"Do not resolve it independently."* ⚠️ **Narrowed Jul 29:** the *footer and hero trust lines* now ship with **"entrepreneurs"**, per the brief's own final copy (Phase 2 D-D). Only the audience block remains open. | **Justin** | brief §10 |
+| ~~**O2**~~ | ~~`ANNOUNCE-DATE` — a real date, or cut the sentence?~~ ✅ **RESOLVED Jul 29 (Derrick):** becomes **"More announced weekly."** — a third path, lifted verbatim from Justin's own broadcast. Keeps a return reason, invents nothing. | — | Phase 2 D-C |
 | **O3** | Speaker-announcement link — point at newsletter capture, or wire an inline email field? | **Derrick** | brief §08 |
 | **O4** | CTA register: **"Save My Free Seat"** (recommended, first person) vs "Save Your Free Seat" (fallback). Whichever wins goes in all five places. | **Derrick** | brief §01 |
 | **O5** | §07 title: **"The room stays open."** (recommended) vs "Keep building." / "After the eighth night." / "What happens next." | **Derrick** | brief §07 |

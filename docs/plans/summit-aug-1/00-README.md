@@ -39,7 +39,7 @@ everything it doesn't touch.
 | Phase | File | Scope | When | Status |
 |---|---|---|---|---|
 | **1** | [`01-phase-1-research.md`](./01-phase-1-research.md) | Understanding: all four files read, reconciled against the live site, conflicts resolved, open questions isolated | Jul 29 | ✅ **complete** |
-| **2** | [`02-phase-2-tier-1.md`](./02-phase-2-tier-1.md) | Credibility leaks currently public — internal scaffolding visible to visitors | **Today** | 🟥 not started |
+| **2** | [`02-phase-2-tier-1.md`](./02-phase-2-tier-1.md) | Credibility leaks currently public — internal scaffolding visible to visitors | **Today** | 🟩 **unblocked — 4 decisions taken Jul 29, ready to build** |
 | **3** | [`03-phase-3-tier-2.md`](./03-phase-3-tier-2.md) | Structural, needs build time — mobile CTA bar, analytics, RSVP button, VIRTUAL display line, discipline tags, sponsor move | **By Aug 1** | 🟥 not started |
 | **4** | [`04-phase-4-tier-3.md`](./04-phase-4-tier-3.md) | 14 drop-in copy replacements, no engineering | By Aug 1 | 🟥 not started |
 | **5** | [`05-phase-5-tier-4.md`](./05-phase-5-tier-4.md) | Improves the page, doesn't block launch | After Aug 1 | 🟥 not started |
