@@ -148,7 +148,7 @@ export default function Home() {
           </p>
           <div style={{ ["--vqd" as string]: "0.95s" }} className="vq-in mt-10 flex flex-wrap items-center gap-6">
             <LumaRegisterButton ctaLocation="home-hero">
-              Register for the Summit
+              Save My Free Seat
             </LumaRegisterButton>
             {/* Cream, not accent: #C15A2C is 3.9:1 on midnight — fails AA
                 for body-size text. Underline carries the affordance. */}
@@ -204,7 +204,7 @@ export default function Home() {
               strap="Eight nights. Two weeks. Ninety minutes a night."
               body="A virtual summit built for implementation, not inspiration — every session ends with a move you can make the next morning."
               meta="Aug 10–20 · virtual · free"
-              cta={{ label: "Save your free seat", href: "/summit" }}
+              cta={{ label: "Save My Free Seat", href: "/summit" }}
             />
             <ThresholdCard
               numeral="$39"

@@ -353,7 +353,7 @@ export default function AboutPage() {
               href="/summit"
               className="inline-block rounded-[2px] bg-gold px-6 py-[15px] font-semibold leading-none text-ink hover:bg-gold-hover"
             >
-              Register for the Summit
+              Save My Free Seat
             </a>
             <a
               href="/founders-after-hours"

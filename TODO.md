@@ -176,6 +176,21 @@ important, not yet blocking · 🟡 watch / later.
   six cards regenerate correctly first** — summit.png visually verified to read
   "Forge The Future Summit". The trailing timeout is cosmetic noise on teardown;
   worth silencing if it ever masks a real failure.)*
+- [ ] **🔴 Two Phase-3 items need a human, not code — both gate the Aug 7
+  retargeting decision.**
+  **(a) End-to-end Luma test with a real submission** (brief §16, Phase 3
+  T2·3). Nobody has ever completed a real registration through our checkout
+  overlay and confirmed the **referral-name field** survives the round trip.
+  The brief: *"A silent failure there costs the entire ambassador dataset, and
+  it will not announce itself."* Needs one real registration + checking the
+  Luma export. ⚠️ Also depends on Justin switching the Luma event to its native
+  virtual type, which is what generates the managed join link.
+  **(b) GA4 admin config** — key-event marking and the custom channel group
+  are the parts the Aug 7 decision actually reads. Without them there is no
+  channel dimension. Code side is done: every CTA now fires
+  `luma_register_click` with a `cta_location`, including the new mobile bar
+  (`summit-mobile-bar`) and agenda button (`summit-agenda`).
+  *(Raised Jul 29 building Phase 3.)*
 - [ ] **GA4 admin config (Phase 5's dashboard half, ~10 min):** Enhanced
   Measurement ON with history events, form-interactions OFF; retention
   2→14 months; mark key events luma_register_click / generate_lead /

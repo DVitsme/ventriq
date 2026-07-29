@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Eyebrow } from "@/components/primitives";
 import { LumaRegisterButton } from "@/components/luma-register-button";
+import { MobileCtaBar } from "@/components/mobile-cta-bar";
 import { NIGHTS, LUMA_URL } from "@/lib/agenda";
 import { eventPhase, nightOf, nextNight, agendaRowState } from "@/lib/calendar";
 import { CountUp, Reveal, ScrollLit } from "@/components/motion";
@@ -86,7 +87,7 @@ function Hero() {
             Catch the replays
           </a>
           <LumaRegisterButton ctaLocation="summit-hero-between" variant="outline">
-            Save your free seat
+            Save My Free Seat
           </LumaRegisterButton>
         </div>
       </>
@@ -113,9 +114,21 @@ function Hero() {
   // pre / announced (State A/B)
   return (
     <>
-      {/* Phase 3 T2·5 reduces this to the date range alone once the VIRTUAL
-          display line lands above the H1. Name standardized here (Tier 1). */}
-      <div className="vq-in"><Eyebrow>forge the future summit · aug 10–20, 2026 · virtual · free</Eyebrow></div>
+      {/* Brief §02: "virtual" was in a 12px eyebrow and the marquee —
+          "technically present and functionally invisible". Promoted to a gold
+          display line above the H1; the eyebrow drops to the event name alone
+          so the date and "virtual" aren't stated twice in one hero.
+          Gold on midnight clears AA at this size; it could NOT carry this on
+          cream (2.03:1) if the pattern gets reused. */}
+      <div className="vq-in"><Eyebrow>forge the future summit</Eyebrow></div>
+      <p
+        style={{ ["--vqd" as string]: "0.05s" }}
+        className="vq-in mt-5 text-[15px] font-semibold uppercase leading-tight tracking-[0.18em] text-gold sm:text-lg md:text-xl"
+      >
+        A free virtual summit{" "}
+        <span className="text-gold/70">·</span>{" "}
+        <span className="[font-variant-numeric:tabular-nums]">Aug 10&ndash;20, 2026</span>
+      </p>
       <h1 className="mt-6 text-4xl font-medium leading-[1.08] tracking-[-0.015em] md:text-[60px]">
         <span className="vq-in inline-block" style={{ ["--vqd" as string]: "0.15s" }}>Not just education.</span>{" "}
         <span className="vq-in inline-block" style={{ ["--vqd" as string]: "0.65s" }}>Implementation.</span>
@@ -128,9 +141,12 @@ function Hero() {
         Eight nights across two weeks — one session a night, ninety minutes each. Each one pointed at something you can do the next morning.
       </p>
       <div style={{ ["--vqd" as string]: "1.7s" }} className="vq-in mt-10 flex flex-wrap items-center gap-6">
-        <LumaRegisterButton ctaLocation="summit-hero">Save your free seat</LumaRegisterButton>
+        <LumaRegisterButton ctaLocation="summit-hero">Save My Free Seat</LumaRegisterButton>
         <span className="text-sm text-cream/60">Registration runs on Luma — about a minute, free.</span>
       </div>
+      {/* Watched by MobileCtaBar: while this is on screen the sticky bar stays
+          down, so a phone never shows two identical buttons at once. */}
+      <div id="vq-hero-cta-sentinel" aria-hidden className="h-px w-px" />
       <p className="mt-8 text-sm tracking-[0.1em] text-cream/60 [font-variant:small-caps]">doors open in</p>
       <p className="mt-1 text-sm tracking-[0.14em] text-cream/80 [font-variant:small-caps] [font-variant-numeric:tabular-nums]">
         aug 10–20 · 6:30–8:00 pm et · zoom · free
@@ -328,6 +344,13 @@ export default function SummitPage() {
                           </span>
                           <span className={st === "replay" ? "text-ink/65" : ""}>
                             <strong className="font-semibold">{night.title}</strong>
+                            {/* Discipline tag (brief §09) — stored title-case and
+                                cased by CSS, so screen readers say "Sales", not
+                                "S-A-L-E-S". Ink-on-cream: gold can't carry text
+                                here (2.03:1). */}
+                            <span className="ml-2 whitespace-nowrap align-[0.1em] text-[13px] tracking-[0.12em] text-ink/60 [font-variant:small-caps]">
+                              {night.discipline}
+                            </span>
                             <span className="text-ink/70"> — {night.subtitle}</span>
                           </span>
                         </div>
@@ -353,9 +376,19 @@ export default function SummitPage() {
               </div>
             ))}
           </div>
-          <p className="mt-8 text-sm text-ink/60">
-            All sessions 6:30–8:00 PM ET. Fridays through Sundays are yours — go build with the week.
+          {/* Brief §09 + the Jul 23 call, independently: this is the decision
+              point. Someone who just read all eight titles has already made up
+              their mind and shouldn't have to scroll to the footer to act. */}
+          <p className="mt-8 max-w-[70ch] text-sm text-ink/60">
+            All sessions 6:30–8:00 PM ET. One registration, and you choose the
+            nights. Fridays through Sundays are yours — go build with the week.
           </p>
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <LumaRegisterButton ctaLocation="summit-agenda">Save My Free Seat</LumaRegisterButton>
+            <span className="text-sm text-ink/65">
+              Free · virtual · one registration covers all eight nights
+            </span>
+          </div>
         </div>
       </section>
 
@@ -399,24 +432,6 @@ export default function SummitPage() {
         </div>
       </section>
 
-      {/* Sponsors */}
-      <section className="bg-midnight">
-        <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-20">
-          <div className="max-w-[760px] border border-cream/13 border-t-2 border-t-gold px-8 py-7">
-            <h2 className="text-2xl font-medium">Put your name behind the builders</h2>
-            <p className="mt-3 text-[15.5px] leading-relaxed text-cream/80">
-              Summit sessions can be underwritten by companies and foundations
-              that want to reach serious founders — visibly and usefully.
-            </p>
-            <p className="mt-5">
-              <a href="/contact" className="inline-block rounded-[2px] bg-gold px-6 py-[14px] font-semibold leading-none text-ink hover:bg-gold-hover">
-                Sponsor the Summit
-              </a>
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section className="bg-cream text-ink">
         <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-20 md:grid-cols-[4fr_8fr] md:px-20 md:py-28">
@@ -435,6 +450,30 @@ export default function SummitPage() {
         </div>
       </section>
 
+      {/* Sponsors — moved below the FAQ (brief §13). It used to sit between
+          the mission block and the FAQ, where "a founder mid-decision hits a
+          block that is not addressed to them and loses momentum." Funders
+          scroll further and with more patience than founders do.
+          Copy reframed off philanthropic language in the same pass: Ventriq is
+          for-profit now, and a foundation grant to a for-profit is a different
+          and much harder transaction than a sponsorship. */}
+      <section className="bg-cream text-ink">
+        <div className="mx-auto max-w-[1440px] px-5 pb-20 md:px-20 md:pb-24">
+          <div className="max-w-[760px] border border-ink/18 border-t-2 border-t-gold px-8 py-7">
+            <h2 className="text-2xl font-medium">Put your name behind the builders</h2>
+            <p className="mt-3 text-[15.5px] leading-relaxed text-ink/78">
+              Summit sessions can be sponsored by companies and organizations
+              that want to reach serious entrepreneurs — visibly and usefully.
+            </p>
+            <p className="mt-5">
+              <a href="/contact" className="inline-block rounded-[2px] bg-gold px-6 py-[14px] font-semibold leading-none text-ink hover:bg-gold-hover">
+                Sponsor the Summit
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="bg-midnight">
         <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-20 md:py-28">
@@ -442,13 +481,17 @@ export default function SummitPage() {
             Eight nights. Two weeks. Your move.
           </h2>
           <div className="mt-8 flex flex-wrap items-center gap-6">
-            <LumaRegisterButton ctaLocation="summit-final">Save your free seat</LumaRegisterButton>
+            <LumaRegisterButton ctaLocation="summit-final">Save My Free Seat</LumaRegisterButton>
             <span className="text-sm text-cream/60 [font-variant-numeric:tabular-nums]">
               Aug 10–20 · 6:30–8:00 PM ET · live on Zoom · free
             </span>
           </div>
         </div>
       </section>
+
+      {/* Last in the DOM on purpose: the bar never intercepts tab order on the
+          way down the page. Phone only. */}
+      <MobileCtaBar />
     </main>
   );
 }

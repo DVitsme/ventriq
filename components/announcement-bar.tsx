@@ -48,7 +48,7 @@ export function AnnouncementBar({
             href={LUMA_URL}
             className="text-gold underline underline-offset-[3px] hover:text-gold-hover"
           >
-            Save your seat →
+            Save My Free Seat →
           </a>
         </>
       )}

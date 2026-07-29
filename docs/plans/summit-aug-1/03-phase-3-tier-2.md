@@ -1,7 +1,41 @@
 # Phase 3 — Tier 2: structural, requires build time
 
 **Justin's framing:** *"By August 1 — structural, requires build time."*
-**When:** by Aug 1 · **Status:** 🟥 not started · **Items:** 7
+**When:** by Aug 1 · **Status:** 🟨 **5 of 7 built Jul 29 — 2 need a human** · **Items:** 7
+
+> ## Decisions taken while building — Derrick, Jul 29
+>
+> **O4 · CTA label = "Save My Free Seat."** Taken rather than stalling the
+> phase: one string, 9 instances, trivially reversible, and the brief gives a
+> reasoned recommendation ("first person converts measurably better").
+> ⚠️ **Two instances deliberately NOT changed:** the "How it works" step-1
+> *title* at `app/summit/page.tsx:269` — brief §05 says *"Title stays"* — and
+> the inline next-step link in `components/contact-form.tsx:84`, which is
+> navigational prose in a success message, not a button. The rule applied:
+> **buttons and checkout triggers get the standard label; descriptive text
+> links keep descriptive text.**
+>
+> **Band rhythm at the sponsor move (T2·7).** The block was midnight. Dropping
+> it between the cream FAQ and the midnight final CTA would have stacked two
+> dark bands and spent the transition signal
+> ([design brief §1.3](../../design/07-23-2026-design-change-brief.md)).
+> **Flipped it to cream** — so the sequence is FAQ (cream) → Sponsors (cream) →
+> Final CTA (midnight), and the closing dark note stays singular. Card
+> borders/text re-toned for the light ground.
+>
+> **Discipline tags are stored title-case, cased by CSS.** The brief specifies
+> "a small uppercase tag"; `[font-variant:small-caps]` renders it uppercase
+> while the DOM keeps "Sales", so a screen reader says *Sales*, not
+> *S-A-L-E-S*. Ink at 60% on cream — gold cannot carry text there (2.03:1).
+>
+> **The mobile bar is a new pattern, so it was designed, not copied** — nothing
+> fixed or sticky existed on this site before. Full rationale in
+> `components/mobile-cta-bar.tsx`. Headlines: phone-only, hidden while the hero
+> CTA is on screen, full-bleed midnight band with a gold hairline rule (not a
+> floating pill — that's on the `design-tells` refusal list), reserves its own
+> footer clearance, last in the DOM so it never intercepts tab order, and
+> carries `cta_location="summit-mobile-bar"` so the highest-traffic mobile
+> button isn't invisible in the Aug 7 retargeting read.
 **Prev:** [`02-phase-2-tier-1.md`](./02-phase-2-tier-1.md) ·
 **Next:** [`04-phase-4-tier-3.md`](./04-phase-4-tier-3.md) ·
 **Index:** [`00-README.md`](./00-README.md)

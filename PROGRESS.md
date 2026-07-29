@@ -5,6 +5,32 @@ first. Written so it can be pasted straight into a client update for Justin.
 
 ## July 29, 2026
 
+- **Added a registration bar that follows phone visitors down the page.**
+  Justin called this the single highest-value change on his list, and the
+  reasoning is that most traffic will arrive from an Instagram link on a phone
+  and scroll one-handed. The bar stays out of the way while the main button is
+  on screen, then slides up and stays reachable the rest of the way down.
+- **"VIRTUAL" is now impossible to miss on the summit page.** It was buried in
+  small text; it's now a large gold line directly above the headline, reading
+  "A FREE VIRTUAL SUMMIT · AUG 10–20, 2026". Justin has said repeatedly that
+  people still don't realize the event is online — this gives the word a
+  different rank on the page rather than just repeating it again.
+- **Every session night now carries a plain-language label** — Leadership,
+  Brand, Marketing & PR, Sales, Technology & AI, Finance & Funding, Exit
+  Strategy, The Founder's Reality. The titles are memorable but don't tell a
+  stranger what the night is about; now someone scanning can find the sales
+  night or the funding night in a second.
+- **Added a register button directly under the schedule** — the point where
+  someone has just read all eight nights and decided. Previously they had to
+  scroll to the bottom of the page to act on it.
+- **One button label everywhere.** The site was using three different phrasings
+  for the same action; it's now "Save My Free Seat" in all nine places.
+- **Moved the sponsor block below the FAQ**, so a founder deciding whether to
+  register doesn't hit a section aimed at funders mid-decision. Rewrote it
+  away from charity language at the same time — "sponsored by companies and
+  organizations" rather than "underwritten by companies and foundations",
+  which matters now that Ventriq is a for-profit.
+
 - **Fixed everything on the site that was leaking internal notes to the
   public** (built and ready to publish, pending a final look). The footer was
   printing a working reminder to ourselves — "EIN, add when issued; no

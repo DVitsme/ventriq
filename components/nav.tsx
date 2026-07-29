@@ -22,7 +22,7 @@ export function Nav({ cta }: { cta: NavCta }) {
   const ctaEl =
     cta === "summit" ? (
       <LumaRegisterButton ctaLocation="nav" className="text-[15px]">
-        Register for the Summit
+        Save My Free Seat
       </LumaRegisterButton>
     ) : cta === "mastermind" ? (
       <a href="/mastermind" className="rounded-[2px] bg-gold px-6 py-[15px] text-[15px] font-semibold leading-none text-ink hover:bg-gold-hover">
