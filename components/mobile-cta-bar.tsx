@@ -61,10 +61,19 @@ export function MobileCtaBar() {
           `inert` removes it from both focus order and the a11y tree, which
           aria-hidden alone would not do legally (aria-hidden on a focusable
           element is itself an axe violation). */}
+      {/* `visibility` — not `inert` — is what parks this accessibly.
+          `inert` was tried in both the boolean and string forms and this
+          React/Next build silently drops the attribute (confirmed by grepping
+          the rendered HTML, twice). `translate-y-full` alone only moves the
+          bar visually: the link stays in the tab order, so a keyboard user
+          tabbing to the end of the page lands on an invisible button. axe
+          does NOT flag that — focusable-but-offscreen is a known blind spot,
+          and the suite went green with the bug present.
+          `visibility: hidden` removes it from both focus order and the
+          accessibility tree, and unlike `display: none` it still transitions. */}
       <div
-        inert={!visible}
-        className={`fixed inset-x-0 bottom-0 z-40 border-t border-gold/60 bg-midnight px-4 py-3 transition-transform duration-300 md:hidden ${
-          visible ? "translate-y-0" : "translate-y-full"
+        className={`fixed inset-x-0 bottom-0 z-40 border-t border-gold/60 bg-midnight px-4 py-3 transition-[transform,visibility] duration-300 md:hidden ${
+          visible ? "visible translate-y-0" : "invisible translate-y-full"
         } motion-reduce:transition-none`}
       >
         <div className="flex items-center justify-between gap-3">

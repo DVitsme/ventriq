@@ -54,7 +54,7 @@ before starting. The Aug 1 pressure does not suspend AA contrast or the
 ## T2·1 — Persistent mobile CTA bar
 `brief §02` · tag: **`COPY AUDIT`** · **Justin: "the highest-return structural change in the brief"**
 
-- [ ] **Build a fixed bottom bar carrying the CTA, following the reader the full length of the page**
+- [x] **Build a fixed bottom bar carrying the CTA, following the reader the full length of the page**
 
 The brief, verbatim:
 
@@ -88,7 +88,7 @@ at 375px.
 ### T2·1a — Standardize the CTA label sitewide
 `brief §01` · tag: **`COPY AUDIT`**
 
-- [ ] **One label, all five places**
+- [x] **One label, all five places**
 
 The brief: *"The page currently uses three different labels — Save your seat,
 Register for the Summit, and Save your free seat. Repetition of one phrase is
@@ -133,7 +133,7 @@ redundant.
 ## T2·2 — Analytics and conversion tracking live before the partner push
 `brief §16` · tag: **`COPY AUDIT`**
 
-- [ ] **Channel-level conversion data flowing by Aug 1**
+- [ ] **Channel-level conversion data flowing by Aug 1** ⚠️ needs GA4 dashboard config
 
 The brief: *"Analytics and conversion tracking live before the partner push,
 not during it. **There is a paid-retargeting decision gate on August 7.**
@@ -171,7 +171,7 @@ tagged URL is itself an open `TODO.md` item).
 ## T2·3 — End-to-end Luma test with a real submission
 `brief §16` · tag: **`COPY AUDIT`**
 
-- [ ] **Register for real, including the referral-name field, and confirm it lands**
+- [ ] **Register for real, including the referral-name field, and confirm it lands** ⚠️ needs a human
 
 The brief: *"Including the referral-name field passing through correctly. **A
 silent failure there costs the entire ambassador dataset, and it will not
@@ -201,7 +201,7 @@ calendar invite, the referral name appears in the Luma export, and
 ## T2·4 — RSVP button beneath the schedule
 `brief §09` · tag: **`JUSTIN`**
 
-- [ ] **Add a register CTA directly under "Two weeks, mapped"**
+- [x] **Add a register CTA directly under "Two weeks, mapped"**
 
 The brief: *"Correct instinct and the right placement. Someone who has just
 read all eight session titles has already decided — they should not have to
@@ -240,7 +240,7 @@ carrying its own `cta_location` for attribution.
 ## T2·5 — Promote VIRTUAL to a display line
 `brief §02` · tag: **`JUSTIN`**
 
-- [ ] **New display line above the H1; reduce the eyebrow to the date range**
+- [x] **New display line above the H1; reduce the eyebrow to the date range**
 
 The brief: *"Today the word virtual lives in a lowercase eyebrow at roughly
 12px, and again inside the scrolling marquee. **It is technically present and
@@ -280,7 +280,7 @@ reading body copy, and the fact appears once in the hero, not twice.
 ## T2·6 — Discipline tags on all eight session titles
 `brief §09` · tag: **`COPY AUDIT`**
 
-- [ ] **Add a small uppercase discipline tag beside each night**
+- [x] **Add a small uppercase discipline tag beside each night**
 
 The brief: *"The session titles are beautiful and completely opaque to a cold
 scanner. **The Rainmaker's Craft is elevated; it does not tell a stranger it is
@@ -329,7 +329,7 @@ and the exit night without reading a description.
 ## T2·7 — Relocate the sponsor block below the FAQ
 `brief §13` · tag: **`COPY AUDIT`**
 
-- [ ] **Move the sponsor section to after the FAQ, before the final CTA**
+- [x] **Move the sponsor section to after the FAQ, before the final CTA**
 
 The brief: *"It currently sits between the mission statement and the FAQ, which
 means **a founder mid-decision hits a block that is not addressed to them and
@@ -363,7 +363,45 @@ finds the sponsor block on the way down.
 
 ---
 
-## Phase gate
+## Phase gate — run Jul 29
+
+**axe: 22 passed, 2 skipped, 0 violations** across 7 routes × desktop / mobile /
+reduced-motion, against a real OpenNext build on `localhost:8788`.
+
+**Contrast, computed on the four new text treatments** (all AA at *normal*
+size, not relying on the large-text exemption):
+
+| Treatment | Ratio | |
+|---|---|---|
+| VIRTUAL display line — gold on midnight | **7.20:1** | ✅ |
+| Discipline tag — ink/60 on cream | **4.80:1** | ✅ (thin margin — don't dim further) |
+| Sponsor body — ink/78 on cream | **8.83:1** | ✅ |
+| Mobile bar meta — cream/70 on midnight | **7.69:1** | ✅ |
+
+⚠️ **A bug the suite did NOT catch, found by grepping the rendered HTML.**
+`translate-y-full` moves the parked bar visually but leaves its link in the
+tab order — a keyboard user tabbing to the end of `/summit` lands on an
+invisible button. **axe passed with the bug present**; focusable-but-offscreen
+is a known blind spot.
+
+**`inert` does not work here.** Tried both the idiomatic boolean
+(`inert={!visible}`) and the string-spread workaround; **this React/Next build
+silently drops the attribute in both forms** — confirmed by grepping the
+rendered HTML after a full rebuild, twice. Neither typecheck nor lint
+complains, so it looks correct in source and simply isn't there in the output.
+
+**The fix is CSS `visibility`** — `invisible` / `visible` on the container.
+`visibility: hidden` removes an element from both the focus order and the
+accessibility tree, and unlike `display: none` it still transitions, so the
+slide-up is preserved. No framework dependency. Verified present in the built
+HTML, then the full suite re-run green (22 passed).
+
+**Two lessons for future sticky or hidden UI:**
+1. Verify the attribute **in the rendered HTML**, not by the suite going green.
+2. Prefer CSS `visibility` over `inert` on this stack until `inert` is proven
+   to survive the build.
+
+## Phase gate (spec)
 
 Before calling Tier 2 done: run `e2e/a11y.spec.ts` (the mobile CTA bar and the
 relocated sections are both regression risks), check 375px by eye, and confirm
