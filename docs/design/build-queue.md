@@ -1,5 +1,21 @@
 # Build queue — design changes, ranked easiest → hardest
 
+> ⚠️ **SUPERSEDED FOR `/summit` UNTIL AUG 1 (added Jul 29).** Justin delivered a
+> formal revision brief with a **hard Aug 1 live date** — 47 changes, 14 of them
+> final drop-in copy. Work **`docs/plans/summit-aug-1/`** first; it takes
+> precedence over this file for anything touching the summit page. Several
+> ranks below are re-scoped by it (the "about a minute, free" deletion becomes a
+> *replacement*; the "Who is this for?" heading now arrives with three new
+> audience tiers under it). Return here after Aug 1 for everything the brief
+> doesn't cover — the speaker flip cards and agenda face thumbnails come from
+> the Jul 23 call and are untouched by the brief.
+>
+> Also from Jul 29: **rank 22 (`lib/brand.ts` membership constant) is promoted
+> to a requirement** — the membership is being renamed **The Foundry**, likely
+> announced from the stage on Night 1, and the brief wants a deploy-free
+> toggle. That only works if the name lives in one place. See
+> `docs/plans/summit-aug-1/01-phase-1-research.md` §6.
+
 **State as of: July 29, 2026** (post-commit `2d898d0`).
 **What this is:** the working build order for the July 23 design-review changes.
 Every item here is buildable **today** — nothing below waits on Justin, an

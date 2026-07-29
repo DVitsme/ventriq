@@ -5,6 +5,40 @@ first. Written so it can be pasted straight into a client update for Justin.
 
 ## July 29, 2026
 
+- **Read everything Justin sent this morning, and built a plan around it.**
+  Four documents: the summit webpage brief, the speaker roster, the agenda,
+  and the Foundry membership one-pager. All four are now read end to end and
+  turned into a phased plan at `docs/plans/summit-aug-1/` — research first,
+  then four build stages matching the priority tiers in Justin's own brief.
+- **Noted the August 1 date in the brief.** The brief lists a live date of
+  August 1 for the summit page, which we hadn't been working toward. Plan is
+  built around it.
+- **Checked every claim in the brief against the live site — all of them are
+  correct.** Most urgent: **an internal note of ours is currently printing in
+  the footer of every page** — "EIN, add when issued; no deductibility
+  language until determination letter." That's a working reminder to
+  ourselves, not public copy, and it's been visible to visitors. Also
+  confirmed live: two "announcement date" placeholders, a "speakers" marker
+  beside all eight session titles, fifteen blank speaker tiles, and a claim of
+  "thirty-plus" speakers where the real confirmed number is around seventeen.
+  All of it is first in line to fix.
+- **Caught a date mismatch and resolved it — no change needed.** The agenda
+  spreadsheet puts the last two summit nights on Aug 20 and 21; Luma, the
+  website, and Justin's own July 25 brief all say Aug 19 and 20. Three sources
+  agree, so we left the site alone. Flagged the spreadsheet to Justin, since
+  running the summit off it would put his finale on the wrong nights.
+- **The membership has a name: The Foundry.** Justin's one-pager sets the
+  structure — Ventriq at the top, the Forge The Future summit as the annual
+  event, The Foundry as the year-round membership, and Founder After Hours
+  becoming one monthly in-person night inside it rather than the whole thing.
+  Two tiers, $45 and $99, plus a five-level progression system members earn
+  their way up. We've planned the site so the new name can go live the night
+  he announces it without us having to ship anything.
+- **Four things need a yes from Justin** before they can be built: whether the
+  name goes public on opening night, whether the digital tier is $39 or $45,
+  whether it's "Founder" or "Founders" After Hours, and whether the web
+  address changes. All four are on his list in plain language.
+
 - **The community "Join" buttons are now connected to the real Skool group.**
   All five "Join Founders After Hours" buttons on the community page now go
   straight to the Skool community instead of the contact form — one click from

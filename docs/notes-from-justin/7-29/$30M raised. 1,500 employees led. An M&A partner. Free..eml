@@ -1,0 +1,616 @@
+Delivered-To: derrick@digitaldog.io
+Received: by 2002:a05:6000:642:b0:47d:f4f8:4638 with SMTP id 2csp2441802wrs;
+        Thu, 23 Jul 2026 04:15:06 -0700 (PDT)
+X-Received: by 2002:a05:6214:43c3:b0:8fd:6de3:dd84 with SMTP id 6a1803df08f44-907ca6c9cb2mr31687166d6.58.1784805306573;
+        Thu, 23 Jul 2026 04:15:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784805306; cv=none;
+        d=google.com; s=arc-20260327;
+        b=TgzrAJB8BPK6SLILHOnHW+vCEf5Aqf4d9Yr7Wp0+ck4SBbUjUjFoMXXfLdl9TWHzVi
+         ujwdYmBBw1r/X96OeZLoyyLsFFOFzpyJ3MZGw7EvcEUzg+UGzulVgeGKhZyVwqqaDUCe
+         b0A+ZMlFAm8AbgDpTegcvMc9j29thy7I6lGZpmQ4MNhyA0JfFq87jn83onbVfsJYiI6e
+         u1Gejdd4Wmel870jZ4sh0iEigBBmMdSQQKfIHG/ytz+Bd1g1VmP9GwxTcP/h5BSeIzzV
+         do3ANvS7xrqKejsZ8w1+kGD8QgmEWA7j4VDMoo+R/5vao7gUZj+L0EdCla7AF8veYEPK
+         dWUQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:precedence:list-unsubscribe-post:list-unsubscribe:feedback-id
+         :subject:message-id:mime-version:from:date:dkim-signature;
+        bh=kMV4ZKEIQG5X6cWczqheRnIGLyXdpyVQBLzwWblmeKc=;
+        fh=J+9+3iMaDCLvoE/Ho3QAL+kiqrhYgt6uw8XWtWUvADc=;
+        b=hfXdscM522ZuXSsv4+tuIKDTV8cZgkOQmjYyQJvTpluDERSOwQlmnXmSGVhM9oB6FR
+         TToXT7vSEOudtZCaoSm24TAc1Lesn4qf8PDv7fUufGGdG5wmNzn7sZ01fzwFbdKVXzge
+         OsZgJzKSZW7DEj43gDGKmHaZNGHMPWbM63xISITkncb1fSj1HAsiMDpOvcXIQlpH9U5O
+         uuAANmBcMwh5Vm+TuwbWTqIHWuipUJ+i+FcTdQQBeTmz/3XYvRJ1eJxyL0Ed8TSLJTDv
+         yJx3q8Nv6Hg3CqznFDz+3UmB5/8u6Y1/5TXhHcUlcqS0HQ8/g89JplX5I8ttYMrgiEiB
+         XU6w==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@n.convertkit.com header.s=s1 header.b=qz2gLBTP;
+       spf=pass (google.com: domain of bounces+54445021-9b9c-derrick=digitaldog.io@mail.n.convertkit.com designates 159.183.200.47 as permitted sender) smtp.mailfrom="bounces+54445021-9b9c-derrick=digitaldog.io@mail.n.convertkit.com"
+Return-Path: <bounces+54445021-9b9c-derrick=digitaldog.io@mail.n.convertkit.com>
+Received: from o51.ck.n.convertkit.com (o51.ck.n.convertkit.com. [159.183.200.47])
+        by mx.google.com with ESMTPS id 6a1803df08f44-907bab04c5dsi56196476d6.629.2026.07.23.04.15.06
+        for <derrick@digitaldog.io>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 23 Jul 2026 04:15:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+54445021-9b9c-derrick=digitaldog.io@mail.n.convertkit.com designates 159.183.200.47 as permitted sender) client-ip=159.183.200.47;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@n.convertkit.com header.s=s1 header.b=qz2gLBTP;
+       spf=pass (google.com: domain of bounces+54445021-9b9c-derrick=digitaldog.io@mail.n.convertkit.com designates 159.183.200.47 as permitted sender) smtp.mailfrom="bounces+54445021-9b9c-derrick=digitaldog.io@mail.n.convertkit.com"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=n.convertkit.com;
+	h=content-type:date:from:mime-version:subject:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:from:subject:to;
+	s=s1; t=1784805306;
+	bh=kMV4ZKEIQG5X6cWczqheRnIGLyXdpyVQBLzwWblmeKc=;
+	b=qz2gLBTP5wlgxHAonh7oCz2LPPSrTFHf4NKf3YmgbCq3YPhXE/NKzunlI6RRXkvLQ7qq
+	eE/DrsCazpPUnQZkwgy4OhFiDOSvbmE26rypkggqjAlc0cDL6a3og/rPCczaM2zoKAirbC
+	tO4iLujnM6V0xjTJVgnnbvCFXoFN7SYdmyWUDZXvlbHi5O6L2b6ID6SQ1TURynSa17kGvo
+	AkwLGwhD7mh1I9CQDD870ZmkRjn8gDInatZzFHdgBLdKfAJvu3u4ZxmfB7+bLZjIVVAYEA
+	K+8kt7KGLtJhm05Pwu8m0mL2rzudgs0LVGAsMnZez1PBcHYPqd/XRqgSmjlLpieQ==
+Received: by recvd-684b7996dc-8sdkz with SMTP id recvd-684b7996dc-8sdkz-1-6A61F7B9-128
+	2026-07-23 11:15:05.804546953 +0000 UTC m=+58349.231059326
+Received: from NTQ0NDUwMjE (unknown)
+	by geopod-ismtpd-58 (SG) with HTTP
+	id C-9S-ugUQXS5P_ebV5diKw
+	Thu, 23 Jul 2026 11:15:05.781 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=f076b80578c13ae59946dcc49b7c81b7a346ab869c03133c8b1c037c92c5
+Date: Thu, 23 Jul 2026 11:15:06 +0000 (UTC)
+From: Justin Shaw <jshaw@iamjs.io>
+Mime-Version: 1.0
+Message-ID: <e5uernn60mt7hlrwg3za8h87dq65ktlh0zv2o@kit-mail3.com>
+Subject: $30M raised. 1,500 employees led. An M&A partner. Free.
+Feedback-ID: 22626310:2353571:broadcast:CK
+List-Unsubscribe:
+ <mailto:unsub+e5uernn60mt7hlrwg3za8h87dq65ktlh0zv2o@convertkit-mail.com>,
+ <https://4f6e8a9e.unsubscribe.kit-mail3.com/e5uernn60mt7hlrwg3za8h87dq65ktlh0zv2o>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Precedence: bulk
+X-Report-Abuse: <abuse@kit.com>
+X-Report-Spam: <abuse@kit.com>
+X-SG-EID: 
+ =?us-ascii?Q?u001=2Eqo0uZR1EOGMxHUVSuEF2Dxjhw74hEoa=2Fe=2F4aJNJgpGcCi8PAzCtusi6st?=
+ =?us-ascii?Q?ijBtiBg+retoxeF6LC0Kmj6E0Wsk0mp3oZpvQrC?=
+ =?us-ascii?Q?R9O7zv2Dm96wGh4QLvPdkxwuNUIo60Z=2FYbFg5eN?=
+ =?us-ascii?Q?yCA=2FF7C4MF9=2FoiRPuMQvn0mM9hqgNEK0Rc0RedW?=
+ =?us-ascii?Q?ns7mDvBldJP0iwcYz4TEdZqcc9+K2FiI4mD=2FiEW?=
+ =?us-ascii?Q?DImMr5k7oGR0YqcG3BKR=2F0=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprBTLquV1ImzFIrgT?=
+ =?us-ascii?Q?SaJ3+RZKqdQXHYuKDMKKtAkXplIXaRP30B6pHpP?=
+ =?us-ascii?Q?KR1hMfaWccUX6Y3GJywgE+8dSxmuNdZ+Cp4hFTE?=
+ =?us-ascii?Q?nfvf9BPYInUdTs5HQVV5mUmVNvMMHEeCUKM1mAV?=
+ =?us-ascii?Q?6kAzp8QT5wKUsv0vcXjSxKCGotGJVaGfOhCXQJ=2F?=
+ =?us-ascii?Q?mpHfGScvz84ncOGuV2xJVVlkWxdyUU=2FVIq4W2MY?=
+ =?us-ascii?Q?hJppXSltO3qkN9=2FtFMMQiMOvUuzFsb5b4jaJ=2FEZ?=
+ =?us-ascii?Q?4OW3goqdm=2Fk1sfxR+rxev4KnmOh9V5E2fELRwsI?=
+ =?us-ascii?Q?nGn7BXMR1GcsJJiTqT8=2FKkE1L5Kl35UknXxCSHi?=
+ =?us-ascii?Q?ApC=2Fit6cG9uSrJGuTsv0BCrIcCZIUPtV9u00rpV?=
+ =?us-ascii?Q?Q5SwCKsw+Wwl56d3HU8=3D?=
+To: Derrick <derrick@digitaldog.io>
+X-Entity-ID: u001.zs0pWttpKt/Ca4Q5V0ASEA==
+
+--f076b80578c13ae59946dcc49b7c81b7a346ab869c03133c8b1c037c92c5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+=E2=80=8B
+
+=E2=80=8B
+
+Eight nights. One arc. The full weight of what it takes to build something =
+that lasts.
+
+On August 10, we open the doors to Forge The Future Summit =E2=80=94 eight =
+virtual nights with the operators, investors, and builders who've already b=
+een through the fire.
+
+This isn't a lecture series. Every night is built to be worked =E2=80=94 re=
+al exercises, real breakouts, real decisions made before you log off. You w=
+on't leave with notes. You'll leave with something built.
+
+Free. Virtual. Eight nights. Join one, join all.
+
+-->RSVP Now ( https://4f6e8a9e.click.kit-mail3.com/e5uernn60mt7hlrwg3za8h87=
+dq65ktlh0zv2o/25hek2g5hoh3kg40e5b3h4/aHR0cHM6Ly9sdW1hLmNvbS9scDl6OGlhdg=3D=
+=3D )
+RSVP Now ( https://luma.com/lp9z8iav )=E2=80=8B
+
+We didn't fill these nights with speakers. We filled them with proof.
+
+Jerone Anthony Tyler =E2=80=94 Founder, Posteridy.ai
+Has helped entrepreneurs secure $30M+ in funding. He's hosting Capital & Co=
+mmand.
+
+=E2=80=8B
+
+Cedric Powell =E2=80=94 M&A Partner, Squire Patton Boggs
+Advises private equity buyers and sellers on acquisitions, divestitures, an=
+d recapitalizations.
+
+=E2=80=8B
+
+Theodore Savage =E2=80=94 Founder, The Cultivation Effect=C2=AE
+Former global executive who led 1,500+ employees across 90+ locations. He's=
+ opening the summit.
+
+=E2=80=8B
+
+Tiffany Bethea =E2=80=94 Executive Director, Baltimore City Chamber of Comm=
+erce
+Brand strategist whose clients double revenue in 30=E2=80=9360 days.
+
+=E2=80=8B
+
+Jeffrey Scruggs =E2=80=94 Founder, Majestic Light Group
+AI engineer built at the Department of Defense and Booz Allen Hamilton.
+
+=E2=80=8B
+
+And that's five of seventeen. Goldman Sachs advisors. Angel investors. Luxu=
+ry brand strategists. Tax and capital specialists. More announced weekly.
+
+-->RSVP Now ( https://4f6e8a9e.click.kit-mail3.com/e5uernn60mt7hlrwg3za8h87=
+dq65ktlh0zv2o/08h0kwl4f9h23xgwk8tlh5/aHR0cHM6Ly9sdW1hLmNvbS9scDl6OGlhdg=3D=
+=3D )
+RSVP Now ( https://luma.com/lp9z8iav )
+
+All sessions 6:30 =E2=80=93 8:00 PM ET
+
+Mon, Aug 10 =E2=80=94 The Weight and the Vision=E2=80=8B
+Leading from the inside out.
+
+Tue, Aug 11 =E2=80=94 The Art of Desire=E2=80=8B
+Building a brand that commands the room.
+
+Wed, Aug 12 =E2=80=94 Renowned=E2=80=8B
+Influence, press, and becoming a movement.
+
+Thu, Aug 13 =E2=80=94 The Rainmaker's Craft=E2=80=8B
+Turning passion into profit.
+
+Mon, Aug 17 =E2=80=94 The Modern Advantage=E2=80=8B
+Tech, AI, and doing more with less.
+
+Tue, Aug 18 =E2=80=94 Capital & Command=E2=80=8B
+Mastering business finances and funding.
+
+Wed, Aug 19 =E2=80=94 The Endgame=E2=80=8B
+Preparing for an exit before you need one.
+
+Thu, Aug 20 =E2=80=94 The End of the Beginning=E2=80=8B
+The real cost and reward of building.
+
+=E2=80=8B
+
+What you'll walk away with
+--------------------------
+
+* A clear read on the leader you need to become before the business can gro=
+w
+* A brand people seek out instead of one you have to sell
+* A press and influence strategy you can run yourself
+* A repeatable path from first pitch to loyal customer
+* An AI stack that gives you back your hours
+* Real funding paths =E2=80=94 and the numbers to qualify for them
+* An exit-ready business, whether you sell in three years or thirty
+
+=E2=80=8B
+
+Who this is for
+---------------
+
+Founders who are serious about the climb. Whether you're shaping your first=
+ venture or scaling the one you've got =E2=80=94 if you want the room, the =
+network, and the truth about what building actually takes, you belong here.
+
+If you've been building alone, this is the part where that stops.
+
+-->RSVP Now ( https://4f6e8a9e.click.kit-mail3.com/e5uernn60mt7hlrwg3za8h87=
+dq65ktlh0zv2o/58hq8vw4i7hgr0kozet6h4/aHR0cHM6Ly9sdW1hLmNvbS9scDl6OGlhdg=3D=
+=3D )
+RSVP Now ( https://luma.com/lp9z8iav )
+
+600 1st Ave, Ste 330 PMB 92768, Seattle, WA 98104-2246
+=E2=80=8BUnsubscribe ( https://4f6e8a9e.unsubscribe.kit-mail3.com/e5uernn60=
+mt7hlrwg3za8h87dq65ktlh0zv2o ) =C2=B7 Preferences ( https://preferences.kit=
+-mail3.com/e5uernn60mt7hlrwg3za8h87dq65ktlh0zv2o )=E2=80=8B
+--f076b80578c13ae59946dcc49b7c81b7a346ab869c03133c8b1c037c92c5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>html,body,table { line-height:1.5; } body { margin:0;padding:0; } h1=
+,h2,h3,h4,h5,h6 { font-weight:bold;font-style:normal;font-size:1em;margin:0=
+; } h2 { margin:1em 0; } h3 { margin:1em 0; } h5 { font-style:italic; } h6 =
+{ font-weight:normal;font-style:italic; } p,ol,ul,figure,blockquote,.spaced=
+-block { margin:1em 0; } img { border:0;height:auto;line-height:100%;outlin=
+e:none;-webkit-text-decoration:none;text-decoration:none; } body,table,td,a=
+ { -webkit-text-size-adjust:100%;-ms-text-size-adjust:100%; } table,td { bo=
+rder-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt; } table t=
+d { vertical-align:top; } img { -ms-interpolation-mode:bicubic;max-width:10=
+0%; } * { -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:graysc=
+ale; } hr { margin:36px 0;border:0;height:1px;background:#eee; } ul,ol { ma=
+rgin-left:1em;padding:0;list-style-position:outside; } ol ol,ul ul,ol ul,ul=
+ ol { padding:0 0 0 1em; } li { padding:0 0 0 1em;margin:0 0 0 1em; } .emai=
+l-button { border:0 none; } .built-with { width:100%;max-width:640px;margin=
+-left:auto;margin-right:auto; }  </style>
+<style>.ck-link { text-decoration: underline; }</style>
+<style>.ck-footer-link { color:#0000ff; } </style>
+<style>@media only screen and (max-width:600px) { .email-container { paddin=
+g:0 !important; }  }
+@media only screen { .email * { word-break: break-word; } }
+@media screen and (max-width: 384px) { .mail-message-content { width: 414px=
+ !important; } }
+@media only screen and (max-width:600px) { .ck-padding-left-none { padding-=
+left:0px !important; } .ck-padding-right-none { padding-right:0px !importan=
+t; } .ck-padding-left-mobile-friendly { padding-left:18px !important; } .ck=
+-padding-right-mobile-friendly { padding-right:18px !important; }  }
+@media only screen and (max-width:600px) { .ck-layout-block.ck-layout-stack=
+ td { display:block !important;width:100% !important;padding:0 !important; =
+} .ck-column.ck-column-stack { margin-bottom:32px !important; } .ck-padding=
+-3-top-mobile-friendly { padding-top:12px !important; } .ck-padding-3-right=
+-mobile-friendly { padding-right:12px !important; } .ck-padding-3-bottom-mo=
+bile-friendly { padding-bottom:12px !important; } .ck-padding-3-left-mobile=
+-friendly { padding-left:12px !important; }  }
+@media only screen and (max-width:600px) { .ck-mobile-font-size { font-size=
+:50px !important; }  }
+@media only screen and (max-width:600px) { .ck-mobile-font-size { font-size=
+:50px !important; }  }</style>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+</head>
+<body>
+<div id=3D"preview-text">
+          <span style=3D"display: none; max-height: 0; overflow: hidden;">
+            Eight virtual nights. Seventeen operators. August 10=E2=80=9320=
+.
+          </span>
+
+          <span style=3D"display: none; max-height: 0; overflow: hidden;">
+            =E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=80=87=CD=8F=E2=
+=80=87=CD=8F=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=
+=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=
+=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=AD=C2=
+=AD=C2=AD=C2=AD=C2=AD=C2=AD
+          </span>
+        </div>
+<div style=3D"background-color:#ffffff"><table role=3D"presentation" cellpa=
+dding=3D"0" cellspacing=3D"0" class=3D"email" style=3D"background:#162000 !=
+important;width:100%" bgcolor=3D"#ffffff"><tbody><tr>
+<td><div class=3D"email-container normal" style=3D"padding-top:0;padding-le=
+ft:0;padding-bottom:30px;padding-right:0;margin:0 auto;max-width:100%">
+<!--[if mso]><style>.button-table { padding: 12px 0 }</style><![endif]--><t=
+able cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#162000" style=3D"width=
+:100%;margin:0 auto;background-color:#162000"><tbody><tr><td>
+<div class=3D"ck-section" style=3D"margin:30px auto 0px auto"><center><tabl=
+e cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;margin:0 auto;max=
+-width:640px"><tbody><tr>
+<td contenteditable=3D"false"></td>
+<td width=3D"640" style=3D"background-color:#101b2d;border-radius:0px;box-s=
+izing:border-box;mso-padding-alt:0px 0px 0px 0px" bgcolor=3D"#101b2d"><div =
+class=3D"ck-inner-section ck-padding-left-none ck-padding-right-none" style=
+=3D"padding:0px 0px 0px 0px"><div style=3D"margin-left:auto;margin-right:au=
+to">
+<table class=3D"ck-layout-block" width=3D"100%" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"background-color:transparent;padding:60px 30=
+px 60px 30px;margin:0px 0px 0px 0px;border-radius:0px;overflow:hidden;backg=
+round-image:url(https://embed.filekitcdn.com/e/nNuGAYfsVodyZPYVveffGy/gUnFp=
+HrMk5AC9xfXrkMW4B);background-size:cover;background-position:center"><tbody=
+><tr><td as=3D"td" class=3D"ck-column ck-column-1" width=3D"100%" style=3D"=
+background-color:transparent;background-size:cover;background-position:cent=
+er;border-radius:0px;box-sizing:border-box;vertical-align:top"><div style=
+=3D"padding:0px 0px 0px 0px"><p style=3D"font-family:-apple-system, BlinkMa=
+cSystemFont, sans-serif;font-size:8px;color:#E4C484;font-weight:400;line-he=
+ight:1.5;margin-top:0;margin-bottom:0" class=3D"">=E2=80=8B</p></div></td><=
+/tr></tbody></table>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"text-align:center;table-layout:fixed;float:none" class=3D"email-image"=
+><tbody><tr><td align=3D"center"><figure style=3D"margin-top:12px;margin-bo=
+ttom:12px;margin-left:0;margin-right:0;max-width:100%;width:100%"><div styl=
+e=3D"display:block"><img src=3D"https://embed.filekitcdn.com/e/nNuGAYfsVody=
+ZPYVveffGy/7o4hM3PqJYiTjRFoSkACos/email" width=3D"100%" height=3D"auto" sty=
+le=3D"display:block;border-radius:4px 4px 4px 4px;width:100%;height:auto;ob=
+ject-fit:contain"></div>
+<figcaption style=3D"text-align:center;display:none">=E2=80=8B</figcaption>=
+</figure></td></tr></tbody></table>
+</div></div></td>
+<td contenteditable=3D"false"></td>
+</tr></tbody></table></center></div>
+<div class=3D"ck-section" style=3D"margin:0px auto 0px auto"><center><table=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;margin:0 auto;max-=
+width:640px"><tbody><tr>
+<td contenteditable=3D"false"></td>
+<td width=3D"640" style=3D"background-color:#FFFFFF;border-radius:0px;box-s=
+izing:border-box;mso-padding-alt:36px 36px 36px 36px" bgcolor=3D"#FFFFFF"><=
+div class=3D"ck-inner-section ck-padding-left-mobile-friendly ck-padding-ri=
+ght-mobile-friendly" style=3D"padding:36px 36px 36px 36px"><div style=3D"ma=
+rgin-left:auto;margin-right:auto;max-width:640px">
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+><strong style=3D"font-weight:bolder">Eight nights. One arc. The full weigh=
+t of what it takes to build something that lasts.</strong></p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+>On August 10, we open the doors to Forge The Future Summit =E2=80=94 eight=
+ <u><strong style=3D"font-weight:bolder">virtual </strong></u>nights with t=
+he operators, investors, and builders who've already been through the fire.=
+</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+>This isn't a lecture series. Every night is built to be <em>worked</em> =
+=E2=80=94 real exercises, real breakouts, real decisions made before you lo=
+g off. You won't leave with notes. You'll leave with something built.</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+>Free. Virtual. Eight nights. Join one, join all.</p>
+<!--[if !mso]>--><table width=3D"100%"><tbody><tr><td align=3D"center"><a c=
+lass=3D"email-button" href=3D"https://4f6e8a9e.click.kit-mail3.com/e5uernn6=
+0mt7hlrwg3za8h87dq65ktlh0zv2o/25hek2g5hoh3kg40e5b3h4/aHR0cHM6Ly9sdW1hLmNvbS=
+9scDl6OGlhdg=3D=3D" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"=
+background-color:#2C2C2C;color:#ffffff;border-radius:0px;font-family:-apple=
+-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'=
+Helvetica Neue',sans-serif;border-color:#101b2d;background-color:#101b2d;bo=
+x-sizing:border-box;border-style:solid;color:#c9a24c;display:inline-block;w=
+idth:auto;text-align:center;text-decoration:none;padding:12px 20px;margin-t=
+op:8px;margin-bottom:8px;font-size:16px;border-radius:4px 4px 4px 4px" trig=
+ger-id=3D"5792598" url-id=3D"1872352655">RSVP Now</a></td></tr></tbody></ta=
+ble>
+<!--<![endif]--><!--[if mso]><table class=3D"button-table" width=3D"100%" b=
+order=3D"0" cellSpacing=3D"0" cellPadding=3D"0" style=3D"margin-top:8px;mar=
+gin-bottom:8px"><tr><td align=3D"center"><table border=3D"0" cellSpacing=3D=
+"0" cellPadding=3D"0" width=3D"auto"><tr><td align=3D"center" bgcolor=3D"#1=
+01b2d" style=3D"background-color:#101b2d;overflow:hidden;padding:12px 20px"=
+><a class=3D"email-button" href=3D"https://luma.com/lp9z8iav" target=3D"_bl=
+ank" rel=3D"noopener noreferrer" style=3D"background-color:inherit;display:=
+inline-block;text-decoration:none;margin:0;color:#c9a24c;font-size:16px" tr=
+igger-id=3D"5792598" data-ck-element=3D"button">RSVP Now</a></td></tr></tab=
+le></td></tr></table><![endif]--><p style=3D"font-family:Roboto, -apple-sys=
+tem, BlinkMacSystemFont, sans-serif;font-size:16px;color:#57473a;font-weigh=
+t:500;line-height:1.5" class=3D"">=E2=80=8B</p>
+<table class=3D"ck-layout-block" width=3D"100%" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" bgcolor=3D"#101b2d" style=3D"background-color:#101b2d=
+;padding:155px 75px 155px 75px;margin:24px 0px 24px 0px;border-radius:0px;o=
+verflow:hidden"><tbody><tr><td as=3D"td" class=3D"ck-column ck-column-1" wi=
+dth=3D"100%" style=3D"background-color:#FFFFFF;background-size:cover;backgr=
+ound-position:center;border-radius:0px;box-sizing:border-box;vertical-align=
+:top"><div style=3D"padding:32px 32px 32px 32px">
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:15px;color:#4d4d4d;font-weight:400;line-height:1.5;margin-top:=
+8px;margin-bottom:8px" class=3D"">We didn't fill these nights with speakers=
+. We filled them with proof.</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:15px;color:#4d4d4d;font-weight:400;line-height:1.5;margin-top:=
+8px;margin-bottom:8px" class=3D""><strong style=3D"font-weight:bolder">Jero=
+ne Anthony Tyler</strong> =E2=80=94 Founder, Posteridy.ai<br> Has helped en=
+trepreneurs secure <strong style=3D"font-weight:bolder">$30M+ in funding.</=
+strong> He's hosting <em>Capital &amp; Command.</em></p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:15px;color:#4d4d4d;font-weight:400;line-height:1.5;margin-top:=
+8px;margin-bottom:8px" class=3D"">=E2=80=8B</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:15px;color:#4d4d4d;font-weight:400;line-height:1.5;margin-top:=
+8px;margin-bottom:8px" class=3D""><strong style=3D"font-weight:bolder">Cedr=
+ic Powell</strong> =E2=80=94 M&amp;A Partner, Squire Patton Boggs<br> Advis=
+es private equity buyers and sellers on <strong style=3D"font-weight:bolder=
+">acquisitions, divestitures, and recapitalizations.</strong></p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:15px;color:#4d4d4d;font-weight:400;line-height:1.5;margin-top:=
+8px;margin-bottom:8px" class=3D"">=E2=80=8B</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:15px;color:#4d4d4d;font-weight:400;line-height:1.5;margin-top:=
+8px;margin-bottom:8px" class=3D""><strong style=3D"font-weight:bolder">Theo=
+dore Savage</strong> =E2=80=94 Founder, The Cultivation Effect=C2=AE<br> Fo=
+rmer global executive who led <strong style=3D"font-weight:bolder">1,500+ e=
+mployees across 90+ locations.</strong> He's opening the summit.</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:15px;color:#4d4d4d;font-weight:400;line-height:1.5;margin-top:=
+8px;margin-bottom:8px" class=3D"">=E2=80=8B</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:15px;color:#4d4d4d;font-weight:400;line-height:1.5;margin-top:=
+8px;margin-bottom:8px" class=3D""><strong style=3D"font-weight:bolder">Tiff=
+any Bethea</strong> =E2=80=94 Executive Director, Baltimore City Chamber of=
+ Commerce<br>Brand strategist whose clients <strong style=3D"font-weight:bo=
+lder">double revenue in 30=E2=80=9360 days.</strong></p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:15px;color:#4d4d4d;font-weight:400;line-height:1.5;margin-top:=
+8px;margin-bottom:8px" class=3D"">=E2=80=8B</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:15px;color:#4d4d4d;font-weight:400;line-height:1.5;margin-top:=
+8px;margin-bottom:8px" class=3D""><strong style=3D"font-weight:bolder">Jeff=
+rey Scruggs</strong> =E2=80=94 Founder, Majestic Light Group<br> AI enginee=
+r built at the <strong style=3D"font-weight:bolder">Department of Defense a=
+nd Booz Allen Hamilton.</strong></p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:15px;color:#4d4d4d;font-weight:400;line-height:1.5;margin-top:=
+8px;margin-bottom:8px" class=3D"">=E2=80=8B</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:15px;color:#4d4d4d;font-weight:400;line-height:1.5;margin-top:=
+8px;margin-bottom:8px" class=3D"">And that's five of seventeen. Goldman Sac=
+hs advisors. Angel investors. Luxury brand strategists. Tax and capital spe=
+cialists. More announced weekly.</p>
+<!--[if !mso]>--><table width=3D"100%"><tbody><tr><td align=3D"center"><a c=
+lass=3D"email-button" href=3D"https://4f6e8a9e.click.kit-mail3.com/e5uernn6=
+0mt7hlrwg3za8h87dq65ktlh0zv2o/08h0kwl4f9h23xgwk8tlh5/aHR0cHM6Ly9sdW1hLmNvbS=
+9scDl6OGlhdg=3D=3D" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"=
+background-color:#2C2C2C;color:#ffffff;border-radius:0px;font-family:-apple=
+-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'=
+Helvetica Neue',sans-serif;border-color:#101b2d;background-color:#101b2d;bo=
+x-sizing:border-box;border-style:solid;color:#c9a24c;display:inline-block;t=
+ext-align:center;text-decoration:none;padding:12px 20px;margin-top:8px;marg=
+in-bottom:8px;font-size:16px;border-radius:0px" trigger-id=3D"5792583" url-=
+id=3D"1872352655">RSVP Now</a></td></tr></tbody></table>
+<!--<![endif]--><!--[if mso]><table class=3D"button-table" width=3D"100%" b=
+order=3D"0" cellSpacing=3D"0" cellPadding=3D"0" style=3D"margin-top:8px;mar=
+gin-bottom:8px"><tr><td align=3D"center"><table border=3D"0" cellSpacing=3D=
+"0" cellPadding=3D"0"><tr><td align=3D"center" bgcolor=3D"#101b2d" style=3D=
+"background-color:#101b2d;overflow:hidden;padding:12px 20px"><a class=3D"em=
+ail-button" href=3D"https://luma.com/lp9z8iav" target=3D"_blank" rel=3D"noo=
+pener noreferrer" style=3D"background-color:inherit;display:inline-block;te=
+xt-decoration:none;margin:0;color:#c9a24c;font-size:16px" trigger-id=3D"579=
+2583" data-ck-element=3D"button">RSVP Now</a></td></tr></table></td></tr></=
+table><![endif]-->
+</div></td></tr></tbody></table>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+><em>All sessions 6:30 =E2=80=93 8:00 PM ET</em></p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+><strong style=3D"font-weight:bolder">Mon, Aug 10 =E2=80=94 The Weight and =
+the Vision</strong>=E2=80=8B<br> Leading from the inside out.</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+><strong style=3D"font-weight:bolder">Tue, Aug 11 =E2=80=94 The Art of Desi=
+re</strong>=E2=80=8B<br> Building a brand that commands the room.</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+><strong style=3D"font-weight:bolder">Wed, Aug 12 =E2=80=94 Renowned</stron=
+g>=E2=80=8B<br> Influence, press, and becoming a movement.</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+><strong style=3D"font-weight:bolder">Thu, Aug 13 =E2=80=94 The Rainmaker's=
+ Craft</strong>=E2=80=8B<br> Turning passion into profit.</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+><strong style=3D"font-weight:bolder">Mon, Aug 17 =E2=80=94 The Modern Adva=
+ntage</strong>=E2=80=8B<br> Tech, AI, and doing more with less.</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+><strong style=3D"font-weight:bolder">Tue, Aug 18 =E2=80=94 Capital &amp; C=
+ommand</strong>=E2=80=8B<br> Mastering business finances and funding.</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+><strong style=3D"font-weight:bolder">Wed, Aug 19 =E2=80=94 The Endgame</st=
+rong>=E2=80=8B<br> Preparing for an exit before you need one.</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+><strong style=3D"font-weight:bolder">Thu, Aug 20 =E2=80=94 The End of the =
+Beginning</strong>=E2=80=8B<br> The real cost and reward of building.</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+>=E2=80=8B</p>
+<h4 style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-se=
+rif;font-size:24px;color:#000000;font-weight:400;line-height:1.5" class=3D"=
+"><strong style=3D"font-weight:bolder">What you'll walk away with</strong><=
+/h4>
+<ul class=3D"unordered_list" style=3D"font-family:Roboto, -apple-system, Bl=
+inkMacSystemFont, sans-serif;font-size:16px;color:#57473a;font-weight:500;l=
+ine-height:1.5;text-align:left">
+<li class=3D"list_item"><span>A clear read on the leader you need to become=
+ before the business can grow</span></li>
+<li class=3D"list_item"><span>A brand people seek out instead of one you ha=
+ve to sell</span></li>
+<li class=3D"list_item"><span>A press and influence strategy you can run yo=
+urself</span></li>
+<li class=3D"list_item"><span>A repeatable path from first pitch to loyal c=
+ustomer</span></li>
+<li class=3D"list_item"><span>An AI stack that gives you back your hours</s=
+pan></li>
+<li class=3D"list_item"><span>Real funding paths =E2=80=94 and the numbers =
+to qualify for them</span></li>
+<li class=3D"list_item"><span>An exit-ready business, whether you sell in t=
+hree years or thirty</span></li>
+</ul>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+>=E2=80=8B</p>
+<h4 style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-se=
+rif;font-size:24px;color:#000000;font-weight:400;line-height:1.5" class=3D"=
+"><strong style=3D"font-weight:bolder">Who this is for</strong></h4>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+>Founders who are serious about the climb. Whether you're shaping your firs=
+t venture or scaling the one you've got =E2=80=94 if you want the room, the=
+ network, and the truth about what building actually takes, you belong here=
+.</p>
+<p style=3D"font-family:Roboto, -apple-system, BlinkMacSystemFont, sans-ser=
+if;font-size:16px;color:#57473a;font-weight:500;line-height:1.5" class=3D""=
+>If you've been building alone, this is the part where that stops.</p>
+<!--[if !mso]>--><table width=3D"100%"><tbody><tr><td align=3D"left"><a cla=
+ss=3D"email-button" href=3D"https://4f6e8a9e.click.kit-mail3.com/e5uernn60m=
+t7hlrwg3za8h87dq65ktlh0zv2o/58hq8vw4i7hgr0kozet6h4/aHR0cHM6Ly9sdW1hLmNvbS9s=
+cDl6OGlhdg=3D=3D" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"ba=
+ckground-color:#2C2C2C;color:#ffffff;border-radius:0px;font-family:-apple-s=
+ystem,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'He=
+lvetica Neue',sans-serif;border-color:#101b2d;background-color:#101b2d;box-=
+sizing:border-box;border-style:solid;color:#c9a24c;display:inline-block;wid=
+th:auto;text-align:left;text-decoration:none;padding:12px 20px;margin-top:8=
+px;margin-bottom:8px;font-size:16px;border-radius:4px 4px 4px 4px" trigger-=
+id=3D"5792597" url-id=3D"1872352655">RSVP Now</a></td></tr></tbody></table>
+<!--<![endif]--><!--[if mso]><table class=3D"button-table" width=3D"100%" b=
+order=3D"0" cellSpacing=3D"0" cellPadding=3D"0" style=3D"margin-top:8px;mar=
+gin-bottom:8px"><tr><td align=3D"left"><table border=3D"0" cellSpacing=3D"0=
+" cellPadding=3D"0" width=3D"auto"><tr><td align=3D"center" bgcolor=3D"#101=
+b2d" style=3D"background-color:#101b2d;overflow:hidden;padding:12px 20px"><=
+a class=3D"email-button" href=3D"https://luma.com/lp9z8iav" target=3D"_blan=
+k" rel=3D"noopener noreferrer" style=3D"background-color:inherit;display:in=
+line-block;text-decoration:none;margin:0;color:#c9a24c;font-size:16px" trig=
+ger-id=3D"5792597" data-ck-element=3D"button">RSVP Now</a></td></tr></table=
+></td></tr></table><![endif]-->
+</div></div></td>
+<td contenteditable=3D"false"></td>
+</tr></tbody></table></center></div>
+<div class=3D"ck-section ck-hide-in-public-posts" style=3D"margin:0px auto =
+24px auto"><center>
+<table cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;margin:0 aut=
+o;max-width:640px"><tbody><tr>
+<td contenteditable=3D"false"></td>
+<td width=3D"640" style=3D"background-color:#ffffff;border-radius:0px;box-s=
+izing:border-box;mso-padding-alt:0px 36px 36px 36px" bgcolor=3D"#ffffff"><d=
+iv class=3D"ck-inner-section ck-padding-left-mobile-friendly ck-padding-rig=
+ht-mobile-friendly" style=3D"padding:0px 36px 36px 36px"><div style=3D"marg=
+in-left:auto;margin-right:auto;max-width:640px"><p style=3D"font-family:-ap=
+ple-system, BlinkMacSystemFont, sans-serif;font-size:14px;color:#919191;fon=
+t-weight:400;line-height:1.5" class=3D"">600 1st Ave, Ste 330 PMB 92768, Se=
+attle, WA 98104-2246<br>=E2=80=8B<a href=3D"https://4f6e8a9e.unsubscribe.ki=
+t-mail3.com/e5uernn60mt7hlrwg3za8h87dq65ktlh0zv2o" target=3D"_blank" class=
+=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0000ff">Unsubscrib=
+e</a> =C2=B7 <a href=3D"https://preferences.kit-mail3.com/e5uernn60mt7hlrwg=
+3za8h87dq65ktlh0zv2o" target=3D"_blank" class=3D"ck-link" rel=3D"noopener n=
+oreferrer" style=3D"color:#0000ff">Preferences</a>=E2=80=8B</p></div></div>=
+</td>
+<td contenteditable=3D"false"></td>
+</tr></tbody></table>
+<div><!--[if mso]><br /><br /><![endif]--></div>
+</center></div>
+</td></tr></tbody></table>
+</div></td>
+<td></td>
+</tr></tbody></table></div>
+<!-- -->
+<img src=3D"https://4f6e8a9e.open.kit-mail3.com/e5uernn60mt7hlrwg3za8h87dq6=
+5ktlh0zv2o" alt=3D"" style=3D"display:block">
+</body>
+</html>
+
+--f076b80578c13ae59946dcc49b7c81b7a346ab869c03133c8b1c037c92c5--

@@ -7,6 +7,72 @@ important, not yet blocking · 🟡 watch / later.
 
 ## 🔴 Time-sensitive
 
+- [ ] **⚠️ AUG 1 DEADLINE — Justin's summit revision brief, 47 changes.** He
+  delivered a formal 16-page brief Jul 29 (written Jul 25, *"PREPARED FOR
+  DERRICK"*) with a stated **LIVE DATE of August 1** — three days out, and
+  previously unknown to us. Reason: *"the summit page is receiving partner
+  newsletter traffic in early August"*, plus a **paid-retargeting decision gate
+  on Aug 7** that gets made blind without conversion data by Aug 1. Full plan:
+  **`docs/plans/summit-aug-1/`** — Phase 1 (research) complete, Phases 2–5 are
+  his own four tiers. 14 copy blocks are final and drop-in; **copy is law, paste
+  verbatim.** *(Raised Jul 29.)*
+
+- [ ] **🔴 TIER 1 — internal scaffolding is publicly visible right now.**
+  Verified live on ventriq.io Jul 29: the footer renders our own internal legal
+  instruction — **"EIN — add when issued; no deductibility language until
+  determination letter"** (`components/footer.tsx:60`) — plus `ANNOUNCE-DATE`
+  ×2, the `[SPEAKERS]` redline chip beside all 8 session titles, 15
+  `speaker 01–15` placeholder tiles, and a **"thirty-plus" speaker claim that
+  overstates the real roster by ~13** (Justin's own number is seventeen-plus).
+  Details + exact locators in `docs/plans/summit-aug-1/02-phase-2-tier-1.md`.
+  *(Raised Jul 29.)*
+
+- [ ] **The membership is being renamed "The Foundry" — likely announced from
+  the stage on Night 1 (Aug 10).** Justin's `the-foundry-one-pager.pdf` is
+  stamped FINAL: **Ventriq → Forge The Future Summit → The Foundry → Founder
+  After Hours (a monthly event *inside* it) → Mastermind (name TBD)**. So
+  "Founders After Hours" stops being the membership and becomes one event —
+  and loses its "s". Tiers become **DIGITAL CORE $45** (up from $39) and
+  **POWER HOUR $99**, plus a five-rank progression system (ORE → EMBER → BLADE
+  → TEMPERED → DAMASCUS) that is the leaderboard from the Jul 23 call.
+  **Consequences:** `lib/brand.ts` is now a *requirement*, not a nice-to-have —
+  the brief wants the section behind a deploy-free toggle so the name can flip
+  mid-summit; and `/founders-after-hours` → `/the-foundry` needs deciding
+  **before** Aug 10, since a post-launch 301 resets indexing. ⚠️ Do **not**
+  adopt the one-pager's palette or Poppins — its own footnote defers to the
+  Ventriq accents. Full analysis: `docs/plans/summit-aug-1/01-phase-1-research.md`
+  §6. *(Raised Jul 29.)*
+
+- [ ] **⚠️ SUMMIT DATE CONFLICT — Justin's new agenda disagrees with Luma, and
+  36 people have already registered against Luma.** Do NOT change the site
+  until he confirms which is right.
+
+  | Night | Luma (live, 36 registrants) + our site | Justin's agenda TSV (Jul 29) |
+  |---|---|---|
+  | 7 · The Endgame | **Wed Aug 19** | **Thu Aug 20** |
+  | 8 · The End of the Beginning | **Thu Aug 20** | **Fri Aug 21** |
+
+  Nights 1–6 match exactly (Aug 10/11/12/13/17/18); titles and subtitles match
+  our shipped `lib/agenda.ts` word for word. Only the last two moved — and the
+  new shape drops Wed Aug 19 entirely, making week 2 **Mon · Tue · Thu · Fri**.
+  That breaks the "Monday through Thursday" claim we repeat in 6 places and
+  pushes the end date to Aug 21, which appears as "Aug 10–20" in **24 places**
+  (metadata, hero eyebrow, ticker ×2, announcement bar ×2, proof band, OG
+  generator, JSON-LD, 9 copy-deck lines).
+
+  ✅ **RESOLVED SAME DAY — the site and Luma are right; his agenda TSV is the
+  outlier.** Justin's own webpage brief (`Forge-The-Future-Summit-Webpage-
+  Brief.pdf`, dated Jul 25, prepared for Derrick, "every copy replacement is
+  final") carries an explicit §09 schedule table listing **Aug 19 · The
+  Endgame** and **Aug 20 · The End of the Beginning** — matching Luma and our
+  shipped `lib/agenda.ts`. Three sources agree (Luma live · the brief · our
+  Jul 23 findings doc, which already recorded *"ends Aug 20, not 21"*); only
+  the TSV says Aug 20/21. **No site change needed.**
+
+  ⚠️ **Residual risk is now on Justin's side, not ours:** if he runs the event
+  off that agenda file he has the finale on the wrong nights. Worth a
+  one-liner to him — see TODO-JUSTIN. *(Found + resolved Jul 29.)*
+
 - [ ] **Site says "nonprofit"; Ventriq is a for-profit today** — Justin on the
   Jul 23 call: the nonprofit arm doesn't get built until **Q4**, and *"I
   technically can't put a non-profit for founders right here right now because
@@ -169,6 +235,18 @@ important, not yet blocking · 🟡 watch / later.
   either Workers Builds isn't actually building on push, or its builds fail
   silently — check the dashboard build log when doing the mirror. Until both
   are fixed, **manual deploy is the only real path to prod.**
+- [ ] **`iamjs.io` email auth is unverified — and it's the domain he actually
+  broadcasts from.** His Jul 23 Kit broadcast went out from **`jshaw@iamjs.io`**,
+  not `jshaw@ventriq.io`. Our Jul 23 SPF/DKIM/DMARC work authenticated
+  **ventriq.io only**, so it does nothing for his real sending domain. Check
+  iamjs.io's SPF/DKIM/DMARC before the next send — a summit push landing in
+  spam 12 days out would be expensive. *(Found Jul 29 in the .eml.)*
+- [ ] **Email footer address is ConvertKit's, not Ventriq's** — his broadcasts
+  currently carry *"600 1st Ave, Ste 330 PMB 92768, Seattle, WA 98104-2246"*,
+  which is Kit's corporate default. Legal, but it tells a Baltimore audience
+  the mail is from Seattle. Same gap as the outstanding "mailing address for
+  email footers" ask on Justin's list — now with evidence of what's filling it.
+  *(Found Jul 29.)*
 - [ ] **DMARC report address** — the imported `_dmarc` record sends aggregate
   reports (`rua=`) to a third-party mailbox from the GoDaddy era
   ("onsec…"). Decide who should actually receive DMARC reports and update.

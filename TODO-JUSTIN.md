@@ -6,6 +6,22 @@ right level as the build moves. (Our own task list lives in `TODO.md`.)
 
 ## 🔴 This week
 
+- [ ] **Your agenda spreadsheet has the last two nights on the wrong dates**
+  (~2 min to fix on your end — nothing needed from us).
+  The agenda file you sent this morning puts **The Endgame on Thu Aug 20** and
+  **The End of the Beginning on Fri Aug 21**, with nothing on Wed Aug 19.
+  Everywhere else says otherwise: your **Luma page** (which your 36 registrants
+  are looking at, and which sent their calendar invites), **your own webpage
+  brief from July 25**, and the website all have **The Endgame on Wed Aug 19**
+  and **The End of the Beginning on Thu Aug 20**. The first six nights match
+  everywhere.
+
+  We've changed nothing — three sources agree and only the spreadsheet differs,
+  so we're treating it as a slip in that file. **But please fix it there**, because
+  if you're running the summit off that agenda you'd have your finale on the
+  wrong nights. If we've got it backwards and you genuinely moved those two
+  nights, tell us today — Luma and 36 calendar invites would need updating.
+
 - [ ] **⭐ The Summit page assets — this is the one that matters** (you said on
   the July 23 call you'd send these within 24–48 hours; it's now July 28, and
   the Summit is 13 days out). Four things:
@@ -20,20 +36,35 @@ right level as the build moves. (Our own task list lives in `TODO.md`.)
   *Why it matters:* this is the page your Instagram bio points at and the page
   you said to prioritize above all others. Everything else on this list can
   wait behind it.
-- [ ] **Finish setting up the Skool group** (~15 min) — **the site's "Join
-  Founders After Hours" buttons now point straight at it**, so this stopped
-  being a someday task on July 29. Right now the group is **free**, named
-  **"IAMJS Collective,"** and nearly empty — meaning anyone who clicks Join
-  today lands in a free group under a different name, and every early joiner
-  is someone you'll have to move onto a paid plan later. Three things:
-  1. **Set the two membership prices** in Skool ($39 digital / $99 in-person).
-  2. **Decide the group's name** — rename it to match the community brand, or
-     tell us IAMJS Collective is intentional and we'll make the site match.
-     **Careful: renaming can change the group's web address, and the site
-     links to it now** — so tell us the moment you rename and we'll update
-     the site the same day, otherwise the button breaks.
-  3. Tell us when it's done — we'll take the last "pending" marker off the
-     page and swap in a real screenshot of the space.
+- [ ] **Finish setting up the Skool group** (~15 min) — **the site's join
+  buttons now point straight at it**, so this stopped being a someday task on
+  July 29. Right now it's **free**, named **"IAMJS Collective,"** and nearly
+  empty, so anyone clicking Join today lands somewhere that doesn't match what
+  the site promises. Your Foundry one-pager tells us the end state, so this is
+  now just execution:
+  1. **Set the two tiers** — Digital Core **$45/mo** and Power Hour **$99/mo**.
+     *(Confirm the $45 — the site currently says $39 everywhere. See below.)*
+  2. **Rename the group to The Foundry** — unless you want to hold that name
+     until you announce it on Night 1, which is what we're assuming.
+     **Careful: renaming changes the group's web address, and the site links
+     to it now** — tell us the day you do it and we'll update the same day,
+     otherwise the button breaks.
+  3. Tell us when it's done — we'll drop the "pending" marker and swap in a
+     real screenshot.
+
+- [ ] **Four quick confirmations on The Foundry** (~5 min total). Your
+  one-pager answers a lot, but four things change what's already live:
+  1. **Is Night 1 (Aug 10) when "The Foundry" goes public?** We're planning
+     around that — building the section so the name can flip that night
+     without us shipping anything.
+  2. **Digital tier: $39 or $45?** The site says $39 in five places; the
+     one-pager says $45. And if it's $45, does that start now or at launch?
+  3. **"Founder After Hours" or "Founders After Hours"?** Your one-pager drops
+     the "s" everywhere. Ours has it. Small, but it's in the web address, the
+     menu, and about forty other places.
+  4. **Should the web address change** from ventriq.io/founders-after-hours to
+     something like /the-foundry? Worth deciding **before** Aug 10 — changing
+     it after launch costs us the Google ranking we're building now.
 - [ ] **Add a payment card to Google Workspace** (~2 min). The Ventriq
   Workspace was created July 10 on a 14-day free trial — **billing started
   ~July 24, which has now passed**. Without a card, jshaw@ventriq.io stops

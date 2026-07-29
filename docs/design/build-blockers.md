@@ -19,6 +19,30 @@ Full meeting record: [`../meetings/07-23-2026-meeting-3-outcomes.md`](../meeting
 
 ---
 
+> **Jul 29 update — the speaker blockers partially cleared.** Justin's
+> `Speakers.tsv` delivers **complete night-by-night assignments for 29 people**,
+> which was the data gating A2 (agenda face thumbnails). But images did not
+> arrive: **8 have headshot + bio, 13 have only the Instagram promo graphic**
+> (explicitly not usable), **7 are still "Outreach," 1 is blank**. So A1
+> (speaker flip cards) stays blocked — 8 usable portraits out of 29 can't build
+> a wall. **The blocker split rather than cleared.** Full readiness table:
+> `docs/plans/summit-aug-1/01-phase-1-research.md` §4.
+>
+> Also note: **two speakers are already homepage testimonials** — Margo Burley
+> ("Margo B., Artvantage") and Calvin Royster ("Calvin R., Encore") — so the
+> outstanding testimonial-permissions ask (A3) can ride along with speaker
+> outreach he's already doing.
+>
+> **And bios arrived from an unexpected place.** Justin's Kit broadcast of
+> Jul 23 (`docs/notes-from-justin/7-29/$30M raised….eml`) carries **five
+> speaker bios already sent to his list** — Jerone Anthony Tyler, Cedric
+> Powell, Theodore Savage, Tiffany Bethea, Jeffrey Scruggs — each with the
+> credential and proof line he chose. **Already public, so cleared for the
+> site by definition.** Transcribed in
+> `docs/plans/summit-aug-1/01-phase-1-research.md` §10.1. Images are still
+> missing; the email's assets are composed graphics on Kit's CDN, not raw
+> portraits.
+
 ## Group A — blocked on Justin (external)
 
 **⚠️ The single unblock for most of this group is the consolidated asset email
