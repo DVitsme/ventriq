@@ -3,7 +3,43 @@
 **Justin's framing:** *"Drop-in copy replacements — no engineering required.
 Fourteen copy blocks, all written and final. Sections 2, 4, 5, 6, 7, 9, 10,
 11, 12, 13, 14, 15."*
-**When:** by Aug 1 · **Status:** 🟥 not started
+**When:** by Aug 1 · **Status:** 🟨 **13 of 14 built Jul 29 — 1 deliberately held**
+
+> ## Build notes — Jul 29
+>
+> **§05b (the ambassador prompt) is HELD, not skipped.** This file's own
+> instruction: *"Test the field before shipping the prompt — driving people to
+> a field that silently drops data is worse than not asking."* The Luma
+> referral-field test ([T2·3](./03-phase-3-tier-2.md)) has never been run, so
+> shipping *"Referred by someone? Add their name on the registration form"*
+> would actively invite people to fill in a field we cannot confirm works, and
+> the failure would be silent. **Ship it the moment the field is verified** —
+> it's a one-line addition under step 1.
+>
+> **O5 taken: step 3 is titled "The room stays open."** The brief's recommended
+> option, over "Keep building." / "After the eighth night." / "What happens
+> next." Same reasoning as O4 — one string, reversible, and the brief argues it
+> *"keeps the original idea, reads more elevated, and implies continuation
+> rather than possession."*
+>
+> **`CountUp` gained a `suffix` prop** for `17+`. `$0` uses the existing
+> `prefix` and has nothing to animate toward, so it renders statically — which
+> is the right behaviour for a zero.
+>
+> **Three things fixed that the brief doesn't cover** (`[OURS]`):
+> the third `$39` in the post-summit hero state (`:103`) — invisible until
+> Aug 20, but it would have contradicted the two the brief does strip on the
+> exact day the summit ends; the homepage sponsor block's identical
+> "underwritten … foundations" language, outside the brief's summit-only scope;
+> and the missing `<h2>` on "Who is this for?", which the brief omits because
+> it addresses copy rather than structure.
+>
+> **O1 held to its scope.** *entrepreneurs* now appears in exactly the places
+> the brief wrote it — the audience block, the hero trust line, the footer, and
+> the sponsor reframe. It was **not** extended to the FAQ, the step copy, or
+> "Founders After Hours". The hero deliberately says *founders* two lines above
+> a trust line saying *entrepreneurs*; that inconsistency is the brief's own
+> and is what O1 is about.
 **Prev:** [`03-phase-3-tier-2.md`](./03-phase-3-tier-2.md) ·
 **Next:** [`05-phase-5-tier-4.md`](./05-phase-5-tier-4.md) ·
 **Index:** [`00-README.md`](./00-README.md)
@@ -164,10 +200,18 @@ tag: **`JUSTIN`** · **Locator:** `app/summit/page.tsx:210` · grep anchor: `Tak
 ### 05b — Ambassador prompt
 tag: **`COPY AUDIT`** · **Locator:** new line under the step
 
-- [ ] Add, set small
+- [ ] ⛔ **HELD — do not ship until the Luma referral field is verified**
 
 `ADD BENEATH THE STEP, SET SMALL`
 > **"Referred by someone? Add their name on the registration form."**
+
+🔴 **This is the only Phase 4 item not shipped, and it is held on purpose.**
+The referral field has never been tested end to end
+([T2·3](./03-phase-3-tier-2.md)). Shipping this line would send people to a
+field we cannot confirm captures anything, and the brief itself says the
+failure *"will not announce itself."* Asking for data we then lose is worse
+than not asking. **Unblock: run one real registration, confirm the name appears
+in the Luma export, then add this line.** One-line change.
 
 Brief: *"**The entire referral attribution model depends on registrants filling
 in the referral-name field on the Luma form, and nothing on the page currently

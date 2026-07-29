@@ -100,8 +100,11 @@ function Hero() {
         <h1 className="mt-6 max-w-[16ch] text-4xl font-medium leading-[1.08] tracking-[-0.015em] md:text-[60px]">
           The room keeps what you missed.
         </h1>
+        {/* Post-summit state. `[OURS]` — the brief misses this third $39 because
+            it only renders after Aug 20, but leaving it would contradict the two
+            the brief does strip the day the summit ends. */}
         <p className="mt-6 max-w-[54ch] text-lg leading-relaxed text-cream/85">
-          All eight sessions live in Founders After Hours — replays, office hours, and the founders who showed up. Membership from $39/month.
+          All eight sessions live in Founders After Hours — replays, office hours, and the founders who showed up.
         </p>
         <div className="mt-10">
           <a href="/founders-after-hours" className="inline-block rounded-[2px] bg-gold px-6 py-[15px] font-semibold leading-none text-ink hover:bg-gold-hover">
@@ -140,10 +143,22 @@ function Hero() {
       <p style={{ ["--vqd" as string]: "1.3s" }} className="vq-in mt-6 max-w-[54ch] text-lg leading-relaxed text-cream/85">
         Eight nights across two weeks — one session a night, ninety minutes each. Each one pointed at something you can do the next morning.
       </p>
+      {/* §02b — a cold visitor from an Instagram link self-identifies in under
+          two seconds or leaves. Says "founders"; the trust line below says
+          "entrepreneurs". Both are the brief's own wording — O1, ship as
+          written, do not harmonise. */}
+      <p style={{ ["--vqd" as string]: "1.45s" }} className="vq-in mt-4 max-w-[54ch] text-lg font-medium leading-relaxed text-cream">
+        Built for founders who are past the idea and into the work.
+      </p>
       <div style={{ ["--vqd" as string]: "1.7s" }} className="vq-in mt-10 flex flex-wrap items-center gap-6">
         <LumaRegisterButton ctaLocation="summit-hero">Save My Free Seat</LumaRegisterButton>
-        <span className="text-sm text-cream/60">Registration runs on Luma — about a minute, free.</span>
+        <span className="text-sm text-cream/60">Free. Registration runs on Luma — your seat and calendar invite arrive together.</span>
       </div>
+      {/* §02c — Ventriq was only identified in the footer, by which point the
+          decision is already made. */}
+      <p style={{ ["--vqd" as string]: "1.85s" }} className="vq-in mt-5 max-w-[54ch] text-sm leading-relaxed text-cream/70">
+        Built by Ventriq — equipping entrepreneurs with capital, programming, and council.
+      </p>
       {/* Watched by MobileCtaBar: while this is on screen the sticky bar stays
           down, so a phone never shows two identical buttons at once. */}
       <div id="vq-hero-cta-sentinel" aria-hidden className="h-px w-px" />
@@ -198,10 +213,17 @@ const SPEAKERS = [
 
 const FAQ: [string, React.ReactNode][] = [
   ["What does it cost?", "Nothing — the seat is free. Register on Luma and you're in every night live."],
-  ["What if I can't make a session live?", "Every replay lands in Founders After Hours 24 hours after the session — that's the membership community, from $39/month. The live seat is the free one; save it and show up."],
+  ["What if I can't make a session live?", "Every replay lands in Founders After Hours 24 hours later — that's Ventriq's working community, where the summit keeps going. The live seat is the free one, and it's where the real work happens. Save it and show up."],
+  // §12d — 6:30 ET is 3:30 PT, a real conflict for anyone with a day job.
+  // "A question that will otherwise arrive by email eighty times."
+  ["What time is this in my zone?", "6:30–8:00 PM ET each night — so 5:30 CT, 4:30 MT, 3:30 PT. The calendar invite in your confirmation will convert it for you automatically."],
   ["How much time is this, honestly?", "Ninety minutes a night, Monday through Thursday, for two weeks. Fridays through Sundays are yours. It's built for people running businesses, because you are."],
   ["Who are the speakers?", "Operators, builders, and funders — people who've done the thing they're teaching. Seventeen-plus of them across the eight nights, with more announced weekly."],
-  ["Will I be pitched?", "Every session is seventy percent teaching, thirty percent questions. Nobody's selling you a course at the end. The only call-to-action you'll hear is Founders After Hours — and its price is on the label."],
+  // §12a — "Will I be pitched?" retired, not rewritten. The old answer claimed
+  // "nobody's selling you a course at the end", which contradicted Justin's own
+  // stated plan to lean into the community every night. The brief takes the
+  // slot for the bigger unasked objection instead of arguing the small one.
+  ["Do I have to attend all eight nights?", "No. Choose your sessions when you register — one night, four, or all eight. Most founders come for the nights that map to what they're solving right now, then stay for the ones they didn't expect to need."],
   ["What do I need?", "Zoom, a notebook, and one real challenge in your business you want to move."],
   ["Can I send my team?", "Yes — registration is per person, so have them grab their own seats. It's free for everybody who builds."],
   ["What's Founders After Hours?", <>Ventriq&rsquo;s working community: replays, office hours with advisors, webinars, and a monthly in-person hour where founders do the work together. <a href="/founders-after-hours" className="text-accent-deep underline">Read about it →</a></>],
@@ -237,15 +259,28 @@ export default function SummitPage() {
         </div>
       </div>
 
-      {/* The shape of it — count-up band (static; NumberFlow in Phase 4) */}
+      {/* The shape of it — §03. "8 nights" and "8 sessions" were the same fact
+          twice, so one of four slots said nothing new. Roster size leads and
+          zero cost closes. `17+` keeps its suffix through CountUp; `$0` has
+          nothing to animate to, so it just renders. */}
       <section className="bg-midnight">
         <div className="mx-auto flex max-w-[1440px] flex-wrap gap-x-14 gap-y-8 px-5 py-16 md:px-20">
-          {[[8, "nights"], [8, "sessions"], [90, "minutes a night"], [2, "weeks"]].map(([n, l]) => (
-            <div key={l as string}>
+          {/* Typed explicitly: a bare literal infers a union of shapes and
+              destructuring `prefix`/`suffix` then fails on the members without
+              them. */}
+          {(
+            [
+              { n: 8, label: "nights" },
+              { n: 17, label: "operators", suffix: "+" },
+              { n: 90, label: "minutes a night" },
+              { n: 0, label: "to attend", prefix: "$" },
+            ] as { n: number; label: string; prefix?: string; suffix?: string }[]
+          ).map(({ n, label, prefix, suffix }) => (
+            <div key={label}>
               <p className="text-6xl font-semibold text-gold [font-variant-numeric:tabular-nums] md:text-[66px]">
-                <CountUp value={n as number} />
+                <CountUp value={n} prefix={prefix} suffix={suffix} />
               </p>
-              <p className="mt-1 text-sm text-cream/70">{l}</p>
+              <p className="mt-1 text-sm text-cream/70">{label}</p>
             </div>
           ))}
         </div>
@@ -255,7 +290,12 @@ export default function SummitPage() {
       <section className="bg-midnight">
         <div className="mx-auto max-w-[1440px] px-5 pb-20 md:px-20 md:pb-28">
           <p className="max-w-[28ch] text-[28px] font-medium leading-[1.5] text-cream md:text-[38px]">
-            <ScrollLit text={"Every August, the stages get bigger and the badges get pricier. This is the other thing. Eight nights in the summer. Ninety minutes at a time. People who\u2019ve built, telling you exactly how \u2014 and a room that keeps the receipts. The resources are out there. For two weeks, they\u2019re not camouflaged."} />
+            {/* \u00a704 \u2014 Justin's own rewrite. He read the old version aloud on the
+                Jul 23 call and said "we can both read that this came straight
+                from chat"; this is his replacement, verbatim. The
+                bigger-stages/pricier-badges framing moved to the National Black
+                Business Month block (\u00a711) rather than being said twice. */}
+            <ScrollLit text={"This is the first one. Eight nights, ninety minutes each, across every unit of the business you\u2019re building \u2014 brand, influence, sales, marketing and PR, technology, capital, and the exit you haven\u2019t thought about yet. You won\u2019t sit and take notes. You\u2019ll work on your own business in real time, in the room, with the people who\u2019ve already done it."} />
           </p>
         </div>
       </section>
@@ -265,10 +305,15 @@ export default function SummitPage() {
         {/* The three cards are h3s; without this the outline skips h1 → h3. */}
         <h2 className="sr-only">How it works</h2>
         <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-20 md:grid-cols-3 md:px-20 md:py-28">
+          {/* §05a / §06 / §07 — step titles 1 and 2 stay per the brief; step 3
+              retitled. The session opt-in line in step 2 is mirrored under the
+              schedule and in the FAQ on purpose: "a reader who is stretched too
+              thin needs to hear it more than once before it registers as
+              permission." */}
           {[
-            ["1", "Save your free seat.", "Takes a minute on Luma. Your confirmation email carries the calendar invite; add it before you forget."],
-            ["2", "Show up live.", "Monday through Thursday nights, 6:30–8:00 PM ET, for two weeks. Seventy percent teaching, thirty percent your questions. Then Friday through Sunday — go build with it."],
-            ["3", "Keep the room.", "Founders After Hours holds every replay 24 hours after each session, along with speaker office hours and the founders you met in the chat. Membership from $39/month."],
+            ["1", "Save your free seat.", "Free registration on Luma. Your confirmation arrives with the calendar invite attached — add it, and you're locked in for every night you choose."],
+            ["2", "Show up live.", "Monday through Thursday, 6:30–8:00 PM ET. Choose your nights when you register — all eight, or only the ones your business needs. Every session is live and worked, not watched: exercises, breakouts, and real questions answered in the room."],
+            ["3", "The room stays open.", "Every session replays inside Founders After Hours 24 hours later — along with speaker office hours, and the founders you met in the chat. It's where two weeks turns into a practice."],
           ].map(([n, t, b]) => (
             <div key={n} className="border-t border-ink/20 pt-5">
               <p className="text-3xl font-semibold text-ink [font-variant-numeric:tabular-nums]">{n}</p>
@@ -392,13 +437,19 @@ export default function SummitPage() {
         </div>
       </section>
 
-      {/* Who it's for */}
+      {/* Who it's for — §10 replaces all three rows with the audience tiers,
+          and the heading Justin asked for on Jul 23 ("I will probably put like
+          large header saying 'who is this for?'") finally lands. The section
+          had no visible h2 at all, so this also closes a heading-outline gap.
+          NOTE: "entrepreneurs" is scoped to THIS block — O1 reserves the
+          sitewide swap for Justin. Do not extend it. */}
       <section className="bg-cream pb-20 text-ink md:pb-28">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
+          <h2 className="mb-8 text-3xl font-medium md:text-[40px]">Who is this for?</h2>
           {[
-            ["Small business owners", "past the idea stage — there's revenue, customers, a real thing to grow."],
-            ["Startup founders", "from first traction to first raise, tired of advice that assumes a Stanford network."],
-            ["Nonprofit builders", "who run their organization like founders, because they are."],
+            ["Idea-stage entrepreneurs", "you have the vision and the nerve. What's missing is the blueprint, and the conviction to start before it's perfect."],
+            ["Early-stage entrepreneurs", "zero to three years in, revenue coming through the door, and every system in the business still running through you."],
+            ["Scaling entrepreneurs", "the thing works. Now the questions are capital, leverage, and what this becomes when you're not the one holding it up."],
           ].map(([b, r]) => (
             <p key={b} className="border-t border-ink/15 py-5 text-lg">
               <strong className="font-semibold">{b}</strong>{" "}
@@ -416,18 +467,21 @@ export default function SummitPage() {
       <section className="bg-cream pb-20 text-ink md:pb-28">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <div className="max-w-[62ch] border-t border-ink/15 pt-10">
+            {/* §11 — rewritten, and the "Read the full story" link removed:
+                "a closing thought from the founder should not hand off to
+                another page." The byline STAYS here — this is the one place the
+                brief deliberately keeps Justin's name, against the otherwise
+                standing "brand without a face" direction. */}
             <p className="text-lg leading-relaxed text-ink/88">
-              August is National Black Business Month, and every fall the big
-              conferences arrive with big stages and bigger badges. This is the
-              other thing: eight nights in the summer, ninety minutes at a
-              time, where the point isn&rsquo;t who&rsquo;s in the room —
-              it&rsquo;s what you do when you leave it. That&rsquo;s the whole
-              Ventriq idea, in miniature.
+              August is National Black Business Month. Most of what that means
+              arrives as a conference — a flight, a hotel, a badge, and three
+              days away from the business you&rsquo;re supposed to be building.
+              This is the other thing. Ninety minutes a night, from the beach,
+              the office, or the edge of your bed. Eight small deliberate moves
+              instead of one big weekend. Come September, you won&rsquo;t have a
+              lanyard. You&rsquo;ll have momentum.
             </p>
             <p className="mt-5 font-semibold">— Justin Shaw</p>
-            <p className="mt-3">
-              <a href="/about" className="font-medium text-accent-deep hover:underline">Read the full story →</a>
-            </p>
           </div>
         </div>
       </section>
@@ -483,7 +537,7 @@ export default function SummitPage() {
           <div className="mt-8 flex flex-wrap items-center gap-6">
             <LumaRegisterButton ctaLocation="summit-final">Save My Free Seat</LumaRegisterButton>
             <span className="text-sm text-cream/60 [font-variant-numeric:tabular-nums]">
-              Aug 10–20 · 6:30–8:00 PM ET · live on Zoom · free
+              Aug 10–20 · 6:30–8:00 PM ET · live on Zoom · free · one registration, all eight nights
             </span>
           </div>
         </div>

@@ -318,10 +318,15 @@ export default function Home() {
           <h2 className="mt-6 text-3xl font-medium md:text-[40px]">
             Put a name behind the builders
           </h2>
+          {/* `[OURS]` — the brief's §13 reframe is scoped to /summit, but the
+              same "underwritten … foundations" language sits here. Both signal
+              philanthropic giving, and a foundation grant to a for-profit is a
+              different and much harder transaction than a sponsorship. Swept
+              for consistency with the Tier 1 "no grant framing" clause. */}
           <p className="mt-5 max-w-[54ch] text-[17px] leading-relaxed text-cream/82">
-            Summit sessions and chapter nights can be underwritten by companies
-            and foundations that want to reach serious founders — visibly and
-            usefully, not a logo on a lanyard.
+            Summit sessions and chapter nights can be sponsored by companies
+            and organizations that want to reach serious entrepreneurs — visibly
+            and usefully, not a logo on a lanyard.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-6">
             <PrimaryLink href="/contact">Sponsor the Summit</PrimaryLink>

@@ -31,8 +31,28 @@ first. Written so it can be pasted straight into a client update for Justin.
   organizations" rather than "underwritten by companies and foundations",
   which matters now that Ventriq is a for-profit.
 
-- **All of today's work is now live on ventriq.io** — published and checked
-  page by page. Every internal placeholder is confirmed gone, every new
+- **Put in all 14 of the final copy replacements from Justin's brief** (built,
+  not yet published). The summit page now reads the way he wrote it: the
+  opening paragraph he rewrote himself, the new "Who is this for?" section with
+  its three founder stages, the rewritten Black Business Month passage ("come
+  September, you won't have a lanyard — you'll have momentum"), and a hero that
+  finally says who the page is for and who's behind it.
+- **Two new FAQ answers that head off the most common questions** — "do I have
+  to attend all eight nights?" (no, you pick) and "what time is this in my
+  zone?", which as Justin's brief put it would otherwise "arrive by email
+  eighty times."
+- **Removed the "will I be pitched?" answer.** It promised nobody would sell
+  you anything at the end, which isn't what Justin actually plans to do. The
+  slot now answers a more useful question instead.
+- **Took all pricing off the summit page** — it belongs on the community page,
+  and having it in both places was starting to contradict itself.
+- **One thing deliberately left out:** a line asking registrants to name
+  whoever referred them. The referral field on Luma has never been tested, and
+  pointing people at a field that might silently drop what they type is worse
+  than not asking. It goes in as soon as we've confirmed it works.
+
+- **All of today's earlier work is now live on ventriq.io** — published and
+  checked page by page. Every internal placeholder is confirmed gone, every new
   section confirmed present, and the accessibility scan re-run clean across
   all seven pages on desktop, mobile and reduced-motion settings.
 

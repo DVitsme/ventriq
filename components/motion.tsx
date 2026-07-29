@@ -45,9 +45,13 @@ export function Reveal({
 export function CountUp({
   value,
   prefix,
+  suffix,
 }: {
   value: number;
   prefix?: string;
+  /** For open-ended counts like "17+" — the roster grows, so the figure is a
+   *  floor, not a total (revision brief §03). */
+  suffix?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const [shown, setShown] = useState(value);
@@ -70,7 +74,7 @@ export function CountUp({
   }, [value]);
   return (
     <span ref={ref}>
-      <NumberFlow value={shown} prefix={prefix} />
+      <NumberFlow value={shown} prefix={prefix} suffix={suffix} />
     </span>
   );
 }
