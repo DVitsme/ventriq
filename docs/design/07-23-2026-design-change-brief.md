@@ -28,6 +28,12 @@ and it is the client's own reaction to the built thing.
 **Status legend:** 🟩 shipped · 🟨 partially shipped · 🟥 not started ·
 ⏸️ pinned, awaiting Justin · ⚠️ conflicts with something and needs a decision
 
+**Working files derived from this brief (Jul 29):** the ranked build order
+lives in [`build-queue.md`](./build-queue.md) and the blocked items with
+unblock conditions in [`build-blockers.md`](./build-blockers.md) — **start
+there when picking up work**; this brief is the intent reference they point
+back into.
+
 ---
 
 ## §1 · The through-lines

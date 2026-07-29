@@ -64,8 +64,9 @@ important, not yet blocking · 🟡 watch / later.
 ## 🟠 Important, not yet blocking
 
 - [ ] **Meeting-3 build backlog (Jul 23 design review) — 22 decisions, D1–D22.**
-  Full plan in `docs/meetings/07-23-2026-meeting-3-outcomes.md`; the visual half
-  is broken out with intent, constraints and a stress test in
+  Full plan in `docs/meetings/07-23-2026-meeting-3-outcomes.md`; **the working
+  build order is `docs/design/build-queue.md` + `build-blockers.md` (Jul 29) —
+  pick up from there**; the visual half's intent, constraints and stress test:
   `docs/design/07-23-2026-design-change-brief.md` (geometric video heroes, the
   missing Aug 10 countdown, speaker flip cards, agenda face cards, the
   testimonials carousel and the convergence-mark problem it creates, the navy
@@ -161,7 +162,13 @@ important, not yet blocking · 🟡 watch / later.
   (fixed), and `.env.example` still lists its Stripe/shadcnblocks/Stitch
   vars. Prune both files to Ventriq-only vars. *(Raised Jul 24.)*
 - [ ] Mirror NEXT_PUBLIC_TURNSTILE_SITE_KEY into Workers Builds "Build
-  variables and secrets" so git-triggered builds inline it.
+  variables and secrets" so git-triggered builds inline it. **Jul 29 evidence:
+  pushes currently don't produce deployments at all** — `2d898d0` pushed,
+  no new deployment after 10+ min (`wrangler deployments list` still shows
+  Jul 25 as latest); shipped it via manual `pnpm run deploy` instead. So
+  either Workers Builds isn't actually building on push, or its builds fail
+  silently — check the dashboard build log when doing the mirror. Until both
+  are fixed, **manual deploy is the only real path to prod.**
 - [ ] **DMARC report address** — the imported `_dmarc` record sends aggregate
   reports (`rua=`) to a third-party mailbox from the GoDaddy era
   ("onsec…"). Decide who should actually receive DMARC reports and update.
