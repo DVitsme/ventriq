@@ -140,11 +140,19 @@ audience row — but that is a different change, in
 ⚠️ **Two conflicts on this one line.** (a) It uses *entrepreneurs*, which is
 the subject of **[O1](./01-phase-1-research.md#8--open-questions--do-not-resolve-these-alone)** — the brief scopes that swap to the "Who this is for"
 block only, yet writes it into the footer itself. Flagged, not resolved.
-(b) It keeps `ven-TREEK`. The Jul 23 call was read as killing it
-([outcomes doc D2](../../meetings/07-23-2026-meeting-3-outcomes.md)) — **that
-reading has since been withdrawn.** This line is deliberate final copy written
-two days later and it keeps the respelling, which beats an inference from a
-garbled transcript. **`ven-TREEK` stays. Do not remove it.**
+(b) ⚠️ **It keeps `ven-TREEK`, and that is an error in Justin's brief.**
+Derrick confirmed Jul 29 that the Jul 23 decision to kill the respelling stands
+([outcomes doc D2](../../meetings/07-23-2026-meeting-3-outcomes.md)) — he was
+in the room. **Strip `(ven-TREEK)` when applying this block**, so the line
+reads:
+
+`APPLY INSTEAD`
+> **"Ventriq equips entrepreneurs with capital, programming, and council —
+> rooted in Baltimore, built to travel."**
+
+This is the one place in this plan where we deliberately depart from the
+brief's verbatim copy, and it is on Derrick's explicit instruction. Justin also
+needs to correct it in his own brief and email templates — it's on his list.
 
 **Done when:** Ventriq is described as mission-driven or by what it does, never
 as a nonprofit; no EIN, 501(c)(3), deductibility, grant or donation framing

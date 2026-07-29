@@ -493,6 +493,101 @@ Independent confirmation that this is a real conversion issue, not a hunch.
 
 ---
 
+## §11 · The 2026 Program Calendar — the whole year, and three chips resolved
+
+`2026 Ventriq Program Calendar - Sheet1.tsv` — 43 rows, Aug–Dec 2026, columns
+Date · Start · End · Event Type · **Audience** · Topic · Speaker · Description.
+
+⚠️ **Its summit rows are stale — ignore them.** It calls the event *"Ventriq
+Launch Summit"*, runs it **7:00–8:00 PM** (everything else says 6:30–8:00), and
+schedules it **Mon · Tue · Thu · Fri** — Aug 10, 11, **13, 14**, 17, 18, **20,
+21** — skipping Wednesdays entirely. That is a *third* distinct schedule and it
+predates the Luma listing. **Summit truth remains Aug 10–13 + 17–20, Mon–Thu,
+6:30–8:00 PM ET** (§3.1, now five sources to two).
+
+**Everything after Aug 21 is the valuable part** — this is the first complete
+picture of what Ventriq actually runs, and it's the filtered public/FAH list
+Justin promised on the Jul 23 call (D6).
+
+### 11.1 · The four recurring programs
+
+| Program | Audience | Cadence | Time | Dates |
+|---|---|---|---|---|
+| **Founder After Hours** | FAH · in person | *"ideally every 3rd–4th Monday"* | 6:30–8:00 PM | Aug 24 · Sep 21 · Oct 19 · Nov 16 · Dec 14 |
+| **FAH Monthly Webinar** | FAH · virtual | 1st Wednesday | 7:00–8:00 PM | Sep 9 · Oct 7 · Nov 4 · Dec 2 |
+| **How to Run A Profitable Business** | **Public** · virtual | 2nd + 4th Monday | **6:15–7:00 PM** | Sep 14 · Sep 28 · Oct 12 · Oct 26 · Nov 9 · Nov 23 |
+| **Ventriq Mastermind** | Cohort members | weekly **Saturday** | **8:30–10:30 AM** | Sep 26 → Nov 21, then graduation Dec 5 |
+
+The webinar's description — *"1st Wednesday of the Month. Announcing the focus
+of the month with an overview"* — confirms the **"Live sessions"** pillar from
+D16, and gives it a real cadence. (Sep 9 is the *second* Wednesday, so the
+first one slips; everything after is 1st-Wednesday.)
+
+### 11.2 · ⚠️ Three live-copy contradictions
+
+**(a) The Mastermind is Saturday mornings, not Monday evenings.**
+`app/mastermind/page.tsx:145` says *"weekly, **Monday evenings**, 60–90
+minutes, live on Zoom."* The calendar says **Saturdays, 8:30–10:30 AM, two
+hours**, alternating virtual and in-person, kicking off **Sat Sep 26 6:00–8:00
+PM in person**. Justin flagged this himself on the call — *"this will probably
+change as far as it being on Monday evenings"* — and this is the answer. Every
+element of that line is wrong: day, time of day, duration, and format.
+
+**(b) "90 days" is really ~10 weeks.** Sep 26 → Dec 5 graduation is **70 days
+= exactly 10 weeks**. The page says *"90 days"* in the spec row, the H2
+(*"Ninety days, three pillars"*), the title tag, the meta description and the
+homepage card strap. D20 asked to switch the spec row to weeks; the honest
+number is **10 weeks**, not the 13 I proposed. ⚠️ But "Ninety days" is
+load-bearing brand copy — **confirm with Justin before touching the headline**;
+he may want the round number to stay.
+
+**(c) HRPB starts Sept 14, not Sept 28.** The redline chip at
+`app/founders-after-hours/page.tsx:191` says *"starts Sept 28"*. The calendar
+has **Sep 14** first, then Sep 28 — biweekly Mondays, **45 minutes** (6:15–7:00
+PM), six sessions Sep–Nov, none in December. Enough to retire the chip apart
+from the event link.
+
+### 11.3 · Resolved: `[COHORT-DATES]`
+
+Mastermind cohort 2 = **Sat Sep 26 → Sat Dec 5, 2026** (graduation). Nine
+working sessions plus graduation — which matches the *"ten sessions"* the page
+already claims. Retires `[COHORT-DATES]` at `app/mastermind/page.tsx:144`.
+`[APP-OPEN DATE]` and `[APP-DEADLINE]` are still open.
+
+⚠️ **Every Mastermind row is duplicated**, the second marked *"If the 1st
+mastermind is filled."* So he's planning **two concurrent cohorts**. The site
+says *"10 seats"* — if both run, that's 20, and "ten founders" becomes wrong.
+Ask before changing anything.
+
+### 11.4 · The Upcoming Events section is now unblocked (D6)
+
+The Audience column does exactly the filtering Justin described. Public + FAH
+rows only, internal cohort rows excluded:
+
+- **Public:** How to Run A Profitable Business ×6 · **Mastermind Graduation,
+  Sat Dec 5, 12:00–2:30 PM, in person** (audience is listed as *"Public, Cohort
+  MM Members"* — a public graduation is a genuinely good FOMO event)
+- **FAH:** Founder After Hours ×5 · FAH Monthly Webinar ×4
+
+That's **16 dated rows** — enough to make the year look inhabited, which was
+the design intent in
+[`../../design/07-23-2026-design-change-brief.md`](../../design/07-23-2026-design-change-brief.md)
+§3.5.
+
+### 11.5 · Two more corroborations
+
+**"Founder After Hours" — singular, again.** The calendar uses the singular in
+all five rows, matching the Foundry one-pager (§6.1) against our site's plural.
+**Two independent sources now say singular.** O11 is close to answered.
+
+**FAH runs 6:30–8:00 PM here**, but the Jul 23 call set the run-of-show at
+**6:00 brief / 6:15 hour / 7:15 tally / 8:15 room** (D17). The call is the more
+specific and more recent statement, so D17 stands — but the gap is worth one
+line to Justin, since a chapter head reading this calendar would show up at
+6:30 for a 6:00 start.
+
+---
+
 ## §8 · Open questions — do not resolve these alone
 
 | # | Question | Owner | Source |
@@ -511,6 +606,11 @@ Independent confirmation that this is a real conversion issue, not a hunch.
 | **O12** | **Digital tier $39 → $45 — confirm.** The one-pager says $45; the live site says $39 in five places. $99 is unchanged. Does the new price apply now, or at the Night 1 launch? | **Justin** | §6.2 |
 | **O13** | Does `/founders-after-hours` become `/the-foundry`? Needs a 301 and resets indexing — **decide before Aug 10, not after.** | **Derrick + Justin** | §6.5 |
 | **O14** | The brief declines the *founders*→*entrepreneurs* swap because *"Founders After Hours locks the word into the brand."* If FAH stops being the membership name, that argument expires. Revisit O1 alongside O10. | **Justin** | §6.5 |
+| **O15** | **Mastermind is Saturdays 8:30–10:30 AM per the calendar; the site says Monday evenings 60–90 min on Zoom.** Confirm before rewriting — every element of that line changes. | **Justin** | §11.2a |
+| **O16** | **"Ninety days" is really 10 weeks** (Sep 26 → Dec 5). Change the spec row for sure; does the *headline* "Ninety days, three pillars" stay as brand copy? | **Justin** | §11.2b |
+| **O17** | **Two concurrent Mastermind cohorts?** Every session is duplicated *"if the 1st mastermind is filled."* If both run, "ten founders / 10 seats" is wrong. | **Justin** | §11.3 |
+| **O18** | **FAH start time: 6:00 (call) or 6:30 (calendar)?** D17 stands, but a chapter head reading the calendar arrives 30 min late. | **Justin** | §11.5 |
+| **O19** | **Justin's own brief §15 keeps `(ven-TREEK)`** in its final footer copy. Derrick confirmed Jul 29 the respelling dies — so the brief and his email templates need correcting on his side. | **Justin** | Phase 2 T1·3 |
 
 ---
 

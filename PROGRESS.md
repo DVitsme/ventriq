@@ -38,6 +38,21 @@ first. Written so it can be pasted straight into a client update for Justin.
   name goes public on opening night, whether the digital tier is $39 or $45,
   whether it's "Founder" or "Founders" After Hours, and whether the web
   address changes. All four are on his list in plain language.
+- **Read the 2026 program calendar — it's the first view of the whole year,
+  and it unblocks the "upcoming events" section.** Sixteen public and
+  community events between September and December are now dated and ready to
+  put on the site: the free monthly business class, the in-person community
+  nights, the monthly webinars, and a public Mastermind graduation in
+  December.
+- **Found three places the calendar disagrees with what's on the site** — the
+  Mastermind's meeting day and time, when the free business class starts, and
+  the length of the Mastermind program. We've changed nothing yet; all three
+  are questions for Justin, since the calendar might be the newer plan or the
+  older one. (Its summit dates are definitely the older one, so we're going by
+  Luma there.)
+- **Recovered five speaker write-ups from an email Justin already sent** — the
+  credentials and one-line proof points for five of the summit speakers,
+  already public, so they can go straight onto the site.
 
 - **The community "Join" buttons are now connected to the real Skool group.**
   All five "Join Founders After Hours" buttons on the community page now go

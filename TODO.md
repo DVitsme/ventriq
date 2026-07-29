@@ -151,6 +151,25 @@ important, not yet blocking · 🟡 watch / later.
   10KSB comparison from `/mastermind` · **kill `/about`** (10-step blast radius,
   §4.7) · **add Contact to the nav** (Derrick flagged it on the call and it's
   still missing). *(Raised Jul 23, planned Jul 28.)*
+- [ ] **Program calendar corrections — three live-copy errors + three chips
+  retired.** Justin's `2026 Ventriq Program Calendar` (Jul 29) is the first
+  full picture of the year. Its *summit* rows are stale — ignore them (they say
+  "Ventriq Launch Summit", 7–8 PM, Mon/Tue/Thu/Fri) — but everything from
+  Aug 24 on is authoritative. **Wrong on the live site:** (a) Mastermind is
+  **Saturdays 8:30–10:30 AM**, not *"weekly, Monday evenings, 60–90 minutes,
+  live on Zoom"* (`app/mastermind/page.tsx:145`); (b) **HRPB starts Sep 14**,
+  not Sep 28, biweekly Mondays 6:15–7:00 PM, 6 sessions
+  (`app/founders-after-hours/page.tsx:191` chip); (c) **"90 days" is really
+  10 weeks** — Sep 26 → Dec 5 is exactly 70 days. **Retires `[COHORT-DATES]`**
+  (cohort 2 = Sep 26 → Dec 5). ⚠️ All three need Justin's confirmation before
+  editing — O15–O17 in `docs/plans/summit-aug-1/01-phase-1-research.md` §11.
+  *(Raised Jul 29.)*
+- [ ] **Upcoming Events section (D6) is unblocked** — the calendar's Audience
+  column gives exactly the public + FAH filter Justin promised: **16 dated
+  rows** (HRPB ×6, Founder After Hours ×5, FAH webinar ×4, plus a **public
+  Mastermind Graduation Dec 5**). Enough to make the year look inhabited, which
+  was the design intent. Build against `lib/events.ts` per the recommendation
+  in the design brief §3.5 — not hardcoded JSX. *(Unblocked Jul 29.)*
 - [ ] **GA4 admin config (Phase 5's dashboard half, ~10 min):** Enhanced
   Measurement ON with history events, form-interactions OFF; retention
   2→14 months; mark key events luma_register_click / generate_lead /

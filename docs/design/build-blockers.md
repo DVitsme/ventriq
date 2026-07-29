@@ -89,7 +89,19 @@ is the tool.
   or alongside** — `ConvergenceDiagram` is used in exactly one place, the
   section this deletes; see Group B.
 
-### A4 · Upcoming Events section (home + FAH) — §3.5, §5.7
+### ~~A4 · Upcoming Events section (home + FAH) — §3.5, §5.7~~ ✅ UNBLOCKED Jul 29
+Justin's `2026 Ventriq Program Calendar` carries an **Audience** column that
+does exactly the public/FAH filtering he described on the call. **16 dated
+rows** available: How to Run A Profitable Business ×6 (public), Founder After
+Hours ×5, FAH Monthly Webinar ×4, plus a **public Mastermind Graduation on
+Dec 5**. ⚠️ Ignore the calendar's *summit* rows — they're stale (see
+`docs/plans/summit-aug-1/01-phase-1-research.md` §11). **Enters the queue at
+the ~1-day rank** alongside the pain-point band. Build against a typed
+`lib/events.ts`, not hardcoded JSX — the design brief's §3.5 reasoning about
+Justin not wanting to depend on us for content updates (constraint C3) applies
+directly here.
+
+### A4-b · *(original blocker text, retained for history)*
 - **Waits on:** Justin's filtered events list — **public + FAH rows only** (he
   is filtering himself; the master schedule is deliberately private, Derrick
   declined the raw file on-call).

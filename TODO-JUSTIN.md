@@ -52,6 +52,35 @@ right level as the build moves. (Our own task list lives in `TODO.md`.)
   3. Tell us when it's done — we'll drop the "pending" marker and swap in a
      real screenshot.
 
+- [ ] **Five quick confirmations from your program calendar** (~5 min).
+  Thanks for this — it's the first time we've seen the whole year in one place,
+  and it answers a lot. Five things in it don't match what's on the site, and
+  we don't want to guess which is right:
+  1. **Is the Mastermind Saturday mornings now?** The site says "Monday
+     evenings, 60–90 minutes on Zoom." Your calendar says Saturdays,
+     8:30–10:30 AM, some in person. You mentioned on our call that Mondays
+     might change — is this the change?
+  2. **Cohort runs Sep 26 to Dec 5** — that's 10 weeks, but the site says
+     "90 days" in a few places including a headline. Keep the round number, or
+     switch to 10 weeks?
+  3. **Are you running two Mastermind cohorts?** Every session is listed twice,
+     the second marked "if the 1st is filled." If both run, "ten founders" and
+     "10 seats" on the site would be wrong.
+  4. **How to Run A Profitable Business starts Sept 14?** The site says Sept 28.
+     Your calendar has it every other Monday, 6:15–7:00 PM, six sessions.
+  5. **Founder After Hours — 6:00 or 6:30 start?** On our call you walked me
+     through 6:00 brief / 6:15 the hour / 7:15 tally / 8:15 the room. The
+     calendar says 6:30–8:00. Whoever runs a chapter needs one answer.
+
+  *(Heads-up: the summit rows in that calendar are out of date — they say
+  "Ventriq Launch Summit," 7–8 PM, and Fridays. We're going by Luma. Might be
+  worth refreshing that file so nobody works off it.)*
+
+- [ ] **One small fix in your webpage brief** (~1 min). The new footer line in
+  your brief keeps the "(ven-TREEK)" pronunciation spelling — we'd agreed on
+  our call to drop it. We're taking it off the site. Worth correcting in your
+  brief and any email templates so it doesn't creep back in.
+
 - [ ] **Four quick confirmations on The Foundry** (~5 min total). Your
   one-pager answers a lot, but four things change what's already live:
   1. **Is Night 1 (Aug 10) when "The Foundry" goes public?** We're planning
