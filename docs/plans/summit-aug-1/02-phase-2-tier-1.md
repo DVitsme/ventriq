@@ -2,7 +2,20 @@
 
 **Justin's framing:** *"Today — credibility leaks currently visible to the
 public."*
-**When:** today (Jul 29) · **Status:** 🟥 not started · **Items:** 5
+**When:** today (Jul 29) · **Status:** ✅ **BUILT Jul 29 — awaiting deploy sign-off** · **Items:** 5
+
+> **Built, not yet live.** All 8 items applied; `tsc --noEmit` clean, lint clean
+> (one pre-existing `set-state-in-effect` error in `announcement-bar.tsx`
+> predates this work and was left alone). **Deploy held for Derrick's
+> sign-off** — `pnpm run deploy`, since pushes don't trigger builds on this
+> project.
+>
+> **One item carried forward:** the OG *image* for `/summit` still renders the
+> old title. `scripts/og-generate.mjs` imported the standalone `playwright`
+> package, which isn't a dependency — fixed to `@playwright/test` — but the
+> script now times out taking the screenshot in this environment. The card
+> text is cosmetic on social shares, not a credibility leak, so it did not
+> block the phase. Logged in `TODO.md`.
 **Prev:** [`01-phase-1-research.md`](./01-phase-1-research.md) ·
 **Next:** [`03-phase-3-tier-2.md`](./03-phase-3-tier-2.md) ·
 **Index:** [`00-README.md`](./00-README.md)
@@ -64,7 +77,7 @@ different surface and stays untouched.
 ## T1·1 — Footer: the internal legal note is rendering publicly
 `brief §15` · `brief Tier 1, item 2` · tag: **`JUSTIN + AUDIT`**
 
-- [ ] **Remove the EIN redline chip from the footer**
+- [x] **Remove the EIN redline chip from the footer**
 
 **Locator:** `components/footer.tsx:58–62` · grep anchor: `EIN — add when issued`
 
@@ -94,7 +107,7 @@ two edits.
 ## T1·2 — Remove every visible placeholder
 `brief §08, §09, §12` · `brief Tier 1, item 1` · tag: **`COPY AUDIT`**
 
-- [ ] **`ANNOUNCE-DATE` ×2**
+- [x] **`ANNOUNCE-DATE` ×2**
 
 **Locators:** `app/summit/page.tsx:144` (FAQ answer) · `:229` (speakers
 section) · grep anchor: `ANNOUNCE-DATE`
@@ -106,7 +119,7 @@ there is one. **A visible placeholder costs more than a missing date.**"*
 if no date arrives, **cut the sentence**. Do not invent one (`AGENTS.md`
 hard rule: never invent bracketed-token values).
 
-- [ ] **The `SPEAKERS` chip beside all eight session titles**
+- [x] **The `SPEAKERS` chip beside all eight session titles**
 
 **Locator:** `app/summit/page.tsx:284` · grep anchor: `RedlineChip onCream>SPEAKERS`
 One JSX line, rendered 8× by the agenda map.
@@ -117,7 +130,7 @@ Night assignments now exist (Phase 1 §4) but only 8 of 29 headshots do.
 **Remove the chip now; build the faces in the design queue when images land.**
 An empty row reads better than a redline chip.
 
-- [ ] **The 15 `speaker 01–15` placeholder tiles**
+- [x] **The 15 `speaker 01–15` placeholder tiles**
 
 **Locator:** `app/summit/page.tsx:237–255` · grep anchor: `length: 15`
 
@@ -143,8 +156,8 @@ speakers section contains either real people or nothing.
 ## T1·3 — Remove all nonprofit language sitewide
 `brief §17` · `brief Tier 1, item 3` · tag: **`JUSTIN`**
 
-- [ ] **Sweep `/summit` (5 instances, itemised in brief §02, §13, §15)**
-- [ ] **Sweep the named pages: `/about` · `/founders-after-hours` · `/mastermind` · `/contact`**
+- [x] **Sweep `/summit` (5 instances, itemised in brief §02, §13, §15)**
+- [x] **Sweep the named pages: `/about` · `/founders-after-hours` · `/mastermind` · `/contact`**
 
 **Locators:** full grep-verified inventory in
 [`../../meetings/07-23-2026-meeting-3-outcomes.md`](../../meetings/07-23-2026-meeting-3-outcomes.md) §4.1 — ~20 instances across `app/layout.tsx`,
@@ -205,7 +218,7 @@ survives on any page.
 ## T1·4 — Standardize the event name
 `brief §17` · `brief Tier 1, item 4` · tag: **`JUSTIN`**
 
-- [ ] **"Forge The Future" → "Forge The Future Summit"** in the title tag, both
+- [x] **"Forge The Future" → "Forge The Future Summit"** in the title tag, both
   meta descriptions, the top banner, and the hero eyebrow.
 
 **Locators:**
@@ -247,7 +260,7 @@ and the OG images regenerate to match.
 ## T1·5 — Correct the speaker count
 `brief §08, §12` · `brief Tier 1, item 5` · tag: **`COPY AUDIT`**
 
-- [ ] **"Thirty-plus" → "Seventeen-plus", both instances**
+- [x] **"Thirty-plus" → "Seventeen-plus", both instances**
 
 **Locators:** `app/summit/page.tsx:230` (speakers section) · `:144` (FAQ) ·
 grep anchor: `Thirty-plus`

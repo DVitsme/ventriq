@@ -1,15 +1,17 @@
 // Generates the per-page OG cards (1200x630 PNG) into public/og/.
 // Build-time only (roadmap A10: runtime next/og costs ~2MiB of Worker budget).
 // Rerun after title changes: node scripts/og-generate.mjs  (needs Chrome + playwright)
-import { chromium } from "playwright";
+// @playwright/test re-exports the browsers; the standalone `playwright`
+// package isn't a dependency of this project (was failing ERR_MODULE_NOT_FOUND).
+import { chromium } from "@playwright/test";
 import { mkdirSync } from "node:fs";
 
 const PAGES = [
   ["home", "Ventriq", "Capital, programming & council for founders — rooted in Baltimore, built to travel."],
-  ["summit", "Forge The Future", "Eight nights. Two weeks. Free. · Aug 10–20 · Forged together. Built to last."],
+  ["summit", "Forge The Future Summit", "Eight nights. Two weeks. Free. · Aug 10–20 · Forged together. Built to last."],
   ["founders-after-hours", "Founders After Hours", "The founder community that does the work — from $39/month."],
   ["mastermind", "The Mastermind", "Ten founders. Ninety days. A scoreboard. · Cohort 2, September 2026."],
-  ["about", "Built by a founder nobody handed a map.", "Ventriq (ven-TREEK) — the story, the name, the why."],
+  ["about", "Built by a founder nobody handed a map.", "Ventriq — the story, the name, the why."],
   ["contact", "Talk to us.", "A real person reads every message — expect a reply within two business days."],
 ];
 

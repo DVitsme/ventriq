@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: { absolute: "About Ventriq — built by a founder nobody handed a map" },
   description:
-    "Ventriq (ven-TREEK) is a nonprofit built by Justin Shaw — Baltimore founder, Goldman Sachs 10KSB alum — to hand other builders the map he never got.",
+    "Ventriq was built by Justin Shaw — Baltimore founder, Goldman Sachs 10KSB alum — to hand other builders the map he never got.",
   alternates: { canonical: "/about" },
   openGraph: { images: [{ url: "/og/about.png", width: 1200, height: 630 }] },
 };
@@ -118,7 +118,7 @@ export default function AboutPage() {
         <CorridorLines />
         <div className="relative mx-auto grid max-w-[1440px] items-center gap-10 px-5 pb-12 pt-16 md:grid-cols-[7fr_4fr] md:gap-20 md:px-20 md:pb-20 md:pt-24">
           <div>
-            <Eyebrow onCream>ven-treek · est. Baltimore, 2026</Eyebrow>
+            <Eyebrow onCream>ventriq · est. Baltimore, 2026</Eyebrow>
             <h1 className="mt-6 max-w-[17ch] text-4xl font-medium leading-[1.08] tracking-[-0.015em] md:text-[60px] md:leading-[1.06]">
               Built by a founder nobody handed a map.
             </h1>
@@ -204,7 +204,7 @@ export default function AboutPage() {
 
             <StoryRow label={<MarginLabel numeral>2026</MarginLabel>}>
               <p className="text-base leading-[1.7] text-ink/88 md:text-lg">
-                Ventriq is his answer — a nonprofit that holds capital,
+                Ventriq is his answer — an organization that holds capital,
                 programming, and council under one roof, so no founder has to
                 choose which kind of help to go hunting for by themselves.
                 It&rsquo;s the structure he wishes had existed at that desk in
@@ -228,9 +228,7 @@ export default function AboutPage() {
                 Why &ldquo;Ventriq&rdquo;?
               </h2>
               <p className="mt-5 max-w-[52ch] text-base leading-[1.65] text-ink/88 md:text-[19px]">
-                Ventriq — say it{" "}
-                <strong className="font-semibold">ven-TREEK</strong> — is
-                venture + corridor. The mark is two lines converging on a way
+                Ventriq is venture + corridor. The mark is two lines converging on a way
                 in: a V, a corridor, a threshold. That&rsquo;s the whole idea,
                 drawn — a room worth getting into, and a door that actually
                 opens.

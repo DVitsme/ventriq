@@ -170,6 +170,14 @@ important, not yet blocking · 🟡 watch / later.
   Mastermind Graduation Dec 5**). Enough to make the year look inhabited, which
   was the design intent. Build against `lib/events.ts` per the recommendation
   in the design brief §3.5 — not hardcoded JSX. *(Unblocked Jul 29.)*
+- [ ] **OG card regeneration is broken** — `scripts/og-generate.mjs` imported
+  the standalone `playwright` package, which was never a dependency (only
+  `@playwright/test` is). Fixed the import Jul 29, but the script now times out
+  on `page.screenshot()` after "fonts loaded". Until it runs, `/summit`'s share
+  card still reads **"Forge The Future"** without "Summit" — cosmetic, but it's
+  the card partner newsletters will surface in early August. Likely a headless
+  font/timeout issue in this environment; try a longer timeout or the
+  `webServer`-less Playwright config the e2e suite uses. *(Raised Jul 29.)*
 - [ ] **GA4 admin config (Phase 5's dashboard half, ~10 min):** Enhanced
   Measurement ON with history events, form-interactions OFF; retention
   2→14 months; mark key events luma_register_click / generate_lead /

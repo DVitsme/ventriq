@@ -5,6 +5,26 @@ first. Written so it can be pasted straight into a client update for Justin.
 
 ## July 29, 2026
 
+- **Fixed everything on the site that was leaking internal notes to the
+  public** (built and ready to publish, pending a final look). The footer was
+  printing a working reminder to ourselves — "EIN, add when issued; no
+  deductibility language until determination letter" — on every page. That's
+  gone, along with two "announcement date" placeholders, the "speakers" marker
+  beside all eight session titles, and fifteen blank speaker tiles.
+- **The summit page now names five real speakers** instead of showing empty
+  boxes — Jerone Anthony Tyler, Cedric Powell, Theodore Savage, Tiffany
+  Bethea and Jeffrey Scruggs, with the credentials Justin himself wrote in his
+  July 23 email. Since that email already went out, the wording is his and
+  it's already public.
+- **Corrected the speaker count from "thirty-plus" to "seventeen-plus"** — the
+  real number, and the one Justin had already told his own list.
+- **Removed the "nonprofit" description everywhere Ventriq describes itself**,
+  across the home, summit, community, mastermind and about pages, plus the
+  search-engine descriptions. Kept it where it describes the *audience* —
+  "nonprofit builders" are still welcome, Ventriq just isn't one yet.
+- **Standardized the event name to "Forge The Future Summit"** in the page
+  title, both search descriptions, the top banner and the hero.
+
 - **Read everything Justin sent this morning, and built a plan around it.**
   Four documents: the summit webpage brief, the speaker roster, the agenda,
   and the Foundry membership one-pager. All four are now read end to end and

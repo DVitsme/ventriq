@@ -16,7 +16,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: { absolute: "Ventriq — capital, programming & council for founders" },
   description:
-    "A nonprofit backing small business owners, startups, and nonprofit builders — the Forge The Future summit Aug 10–20, a working founder community, and a 90-day mastermind. Rooted in Baltimore.",
+    "Backing small business owners, startups, and nonprofit builders — the Forge The Future Summit Aug 10–20, a working founder community, and a 90-day mastermind. Rooted in Baltimore.",
   alternates: { canonical: "/" },
   openGraph: { images: [{ url: "/og/home.png", width: 1200, height: 630 }] },
 };
@@ -30,7 +30,7 @@ const orgJsonLd = {
       name: "Ventriq",
       url: "https://ventriq.io",
       description:
-        "A Baltimore-rooted nonprofit equipping founders with capital, programming, and council.",
+        "Baltimore-rooted, equipping entrepreneurs with capital, programming, and council.",
       email: "jshaw@ventriq.io",
       areaServed: "US",
       sameAs: [
@@ -134,7 +134,8 @@ export default function Home() {
       <section className="relative overflow-hidden bg-midnight">
         <CorridorRays />
         <div className="vq-hero relative mx-auto max-w-[1440px] px-5 py-24 md:px-20 md:py-36">
-          <div className="vq-in"><Eyebrow>ven-treek · a nonprofit for founders</Eyebrow></div>
+          {/* "nonprofit" out (for-profit until the Q4 arm); "ven-treek" out per D2. */}
+          <div className="vq-in"><Eyebrow>ventriq · built for founders</Eyebrow></div>
           <h1 style={{ ["--vqd" as string]: "0.15s" }} className="vq-in mt-6 max-w-[21ch] text-4xl font-medium leading-[1.08] tracking-[-0.015em] md:text-[60px]">
             The resources are out there. They&rsquo;re just camouflaged.
           </h1>

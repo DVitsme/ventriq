@@ -1,5 +1,4 @@
 import { Monogram } from "./monogram";
-import { RedlineChip } from "./primitives";
 import { EMAIL } from "@/content/placeholders";
 import { NewsletterForm } from "./newsletter-form";
 
@@ -14,9 +13,12 @@ export function Footer() {
           <span className="text-cream">
             <Monogram className="h-8 w-auto" />
           </span>
+          {/* Revision brief §15. "nonprofit" out (Ventriq is for-profit until
+              the Q4 arm); "(ven-TREEK)" out per D2 — the brief's replacement
+              copy keeps it, which is Justin's error, not a reversal. */}
           <p className="mt-4 max-w-[36ch] text-sm leading-relaxed text-cream/60">
-            Ventriq (ven-TREEK) is a nonprofit equipping founders with capital,
-            programming, and council — rooted in Baltimore, built to travel.
+            Ventriq equips entrepreneurs with capital, programming, and
+            council — rooted in Baltimore, built to travel.
           </p>
         </div>
         <nav aria-label="Pages">
@@ -54,12 +56,7 @@ export function Footer() {
       <div className="mx-auto max-w-[1440px] px-5 md:px-20">
         <div className="h-px bg-gold/60" />
         <div className="flex flex-col items-start justify-between gap-3 py-6 text-sm text-cream/60 md:flex-row md:items-center">
-          <p>
-            © 2026 Ventriq. A nonprofit organization.{" "}
-            <RedlineChip>
-              EIN — add when issued; no deductibility language until determination letter
-            </RedlineChip>
-          </p>
+          <p>© 2026 Ventriq. All rights reserved.</p>
           <p className="flex gap-5">
             <a href="/contact" className="hover:text-cream">Contact</a>
             <a

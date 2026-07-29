@@ -283,7 +283,7 @@ export default function FahPage() {
               ["What do I bring?", "Your laptop or phone, and the list you've been avoiding: prospects, follow-ups, asks. The night works because you arrive loaded."],
               ["I'm not in Baltimore.", "Start with the digital membership — replays, office hours, and webinars aren't city-bound. And raise your hand for your city; chapters go where founders ask."],
               ["I'm an introvert. Be honest.", "The first hour, nobody's networking at you — everyone's working. The talking comes after, and by then you've already got something to talk about."],
-              ["Who runs it?", "Ventriq — a nonprofit. Chapter nights are run by trained local organizers, founders themselves."],
+              ["Who runs it?", "Ventriq. Chapter nights are run by trained local organizers, founders themselves."],
             ] as [string, React.ReactNode][]).map(([q, a]) => (
               <details key={q} className="group border-t border-ink/15 py-4">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold">

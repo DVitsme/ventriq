@@ -269,7 +269,7 @@ export default function MastermindPage() {
                 ["What's the dashboard?", "A private tracker for the metrics you declared — updated weekly, visible to your cohort. Not surveillance; a scoreboard. The board doesn't lie."],
                 ["What if I don't hit 80%?", "Then you don't graduate — and we'll both know exactly why, which is worth more than the certificate."],
                 ["How is this different from an accelerator or 10KSB?", "Those programs teach, some brilliantly — and many are free; go do them. This room is for installing what you already know, with people who won't let you drift. Think of it as the after-program."],
-                ["Is this the IAMJS mastermind?", "It grew from it. The pilot cohort ran January–March 2026 under IAMJS; Ventriq now runs it as a nonprofit program, same architect."],
+                ["Is this the IAMJS mastermind?", "It grew from it. The pilot cohort ran January–March 2026 under IAMJS; Ventriq runs it now, same architect."],
                 ["When is cohort 3?", "Early 2027, most likely. But you're reading this now, and the September room has ten seats."],
               ] as [string, React.ReactNode][]).map(([q, a]) => (
                 <details key={q} className="group border-t border-ink/15 py-4">

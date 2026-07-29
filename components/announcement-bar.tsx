@@ -35,12 +35,12 @@ export function AnnouncementBar({
       {state === "pre" && (
         <>
           <span className="hidden min-[431px]:inline">
-            Forge The Future · free · virtual ·{" "}
+            Forge The Future Summit · free · virtual ·{" "}
             <span className="[font-variant-numeric:tabular-nums]">Aug 10–20</span>{" "}
             —{" "}
           </span>
           <span className="min-[431px]:hidden">
-            Forge The Future ·{" "}
+            Forge The Future Summit ·{" "}
             <span className="[font-variant-numeric:tabular-nums]">Aug 10–20</span>{" "}
             —{" "}
           </span>
@@ -55,7 +55,7 @@ export function AnnouncementBar({
       {state === "during" && (
         <>
           <span aria-hidden className="mr-2 inline-block size-1.5 bg-gold align-middle" />
-          Forge The Future is live — tonight: {nightTitle}, 6:30 PM ET{" "}
+          Forge The Future Summit is live — tonight: {nightTitle}, 6:30 PM ET{" "}
           <a
             href={LUMA_URL}
             className="text-gold underline underline-offset-[3px] hover:text-gold-hover"

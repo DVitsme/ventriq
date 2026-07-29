@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Eyebrow, RedlineChip } from "@/components/primitives";
+import { Eyebrow } from "@/components/primitives";
 import { LumaRegisterButton } from "@/components/luma-register-button";
 import { NIGHTS, LUMA_URL } from "@/lib/agenda";
 import { eventPhase, nightOf, nextNight, agendaRowState } from "@/lib/calendar";
@@ -8,9 +8,9 @@ import { CountUp, Reveal, ScrollLit } from "@/components/motion";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: { absolute: "Forge The Future — Ventriq's virtual founder summit, Aug 10–20" },
+  title: { absolute: "Forge The Future Summit — Ventriq's free virtual founder summit, Aug 10–20" },
   description:
-    "Eight nights, two weeks — brand, influence, revenue, capital, AI, exit. Each session ends with a move you can make the next morning. Free, live on Zoom.",
+    "Eight nights, two weeks — brand, PR, sales, technology, capital, exit. Every session ends with a move you can make the next morning. Free, virtual, live on Zoom.",
   alternates: { canonical: "/summit" },
   openGraph: { images: [{ url: "/og/summit.png", width: 1200, height: 630 }] },
 };
@@ -29,7 +29,7 @@ const eventJsonLd = {
   organizer: { "@id": "https://ventriq.io/#org", name: "Ventriq", url: "https://ventriq.io" },
   offers: { "@type": "Offer", price: 0, priceCurrency: "USD", availability: "https://schema.org/InStock", url: LUMA_URL, validFrom: "2026-07-20T00:00:00-04:00" },
   description:
-    "Eight nights across two weeks — one session a night, ninety minutes, each pointed at something you can do the next morning. Free, live on Zoom, presented by Ventriq.",
+    "Eight nights, two weeks — brand, PR, sales, technology, capital, exit. Every session ends with a move you can make the next morning. Free, virtual, live on Zoom.",
 };
 
 function Rays() {
@@ -95,7 +95,7 @@ function Hero() {
   if (phase === "post") {
     return (
       <>
-        <Eyebrow>forge the future · August 2026</Eyebrow>
+        <Eyebrow>forge the future summit · August 2026</Eyebrow>
         <h1 className="mt-6 max-w-[16ch] text-4xl font-medium leading-[1.08] tracking-[-0.015em] md:text-[60px]">
           The room keeps what you missed.
         </h1>
@@ -113,7 +113,9 @@ function Hero() {
   // pre / announced (State A/B)
   return (
     <>
-      <div className="vq-in"><Eyebrow>forge the future · aug 10–20, 2026 · virtual · free</Eyebrow></div>
+      {/* Phase 3 T2·5 reduces this to the date range alone once the VIRTUAL
+          display line lands above the H1. Name standardized here (Tier 1). */}
+      <div className="vq-in"><Eyebrow>forge the future summit · aug 10–20, 2026 · virtual · free</Eyebrow></div>
       <h1 className="mt-6 text-4xl font-medium leading-[1.08] tracking-[-0.015em] md:text-[60px]">
         <span className="vq-in inline-block" style={{ ["--vqd" as string]: "0.15s" }}>Not just education.</span>{" "}
         <span className="vq-in inline-block" style={{ ["--vqd" as string]: "0.65s" }}>Implementation.</span>
@@ -137,11 +139,52 @@ function Hero() {
   );
 }
 
+/** The five speakers Justin named in his Jul 23 Kit broadcast — already sent
+ *  to his list, so cleared for print. Names, titles and proof lines are his
+ *  wording, verbatim (note "Jerone Anthony Tyler" and "Jeffrey", which differ
+ *  from the shorter forms in his speakers tracker).
+ *  Source: docs/plans/summit-aug-1/01-phase-1-research.md §10.1 */
+const SPEAKERS = [
+  {
+    name: "Jerone Anthony Tyler",
+    title: "Founder, Posteridy.ai",
+    proof: "Has helped entrepreneurs secure $30M+ in funding.",
+    role: "hosting Capital & Command",
+  },
+  {
+    name: "Cedric Powell",
+    title: "M&A Partner, Squire Patton Boggs",
+    proof:
+      "Advises private equity buyers and sellers on acquisitions, divestitures, and recapitalizations.",
+    role: "",
+  },
+  {
+    name: "Theodore Savage",
+    title: "Founder, The Cultivation Effect®",
+    proof:
+      "Former global executive who led 1,500+ employees across 90+ locations.",
+    role: "opening the summit",
+  },
+  {
+    name: "Tiffany Bethea",
+    title: "Executive Director, Baltimore City Chamber of Commerce",
+    proof: "Brand strategist whose clients double revenue in 30–60 days.",
+    role: "",
+  },
+  {
+    name: "Jeffrey Scruggs",
+    title: "Founder, Majestic Light Group",
+    proof:
+      "AI engineer built at the Department of Defense and Booz Allen Hamilton.",
+    role: "",
+  },
+];
+
 const FAQ: [string, React.ReactNode][] = [
   ["What does it cost?", "Nothing — the seat is free. Register on Luma and you're in every night live."],
   ["What if I can't make a session live?", "Every replay lands in Founders After Hours 24 hours after the session — that's the membership community, from $39/month. The live seat is the free one; save it and show up."],
   ["How much time is this, honestly?", "Ninety minutes a night, Monday through Thursday, for two weeks. Fridays through Sundays are yours. It's built for people running businesses, because you are."],
-  ["Who are the speakers?", <>Operators, builders, and funders — people who&rsquo;ve done the thing they&rsquo;re teaching. Thirty-plus of them across the eight nights. Full lineup lands <RedlineChip onCream>ANNOUNCE-DATE</RedlineChip>.</>],
+  ["Who are the speakers?", "Operators, builders, and funders — people who've done the thing they're teaching. Seventeen-plus of them across the eight nights, with more announced weekly."],
   ["Will I be pitched?", "Every session is seventy percent teaching, thirty percent questions. Nobody's selling you a course at the end. The only call-to-action you'll hear is Founders After Hours — and its price is on the label."],
   ["What do I need?", "Zoom, a notebook, and one real challenge in your business you want to move."],
   ["Can I send my team?", "Yes — registration is per person, so have them grab their own seats. It's free for everybody who builds."],
@@ -220,39 +263,44 @@ export default function SummitPage() {
         </div>
       </section>
 
-      {/* The 2026 speakers — pending wall, scales to 30+ */}
+      {/* The 2026 speakers — the five named in Justin's Jul 23 broadcast.
+          Already public, so cleared to print; his spellings, his proof lines.
+          Text-first by decision (Phase 2 D-B) — the photo grid and flip cards
+          wait on real headshots. Corner ticks carry the drafting register in
+          place of the portrait. */}
       <section className="bg-midnight">
         <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-20 md:py-28">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 className="text-3xl font-medium md:text-[40px]">The 2026 speakers</h2>
             <p className="max-w-[44ch] text-[15px] text-cream/75">
-              The full lineup lands <RedlineChip>ANNOUNCE-DATE</RedlineChip>.
-              Thirty-plus builders, operators, and funders — no professional
-              motivators.{" "}
+              Seventeen-plus builders, operators, and funders — no professional
+              motivators. More announced weekly.{" "}
               <a href="/contact" className="text-gold underline underline-offset-4 hover:text-gold-hover">
                 Get the speaker announcement →
               </a>
             </p>
           </div>
-          <ul className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
-            {Array.from({ length: 15 }, (_, i) => (
-              <li key={i} className="relative aspect-[4/5] border border-cream/13 p-3">
-                <svg aria-hidden className="absolute left-1 top-1 h-3 w-3" fill="none" viewBox="0 0 12 12">
+          <ul className="mt-10 grid gap-px bg-cream/13 sm:grid-cols-2 lg:grid-cols-3">
+            {SPEAKERS.map((s) => (
+              <li key={s.name} className="relative bg-midnight px-6 py-7">
+                <svg aria-hidden className="absolute left-2 top-2 h-3 w-3" fill="none" viewBox="0 0 12 12">
                   <path d="M0 4 V0 H4" stroke="#C9A24C" strokeWidth="1" />
                 </svg>
-                <svg aria-hidden className="absolute bottom-1 right-1 h-3 w-3" fill="none" viewBox="0 0 12 12">
-                  <path d="M12 8 V12 H8" stroke="#C9A24C" strokeWidth="1" />
-                </svg>
-                <svg aria-hidden viewBox="0 0 80 100" className="mx-auto mt-4 h-1/2 w-auto" fill="none">
-                  <circle cx="40" cy="32" r="16" stroke="rgba(241,236,223,0.25)" strokeWidth="1.5" />
-                  <path d="M12 96 Q40 62 68 96" stroke="rgba(241,236,223,0.25)" strokeWidth="1.5" />
-                </svg>
-                <p className="mt-3 text-center text-xs tracking-[0.14em] text-cream/60 [font-variant:small-caps] [font-variant-numeric:tabular-nums]">
-                  speaker {String(i + 1).padStart(2, "0")}
-                </p>
+                <h3 className="text-lg font-semibold leading-snug">{s.name}</h3>
+                <p className="mt-1 text-sm text-gold">{s.title}</p>
+                <p className="mt-3 text-[15px] leading-relaxed text-cream/78">{s.proof}</p>
+                {s.role && (
+                  <p className="mt-3 text-xs tracking-[0.14em] text-cream/55 [font-variant:small-caps]">
+                    {s.role}
+                  </p>
+                )}
               </li>
             ))}
           </ul>
+          <p className="mt-8 text-[15px] text-cream/70">
+            And that&rsquo;s five of seventeen. Goldman Sachs advisors. Angel
+            investors. Luxury brand strategists. Tax and capital specialists.
+          </p>
         </div>
       </section>
 
@@ -280,8 +328,7 @@ export default function SummitPage() {
                           </span>
                           <span className={st === "replay" ? "text-ink/65" : ""}>
                             <strong className="font-semibold">{night.title}</strong>
-                            <span className="text-ink/70"> — {night.subtitle}</span>{" "}
-                            <RedlineChip onCream>SPEAKERS</RedlineChip>
+                            <span className="text-ink/70"> — {night.subtitle}</span>
                           </span>
                         </div>
                         {st === "tonight" && (

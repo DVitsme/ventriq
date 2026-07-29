@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s — Ventriq",
   },
   description:
-    "A nonprofit backing small business owners, startups, and nonprofit builders — the Forge The Future summit Aug 10–20, a working founder community, and a 90-day mastermind. Rooted in Baltimore.",
+    "Backing small business owners, startups, and nonprofit builders — the Forge The Future Summit Aug 10–20, a working founder community, and a 90-day mastermind. Rooted in Baltimore.",
   openGraph: {
     siteName: "Ventriq",
     type: "website",
