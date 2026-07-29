@@ -7,15 +7,44 @@ important, not yet blocking · 🟡 watch / later.
 
 ## 🔴 Time-sensitive
 
+- [ ] **Site says "nonprofit"; Ventriq is a for-profit today** — Justin on the
+  Jul 23 call: the nonprofit arm doesn't get built until **Q4**, and *"I
+  technically can't put a non-profit for founders right here right now because
+  I don't want that to be misleading."* Agreed replacement: **"mission-driven."**
+  20+ live instances across pages, JSON-LD, footer legal line and copy decks —
+  grep-verified inventory in `docs/meetings/07-23-2026-meeting-3-outcomes.md`
+  §4.1. **Do not blanket-replace**: "nonprofit builders"/"nonprofits doing the
+  real work" describe the *audience* and stay. *(Raised Jul 23, surfaced Jul 28.)*
+- [ ] **Consolidated asset email to Justin — Derrick promised it Jul 24, never
+  sent** (transcript 1:27:34: *"I'll put together an email… tomorrow"*). It is
+  the unblock for everything below. `TODO-JUSTIN.md` is effectively the content;
+  `client-email-voice` is the tool. *(Raised Jul 23, overdue Jul 28.)*
+- [ ] **Summit assets 5 days overdue from Justin** — he committed at 1:25:32 to
+  send speaker headshots, bios, night assignments and updated Summit copy *"in
+  the next 24, 48 hours"* (due Jul 24–25). `/summit` is his stated #1 page and
+  his Instagram-bio target; **Aug 10 is 13 days out**. Blocks the agenda face
+  cards and the speaker flip cards. *(Raised Jul 23, overdue Jul 28.)*
+- [ ] **Kit vs Resend — three email lists are diverging as of today.** Justin's
+  live newsletter runs on **Kit** and he's already sending from it; our shipped
+  Digest form writes to Supabase + a **Resend** audience; Luma holds the
+  registrants. On the call Kit was pinned to "last" — recommend overriding that
+  and **dual-writing to Kit's v4 API on confirmation, before Aug 10** (~1 hr).
+  Reconciling opt-in state and tags by hand after the summit tripled the list is
+  the expensive version. *(Raised Jul 23, escalated Jul 28.)*
 - [ ] **Google Workspace trial billing** — the Ventriq Workspace was created
-  Jul 10 on a 14-day trial → **bills ~Jul 24 (now)**. Card on file or the
-  ventriq.io mailboxes stop. Google for Nonprofits (free) only after the
-  501(c)(3) letter. *(Raised Jul 10, meeting 2 stress test.)*
-- [ ] **ventriq.com expires Jul 25** — the squatter's registration lapses in
-  ~2 days. A ~$25 backorder (DropCatch/GoDaddy) beats their $2–6K ask if they
-  don't renew. Decision + backorder placement is a 10-minute task. Also:
-  **ventriq.org is still unregistered** (~$12, natural nonprofit TLD). *(Raised
-  Jul 10 stress test; re-raised Jul 23.)*
+  Jul 10 on a 14-day trial → **billed ~Jul 24; now 4 days past**. Card on file or
+  the ventriq.io mailboxes stop. Confirmed as a live risk on the Jul 23 call
+  (4:58). Google for Nonprofits is now **not** a near-term path — Ventriq is a
+  for-profit until Q4. *(Raised Jul 10, meeting 2 stress test.)*
+- [ ] **ventriq.com — the plan needs redoing, not abandoning.** Registration
+  lapsed **Jul 25** (no auto-renew). We told Justin it would "become available
+  at midnight" — that's wrong: gTLDs go through a ~30–45 day registrar grace
+  period → 30-day redemption → 5-day pending-delete, so the real drop is
+  **~mid-September**. Next step: `whois ventriq.com`, read `Domain Status`, and
+  place backorders at **DropCatch + SnapNames** (~$25 each, charged only on
+  catch). Also correct the record with Justin so he isn't refreshing GoDaddy.
+  Also: **ventriq.org is still unregistered** (~$12). *(Raised Jul 10; re-raised
+  Jul 23; timeline corrected Jul 28.)*
 - [ ] **Cloudflare dashboard toggles** (each blocks a roadmap item):
   - AI Crawl Control → **Allow** OAI-SearchBot, ChatGPT-User, PerplexityBot,
     Perplexity-User, Claude-SearchBot, Claude-User, GPTBot, ClaudeBot — new
@@ -34,11 +63,89 @@ important, not yet blocking · 🟡 watch / later.
 
 ## 🟠 Important, not yet blocking
 
+- [ ] **Meeting-3 build backlog (Jul 23 design review) — 22 decisions, D1–D22.**
+  Full plan in `docs/meetings/07-23-2026-meeting-3-outcomes.md`; the visual half
+  is broken out with intent, constraints and a stress test in
+  `docs/design/07-23-2026-design-change-brief.md` (geometric video heroes, the
+  missing Aug 10 countdown, speaker flip cards, agenda face cards, the
+  testimonials carousel and the convergence-mark problem it creates, the navy
+  pain-point band, membership card symmetry, the colour pass). §5 sequences it
+  in the order Derrick agreed on the call (copy we already have → assets from
+  Justin → video/motion → mobile last). **Phase A is entirely unblocked** and is
+  mostly live inaccuracies: delete the "about a minute, free" note that shipped
+  from Derrick's own scratchpad · add the missing "Who is this for?" heading on
+  `/summit` · CTA → "Save your free **virtual** seat" (Justin: *"if you're still
+  hearing it, it's not enough"*) · rewrite the "Will I be pitched?" FAQ, which
+  currently promises *"nobody's selling you a course"* when the real policy is a
+  soft pitch every night · strip pricing from `/summit` and the home cards ·
+  rename the FAH pillars to Office hours / Live sessions / Founders After Hours
+  (copy dictated verbatim, paste-ready) · FAH run-of-show → **6:00 / 6:15 / 7:15
+  / 8:15** · **$99** · equal-width cards with a midnight premium card · drop the
+  10KSB comparison from `/mastermind` · **kill `/about`** (10-step blast radius,
+  §4.7) · **add Contact to the nav** (Derrick flagged it on the call and it's
+  still missing). *(Raised Jul 23, planned Jul 28.)*
 - [ ] **GA4 admin config (Phase 5's dashboard half, ~10 min):** Enhanced
   Measurement ON with history events, form-interactions OFF; retention
   2→14 months; mark key events luma_register_click / generate_lead /
   sign_up; custom channel group (^ig- / ^speaker- / ^hbcu- / linkedin /
   email); internal-traffic filter for your + Justin's IPs. *(Raised Jul 24.)*
+- [ ] **GA4 behaviour tracking — Derrick promised more than the admin config
+  above.** On the Jul 23 call (1:18:11) he told Justin we'd show *"how many
+  people are filling out forms and then abandoning it"* and *"they came, they
+  did this, they did this, in this order, and then they left."* That's
+  form-abandonment plus path/funnel analysis, and it isn't built. Note the
+  apparent contradiction with "form-interactions OFF" resolves cleanly: GA4's
+  automatic form events are noisy, so build **custom `form_start` /
+  `form_abandon` / `cta_click` events** through the existing `lib/analytics.ts`
+  `track()`, then Path + Funnel explorations. Justin asked specifically about
+  reporting *"for the website owner"* — a **Looker Studio dashboard** he can
+  open himself is the honest answer. *(Raised Jul 23, surfaced Jul 28.)*
+- [ ] **Branded marketing email templates** — promised on the call (1:21:00,
+  with the Love Candy example): brand colours, Space Grotesk, images, CTA
+  buttons. `lib/emails.ts` covers transactional only. ⚠️ **Blocked on Justin's
+  mailing address** (CAN-SPAM footer requirement), which moves that item up his
+  list. *(Raised Jul 23.)*
+- [ ] **Skool group setup — CTAs are LIVE against an unconfigured group.**
+  Justin sent https://www.skool.com/iamjs-collective-9599/about Jul 29; fetch
+  verified it as **free, named "IAMJS Collective," 1 member**. Flagged the
+  mismatch (site sells $39/$99); **Derrick's call: wire it live anyway** to
+  seed early members — all five FAH join CTAs (hero, both membership cards,
+  digital-home, final CTA) now point at Skool. Still open,
+  and now *more* time-sensitive, not less: (a) Justin sets the $39/$99 tiers —
+  until then every joiner is a free member to convert later; (b) Justin locks
+  the group name — ⚠️ **a Skool rename changes the group URL and the live site
+  now links it, so any rename needs a same-day coordinated site update**; ties
+  into the "The Forge" question, decide once; (c) when configured: retire the
+  "SKOOL CHECKOUT — pending group setup" chip and swap the "SCREENSHOT: the
+  Skool space" placeholder for a real capture. *(Raised Jul 29; wired live
+  Jul 29.)*
+- [ ] **Hoist the membership name into `lib/brand.ts`.** Justin said the names
+  are placeholders — "Founders After Hours" may become the *event inside* a
+  membership possibly called **"The Forge"** (52:30). One constant makes the
+  rename a one-line change instead of a 60-site grep. ⚠️ Also flag the timing to
+  him: renaming after Aug 10 costs the SEO we're about to build, since
+  `/founders-after-hours` → `/the-forge` needs a 301. *(Raised Jul 23.)*
+- [ ] **Hand Justin the UTM-tagged Summit URL for his Instagram bio** — he said
+  the bio link goes straight to `/summit` (1:12:19), and `docs/utm-registry.md`
+  already defines the `^ig-` channel grouping. Small, and it makes the GA4
+  channel work pay off immediately. *(Raised Jul 23.)*
+- [ ] **Correct the hosting record + settle the $10/mo question.** Derrick told
+  Justin the site is on **AWS at ~$750/mo** (1:14:04) — it's Cloudflare Workers,
+  really ~$5/mo Workers Paid plus Supabase/Resend/domain. He also floated a $10
+  Stripe hosting fee that got joked past and **never answered**. Two things:
+  correct the record casually (Justin is budget-conscious and needs the real
+  number for his P&L), and decide who carries the service costs. *(Raised Jul 23.)*
+- [ ] **Ask Justin for his Granola notes** — he offered them twice, unprompted
+  (21:51 and 1:27:57). His own AI notes capture what he committed to in his own
+  words, where the Fathom transcript garbled it. Near-zero cost. *(Raised Jul 23.)*
+- [ ] **Verify the "Thirty-plus speakers" claim.** Live twice on `/summit`
+  (`:230`, `:144`), but Justin said Jul 23 he has *"about 14 or 15 secured"* and
+  needs *"another seven."* Either 30+ counts panelists he isn't counting, or the
+  site overstates. Settle before Aug 10. *(Raised Jul 23, surfaced Jul 28.)*
+- [ ] **Propose the attendee share-card generator.** Justin described letting
+  registrants *"put their headshot on"* a graphic and share it — *"that's how
+  people don't miss events"* (47:34). Near-free extension of the Phase-5 OG-card
+  script we already have. *(Raised Jul 23.)*
 
 - [ ] **Sentry project + DSN** — account/project creation is dashboard-side;
   once a DSN exists, `@sentry/cloudflare` wiring is a small PR (our compat
@@ -89,6 +196,50 @@ important, not yet blocking · 🟡 watch / later.
 
 ## 🟡 Watch / later
 
+- [ ] **Membership platform (the "four year project")** — requirements captured
+  Jul 23 (1:01:11): auth, role tiers (**super admin / coordinator / teacher /
+  student**, plus guest speakers and one more Justin will name), rooms, and a
+  **leaderboard** tying together the Mastermind scoreboard and the FAH tally.
+  Staged rollout: leaderboard-only first. ⚠️ **Square the record first** —
+  Derrick told Justin an auth + membership system with hashed passwords and data
+  structures *"is built into this website right now already."* Verified Jul 28:
+  the only migration is `20260723180000_forms.sql` with three form tables. No
+  auth, roles, or leaderboard exist. The defensible version — Supabase was chosen
+  so this is later a schema-and-config job, `@supabase/ssr` is already a
+  dependency, Auth handles hashing as a platform service — is a real head start,
+  but it's a head start, not a built system. Close the gap before Justin asks to
+  switch the leaderboard on.
+- [ ] **`ConvergenceDiagram` loses its homepage slot** if the testimonials
+  carousel (D4) ships as agreed. It's the brand's signature architect's-line
+  gesture and survives only on `/mastermind:37`. Decide deliberately: relocate it
+  into the new pain-point band, fold it into the footer, or accept the loss.
+  *(Raised Jul 28 from the Jul 23 review.)*
+- [ ] **Mastermind "click to buy"** — Justin mused *"I may just make the
+  Mastermind, like, click to buy"* (1:05:20). It would gut the selectivity the
+  entire page rests on (committee, 10 seats, graduation bar, honest-rejection
+  line). Don't build on a "may"; recommend the hybrid — apply → accepted →
+  Stripe link. *(Raised Jul 23.)*
+- [ ] **Flip-card a11y spec (D12)** — greenfield, so build it right: `<button>`
+  not `<div>`, `aria-expanded`, back face hidden from AT until flipped,
+  `prefers-reduced-motion` → cross-fade not 3D rotate, and a **sheet on mobile
+  rather than a flip** (tap-to-flip is a known usability trap). We're at 100/100
+  a11y and `e2e/a11y.spec.ts` will catch a regression. *(Raised Jul 23.)*
+- [ ] **Zoom vs StreamYard undecided** (50:11) — "Zoom" is hardcoded in 6 places
+  plus the Event JSON-LD and the pending Luma virtual-location fix. Interim:
+  genericize to "live online" (costs nothing, needs no decision). For Justin:
+  **Zoom Webinars/Events does branded registration, banners and backgrounds**, so
+  he doesn't have to trade away the networking he says he wants; StreamYard's
+  real edge is one-way multistreaming, which would kill the room. Recommend Zoom
+  + branded template, StreamYard restreaming alongside if he wants reach.
+- [ ] **CCBC surgical-instrument sterilization cert** — $35/hr, no degree,
+  Baltimore County pairs you with a hospital (18:40). Not a site item; logged as
+  **Founder Digest / social content** — Justin said he'd share it with his people
+  and it's squarely his audience.
+- [ ] **MIC video testimonial shoot** — Justin needs it for EDA grant reporting,
+  on-site videographer, needs Derrick's availability against the videographer's
+  slots (1:24:35). Not a website item, but a real calendar commitment. ⭐ Ask
+  whether the footage can double as a Ventriq testimonial — Derrick already
+  volunteered one.
 - [ ] **Design round-trip: AA-driven divergences from the v2 design refs**
   (all shipped Jul 24, flag at the next claude.ai/design sync): numerals on
   cream grounds are ink, not gold (gold maxes at 2.03:1 on cream — the gold

@@ -3,6 +3,53 @@
 A running, plain-language record of everything done on this engagement. Newest
 first. Written so it can be pasted straight into a client update for Justin.
 
+## July 29, 2026
+
+- **The community "Join" buttons are now connected to the real Skool group.**
+  All five "Join Founders After Hours" buttons on the community page now go
+  straight to the Skool community instead of the contact form — one click from
+  the site into the room.
+- **Before connecting, we checked the group and flagged what still needs
+  setting up.** The group is currently free (the site sells $39 and $99
+  memberships), it's named "IAMJS Collective" rather than the community's
+  brand, and it's nearly empty. We connected it anyway — the call was made to
+  start seeding early members now — but that makes Justin's three-step setup
+  time-sensitive: set the two prices in Skool, lock in the group's name, and
+  tell us when it's done. One thing to be careful with: renaming a Skool
+  group can change its web address, and the site now links to it — so any
+  rename needs to reach us the same day or the button breaks.
+
+## July 28, 2026
+
+- **Went back through the full 89-minute July 23 design review and turned it
+  into a build plan.** Every minute of the call is now written down as a
+  decision with a place to go — 22 decisions in all, from "change nonprofit to
+  mission-driven" down to "the speaker cards should flip." The plan is
+  sequenced the way we agreed on the call: the copy changes we already have,
+  then the pieces waiting on your assets, then the video and animation, then
+  mobile last. Nothing from that conversation is sitting only in someone's
+  memory.
+- **Caught four things on the live site that need correcting this week.**
+  (1) The site still describes Ventriq as a nonprofit in about twenty places —
+  you flagged that on the call and it's the first thing we're fixing.
+  (2) The Summit FAQ currently promises "nobody's selling you a course at the
+  end," which isn't what you're actually planning, and attendees would notice
+  on night one. (3) A working note of ours — "about a minute, free" — shipped
+  by accident under the register button. (4) The Contact page still isn't in
+  the top menu.
+- **Corrected the ventriq.com advice we gave you.** We said it would become
+  available at midnight on July 25. That isn't how domain expiry works — the
+  current owner still gets a grace period and then a redemption window, so the
+  real opportunity is closer to mid-September. Nothing was lost by the date
+  passing. The plan now is two backorders instead of one, and you're only
+  charged if one of them actually catches it.
+- **Flagged an email problem worth fixing before August 10.** Your live
+  newsletter runs on Kit, and the signup form we built on the site feeds a
+  different list. As of now those two are drifting apart, and the Summit is
+  about to add a lot of names. Connecting the site's signup form straight into
+  Kit is about an hour of work; doing it after the summit means merging lists
+  by hand. Recommending we do it now.
+
 ## July 24, 2026
 
 - **All of today's accessibility and speed work is live on ventriq.io** —

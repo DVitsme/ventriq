@@ -1,11 +1,15 @@
 # 03 — Founders After Hours
 
 > **v1.1 (meeting 2, Jul 10):** FAH is a **paid membership** — $39/mo digital + $[89–99]/mo in-person `[PRICE — Justin said "89 or, like, 99"; confirm]` — and it's **public now** (nav/home restored). All "free to join" claims are gone; the free on-ramp is "How to Run a Profitable Business" (public, 2×/month, starts Sept 28). Platform still assumed Skool but **unconfirmed** since the pricing change — every Skool mention carries a chip. Community events (virtual + in-person) happen *inside* the membership; the site sells the room, not the calendar.
+>
+> **v1.2 (Jul 23 call + Jul 29):** Platform **CONFIRMED Skool** (meeting 3) and in-person price **CONFIRMED $99** (1:26:49). URL received Jul 29: **https://www.skool.com/iamjs-collective-9599/about** — fetched and verified that day as **free, named "IAMJS Collective," 1 member**. "Platform TBC" chips retired; one "checkout pending" chip remains at the handoff sentence.
+>
+> **v1.3 (Jul 29, same day):** Join CTAs **WIRED LIVE to Skool at Derrick's direction** — concern (free / IAMJS-branded / empty) was flagged, his call, to start seeding members. The checkout-pending chip stays until Justin sets the $39/$99 tiers and locks the name. ⚠️ **The link is now published on the live site: a Skool rename changes the group URL, so any rename must be coordinated with a same-day site update or the button dies.**
 
 **Meta title:** Founders After Hours — the founder community that does the work
 **Meta description:** A Ventriq membership: session replays, advisor office hours, and a monthly in-person hour where founders make the calls, send the emails, and tally the wins. From $39/month.
 **OG line:** Come do the work. We'll count it.
-**Build notes:** Join → [SKOOL-URL] `[PLATFORM — Skool TBC; its 2026 native pricing tiers fit the two-tier model]`; set the checkout expectation explicitly. Pre-launch and post-launch counter states below.
+**Build notes:** Join → https://www.skool.com/iamjs-collective-9599/about `[LIVE Jul 29 per Derrick — group still free/IAMJS-branded; tiers + name pending; coordinate any Skool rename same-day, the live site links it]`; set the checkout expectation explicitly. Pre-launch and post-launch counter states below.
 
 ---
 

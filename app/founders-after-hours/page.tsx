@@ -5,6 +5,13 @@ import { CountUp } from "@/components/motion";
 
 export const dynamic = "force-dynamic";
 
+/** Live at Derrick's direction Jul 29 with the group still free, IAMJS-branded,
+ *  and 1-member (concern flagged, his call — seed early members). The
+ *  "SKOOL CHECKOUT — pending group setup" chip stays until Justin sets the
+ *  $39/$99 tiers and locks the name. ⚠️ A Skool rename can change this URL —
+ *  now that it's published, any rename must be coordinated same-day. */
+const SKOOL_URL = "https://www.skool.com/iamjs-collective-9599/about";
+
 export const metadata: Metadata = {
   title: { absolute: "Founders After Hours — the founder community that does the work" },
   description:
@@ -57,12 +64,11 @@ export default function FahPage() {
             every result goes up on the board.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-6">
-            <a href="/contact" className="inline-block rounded-[2px] bg-gold px-6 py-[15px] font-semibold leading-none text-ink hover:bg-gold-hover">
+            <a href={SKOOL_URL} className="inline-block rounded-[2px] bg-gold px-6 py-[15px] font-semibold leading-none text-ink hover:bg-gold-hover">
               Join Founders After Hours
             </a>
             <span className="text-sm text-cream/70">
-              From $39/month · cancel anytime <RedlineChip>POLICY — confirm</RedlineChip>{" "}
-              <RedlineChip>SKOOL-URL — platform TBC</RedlineChip>
+              From $39/month · cancel anytime <RedlineChip>POLICY — confirm</RedlineChip>
             </span>
           </div>
           <p className="mt-6">
@@ -163,7 +169,7 @@ export default function FahPage() {
                 Ventriq&rsquo;s council, the grants-and-funding feed, and
                 founders in the thread who answer before the algorithm does.
               </p>
-              <p className="mt-4"><a href="/contact" className="font-medium text-accent-deep hover:underline">Join Founders After Hours →</a></p>
+              <p className="mt-4"><a href={SKOOL_URL} className="font-medium text-accent-deep hover:underline">Join Founders After Hours →</a></p>
             </article>
             <article className="border border-ink/18 border-t-2 border-t-gold bg-cream px-7 py-6 rounded-[2px] md:mt-[34px]">
               <p className="text-4xl font-semibold text-ink [font-variant-numeric:tabular-nums]">$[89–99]<span className="text-lg text-ink/65">/month</span></p>
@@ -175,7 +181,7 @@ export default function FahPage() {
                 founders, capped on purpose. Baltimore first; your city when it
                 opens.
               </p>
-              <p className="mt-4"><a href="/contact" className="font-medium text-accent-deep hover:underline">Join Founders After Hours →</a></p>
+              <p className="mt-4"><a href={SKOOL_URL} className="font-medium text-accent-deep hover:underline">Join Founders After Hours →</a></p>
             </article>
           </div>
           <p className="mt-8 max-w-[64ch] text-[15px] text-ink/70">
@@ -226,12 +232,12 @@ export default function FahPage() {
             <PhotoGrade label="SCREENSHOT: the Skool space — when live" className="min-h-[240px]" />
             <p className="mt-5 text-[15.5px] leading-relaxed text-ink/78">
               <strong className="font-semibold text-ink">The handoff, plainly:</strong>{" "}
-              Joining takes about two minutes — the community runs on{" "}
-              <RedlineChip onCream>PLATFORM — Skool TBC</RedlineChip>, you pick
+              Joining takes about two minutes — the community runs on Skool{" "}
+              <RedlineChip onCream>SKOOL CHECKOUT — pending group setup</RedlineChip>, you pick
               your tier and land inside.
             </p>
             <p className="mt-5">
-              <a href="/contact" className="inline-block rounded-[2px] bg-gold px-6 py-[14px] font-semibold leading-none text-ink hover:bg-gold-hover">
+              <a href={SKOOL_URL} className="inline-block rounded-[2px] bg-gold px-6 py-[14px] font-semibold leading-none text-ink hover:bg-gold-hover">
                 Join Founders After Hours
               </a>
             </p>
@@ -298,7 +304,7 @@ export default function FahPage() {
             The work you&rsquo;ve been putting off has a room now.
           </h2>
           <div className="mt-8 flex flex-wrap items-center gap-6">
-            <a href="/contact" className="inline-block rounded-[2px] bg-gold px-6 py-[15px] font-semibold leading-none text-ink hover:bg-gold-hover">
+            <a href={SKOOL_URL} className="inline-block rounded-[2px] bg-gold px-6 py-[15px] font-semibold leading-none text-ink hover:bg-gold-hover">
               Join Founders After Hours
             </a>
             <span className="text-sm text-cream/60">From $39/month · replays, office hours, the board</span>
