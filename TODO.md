@@ -218,11 +218,14 @@ important, not yet blocking · 🟡 watch / later.
   mismatch (site sells $39/$99); **Derrick's call: wire it live anyway** to
   seed early members — all five FAH join CTAs (hero, both membership cards,
   digital-home, final CTA) now point at Skool. Still open,
-  and now *more* time-sensitive, not less: (a) Justin sets the $39/$99 tiers —
-  until then every joiner is a free member to convert later; (b) Justin locks
-  the group name — ⚠️ **a Skool rename changes the group URL and the live site
-  now links it, so any rename needs a same-day coordinated site update**; ties
-  into the "The Forge" question, decide once; (c) when configured: retire the
+  and now *more* time-sensitive, not less: (a) Justin sets the tiers —
+  **CONFIRMED Jul 29 that Skool does 2 paid tiers natively** (Oct 2025
+  "Tiers"/"Freemium" models; research doc §8) — until then every joiner is a
+  free member to convert later; (b) ⚠️ **CORRECTED Jul 29: renaming the group
+  is SAFE — name and URL are independent.** The breaking event is the "CLAIM
+  URL" flow (first free, $100/change after, likely Pro-gated, **no
+  redirects** — old links 404). Same-day coordination now attaches to the URL
+  claim, not the rename; ties into the "The Forge" question, decide once; (c) when configured: retire the
   "SKOOL CHECKOUT — pending group setup" chip and swap the "SCREENSHOT: the
   Skool space" placeholder for a real capture. *(Raised Jul 29; wired live
   Jul 29.)*
@@ -275,12 +278,28 @@ important, not yet blocking · 🟡 watch / later.
   either Workers Builds isn't actually building on push, or its builds fail
   silently — check the dashboard build log when doing the mirror. Until both
   are fixed, **manual deploy is the only real path to prod.**
-- [ ] **`iamjs.io` email auth is unverified — and it's the domain he actually
-  broadcasts from.** His Jul 23 Kit broadcast went out from **`jshaw@iamjs.io`**,
-  not `jshaw@ventriq.io`. Our Jul 23 SPF/DKIM/DMARC work authenticated
-  **ventriq.io only**, so it does nothing for his real sending domain. Check
-  iamjs.io's SPF/DKIM/DMARC before the next send — a summit push landing in
-  spam 12 days out would be expensive. *(Found Jul 29 in the .eml.)*
+- [ ] **🔴 `iamjs.io` email auth: VERIFIED ABSENT — zero SPF, zero DKIM, zero
+  DMARC** (dig-checked against two resolvers Jul 29; ventriq.io by contrast is
+  clean). Kit signs his broadcasts with its shared domain (unaligned), and his
+  1:1 Workspace mail from @iamjs.io **fails SPF outright today**. Gmail's
+  Feb-2024 sender rules make the next summit blast a spam-folder risk. Exact
+  4-record fix is on Justin's list (Kit Verified Sending Domain CNAMEs →
+  Workspace SPF → Workspace DKIM → DMARC `p=none`); zone lives in Google Cloud
+  DNS. 2–3 weeks of reputation wobble per Kit = do it NOW, not Aug 9.
+  *(Suspected Jul 29 from the .eml; confirmed by DNS audit same day —
+  research doc §9.)*
+- [ ] **🔴 Our Luma button clobbers ambassador attribution — fix before any
+  ambassador push.** Agent read `checkout-button.js` source Jul 29:
+  `data-luma-utm-source` **takes precedence over the page's `?utm_source`**,
+  and `components/luma-register-button.tsx` hardcodes it to
+  `site-{ctaLocation}` on every button. An ambassador arriving via
+  `?utm_source=speaker-jane` gets their per-guest Luma attribution overwritten
+  by our own instrumentation — and **`utm_source` is the ONLY UTM Luma stores
+  per-guest** (everything else is aggregate). GA4 is unaffected (reads the
+  page URL). **Fix:** prefer the page's `utm_source` when present, fall back
+  to `site-{ctaLocation}` (two-pass client read to avoid hydration mismatch).
+  Also: ambassador links must ride `utm_source=` specifically, and land
+  directly on the page with the button. *(Found Jul 29 — research doc §8.)*
 - [ ] **Email footer address is ConvertKit's, not Ventriq's** — his broadcasts
   currently carry *"600 1st Ave, Ste 330 PMB 92768, Seattle, WA 98104-2246"*,
   which is Kit's corporate default. Legal, but it tells a Baltimore audience
@@ -306,7 +325,26 @@ important, not yet blocking · 🟡 watch / later.
   outside the repo; port it to a committed Playwright/vitest spec as the
   Phase 2 gate.
 - [x] ~~QA harness activation~~ *(done Jul 23 — deps installed, banners removed, 40/40 vitest green)*
-- [ ] **Production Lighthouse baseline + budget calibration** — the local
+- [ ] **Perf follow-ups from the Jul 29 baseline** (research doc §7): mint a
+  free **PageSpeed Insights API key** and re-run for PSI-grade timing truth
+  before Aug 7 (keyless API is dead globally — anonymous quota set to 0;
+  bytes/LCP-element/budget conclusions won't change, timing absolutes will) ·
+  apply the drafted replacement `lighthouserc.json` assert block (Wave 0) ·
+  **CF Insights beacon keep/kill** (11KB zone-level auto-inject, in no repo
+  file — free RUM, useful until CrUX exists ~September) · lazy-mount the 77KB
+  ChapterForm chunk on FAH (below-fold form pulling react-hook-form+zod
+  client-side; validation already server-side) · investigate the production
+  `forced-reflow-insight` = 0 (something forces sync layout) · **propose the
+  AGENTS.md Lighthouse amendment** ("≥95 desktop / ≥80 mobile lab, third
+  parties documented") — Derrick's call, it's the contract. *(All raised
+  Jul 29.)*
+- [x] ~~**Production Lighthouse baseline + budget calibration**~~ *(done
+  Jul 29 — 12 production Lighthouse runs; script 345KB summit/home · 417KB
+  FAH vs the impossible 250KB budget; LCP element = announcement bar (ephemeral
+  — hero H1 inherits post-Aug-20); CLS 0.00×12; motion headroom = ≤30KB JS /
+  ≤50ms TBT / media:size=0 tripwire; replacement assert block drafted.
+  Research doc §7.)*
+- [ ] **(superseded detail, kept for history) Production Lighthouse baseline + budget calibration** — the local
   lhci run can't judge performance (dev box runs workerd + Chrome together;
   numbers swing 2×). After the Jul 24 deploy, get a PageSpeed Insights
   baseline for `/`, `/summit`, `/founders-after-hours` (mobile), then

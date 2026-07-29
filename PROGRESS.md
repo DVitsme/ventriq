@@ -3,6 +3,45 @@
 A running, plain-language record of everything done on this engagement. Newest
 first. Written so it can be pasted straight into a client update for Justin.
 
+## July 29, 2026 — evening (research sweep before the polish build)
+
+- **Ran an eight-track research sweep before building the next round** — the
+  card-flip Justin asked for, how top conferences present speakers, animation
+  systems, the page-navigation bar, making the hero backgrounds move, a real
+  performance measurement of the live site, verification of everything we
+  believed about Skool/Luma/Kit, and a pre-launch audit. Everything below
+  came out of it; the full record lives in the project docs.
+- **One correction to an instruction we gave Justin: renaming the Skool group
+  is safe.** We'd said renaming changes the web address — Skool's docs say
+  name and address are separate settings. What DOES break links is claiming a
+  custom address ($100 per change after the first, and old links die rather
+  than redirect). His to-do list is corrected.
+- **Confirmed Skool can run both membership prices natively** — the two-tier
+  plan needs no workaround. Two setup decisions for Justin are on his list.
+- **Found and flagged a bug in our own registration button** before it could
+  cost anything: it was overwriting the one piece of tracking that records
+  which ambassador sent each registrant. Fix is queued ahead of any
+  ambassador campaign.
+- **Discovered Justin's iamjs.io email domain has zero spam protection** —
+  the domain his newsletters actually send from. His summit emails risk the
+  spam folder until four DNS records are added; exact steps are on his list,
+  and it's urgent because inboxes take 2–3 weeks to trust the new setup.
+- **Measured the real performance of the live site for the first time** —
+  the site is structurally excellent (zero layout shift across every test,
+  no images to slow it down), and the speed targets in our automated checks
+  were confirmed impossible as written; a corrected set is drafted. Verdict
+  on the "video hero" idea: a real video would slow the most important pages
+  exactly when partner traffic arrives — the plan instead is to animate the
+  existing line art (costs nothing to load), and give Justin an exported
+  video capture of it for his social posts.
+- **Found that the placeholder chips are still visible on four pages** one
+  click from the summit page — including the About page showing internal
+  notes. Deleting About and applying the already-decided community-page fixes
+  moved to the front of the queue before partner newsletters send traffic.
+- **The site isn't in Google yet** — searching for it returns nothing, while
+  ventriq.com (the domain squatter) shows "for sale." Requesting indexing
+  this week is now the top of the checklist.
+
 ## July 29, 2026
 
 - **Added a registration bar that follows phone visitors down the page.**

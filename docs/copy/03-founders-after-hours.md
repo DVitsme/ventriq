@@ -4,7 +4,9 @@
 >
 > **v1.2 (Jul 23 call + Jul 29):** Platform **CONFIRMED Skool** (meeting 3) and in-person price **CONFIRMED $99** (1:26:49). URL received Jul 29: **https://www.skool.com/iamjs-collective-9599/about** — fetched and verified that day as **free, named "IAMJS Collective," 1 member**. "Platform TBC" chips retired; one "checkout pending" chip remains at the handoff sentence.
 >
-> **v1.3 (Jul 29, same day):** Join CTAs **WIRED LIVE to Skool at Derrick's direction** — concern (free / IAMJS-branded / empty) was flagged, his call, to start seeding members. The checkout-pending chip stays until Justin sets the $39/$99 tiers and locks the name. ⚠️ **The link is now published on the live site: a Skool rename changes the group URL, so any rename must be coordinated with a same-day site update or the button dies.**
+> **v1.3 (Jul 29, same day):** Join CTAs **WIRED LIVE to Skool at Derrick's direction** — concern (free / IAMJS-branded / empty) was flagged, his call, to start seeding members. The checkout-pending chip stays until Justin sets the tiers.
+>
+> **v1.4 (Jul 29, evening — correction):** the v1.3 rename warning was wrong. **Renaming a Skool group is safe** — name and URL are independent. The link-breaking event is Skool's **"CLAIM URL"** flow (first change free, $100 after, likely Pro-gated, **no redirects** — old links 404). Same-day coordination attaches to the URL claim. Also verified: Skool runs **two paid tiers natively** (Oct 2025 Tiers/Freemium), so $45/$99 needs no workaround — but the Tiers-vs-Freemium choice changes our join-CTA copy (Tiers shows "$45" as the public price; Freemium looks free at signup and the site does the selling). Full verification: `docs/plans/summit-aug-1/06-phase-5-research.md` §8.
 
 **Meta title:** Founders After Hours — the founder community that does the work
 **Meta description:** A Ventriq membership: session replays, advisor office hours, and a monthly in-person hour where founders make the calls, send the emails, and tally the wins. From $39/month.

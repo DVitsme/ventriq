@@ -44,11 +44,15 @@ right level as the build moves. (Our own task list lives in `TODO.md`.)
   now just execution:
   1. **Set the two tiers** — Digital Core **$45/mo** and Power Hour **$99/mo**.
      *(Confirm the $45 — the site currently says $39 everywhere. See below.)*
-  2. **Rename the group to The Foundry** — unless you want to hold that name
-     until you announce it on Night 1, which is what we're assuming.
-     **Careful: renaming changes the group's web address, and the site links
-     to it now** — tell us the day you do it and we'll update the same day,
-     otherwise the button breaks.
+  2. **Rename the group to The Foundry whenever you like — we had this
+     backwards, and renaming is completely safe.** (We told you renaming
+     changes the web address; we checked Skool's docs and that's wrong —
+     the *name* and the *address* are separate settings.) The thing that DOES
+     break links is **claiming a custom web address** ("CLAIM URL" in
+     settings): first change free, **$100 every change after**, likely
+     Pro-plan-only, and old links do NOT redirect — they just die. So: claim
+     the address **once, to the final name**, and tell us the day you do it —
+     we'll swap the site's buttons within the hour.
   3. Tell us when it's done — we'll drop the "pending" marker and swap in a
      real screenshot.
 
@@ -94,6 +98,25 @@ right level as the build moves. (Our own task list lives in `TODO.md`.)
   4. **Should the web address change** from ventriq.io/founders-after-hours to
      something like /the-foundry? Worth deciding **before** Aug 10 — changing
      it after launch costs us the Google ranking we're building now.
+- [ ] **⚠️ Your iamjs.io email has zero spam protection — fix before the next
+  summit blast** (~15 min, we can walk you through it). We checked the domain
+  you send your Kit newsletters from (jshaw@iamjs.io): it has **none** of the
+  three authentication records Gmail has required since 2024 — so your next
+  summit email risks the spam folder exactly when it matters, and even your
+  regular 1:1 emails from that address are exposed. (Your ventriq.io address
+  is fully protected — this is only iamjs.io, which we'd never checked.)
+  Four records, in this order, all added where your iamjs.io DNS lives
+  (Google Cloud DNS):
+  1. In **Kit**: Settings → Emails → **Verified Sending Domains** → Set up —
+     Kit gives you two records to add (this is the big one for newsletters).
+  2. SPF: a TXT record on iamjs.io → `v=spf1 include:_spf.google.com ~all`
+  3. DKIM: Google Admin → Gmail → **Authenticate email** → generate + start
+     (same thing you did for ventriq.io on July 23).
+  4. Last: a DMARC record — Kit supplies a default once step 1 is verified.
+  Then send yourself a test to Gmail → "Show original" → all three should say
+  PASS. Heads-up from Kit: expect open-rates to wobble for 2–3 weeks while
+  inboxes learn the new signature — which is why this is a *now* task, not an
+  August-9th task.
 - [ ] **Add a payment card to Google Workspace** (~2 min). The Ventriq
   Workspace was created July 10 on a 14-day free trial — **billing started
   ~July 24, which has now passed**. Without a card, jshaw@ventriq.io stops

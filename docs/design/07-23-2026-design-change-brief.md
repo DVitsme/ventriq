@@ -925,10 +925,17 @@ unbuilt and this brief is wrong about it.**
 **Typewriter vs scroll-lit (§4.3).** Different effects. Approved in concept
 before either existed. Flagged as Q9.
 
-**The flip decision (§4.4).** Speaker attribution is scrambled at 50:58 — the
-transcript assigns *"I was going to have it do a pop-up"* and *"you want me to do
-a flip?"* across turns in a way that doesn't parse. The *outcome* (a flip, and
-Derrick writing it down) is unambiguous. The route there isn't.
+**The flip decision (§4.4).** ~~Speaker attribution is scrambled at 50:58…~~
+✅ **SETTLED Jul 29 — Derrick re-pasted the passage himself as the flip
+reference.** Detangled: **Justin** asked *"when you click on it, it's going to,
+like, flip the card?"* → **Derrick** (who had planned a pop-up since the 9:40
+walkthrough): *"I was going to have it do a pop-up. You want me to do a flip?"*
+→ **Justin**: *"the flip would go crazy"* → **Derrick**: *"All right, I could do
+a flip. Let me write that down."* The surface is the **summit speaker cards** —
+pinned by Fathom's own action item (*"Implement Summit page updates: … add
+speaker cards; build flip modals"*) and by the mobile check seconds later
+opening with *"Speaker, click."* The stray *"after hours"* at 50:19 is
+transcript garble; the real FAH walk starts at 52:30.
 
 **"Make it rich" (§5.5).** Justin said blue; the brand's blue is midnight. I've
 read "rich" as depth and weight. If he meant something more saturated, the

@@ -8,8 +8,9 @@ export const dynamic = "force-dynamic";
 /** Live at Derrick's direction Jul 29 with the group still free, IAMJS-branded,
  *  and 1-member (concern flagged, his call — seed early members). The
  *  "SKOOL CHECKOUT — pending group setup" chip stays until Justin sets the
- *  $39/$99 tiers and locks the name. ⚠️ A Skool rename can change this URL —
- *  now that it's published, any rename must be coordinated same-day. */
+ *  tiers. ⚠️ CORRECTED Jul 29 (research doc §8): renaming the group is SAFE —
+ *  name and URL are independent Skool settings. What breaks this href is the
+ *  "CLAIM URL" flow (no redirects; old links 404) — coordinate THAT same-day. */
 const SKOOL_URL = "https://www.skool.com/iamjs-collective-9599/about";
 
 export const metadata: Metadata = {
