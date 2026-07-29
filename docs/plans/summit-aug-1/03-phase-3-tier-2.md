@@ -1,7 +1,7 @@
 # Phase 3 — Tier 2: structural, requires build time
 
 **Justin's framing:** *"By August 1 — structural, requires build time."*
-**When:** by Aug 1 · **Status:** 🟨 **5 of 7 built Jul 29 — 2 need a human** · **Items:** 7
+**When:** by Aug 1 · **Status:** 🟨 **5 of 7 LIVE Jul 29** (deployed `a43a218d`, verified) — 2 need a human · **Items:** 7
 
 > ## Decisions taken while building — Derrick, Jul 29
 >

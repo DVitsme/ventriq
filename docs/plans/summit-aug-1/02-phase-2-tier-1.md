@@ -2,13 +2,17 @@
 
 **Justin's framing:** *"Today — credibility leaks currently visible to the
 public."*
-**When:** today (Jul 29) · **Status:** ✅ **BUILT Jul 29 — awaiting deploy sign-off** · **Items:** 5
+**When:** today (Jul 29) · **Status:** ✅ **LIVE Jul 29** (deployed `a43a218d`, verified on ventriq.io) · **Items:** 5
 
-> **Built, not yet live.** All 8 items applied; `tsc --noEmit` clean, lint clean
-> (one pre-existing `set-state-in-effect` error in `announcement-bar.tsx`
-> predates this work and was left alone). **Deploy held for Derrick's
-> sign-off** — `pnpm run deploy`, since pushes don't trigger builds on this
-> project.
+> **LIVE.** All 8 items applied and deployed Jul 29 (version `a43a218d`),
+> then verified against ventriq.io: every leak returns 0, every replacement
+> returns 1, and the sweep is clean across all five routes. `tsc --noEmit`
+> clean; lint clean apart from a pre-existing `set-state-in-effect` error in
+> `announcement-bar.tsx` that predates this work and was left alone.
+>
+> ⚠️ **Verification gotcha:** running each grep as its own `curl` gave false
+> positives mid-propagation — separate requests hit different Cloudflare edge
+> nodes. **Fetch once to a file, then grep the file.**
 >
 > **OG cards regenerated.** `scripts/og-generate.mjs` was importing the
 > standalone `playwright` package, which was never a dependency — switched to

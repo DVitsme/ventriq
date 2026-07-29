@@ -31,8 +31,13 @@ first. Written so it can be pasted straight into a client update for Justin.
   organizations" rather than "underwritten by companies and foundations",
   which matters now that Ventriq is a for-profit.
 
+- **All of today's work is now live on ventriq.io** — published and checked
+  page by page. Every internal placeholder is confirmed gone, every new
+  section confirmed present, and the accessibility scan re-run clean across
+  all seven pages on desktop, mobile and reduced-motion settings.
+
 - **Fixed everything on the site that was leaking internal notes to the
-  public** (built and ready to publish, pending a final look). The footer was
+  public.** The footer was
   printing a working reminder to ourselves — "EIN, add when issued; no
   deductibility language until determination letter" — on every page. That's
   gone, along with two "announcement date" placeholders, the "speakers" marker
