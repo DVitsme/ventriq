@@ -10,12 +10,11 @@ public."*
 > sign-off** — `pnpm run deploy`, since pushes don't trigger builds on this
 > project.
 >
-> **One item carried forward:** the OG *image* for `/summit` still renders the
-> old title. `scripts/og-generate.mjs` imported the standalone `playwright`
-> package, which isn't a dependency — fixed to `@playwright/test` — but the
-> script now times out taking the screenshot in this environment. The card
-> text is cosmetic on social shares, not a credibility leak, so it did not
-> block the phase. Logged in `TODO.md`.
+> **OG cards regenerated.** `scripts/og-generate.mjs` was importing the
+> standalone `playwright` package, which was never a dependency — switched to
+> `@playwright/test`. All six cards rebuilt; `summit.png` visually verified to
+> read **"Forge The Future Summit"**. The script still throws a TimeoutError on
+> teardown *after* writing every file — noise, not failure.
 **Prev:** [`01-phase-1-research.md`](./01-phase-1-research.md) ·
 **Next:** [`03-phase-3-tier-2.md`](./03-phase-3-tier-2.md) ·
 **Index:** [`00-README.md`](./00-README.md)
