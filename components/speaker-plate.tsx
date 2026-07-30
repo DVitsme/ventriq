@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 /** The speaker plate + THE FLIP — Justin's marquee ask from the Jul 23 call
  *  ("the flip would go crazy"). Spec + sources:
@@ -10,9 +10,19 @@ import { useState } from "react";
  *  with real headshots (16 of 21; the rest run the initials type-ground, so
  *  photo and no-photo plates are siblings and roster waves never look like
  *  gaps). Two additions at Derrick's direction:
- *  — HOVER-TO-FLIP on fine-pointer devices (CSS-only, globals.css); the chip
- *    stays the keyboard/touch trigger and the ONLY aria state-holder —
- *    aria-expanded never flutters on mouse movement.
+ *  — HOVER-TO-FLIP for mouse users. Jul 29, later that night: rebuilt as JS
+ *    driving the SAME
+ *    state as the chip (pointerenter/leave gated on pointerType === "mouse").
+ *    The original pure-CSS :hover path was a second state machine and it
+ *    shipped a real bug: under prefers-reduced-motion its rotateY(180deg)
+ *    outranked the PRM block's transform:none, leaving hover a blank card
+ *    (Chromium backface-culls) or mirrored text (Firefox). One state means
+ *    the choreography can't fork again — and the chip label + aria-expanded
+ *    now tell the truth during a hover flip. pointerType, not the
+ *    (hover)/(pointer) media queries: those misreport on touchscreen laptops
+ *    (Firefox bug 1735765) and Wayland; per-event type is ground truth. The
+ *    gate also keeps taps sane — touch fires pointerenter before click, so
+ *    an ungated handler would double-toggle every tap.
  *  — Reduced-motion users now SEE the flip as a 180ms opacity crossfade
  *    (Derrick: "the animation should be seen even on reduced motion").
  *    Opacity-only is the vestibular-safe animation class, so this honors the
@@ -48,11 +58,28 @@ export function SpeakerPlate({ s, index }: { s: Speaker; index: number }) {
   const [flipped, setFlipped] = useState(false);
   const backId = `speaker-bio-${index}`;
 
+  // WCAG 1.4.13: hover-revealed content must be dismissable without moving
+  // the pointer — Esc restores the poster face. Mounted only while flipped.
+  useEffect(() => {
+    if (!flipped) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setFlipped(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [flipped]);
+
   return (
     <article
       aria-label={s.name}
       className={`vq-in relative md:hover:z-20 ${flipped ? "z-20" : ""}`}
       style={{ ["--vqd" as string]: `${Math.min(index, 6) * 60}ms` }}
+      onPointerEnter={(e) => {
+        if (e.pointerType === "mouse") setFlipped(true);
+      }}
+      onPointerLeave={(e) => {
+        if (e.pointerType === "mouse") setFlipped(false);
+      }}
     >
       <div className="vq-scene h-full">
         <div className="vq-faces h-full" data-flipped={flipped || undefined}>

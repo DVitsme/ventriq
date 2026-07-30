@@ -117,19 +117,11 @@
   .vq-faces[data-flipped] .vq-face-back { transition: visibility 0s 0s; }
 }
 
-/* Hover-to-flip (Derrick, Jul 29) — fine pointers only. The chip stays the
-   keyboard/touch trigger and the only aria state-holder, so mouse movement
-   never flutters aria-expanded. Same visibility choreography as the click
-   path: hide after the rotation lands, show immediately. */
-@media (hover: hover) and (pointer: fine) {
-  .vq-scene:hover .vq-faces { transform: rotateY(180deg); }
-  .vq-scene:hover .vq-face-front { visibility: hidden; }
-  .vq-scene:hover .vq-face-back { visibility: visible; }
-}
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .vq-scene:hover .vq-face-front { transition: visibility 0s 500ms; }
-  .vq-scene:hover .vq-face-back { transition: visibility 0s 0s; }
-}
+/* Hover-to-flip is JS, not CSS: pointerenter/leave (pointerType === "mouse")
+   set the same React state as the chip, so data-flipped is the ONLY flip
+   driver. Do not reintroduce a parallel :hover path — a second state machine
+   is exactly how the Jul 29 PRM bug shipped (:hover's rotateY outranked the
+   PRM transform:none → blank card in Chromium, mirrored text in Firefox). */
 
 /* Reduced motion: the flip is SEEN, as a 180ms opacity crossfade (Derrick's
    ask, honored inside the PRM law — opacity is the vestibular-safe class; no
@@ -144,14 +136,6 @@
   .vq-faces[data-flipped] .vq-face-front { opacity: 0; visibility: hidden; }
   .vq-face-back { opacity: 0; }
   .vq-faces[data-flipped] .vq-face-back {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 180ms ease, visibility 0s 0s;
-  }
-}
-@media (prefers-reduced-motion: reduce) and (hover: hover) and (pointer: fine) {
-  .vq-scene:hover .vq-face-front { opacity: 0; visibility: hidden; }
-  .vq-scene:hover .vq-face-back {
     opacity: 1;
     visibility: visible;
     transition: opacity 180ms ease, visibility 0s 0s;

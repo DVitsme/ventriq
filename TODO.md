@@ -7,89 +7,24 @@ important, not yet blocking · 🟡 watch / later.
 
 ## 🔴 Time-sensitive
 
-- [ ] **⚠️ AUG 1 DEADLINE — Justin's summit revision brief, 47 changes.** He
-  delivered a formal 16-page brief Jul 29 (written Jul 25, *"PREPARED FOR
-  DERRICK"*) with a stated **LIVE DATE of August 1** — three days out, and
-  previously unknown to us. Reason: *"the summit page is receiving partner
-  newsletter traffic in early August"*, plus a **paid-retargeting decision gate
-  on Aug 7** that gets made blind without conversion data by Aug 1. Full plan:
-  **`docs/plans/summit-aug-1/`** — Phase 1 (research) complete, Phases 2–5 are
-  his own four tiers. 14 copy blocks are final and drop-in; **copy is law, paste
-  verbatim.** *(Raised Jul 29.)*
+- [ ] **The Foundry cutover build — awaiting Justin's yes on the reveal
+  plan.** Name + pricing are OFFICIAL (Jul 29: "The Foundry", **$39/$99** —
+  supersedes the one-pager's $45; its bottom palette is gamification-only,
+  never brand). The researched plan
+  (`docs/plans/summit-aug-1/06-phase-5-research.md` §11): public flip
+  **Aug 3–4**, before the summit · Night 1 tells the naming story · **Night 5
+  (Mon Aug 17) founding-member offer** · window closes **Sun Aug 23 11:59 PM
+  ET**. Ops law: Skool URL-claim at flip-hour only (one-way door, no
+  redirects); route becomes `/the-foundry` + 301 AT announce; lockup "The
+  Foundry by Ventriq". Build on his yes: staged route + 301, Foundry section
+  content, silent-claims checklist, A-day runbook. `lib/brand.ts` flips the
+  name site-wide in one line. *(Confirmed Jul 29; plan sent, awaiting
+  Justin.)*
 
-- [ ] **🔴 TIER 1 — internal scaffolding is publicly visible right now.**
-  Verified live on ventriq.io Jul 29: the footer renders our own internal legal
-  instruction — **"EIN — add when issued; no deductibility language until
-  determination letter"** (`components/footer.tsx:60`) — plus `ANNOUNCE-DATE`
-  ×2, the `[SPEAKERS]` redline chip beside all 8 session titles, 15
-  `speaker 01–15` placeholder tiles, and a **"thirty-plus" speaker claim that
-  overstates the real roster by ~13** (Justin's own number is seventeen-plus).
-  Details + exact locators in `docs/plans/summit-aug-1/02-phase-2-tier-1.md`.
-  *(Raised Jul 29.)*
-
-- [ ] **The membership is being renamed "The Foundry" — likely announced from
-  the stage on Night 1 (Aug 10).** Justin's `the-foundry-one-pager.pdf` is
-  stamped FINAL: **Ventriq → Forge The Future Summit → The Foundry → Founder
-  After Hours (a monthly event *inside* it) → Mastermind (name TBD)**. So
-  "Founders After Hours" stops being the membership and becomes one event —
-  and loses its "s". Tiers become **DIGITAL CORE $45** (up from $39) and
-  **POWER HOUR $99**, plus a five-rank progression system (ORE → EMBER → BLADE
-  → TEMPERED → DAMASCUS) that is the leaderboard from the Jul 23 call.
-  **Consequences:** `lib/brand.ts` is now a *requirement*, not a nice-to-have —
-  the brief wants the section behind a deploy-free toggle so the name can flip
-  mid-summit; and `/founders-after-hours` → `/the-foundry` needs deciding
-  **before** Aug 10, since a post-launch 301 resets indexing. ⚠️ Do **not**
-  adopt the one-pager's palette or Poppins — its own footnote defers to the
-  Ventriq accents. Full analysis: `docs/plans/summit-aug-1/01-phase-1-research.md`
-  §6. *(Raised Jul 29.)*
-
-- [ ] **⚠️ SUMMIT DATE CONFLICT — Justin's new agenda disagrees with Luma, and
-  36 people have already registered against Luma.** Do NOT change the site
-  until he confirms which is right.
-
-  | Night | Luma (live, 36 registrants) + our site | Justin's agenda TSV (Jul 29) |
-  |---|---|---|
-  | 7 · The Endgame | **Wed Aug 19** | **Thu Aug 20** |
-  | 8 · The End of the Beginning | **Thu Aug 20** | **Fri Aug 21** |
-
-  Nights 1–6 match exactly (Aug 10/11/12/13/17/18); titles and subtitles match
-  our shipped `lib/agenda.ts` word for word. Only the last two moved — and the
-  new shape drops Wed Aug 19 entirely, making week 2 **Mon · Tue · Thu · Fri**.
-  That breaks the "Monday through Thursday" claim we repeat in 6 places and
-  pushes the end date to Aug 21, which appears as "Aug 10–20" in **24 places**
-  (metadata, hero eyebrow, ticker ×2, announcement bar ×2, proof band, OG
-  generator, JSON-LD, 9 copy-deck lines).
-
-  ✅ **RESOLVED SAME DAY — the site and Luma are right; his agenda TSV is the
-  outlier.** Justin's own webpage brief (`Forge-The-Future-Summit-Webpage-
-  Brief.pdf`, dated Jul 25, prepared for Derrick, "every copy replacement is
-  final") carries an explicit §09 schedule table listing **Aug 19 · The
-  Endgame** and **Aug 20 · The End of the Beginning** — matching Luma and our
-  shipped `lib/agenda.ts`. Three sources agree (Luma live · the brief · our
-  Jul 23 findings doc, which already recorded *"ends Aug 20, not 21"*); only
-  the TSV says Aug 20/21. **No site change needed.**
-
-  ⚠️ **Residual risk is now on Justin's side, not ours:** if he runs the event
-  off that agenda file he has the finale on the wrong nights. Worth a
-  one-liner to him — see TODO-JUSTIN. *(Found + resolved Jul 29.)*
-
-- [ ] **Site says "nonprofit"; Ventriq is a for-profit today** — Justin on the
-  Jul 23 call: the nonprofit arm doesn't get built until **Q4**, and *"I
-  technically can't put a non-profit for founders right here right now because
-  I don't want that to be misleading."* Agreed replacement: **"mission-driven."**
-  20+ live instances across pages, JSON-LD, footer legal line and copy decks —
-  grep-verified inventory in `docs/meetings/07-23-2026-meeting-3-outcomes.md`
-  §4.1. **Do not blanket-replace**: "nonprofit builders"/"nonprofits doing the
-  real work" describe the *audience* and stay. *(Raised Jul 23, surfaced Jul 28.)*
 - [ ] **Consolidated asset email to Justin — Derrick promised it Jul 24, never
   sent** (transcript 1:27:34: *"I'll put together an email… tomorrow"*). It is
   the unblock for everything below. `TODO-JUSTIN.md` is effectively the content;
   `client-email-voice` is the tool. *(Raised Jul 23, overdue Jul 28.)*
-- [ ] **Summit assets 5 days overdue from Justin** — he committed at 1:25:32 to
-  send speaker headshots, bios, night assignments and updated Summit copy *"in
-  the next 24, 48 hours"* (due Jul 24–25). `/summit` is his stated #1 page and
-  his Instagram-bio target; **Aug 10 is 13 days out**. Blocks the agenda face
-  cards and the speaker flip cards. *(Raised Jul 23, overdue Jul 28.)*
 - [ ] **Kit vs Resend — three email lists are diverging as of today.** Justin's
   live newsletter runs on **Kit** and he's already sending from it; our shipped
   Digest form writes to Supabase + a **Resend** audience; Luma holds the
@@ -138,8 +73,10 @@ important, not yet blocking · 🟡 watch / later.
   testimonials carousel and the convergence-mark problem it creates, the navy
   pain-point band, membership card symmetry, the colour pass). §5 sequences it
   in the order Derrick agreed on the call (copy we already have → assets from
-  Justin → video/motion → mobile last). **Phase A is entirely unblocked** and is
-  mostly live inaccuracies: delete the "about a minute, free" note that shipped
+  Justin → video/motion → mobile last). ✅ **Phase A shipped Jul 29 with the
+  Aug-1 brief — every item below is live**; what remains from meeting 3 is the
+  visual half (Wave 2 hero motion, agenda face cards, testimonials carousel,
+  navy pain-point band) per `build-queue.md`. The shipped list: delete the "about a minute, free" note that shipped
   from Derrick's own scratchpad · add the missing "Who is this for?" heading on
   `/summit` · CTA → "Save your free **virtual** seat" (Justin: *"if you're still
   hearing it, it's not enough"*) · rewrite the "Will I be pitched?" FAQ, which
@@ -229,12 +166,6 @@ important, not yet blocking · 🟡 watch / later.
   "SKOOL CHECKOUT — pending group setup" chip and swap the "SCREENSHOT: the
   Skool space" placeholder for a real capture. *(Raised Jul 29; wired live
   Jul 29.)*
-- [ ] **Hoist the membership name into `lib/brand.ts`.** Justin said the names
-  are placeholders — "Founders After Hours" may become the *event inside* a
-  membership possibly called **"The Forge"** (52:30). One constant makes the
-  rename a one-line change instead of a 60-site grep. ⚠️ Also flag the timing to
-  him: renaming after Aug 10 costs the SEO we're about to build, since
-  `/founders-after-hours` → `/the-forge` needs a 301. *(Raised Jul 23.)*
 - [ ] **Hand Justin the UTM-tagged Summit URL for his Instagram bio** — he said
   the bio link goes straight to `/summit` (1:12:19), and `docs/utm-registry.md`
   already defines the `^ig-` channel grouping. Small, and it makes the GA4
@@ -248,10 +179,6 @@ important, not yet blocking · 🟡 watch / later.
 - [ ] **Ask Justin for his Granola notes** — he offered them twice, unprompted
   (21:51 and 1:27:57). His own AI notes capture what he committed to in his own
   words, where the Fathom transcript garbled it. Near-zero cost. *(Raised Jul 23.)*
-- [ ] **Verify the "Thirty-plus speakers" claim.** Live twice on `/summit`
-  (`:230`, `:144`), but Justin said Jul 23 he has *"about 14 or 15 secured"* and
-  needs *"another seven."* Either 30+ counts panelists he isn't counting, or the
-  site overstates. Settle before Aug 10. *(Raised Jul 23, surfaced Jul 28.)*
 - [ ] **Propose the attendee share-card generator.** Justin described letting
   registrants *"put their headshot on"* a graphic and share it — *"that's how
   people don't miss events"* (47:34). Near-free extension of the Phase-5 OG-card
@@ -457,6 +384,43 @@ important, not yet blocking · 🟡 watch / later.
   build.
 
 ## ✅ Done (moved from above)
+
+- [x] *Jul 29 (late)* — **Speaker-card hover bug found by Derrick, root-caused
+  and fixed same night.** Under OS "reduce animations" (prefers-reduced-motion)
+  a hover showed a **blank navy card** (Chromium backface-cull) or
+  **mirror-reversed bio** (Firefox): the pure-CSS `:hover` rotation outranked
+  the PRM block's `transform:none`. Fix: hover now drives the SAME React state
+  as the chip (`pointerenter`/`leave`, `pointerType === "mouse"` — immune to
+  the Linux hover-media-query misreporting, Firefox bug 1735765), CSS hover
+  blocks deleted, chip label + `aria-expanded` truthful during hover, **Esc
+  dismisses (WCAG 1.4.13)**. New `e2e/speaker-flip.spec.ts` pins hover×PRM
+  forever; suite now **46 passed / 8 skipped**. Deployed (worker `18fd65f9`)
+  and verified on production: computed-state probes + screenshots in all
+  three contexts.
+
+- [x] *Jul 29* — **Justin's Aug-1 revision brief SHIPPED — two days early.**
+  Tiers 1–3 live: Tier-1 scaffolding purged (footer EIN instruction,
+  ANNOUNCE-DATE ×2, [SPEAKERS] chips, 15 placeholder tiles, thirty-plus
+  claim), 14 copy blocks verbatim, mobile CTA bar, VIRTUAL display line,
+  discipline tags, sponsor move — plus the full Phase-5 speaker system
+  (21 flip plates, 16 duotone headshots, countdown, sub-nav). Only §05b
+  (ambassador prompt) stays held, on the Luma referral-field test above.
+- [x] *Jul 29* — **Summit date conflict resolved same day** — site + Luma +
+  Justin's own brief agree (Aug 19/20); his agenda TSV is the outlier. The
+  residual risk (running the event off the stale TSV) is his, flagged in
+  TODO-JUSTIN.
+- [x] *Jul 29* — **"Nonprofit" swept from live copy** (for-profit until the
+  Q4 arm; "mission-driven" instead). Audience references — "nonprofits doing
+  the real work," Margo's testimonial — deliberately kept.
+- [x] *Jul 29* — **Summit assets arrived from Justin** (17 headshot files,
+  21-speaker bios doc, 16-page webpage brief, agenda + program TSVs, Foundry
+  one-pager). The "5 days overdue" blocker cleared; roster live the same
+  night.
+- [x] *Jul 29* — **`lib/brand.ts` built** — `MEMBERSHIP_NAME` + `SKOOL_URL`
+  constants; the rename is a one-line flip. Name resolved: **The Foundry**
+  (not "The Forge").
+- [x] *Jul 29* — **"Thirty-plus speakers" claim retired** — stat strip and
+  copy now say **21+**, matching the real roster.
 
 - [x] *Jul 24* — **First e2e + Lighthouse sweep executed — a11y sweep green.**
   49/49 Playwright tests pass (7 routes × desktop/mobile/reduced-motion,

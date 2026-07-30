@@ -3,6 +3,24 @@
 A running, plain-language record of everything done on this engagement. Newest
 first. Written so it can be pasted straight into a client update for Justin.
 
+## July 29, 2026 — later still (speaker-card hover bug, caught and fixed)
+
+- **Derrick caught a real bug on the new speaker cards and it's fixed on the
+  live site.** For anyone whose computer has the "reduce animations"
+  accessibility setting turned on, hovering a speaker card showed an empty
+  navy rectangle instead of the speaker's bio (on some browsers, the bio
+  appeared mirror-reversed). Hovering now always shows the bio — people with
+  that setting on get a quick, gentle fade instead of the 3D spin.
+- **Two small polish wins came with the fix:** the little "bio" button now
+  changes to "back" while a card is flipped by hover (it used to stay stuck
+  on "bio"), and pressing the Escape key flips a card back to the photo —
+  an accessibility behavior the WCAG standard expects from hover-revealed
+  content.
+- **A new automated test now covers this exact combination** (hover + reduced
+  motion) on every future release, so this can't quietly break again. Full
+  test suite: 46 checks, all passing, before the fix went live — and the fix
+  was verified working on ventriq.io itself with screenshots afterward.
+
 ## July 29, 2026 — late night (the full speaker roster + the reveal plan)
 
 - **All 21 speakers are on the summit page** — names, titles, credential
