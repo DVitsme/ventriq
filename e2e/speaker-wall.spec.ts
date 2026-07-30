@@ -39,17 +39,19 @@ test("wall: decorative contract + entrance lands + chip pauses", async ({ page }
     .poll(async () => (await wallState(page)).firstPlateOpacity, { timeout: 12_000 })
     .toBe("1");
 
-  // hover develop: caption becomes visible on a non-featured plate
+  // hover focus: assert the driver's SYNCHRONOUS path (gsap.set zIndex 20)
+  // — caption visibility rides a tween, and tween completion is hostage to
+  // the rAF-stall lottery; the set path is frame-independent.
   const plate = page.locator(".sw-plate:not([data-featured])").first();
   await plate.hover({ force: true });
   await expect
     .poll(() =>
       page.evaluate(() => {
-        const cap = document.querySelector(".sw-plate:not([data-featured]) .sw-cap");
-        return cap ? getComputedStyle(cap).visibility : null;
+        const el = document.querySelector(".sw-plate:not([data-featured])") as HTMLElement;
+        return el ? el.style.zIndex : null;
       })
     )
-    .toBe("visible");
+    .toBe("20");
 
   const chip = page.getByRole("button", { name: /motion/i });
   await chip.click({ force: true });
@@ -81,6 +83,39 @@ test("countdown animates down every second; chip freezes it", async ({ page }) =
   await chip.click({ force: true }); // restore for other tests
 });
 
+test("stat strip: choreographed finishes — nights, then operators; $0 inert", async ({ page }) => {
+  test.skip(test.info().project.name !== "desktop", "primary path");
+  await page.goto("/summit");
+
+  // The drivers mirror their values as light-DOM data-n attributes —
+  // NumberFlow's digits live in shadow DOM and its ElementInternals aria is
+  // unreadable from tests (el.ariaLabel null; a11y-tree name empty here).
+  // Two legitimate worlds: ARMED (IO fired; order is observable) or
+  // NEVER-ARMED (stalled context never delivers IO; finals show instantly —
+  // the inverted-gating base state). Verify order when observable.
+  const read = () =>
+    page.evaluate(() =>
+      Array.from(document.querySelectorAll("[data-n]")).map((e) => e.getAttribute("data-n"))
+    );
+
+  await page.evaluate(() => document.querySelector("[data-n]")?.scrollIntoView({ block: "center" }));
+  await page.waitForTimeout(1900); // nights lands ~1.54s; operators still stepping (~19)
+  const mid = await read();
+  expect(mid[0]).toBe("8"); // nights finished first in BOTH worlds
+  if (mid[1] !== "21") {
+    // armed world: operators mid-flight at 1.9s proves nights < operators
+    await page.waitForTimeout(900); // ~2.8s — operators landed (~2.31s)
+    const end = await read();
+    expect(end[1]).toBe("21");
+  }
+  expect((await read())[2]).toBe("90");
+
+  // the price never moves: constant value, animation hard-off — assert it
+  // is NOT part of the choreography (no data-n mirror; only 3 driven stats)
+  const driven = await page.evaluate(() => document.querySelectorAll("[data-n]").length);
+  expect(driven).toBe(3);
+});
+
 test("wall PRM: complete immediately, no transforms, chip present", async ({ page }) => {
   test.skip(test.info().project.name !== "reduced-motion", "PRM path");
   await page.goto("/summit");
@@ -96,6 +131,12 @@ test("wall PRM: complete immediately, no transforms, chip present", async ({ pag
   for (const t of transforms) expect(t === "none" || t === "matrix(1, 0, 0, 1, 0, 0)").toBe(true);
 
   await expect(page.getByRole("button", { name: /motion/i })).toBeVisible();
+
+  // stat strip under PRM: the count-up driver never arms — finals instantly
+  const prmStats = await page.evaluate(() =>
+    Array.from(document.querySelectorAll("[data-n]")).map((e) => e.getAttribute("data-n"))
+  );
+  expect(prmStats).toEqual(["8", "21", "90"]);
 });
 
 test("wall mobile: contact strip scrolls, plates present, h1 single", async ({ page }) => {

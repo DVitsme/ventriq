@@ -9,7 +9,8 @@ import { DoorsCountdown } from "@/components/doors-countdown";
 import { SummitSubnav, SheetIndex } from "@/components/summit-subnav";
 import { NIGHTS, LUMA_URL } from "@/lib/agenda";
 import { eventPhase, nightOf, nextNight, agendaRowState } from "@/lib/calendar";
-import { CountUp, Reveal, ScrollLit } from "@/components/motion";
+import { Reveal, ScrollLit } from "@/components/motion";
+import { SummitStats } from "@/components/summit-stats";
 
 export const dynamic = "force-dynamic";
 
@@ -261,31 +262,12 @@ export default function SummitPage() {
         </div>
       </div>
 
-      {/* The shape of it — §03. "8 nights" and "8 sessions" were the same fact
-          twice, so one of four slots said nothing new. Roster size leads and
-          zero cost closes. `17+` keeps its suffix through CountUp; `$0` has
-          nothing to animate to, so it just renders. */}
+      {/* The shape of it — §03, choreographed Jul 30 (Derrick): the viewer
+          SEES the first nights tick past (1 → 2 → 3…), nights lands first,
+          operators second, minutes third — and $0 never moves at all.
+          Pattern: docs/patterns/stat-count-up.md. */}
       <section className="bg-midnight">
-        <div className="mx-auto flex max-w-[1440px] flex-wrap gap-x-14 gap-y-8 px-5 py-16 md:px-20">
-          {/* Typed explicitly: a bare literal infers a union of shapes and
-              destructuring `prefix`/`suffix` then fails on the members without
-              them. */}
-          {(
-            [
-              { n: 8, label: "nights" },
-              { n: 21, label: "operators", suffix: "+" },
-              { n: 90, label: "minutes a night" },
-              { n: 0, label: "to attend", prefix: "$" },
-            ] as { n: number; label: string; prefix?: string; suffix?: string }[]
-          ).map(({ n, label, prefix, suffix }) => (
-            <div key={label}>
-              <p className="text-6xl font-semibold text-gold [font-variant-numeric:tabular-nums] md:text-[66px]">
-                <CountUp value={n} prefix={prefix} suffix={suffix} />
-              </p>
-              <p className="mt-1 text-sm text-cream/70">{label}</p>
-            </div>
-          ))}
-        </div>
+        <SummitStats />
       </section>
 
       {/* Manifesto — static-lit (scroll-lighting arrives in Phase 4) */}

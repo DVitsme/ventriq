@@ -391,6 +391,18 @@ important, not yet blocking · 🟡 watch / later.
 
 ## ✅ Done (moved from above)
 
+- [x] *Jul 30 (night)* — **Choreographed stat count-up + the patterns
+  folder.** /summit strip: nights stepped readably (lands 1.5s), operators
+  eased (lands ~2.3s), minutes continuous-odometer 3s wheel, $0 rendered
+  by the same NumberFlow with animated={false} (plain text sat 8px off
+  baseline — parity by construction beats metrics surgery). One IO arms
+  all at shared t0; PRM never arms (finals instantly); SSR carries real
+  values; data-n light-DOM mirrors for testability (NumberFlow's
+  ElementInternals aria is unreadable to tests); specs tolerate the
+  never-armed world. `docs/patterns/` created (countdown-tick +
+  stat-count-up). number-flow added as direct dep (plugins subpath).
+  Deployed `367c2e1e`, headed-verified order log 2→4→8 / …→21 / 90-wheel.
+
 - [x] *Jul 30 (night)* — **Countdown stress test (Derrick: "not yet
   animating down") — three root causes fixed.** (1) By design it ticked
   once a MINUTE (seconds only inside the final 24h) → seconds always on,

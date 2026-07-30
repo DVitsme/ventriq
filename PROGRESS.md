@@ -3,6 +3,23 @@
 A running, plain-language record of everything done on this engagement. Newest
 first. Written so it can be pasted straight into a client update for Justin.
 
+## July 30, 2026 — the stats count up (and the price refuses to)
+
+- **The summit's numbers now perform.** Scroll to the stat strip and the
+  figures count up in a choreographed order: "nights" ticks visibly
+  1, 2, 3… and lands on 8 first; "operators" gathers speed and lands on
+  21+ second; "minutes a night" spins like an odometer wheel up to 90,
+  finishing last — and "$0 to attend" never moves at all. The price
+  standing still while everything else works is the point.
+- Reduced-motion visitors get the final numbers instantly (no waiting
+  through an animation for facts), search engines and no-JavaScript
+  visitors always see the real values, and the accessibility scans
+  passed on every browser profile.
+- **A new pattern library started today** at `docs/patterns/` — Derrick
+  asked for the research, thinking, and bug hunts to be saved for future
+  reuse. Two entries so far: the countdown pattern (with its
+  three-failure-axes lesson) and this count-up pattern.
+
 ## July 30, 2026 — the countdown now counts (stress test)
 
 - **Derrick flagged that the summit countdown wasn't visibly moving — the
