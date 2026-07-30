@@ -19,56 +19,40 @@ export const metadata: Metadata = {
   openGraph: { images: [{ url: "/og/summit.png", width: 1200, height: 630 }] },
 };
 
-/** The five speakers Justin named in his Jul 23 Kit broadcast — already sent
- *  to his list, so cleared for print. Names, titles and proof lines are his
- *  wording, verbatim (note "Jerone Anthony Tyler" and "Jeffrey", which differ
- *  from the shorter forms in his speakers tracker). Featured pair = the two
- *  with named summit roles. Sheet numbers are drafting metadata; initials are
- *  the type-as-ground stand-in until real headshots land.
- *  Source: docs/plans/summit-aug-1/01-phase-1-research.md §10.1 */
+/** The full 21-speaker roster, in the order of Justin's bios delivery
+ *  (docs/notes-from-justin/7-29/FORGE THE FUTURE SPEAKER BIOS.md — the
+ *  canonical names doc; it corrected several tracker spellings: Quintel
+ *  HARCUM, Lyndsae' Peele, Lake Mitchell, Erika BAEZ-GRIMES, and the bio text
+ *  says Margo BURR where the heading said Burley — flagged to Justin, bio
+ *  text + her headshot filename win until he says otherwise).
+ *  `bio` lines are card-length credentials derived from the full bios (full
+ *  texts preserved in the source file for a future /speakers page). Roles =
+ *  the night-host assignments from his speakers tracker. Tony Wagner and
+ *  Claudius Taylor arrived with headings + headshots but NO bio text — their
+ *  backs carry the next-revision line. 16 of 21 have processed headshots in
+ *  /public/speakers; the rest run initials plates. */
 const SPEAKERS: Speaker[] = [
-  {
-    name: "Theodore Savage",
-    title: "Founder, The Cultivation Effect®",
-    proof: "Former global executive who led 1,500+ employees across 90+ locations.",
-    role: "opening the summit",
-    initials: "TS",
-    sheet: "S-01",
-    featured: true,
-  },
-  {
-    name: "Jerone Anthony Tyler",
-    title: "Founder, Posteridy.ai",
-    proof: "Has helped entrepreneurs secure $30M+ in funding.",
-    role: "hosting Capital & Command",
-    initials: "JT",
-    sheet: "S-02",
-    featured: true,
-  },
-  {
-    name: "Cedric Powell",
-    title: "M&A Partner, Squire Patton Boggs",
-    proof: "Advises private equity buyers and sellers on acquisitions, divestitures, and recapitalizations.",
-    role: "",
-    initials: "CP",
-    sheet: "S-03",
-  },
-  {
-    name: "Tiffany Bethea",
-    title: "Executive Director, Baltimore City Chamber of Commerce",
-    proof: "Brand strategist whose clients double revenue in 30–60 days.",
-    role: "",
-    initials: "TB",
-    sheet: "S-04",
-  },
-  {
-    name: "Jeffrey Scruggs",
-    title: "Founder, Majestic Light Group",
-    proof: "AI engineer built at the Department of Defense and Booz Allen Hamilton.",
-    role: "",
-    initials: "JS",
-    sheet: "S-05",
-  },
+  { name: "Theodore Savage", title: "Founder, The Cultivation Effect®", bio: "Two decades developing leaders across corporate, fitness, and education — featured on Good Morning America and the Today Show.", role: "opening the summit", initials: "TS", sheet: "S-01" },
+  { name: "Darren Willoughby", title: "Brand & business strategist", bio: "A decade helping companies find their voice, sharpen their message, and show up with intention — equal parts analytical and human.", role: "hosting The Art of Desire", initials: "DW", sheet: "S-02", img: "darren-willoughby" },
+  { name: "Timothy Robertson", title: "Founder, STATUS International", bio: "Brand work for Visa, JP Morgan Chase, Amazon AWS Sports, NBC Universal — and F1 Monaco hospitality when no one else could deliver.", role: "", initials: "TR", sheet: "S-03", img: "timothy-robertson" },
+  { name: "Tiffany Bethea", title: "Executive Director, Baltimore City Chamber of Commerce", bio: "Award-winning speaker and brand strategist whose clients double revenue in 30–60 days — 16 years launching profitable online brands.", role: "", initials: "TB", sheet: "S-04", img: "tiffany-bethea" },
+  { name: "Keisha Bradley", title: "CEO, The PR Alliance", bio: "Client visibility in Forbes, ESSENCE, ABC, FOX and Black Enterprise — and a TEDx Talk nearing 2 million views.", role: "", initials: "KB", sheet: "S-05", img: "keisha-bradley" },
+  { name: "Gilbryonna Shaw", title: "Founder, Nü Momish", bio: "Building the village mamas deserve — community and resources for mothers from preconception to empty-nesting.", role: "hosting The Rainmaker's Craft", initials: "GS", sheet: "S-06", img: "gilbryonna-shaw" },
+  { name: "Calvin Royster", title: "Encore Insurance Group", bio: "Insurance as a business asset — risk strategy for businesses, nonprofits, and government contractors.", role: "hosting The End of the Beginning", initials: "CR", sheet: "S-07" },
+  { name: "Tony Wagner", title: "", bio: "", role: "", initials: "TW", sheet: "S-08", img: "tony-wagner" },
+  { name: "Quintel Harcum", title: "Founder, QS Studio", bio: "Johns Hopkins' first Black food-service partner, $720K in revenue — now coaching 40+ businesses on AI systems.", role: "hosting The Modern Advantage", initials: "QH", sheet: "S-09", img: "quintel-harcum" },
+  { name: "Jeffrey Scruggs", title: "Founder & CEO, Majestic Light Group", bio: "AI engineer built at the Department of Defense and Booz Allen Hamilton — currently building 50 AI-powered applications in public.", role: "", initials: "JS", sheet: "S-10", img: "jeffrey-scruggs" },
+  { name: "Alex Johnson", title: "Founder, Optumize Solutions", bio: "Automation that recovered $150K+ in lost annual revenue for one client — and is projected to drive $1.2–1.6M in another.", role: "", initials: "AJ", sheet: "S-11" },
+  { name: "Jerone Anthony Tyler", title: "Founder, Posteridy.ai", bio: "Has helped entrepreneurs secure $30M+ in funding.", role: "hosting Capital & Command", initials: "JT", sheet: "S-12", img: "jerone-anthony-tyler" },
+  { name: "Claudius Taylor", title: "", bio: "", role: "", initials: "CT", sheet: "S-13", img: "claudius-taylor" },
+  { name: "Lyndsae' Peele", title: "Senior Entrepreneurial Ecosystem Manager, Kiva U.S.", bio: "Finance coach and ESSENCE Fest 2026 speaker — $1M+ in first-year real estate sales, five years helping families of color build wealth.", role: "", initials: "LP", sheet: "S-14", img: "lyndsae-peele" },
+  { name: "Lake Mitchell", title: "Founder & CEO, Lake Tax & Advisory Group", bio: "Wealth Engineer — $2M+ in client tax savings identified; U.S. Army First Lieutenant and PhD researcher.", role: "", initials: "LM", sheet: "S-15", img: "lake-mitchell" },
+  { name: "Robin Haynes", title: "Business Advisor, Goldman Sachs 10,000 Small Businesses", bio: "800+ entrepreneurs advised across 25 years — client revenue growth of 72% or more.", role: "hosting The Endgame", initials: "RH", sheet: "S-16" },
+  { name: "Cedric Powell", title: "M&A Partner, Squire Patton Boggs", bio: "Advises private equity buyers and sellers on acquisitions, divestitures, and recapitalizations.", role: "", initials: "CP", sheet: "S-17", img: "cedric-powell" },
+  { name: "Margo Burr", title: "Dance studio co-owner", bio: "A Baltimore Business Journal 40 Under 40 honoree serving hundreds of children across Maryland.", role: "", initials: "MB", sheet: "S-18", img: "margo-burr" },
+  { name: "Jaren Kirkland", title: "M&A Investment Banking, Wells Fargo", bio: "Built a $5M last-mile delivery business at 21 — plus two auto-body franchises grossing $1M+ each.", role: "", initials: "JK", sheet: "S-19", img: "jaren-kirkland" },
+  { name: "James Busia", title: "State Farm® Agency Owner", bio: "Chairman's Circle in two of his first three years — agency grown from $220K to $1M gross annual revenue.", role: "", initials: "JB", sheet: "S-20", img: "james-busia" },
+  { name: "Erika Baez-Grimes", title: "M&A Advisor, CM&AP", bio: "$350M+ in business scale and exit activity across the companies she's founded, led, or advises.", role: "", initials: "EB", sheet: "S-21" },
 ];
 
 const eventJsonLd = {
@@ -242,7 +226,7 @@ const FAQ: [string, React.ReactNode][] = [
   // "A question that will otherwise arrive by email eighty times."
   ["What time is this in my zone?", "6:30–8:00 PM ET each night — so 5:30 CT, 4:30 MT, 3:30 PT. The calendar invite in your confirmation will convert it for you automatically."],
   ["How much time is this, honestly?", "Ninety minutes a night, Monday through Thursday, for two weeks. Fridays through Sundays are yours. It's built for people running businesses, because you are."],
-  ["Who are the speakers?", "Operators, builders, and funders — people who've done the thing they're teaching. Seventeen-plus of them across the eight nights, with more announced weekly."],
+  ["Who are the speakers?", "Operators, builders, and funders — people who've done the thing they're teaching. Twenty-one of them named across the eight nights, with more announced weekly."],
   // §12a — "Will I be pitched?" retired, not rewritten. The old answer claimed
   // "nobody's selling you a course at the end", which contradicted Justin's own
   // stated plan to lean into the community every night. The brief takes the
@@ -301,7 +285,7 @@ export default function SummitPage() {
           {(
             [
               { n: 8, label: "nights" },
-              { n: 17, label: "operators", suffix: "+" },
+              { n: 21, label: "operators", suffix: "+" },
               { n: 90, label: "minutes a night" },
               { n: 0, label: "to attend", prefix: "$" },
             ] as { n: number; label: string; prefix?: string; suffix?: string }[]
@@ -354,24 +338,23 @@ export default function SummitPage() {
         </div>
       </section>
 
-      {/* The 2026 speakers — plates + THE FLIP (Justin: "the flip would go
-          crazy"). Featured pair (named summit roles) spans wider; the 2+3
-          layout closes every row at five (the modulo-sink rule — recompute
-          the featured count server-side as the roster grows: 17 = 2+15,
-          29 = 2+27). Front carries every published fact, so no-JS loses
-          nothing; the revision line is the drafting-native "announced
-          weekly" device. Spec: research doc §3–§4. */}
+      {/* The 2026 speakers — 21 plates + THE FLIP (Justin: "the flip would go
+          crazy"), now with 16 real headshots in the midnight/cream duotone.
+          At 21 the grid closes perfectly uniform (7 rows of 3) — the featured
+          tier is no longer needed as a modulo sink; night hosts carry a gold
+          top-rule on the back instead. Hover flips on fine pointers; the chip
+          is the keyboard/touch trigger. Spec: research doc §3–§4. */}
       <section id="speakers" className="scroll-mt-[72px] bg-midnight">
         <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-20 md:py-28">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <h2 className="text-3xl font-medium md:text-[40px]">The 2026 speakers</h2>
               <p className="mt-2 text-xs tracking-[0.18em] text-gold/85 [font-variant:small-caps] [font-variant-numeric:tabular-nums]">
-                rev 02 · jul 29 · five of seventeen-plus named
+                rev 03 · jul 29 · twenty-one named
               </p>
             </div>
             <p className="max-w-[44ch] text-[15px] text-cream/75">
-              Seventeen-plus builders, operators, and funders — no professional
+              Twenty-one builders, operators, and funders — no professional
               motivators. More announced weekly.{" "}
               <a href="/contact" className="text-gold underline underline-offset-4 hover:text-gold-hover">
                 Get the speaker announcement →
@@ -379,16 +362,12 @@ export default function SummitPage() {
             </p>
           </div>
           <Reveal>
-            <div className="mt-10 grid gap-4 md:grid-cols-6">
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {SPEAKERS.map((s, i) => (
                 <SpeakerPlate key={s.name} s={s} index={i} />
               ))}
             </div>
           </Reveal>
-          <p className="mt-8 text-[15px] text-cream/70">
-            And that&rsquo;s five of seventeen. Goldman Sachs advisors. Angel
-            investors. Luxury brand strategists. Tax and capital specialists.
-          </p>
         </div>
       </section>
 

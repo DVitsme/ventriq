@@ -784,6 +784,76 @@ mapping (O21) goes to Justin with the Skool setup instructions.
 **Deliverable to Justin when Wave 2 lands:** the captured **.mp4 of the
 finished hero motion** for his social — the "video" ask, honored (§6).
 
+## §11 · The Foundry reveal timing — three-agent synthesis (Jul 29, late)
+
+**Inputs:** Justin confirmed the name ("The Foundry", official), pricing
+($39/$99 — the one-pager's $45 is superseded), and asked for best-practice
+research on reveal timing. Three agents: rebrand playbooks · live-event
+mechanics · rename operations. **They answer different questions and compose:**
+
+### The recommendation (needs Justin's sign-off — it's his stage)
+
+1. **The NAME flips publicly BEFORE the summit — target Mon–Tue Aug 3–4.**
+   Never run a 10-day registration campaign on a name scheduled to die
+   mid-event. Every case that worked (Kit, Meta, Pavilion) launched a
+   fully-prepped name INTO its event; the surprise on-stage rename is the
+   documented failure mode (ConvertKit→Seva, reversed in <30 days). At <6
+   weeks public and ~40 registrants, name equity rounds to zero — the whole
+   transition is one email — and every summit-acquired member raises the
+   price of waiting. 50–60% virtual no-show rates mean a Night-1 name-drop
+   buys a moment ~15–20 people see, at the cost of split-brain marketing
+   through the highest-traffic 10 days.
+2. **Night 1 (Aug 10) tells the naming STORY, not the news** — the
+   foundry/founder etymology is genuinely good stage material ("a foundry is
+   where metal is cast — and the person who casts it has always been called a
+   founder").
+3. **Night 5 (Mon Aug 17) is the OFFER moment** — the founding-member reveal.
+   Challenge-launch doctrine: never debut the pitch on the final night
+   (participation has decayed, zero follow-up touchpoints); serial launchers
+   put the live selling moment at the START of the open-cart window. Night 5
+   = first night of the final run → 4 consecutive live closing touchpoints,
+   finale becomes cart-close crescendo. Mechanics: last ~15 min → value stack
+   → **anchor the $99 tier first**, then $39 → founding framing (locked rate
+   or a REAL cap — never a fake deadline, house law) → link in the Zoom chat
+   in the same breath. Same-night email to ALL registrants by ~9:30 PM (43%
+   never attend live). **Founding window closes Sun Aug 23, 11:59 PM ET**
+   (72h past the finale; ~half of conversions land in the final 48h).
+   End Night 4 with the open loop: "Monday night I'm announcing what comes
+   after this summit."
+
+### The operational runbook (compressed from agent 3)
+
+| When | What |
+|---|---|
+| **Now → Jul 31 (silent)** | CHECK `skool.com/the-foundry` availability in Skool's claim screen (agent verified it 404s — appears free) but **claim nothing yet**; verify Pro plan; register lockup handles (`@thefoundrybyventriq` or run under `@ventriq`); 30-min trademark knockout screen |
+| **A−3 → A−1** | Stage `/the-foundry` route + 301 from `/founders-after-hours` (build dark, don't ship); rename Kit forms/tags internally; **send partners whose copy isn't locked the `/the-foundry` URL** — the one dependency outside our control |
+| **A−1 (Aug 2)** | Insiders first: the ~40 registrants + members get the why, 24–48h before public |
+| **A-day (Aug 3–4), one sitting** | Deploy route+301 → GSC reindex → **Skool rename AND URL-claim in the same hour** (the one-way door — no redirects exist) → sweep every controlled Skool link same hour → announcement email → Luma display name |
+| **A+30** | Purge stragglers; keep the 301 ≥1 year; "formerly Founders After Hours" bridge line for 30–60 days |
+
+**Crowded-namespace law:** the bare name is un-ownable — a REGISTERED
+"The Foundry" trademark exists (Menlo Park medtech), @thefoundryhub is an
+active founder community, Palantir/VFX Foundries dominate search, and
+Baltimore itself remembers the Foundery makerspace. **Formal surfaces ship
+"The Foundry by Ventriq"** (title tags, OG, partner blurbs); bare-term SEO is
+unwinnable — target "foundry + ventriq/baltimore". No new domain — it lives
+at ventriq.io + Skool.
+
+**URL verdict (closes O13):** move the route AT announce, not
+rename-in-place-then-301-later. Google: 301s lose nothing; the "don't move
+mid-campaign" worry inverts here — this week IS the low-traffic window, and
+partner newsletters are about to mint the page's first real backlinks, which
+should point at the final URL from day one. John Mueller: URL slugs matter
+most "when we haven't had access to the content yet" — exactly our pre-crawl
+state.
+
+**Evidence strength (agents' own grading):** strong on sequencing, founding
+windows, same-night email, cart-close concentration, simultaneous-flip
+standard; thin on night-by-night decay curves (doctrine + one 45%
+fixed-sequence return stat) and on quantified lag-damage (principle + the
+Jul 2026 Google Pixel self-leak as the pre-flip cautionary tale — never
+schedule the flip, flip live).
+
 ### New open questions this research created
 
 | # | Question | Owner |

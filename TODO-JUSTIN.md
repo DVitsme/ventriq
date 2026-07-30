@@ -85,19 +85,39 @@ right level as the build moves. (Our own task list lives in `TODO.md`.)
   our call to drop it. We're taking it off the site. Worth correcting in your
   brief and any email templates so it doesn't creep back in.
 
-- [ ] **Four quick confirmations on The Foundry** (~5 min total). Your
-  one-pager answers a lot, but four things change what's already live:
-  1. **Is Night 1 (Aug 10) when "The Foundry" goes public?** We're planning
-     around that — building the section so the name can flip that night
-     without us shipping anything.
-  2. **Digital tier: $39 or $45?** The site says $39 in five places; the
-     one-pager says $45. And if it's $45, does that start now or at launch?
-  3. **"Founder After Hours" or "Founders After Hours"?** Your one-pager drops
-     the "s" everywhere. Ours has it. Small, but it's in the web address, the
-     menu, and about forty other places.
-  4. **Should the web address change** from ventriq.io/founders-after-hours to
-     something like /the-foundry? Worth deciding **before** Aug 10 — changing
-     it after launch costs us the Google ranking we're building now.
+- [ ] **The Foundry reveal plan — one yes and we execute** (~10 min read).
+  Name and pricing are locked ($39/$99 — thank you). We researched reveal
+  timing across rebrand case studies, live-event launch mechanics, and
+  rename operations. The recommendation, in one breath:
+  **flip the name publicly Aug 3–4 (BEFORE the summit), tell the naming story
+  on Night 1, and make Night 5 (Mon Aug 17) the founding-member offer moment
+  — window closes Sunday Aug 23 at 11:59 PM.**
+  Why not a surprise name-drop on stage: that's the documented failure mode
+  (ConvertKit tried it in 2018, reversed inside a month), half of virtual
+  registrants never attend live, and running ten days of partner marketing on
+  a name you're about to kill splits the brand at its biggest moment. The
+  playbook that works (Kit, Meta, Pavilion): launch a fully-prepped name INTO
+  your event, then use the stage for the story and the offer.
+  What we need from you: (a) a yes (or edits) on the Aug 3–4 flip; (b) tell
+  NOBODY the name publicly before the handles and the Skool address are
+  claimed — we'll give you the go; (c) one naming rule — in formal places it
+  ships as **"The Foundry by Ventriq"** ("Foundry" alone is un-ownable: a
+  registered trademark elsewhere, an active founder community called The
+  Foundry Hub, and Baltimore's old Foundery makerspace all crowd it).
+- [ ] **Two speakers are missing bios: Tony Wagner and Claudius Taylor** —
+  their headings and headshots arrived, but the bio text under their names is
+  empty. They're live on the site with photo + name; their card backs say
+  "full bio landing with the next revision." Send the two paragraphs and
+  we'll slot them in.
+- [ ] **Confirm one speaker's surname: Margo BURR or Margo BURLEY?** (~1 min,
+  matters a lot — it's printed on her card.) Your heading says "Margo Burley"
+  but the bio paragraph under it says "Margo Burr" and her photo file is
+  "Margo Burr Headshot.jpg" — we went with **Burr** (her own bio + filename)
+  until you say otherwise.
+- [ ] **If any partner newsletter copy isn't locked yet, send them
+  `ventriq.io/the-foundry` as the community link** — that page will exist at
+  the flip and the old address will forward, but new links should point at
+  the name that's staying.
 - [ ] **⚠️ Your iamjs.io email has zero spam protection — fix before the next
   summit blast** (~15 min, we can walk you through it). We checked the domain
   you send your Kit newsletters from (jshaw@iamjs.io): it has **none** of the

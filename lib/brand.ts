@@ -16,6 +16,11 @@
  *  what breaks this href (no redirects — old links 404). Coordinate THAT
  *  same-day. Research: docs/plans/summit-aug-1/06-phase-5-research.md §8. */
 
+/** Jul 29, from Justin via Derrick: the official name IS "The Foundry",
+ *  pricing confirmed $39/$99 (the one-pager's $45 is superseded), and the
+ *  one-pager's bottom palette is for GAMIFICATION (progression ranks), not
+ *  brand. This constant flips to "The Foundry" when the reveal-timing
+ *  decision lands (research doc §11) — until then the public name stands. */
 export const MEMBERSHIP_NAME = "Founders After Hours";
 
 export const SKOOL_URL = "https://www.skool.com/iamjs-collective-9599/about";

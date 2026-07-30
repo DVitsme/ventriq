@@ -3,6 +3,31 @@
 A running, plain-language record of everything done on this engagement. Newest
 first. Written so it can be pasted straight into a client update for Justin.
 
+## July 29, 2026 — late night (the full speaker roster + the reveal plan)
+
+- **All 21 speakers are on the summit page** — names, titles, credential
+  lines from the bios Justin sent, night-host badges, and 16 real headshots
+  processed into a matched black-and-white treatment so photos taken in
+  totally different conditions read as one set. Speakers without photos get
+  a dignified initials plate — the cards look like siblings, not gaps.
+  (Built and tested; publishing on the word.)
+- **The flip got two upgrades Justin asked for:** cards now flip when the
+  mouse moves over them (desktop), and people with "reduce motion" switched
+  on now SEE the flip too — as a quick crossfade instead of a rotation,
+  which is the accessibility-safe way to honor that setting.
+- **Names corrected from the bios document:** Quintel Harcum (was "Quintel
+  Q."), Lyndsae' Peele, Jerone Anthony Tyler, Erika Baez-Grimes. One needs
+  Justin's eye: his heading says "Margo Burley" but her own bio says "Margo
+  Burr" — we printed Burr and asked him to confirm.
+- **The Foundry: name and pricing locked ($39/$99), and the reveal plan is
+  researched and written.** Three research tracks (rebrand case studies,
+  launch mechanics, rename operations) agree: flip the name publicly Aug
+  3–4 before the summit, tell the naming story on opening night, and make
+  Monday Aug 17 the founding-member offer moment with the window closing
+  Sunday Aug 23. The failed version of this move (a surprise on-stage
+  rename) has a famous case study — ConvertKit's "Seva," reversed within a
+  month. Awaiting Justin's go; the site can flip the moment he gives it.
+
 ## July 29, 2026 — night (the polish build — LIVE)
 
 - **Built the card flip Justin asked for.** Every speaker card on the summit

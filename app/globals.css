@@ -116,3 +116,64 @@
   .vq-face-back { transition: visibility 0s 500ms; }
   .vq-faces[data-flipped] .vq-face-back { transition: visibility 0s 0s; }
 }
+
+/* Hover-to-flip (Derrick, Jul 29) — fine pointers only. The chip stays the
+   keyboard/touch trigger and the only aria state-holder, so mouse movement
+   never flutters aria-expanded. Same visibility choreography as the click
+   path: hide after the rotation lands, show immediately. */
+@media (hover: hover) and (pointer: fine) {
+  .vq-scene:hover .vq-faces { transform: rotateY(180deg); }
+  .vq-scene:hover .vq-face-front { visibility: hidden; }
+  .vq-scene:hover .vq-face-back { visibility: visible; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .vq-scene:hover .vq-face-front { transition: visibility 0s 500ms; }
+  .vq-scene:hover .vq-face-back { transition: visibility 0s 0s; }
+}
+
+/* Reduced motion: the flip is SEEN, as a 180ms opacity crossfade (Derrick's
+   ask, honored inside the PRM law — opacity is the vestibular-safe class; no
+   rotation, no translation). transform:none also un-mirrors the back face. */
+@media (prefers-reduced-motion: reduce) {
+  .vq-faces, .vq-faces[data-flipped] { transform: none; }
+  .vq-face-back { transform: none; }
+  .vq-face {
+    transition: opacity 180ms ease, visibility 0s 180ms;
+  }
+  .vq-face-front { opacity: 1; }
+  .vq-faces[data-flipped] .vq-face-front { opacity: 0; visibility: hidden; }
+  .vq-face-back { opacity: 0; }
+  .vq-faces[data-flipped] .vq-face-back {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 180ms ease, visibility 0s 0s;
+  }
+}
+@media (prefers-reduced-motion: reduce) and (hover: hover) and (pointer: fine) {
+  .vq-scene:hover .vq-face-front { opacity: 0; visibility: hidden; }
+  .vq-scene:hover .vq-face-back {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 180ms ease, visibility 0s 0s;
+  }
+}
+
+/* Midnight/cream duotone for speaker portraits — grayscale here on the img,
+   color-blend veil in the component. Two knobs, both CSS, per research §4. */
+.vq-duotone { filter: grayscale(1) contrast(1.04) brightness(0.96); }
+
+/* Watermark initials for photoless speaker plates — CSS content, not a text
+   node: it's decorative paint at an intentional 1.19:1, and axe's
+   color-contrast rule walks real text even inside aria-hidden subtrees. */
+.vq-initials::after {
+  content: attr(data-initials);
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0;
+  font-size: 120px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: rgb(241 236 223 / 0.07);
+  user-select: none;
+}

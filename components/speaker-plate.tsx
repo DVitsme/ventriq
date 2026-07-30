@@ -3,52 +3,45 @@
 import { useState } from "react";
 
 /** The speaker plate + THE FLIP — Justin's marquee ask from the Jul 23 call
- *  ("the flip would go crazy"), replacing Derrick's original pop-up plan.
- *  Full spec + sources: docs/plans/summit-aug-1/06-phase-5-research.md §3–§4.
+ *  ("the flip would go crazy"). Spec + sources:
+ *  docs/plans/summit-aug-1/06-phase-5-research.md §3–§4.
  *
- *  The build decisions, each one load-bearing:
+ *  Jul 29 (late): upgraded from 5 text plates to the full 21-speaker roster
+ *  with real headshots (16 of 21; the rest run the initials type-ground, so
+ *  photo and no-photo plates are siblings and roster waves never look like
+ *  gaps). Two additions at Derrick's direction:
+ *  — HOVER-TO-FLIP on fine-pointer devices (CSS-only, globals.css); the chip
+ *    stays the keyboard/touch trigger and the ONLY aria state-holder —
+ *    aria-expanded never flutters on mouse movement.
+ *  — Reduced-motion users now SEE the flip as a 180ms opacity crossfade
+ *    (Derrick: "the animation should be seen even on reduced motion").
+ *    Opacity-only is the vestibular-safe animation class, so this honors the
+ *    ask without breaking the PRM law: no rotation, no translation, ever.
  *
- *  GEOMETRY — per-card `perspective` (a shared ancestor skews off-center
- *  cards toward one vanishing point); faces stacked with `grid-area: 1/1`
- *  (never absolute — the card must size to the taller face); front face
- *  carries an EXPLICIT `rotateY(0deg)` (Firefox bug 1201471); the 2px radius
- *  lives on the faces because overflow/opacity/filter/clip on the preserve-3d
- *  wrapper silently flattens the 3D in every engine (MDN grouping list).
- *  No `scale` anywhere in the flip — scale is what triggers rasterization
- *  text blur.
+ *  Load-bearing decisions (unchanged): per-card perspective · grid-area face
+ *  stacking · explicit rotateY(0) front (Firefox 1201471) · radius on the
+ *  FACES (grouping properties flatten preserve-3d — the duotone `filter`
+ *  therefore lives on the <img>, never the 3D wrapper) · away face hidden
+ *  with `visibility` (backface-visibility is visual-only; `inert` doesn't
+ *  survive this React build) · one persistent <button> outside the rotating
+ *  wrapper · no `scale` anywhere (rasterization blur).
  *
- *  ACCESSIBILITY — `backface-visibility` is visual-only: the rotated-away
- *  face stays in the AT tree and tab order in every engine. The away face is
- *  therefore `visibility: hidden` at rest (CSS-timed: hides 500ms after the
- *  flip starts, shows instantly when returning — see globals.css .vq-face
- *  rules). Same `visibility` lesson as the mobile CTA bar: `inert` doesn't
- *  survive this React build, `visibility` does, and it removes focus + AT in
- *  one move while still transitioning. The trigger is ONE persistent
- *  <button> OUTSIDE the rotating wrapper (focus never unmounts mid-flip),
- *  with disclosure semantics (`aria-expanded`) — the APG-settled wiring; the
- *  Edwards/Vispero relabel pattern is the documented fallback if SR QA ever
- *  surfaces confusion. Never the whole card as a button (headings inside a
- *  button stop being headings, and backs will grow links once real bios land).
- *
- *  NO-JS / REDUCED MOTION — the FRONT face carries every fact we publish
- *  today (name, title, proof), so nothing is information-gated behind the
- *  flip; the back is arrangement, not exclusive content. Reduced motion gets
- *  an instant swap (rotation + visibility delays are gated behind
- *  no-preference in globals.css).
- *
- *  PHOTOS LATER — `.vq-plate-media` is the future portrait slot: today it
- *  renders the speaker's initials as type-ground (Laracon pattern — photo
- *  and no-photo plates are siblings, so roster waves never look like gaps);
- *  when a headshot lands it becomes an <img> with the midnight/cream duotone
- *  treatment. */
+ *  Content model: the FRONT is the poster (photo/initials, name, title); the
+ *  BACK carries the bio line + role. Bios are card-length lines derived from
+ *  the full bios in docs/notes-from-justin/7-29/FORGE THE FUTURE SPEAKER
+ *  BIOS.md — the full texts are preserved there for a future /speakers page.
+ *  No-JS users get the complete name/title/photo layer; bios are the
+ *  enhancement layer. */
 export type Speaker = {
   name: string;
   title: string;
-  proof: string;
+  /** Card-length credential line (back face). Empty = bio not yet delivered. */
+  bio: string;
   role: string;
   initials: string;
   sheet: string; // "S-01" — drafting sheet number
-  featured?: boolean;
+  /** Slug into /speakers/<img>.webp (640×800). Absent = initials plate. */
+  img?: string;
 };
 
 export function SpeakerPlate({ s, index }: { s: Speaker; index: number }) {
@@ -58,42 +51,69 @@ export function SpeakerPlate({ s, index }: { s: Speaker; index: number }) {
   return (
     <article
       aria-label={s.name}
-      className={`vq-in relative ${s.featured ? "md:col-span-3" : "md:col-span-2"} ${flipped ? "z-20" : ""}`}
+      className={`vq-in relative md:hover:z-20 ${flipped ? "z-20" : ""}`}
       style={{ ["--vqd" as string]: `${Math.min(index, 6) * 60}ms` }}
     >
       <div className="vq-scene h-full">
         <div className="vq-faces h-full" data-flipped={flipped || undefined}>
-          {/* FRONT — the poster. Carries all published facts. */}
-          <div className="vq-face vq-face-front flex min-h-[290px] flex-col rounded-[2px] border border-cream/13 bg-midnight p-6 pb-16">
+          {/* FRONT — the poster. */}
+          <div className="vq-face vq-face-front flex flex-col rounded-[2px] border border-cream/13 bg-midnight p-6 pb-16">
             <PlateTicks />
             <p className="text-xs tracking-[0.18em] text-gold [font-variant:small-caps] [font-variant-numeric:tabular-nums]">
-              {s.sheet} <span className="text-cream/60">/ 17+</span>
+              {s.sheet} <span className="text-cream/60">/ 21+</span>
             </p>
-            {/* Type-as-ground initials — the future photo slot. */}
-            <div aria-hidden className="vq-plate-media pointer-events-none absolute inset-x-0 bottom-10 select-none overflow-hidden text-right">
-              <span className="block pr-4 text-[110px] font-semibold leading-none tracking-[-0.04em] text-cream/[0.07]">
-                {s.initials}
-              </span>
-            </div>
-            <div className="relative mt-auto pt-10">
-              <h3 className="text-xl font-semibold leading-snug md:text-2xl">{s.name}</h3>
-              <p className="mt-1 text-sm text-gold">{s.title}</p>
-              <p className="mt-3 text-[15px] leading-relaxed text-cream/78">{s.proof}</p>
+            {s.img ? (
+              /* Portrait, unified by the midnight/cream duotone (grayscale on
+                 the img + a color-blend veil). Sized+lazy: below-fold, zero
+                 LCP/CLS cost. Filter on the img is safe — grouping-property
+                 flattening only bites on the preserve-3d wrapper. */
+              <div className="relative mt-4 aspect-[4/5] overflow-hidden rounded-[2px]">
+                {/* Plain <img> is deliberate: next/image needs Cloudflare Image
+                    Transformations, which is a dashboard toggle still unset
+                    (TODO 🔴). These are pre-sized 640×800 webps (13–71KB),
+                    lazy, below the fold — there is nothing left to optimize. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`/speakers/${s.img}.webp`}
+                  alt=""
+                  width={640}
+                  height={800}
+                  loading="lazy"
+                  decoding="async"
+                  className="vq-duotone h-full w-full object-cover"
+                />
+                <div aria-hidden className="absolute inset-0 bg-midnight/25 mix-blend-color" />
+              </div>
+            ) : (
+              /* Initials type-ground — the no-photo sibling. Rendered via CSS
+                 content (globals .vq-initials::after): it is a watermark at
+                 deliberate 1.19:1, and axe's color-contrast rule evaluates
+                 real text nodes even inside aria-hidden — pseudo-element
+                 content it does not. Decorative paint, painted decoratively. */
+              <div
+                aria-hidden
+                data-initials={s.initials}
+                className="vq-initials pointer-events-none relative mt-4 aspect-[4/5] overflow-hidden rounded-[2px] border border-cream/[0.07]"
+              />
+            )}
+            <div className="relative mt-4">
+              <h3 className="text-lg font-semibold leading-snug md:text-xl">{s.name}</h3>
+              {s.title && <p className="mt-1 text-sm text-gold">{s.title}</p>}
             </div>
           </div>
 
           {/* BACK — the drawing notes. */}
-          <div id={backId} className="vq-face vq-face-back flex min-h-[290px] flex-col rounded-[2px] border border-gold/50 bg-midnight p-6 pb-16">
+          <div id={backId} className={`vq-face vq-face-back flex flex-col rounded-[2px] border bg-midnight p-6 pb-16 ${s.role ? "border-t-2 border-gold/50 border-t-gold" : "border-gold/50"}`}>
             <PlateTicks />
             {s.role ? (
               <p className="text-xs tracking-[0.18em] text-gold [font-variant:small-caps]">{s.role}</p>
             ) : (
-              <p className="text-xs tracking-[0.18em] text-cream/60 [font-variant:small-caps]">panelist · forge the future summit</p>
+              <p className="text-xs tracking-[0.18em] text-cream/60 [font-variant:small-caps]">forge the future summit</p>
             )}
-            <blockquote className="mt-5 text-lg font-medium leading-snug text-cream md:text-xl">
-              {s.proof}
+            <blockquote className="mt-5 text-[16px] font-medium leading-relaxed text-cream md:text-[17px]">
+              {s.bio || `${s.name} joins the eight-night lineup — full bio landing with the next revision.`}
             </blockquote>
-            <div className="mt-auto flex items-end justify-between pt-6">
+            <div className="mt-auto flex items-end justify-between gap-4 pt-6">
               <p className="text-sm text-cream/60">{s.name}</p>
               <p aria-hidden className="text-xs tracking-[0.18em] text-gold/70 [font-variant:small-caps] [font-variant-numeric:tabular-nums]">
                 {s.sheet}
@@ -118,8 +138,7 @@ export function SpeakerPlate({ s, index }: { s: Speaker; index: number }) {
   );
 }
 
-/** Gold registration ticks — the drafting corner marks, carried over from the
- *  old placeholder tiles so the vocabulary survives the upgrade. */
+/** Gold registration ticks — the drafting corner marks. */
 function PlateTicks() {
   return (
     <>
