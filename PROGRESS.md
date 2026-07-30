@@ -3,6 +3,22 @@
 A running, plain-language record of everything done on this engagement. Newest
 first. Written so it can be pasted straight into a client update for Justin.
 
+## July 30, 2026 — the hero's reduced-motion show (same day, follow-up)
+
+- **People with "reduce animations" turned on now get the full experience
+  too — rebuilt in the motion-safe language.** Instead of lines flying and
+  sparks arcing, their version develops like a photograph: the drawing
+  fades in layer by layer, the dashed plan dissolves into the solid gold
+  build, individual survey lines warm and cool in place, the hidden marks
+  "develop" under a swelling lamp, and the forge strike becomes the whole
+  gateway flashing hot orange and cooling back to gold. Nothing moves —
+  everything is light and color, which is exactly what that accessibility
+  setting asks for. The live countdown, rotating facts, mouse-light, and
+  the motion on/off switch all still work.
+- Verified on the live site with screenshots and a screen recording, and
+  the full 49-check suite passed first — including the accessibility scans
+  running over the animating reduced-motion version.
+
 ## July 30, 2026 — the new homepage hero: "The Master Sheet"
 
 - **The homepage opening is now the site's showpiece.** One enormous

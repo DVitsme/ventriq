@@ -18,7 +18,10 @@
  *    (the Jul 29 flip lesson); parallax on the HTML plane wrappers only
  *  — pause = gsap.globalTimeline + .ms-paused class + clock freeze, resume
  *    from point (G4); persisted as localStorage "vq-motion"
- *  — PRM builds NOTHING here; CSS serves the finished breathing sheet.
+ *  — PRM gets ITS OWN SHOW (Derrick, Jul 30: the animation must be seen on
+ *    reduced-motion machines): the same narrative re-expressed entirely in
+ *    the vestibular-safe classes — opacity + color. Exposure entrance,
+ *    in-place ray warmth, glyph develops, color-only heat strikes, lens.
  *    Base SSR state is the complete drawing, so pre-hydration paint and
  *    JS-never-loads are both the finished sheet (inverted gating law). */
 
@@ -96,8 +99,40 @@ export function HeroDriver() {
       );
       io.observe(section);
 
+      /* shared by both motion branches (they're media-exclusive — only one
+         is ever live, so this is one state, not two controllers) */
+      let factIdx = 0;
+      function cycleFact() {
+        const label = section!.querySelector(".ms-callout-label");
+        if (!label) return;
+        factIdx = (factIdx + 1) % FACTS.length;
+        const tl = gsap.timeline();
+        /* soft tick-over, floored at 0.7 — never below AA: axe scans run
+           while this cycles forever (esp. the reduced-motion project), and
+           a mid-fade sample of real text at low opacity is a contrast fail.
+           0.62 fill × 0.7 ≈ 5:1 on midnight at the dimmest frame. */
+        tl.to(label, { opacity: 0.7, duration: 0.2, ease: "power1.in" })
+          .add(() => {
+            label.textContent = FACTS[factIdx];
+          })
+          .to(label, { opacity: 1, duration: 0.3, ease: "power1.out" });
+      }
+      /* schedule() re-arms delayedCalls asynchronously, so a branch revert
+         (live OS-setting flip) can't auto-kill the loop — each branch gates
+         its loops on its own liveness flag instead. */
+      const makeSchedule = (alive: { on: boolean }) => (fn: () => void, min: number, max: number) => {
+        const loop = () => {
+          if (!alive.on) return;
+          fn();
+          gsap.delayedCall(gsap.utils.random(min, max), loop);
+        };
+        gsap.delayedCall(gsap.utils.random(min, max) + 5, loop);
+      };
+
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const alive = { on: true };
+        const schedule = makeSchedule(alive);
         /* ── ENTRANCE — the one establishing move (≤4.5s) ─────────────── */
         const enter = gsap.timeline({ defaults: { ease: "none" } });
         enter
@@ -155,14 +190,6 @@ export function HeroDriver() {
         }
 
         /* ── MOMENTS — randomized windows so nothing shares a beat ────── */
-        const schedule = (fn: () => void, min: number, max: number) => {
-          const loop = () => {
-            fn();
-            gsap.delayedCall(gsap.utils.random(min, max), loop);
-          };
-          gsap.delayedCall(gsap.utils.random(min, max) + 5, loop);
-        };
-
         function sweep(intensity = 0.45) {
           gsap.fromTo(
             q(".ms-atmo-2"),
@@ -189,19 +216,6 @@ export function HeroDriver() {
           const lines = q(".ms-redraft");
           const el = lines[Math.floor(Math.random() * lines.length)];
           if (el) gsap.fromTo(el, { drawSVG: "0%" }, { drawSVG: "100%", duration: 0.9, ease: "none" });
-        }
-
-        let factIdx = 0;
-        function cycleFact() {
-          const label = section!.querySelector(".ms-callout-label");
-          if (!label) return;
-          factIdx = (factIdx + 1) % FACTS.length;
-          const tl = gsap.timeline();
-          tl.to(label, { opacity: 0, duration: 0.25, ease: "power1.in" })
-            .add(() => {
-              label.textContent = FACTS[factIdx];
-            })
-            .to(label, { opacity: 1, duration: 0.3, ease: "power1.out" });
         }
 
         let lastStrike = 0;
@@ -305,10 +319,162 @@ export function HeroDriver() {
         }
 
         return () => {
+          alive.on = false;
           window.clearTimeout(watchdog);
           section!.removeEventListener("pointermove", onMove);
           section!.removeEventListener("pointerleave", onLeave);
           ctaRow?.removeEventListener("mouseenter", onCtaEnter);
+        };
+      });
+
+      /* ── PRM branch — the show, re-expressed (Derrick's law, hero edition:
+         the animation must be SEEN under reduced motion). Everything here is
+         opacity or color — the vestibular-safe classes. No translation, no
+         rotation, no parallax, no draw-travel, no spark flight. Media-
+         exclusive twin of the branch above, never live simultaneously. ── */
+      mm.add("(prefers-reduced-motion: reduce)", () => {
+        const alive = { on: true };
+        const schedule = makeSchedule(alive);
+
+        /* construction by EXPOSURE — the sheet develops like a print:
+           rays → field → the dashed plan → crossfade into the built →
+           details. Same narrative, zero movement. */
+        const enter = gsap.timeline({ defaults: { ease: "power1.inOut" } });
+        enter
+          .from(q(".ms-rays"), { opacity: 0, duration: 0.9 }, 0)
+          .from(q(".ms-grid"), { opacity: 0, duration: 0.8 }, 0.45)
+          .fromTo(
+            q(".ms-struct-plan"),
+            { attr: { "stroke-opacity": 0 } },
+            { attr: { "stroke-opacity": 0.5 }, duration: 0.7 },
+            1.1
+          )
+          /* the plan becomes real — as a crossfade (the flip's precedent) */
+          .from(q(".ms-struct"), { opacity: 0, duration: 0.9 }, 1.7)
+          .to(q(".ms-struct-plan"), { attr: { "stroke-opacity": 0 }, duration: 0.6 }, 1.9)
+          .from(q(".ms-constr"), { opacity: 0, duration: 0.7 }, 2.4)
+          .from(q(".ms-detail"), { opacity: 0, duration: 0.7 }, 2.7)
+          .add(() => exposurePulse(0.5), 3.1);
+
+        const watchdog = window.setTimeout(() => {
+          if (enter.progress() < 1) enter.progress(1);
+        }, 6000);
+
+        /* ambient warmth: four rays breathe in place on long offset cycles —
+           deliberately non-adjacent and unordered (ordered neighbors read as
+           phi motion, which is exactly what PRM must not do) */
+        const rays = q(".ms-ray") as unknown as SVGLineElement[];
+        [2, 9, 5, 13].forEach((idx, i) => {
+          const el = rays[idx];
+          if (el)
+            gsap.to(el, {
+              attr: { "stroke-opacity": 0.48 },
+              duration: 3.6 + i * 1.3,
+              yoyo: true,
+              repeat: -1,
+              ease: "sine.inOut",
+              delay: 1.4 + i * 2.2,
+            });
+        });
+        const isoA = q(".ms-iso-a");
+        const isoB = q(".ms-iso-b");
+        if (isoA.length && isoB.length) {
+          gsap.to(isoA, { opacity: 0.25, duration: 18.5, yoyo: true, repeat: -1, ease: "sine.inOut" });
+          gsap.fromTo(
+            isoB,
+            { attr: { "stroke-opacity": 0 } },
+            { attr: { "stroke-opacity": 0.07 }, duration: 18.5, yoyo: true, repeat: -1, ease: "sine.inOut" }
+          );
+        }
+
+        /* the survey sweep, re-expressed as exposure: the parked light band
+           swells in place and the camouflage develops — glyphs lift in
+           RANDOM order (a stagger sweep would read as travel) */
+        gsap.set(q(".ms-atmo-2"), { xPercent: 55 });
+        function exposurePulse(strength = 0.4) {
+          gsap.to(q(".ms-atmo-2"), { opacity: strength, duration: 2.2, yoyo: true, repeat: 1, ease: "sine.inOut" });
+          gsap.fromTo(
+            q(".ms-glyph"),
+            { attr: { "stroke-opacity": 0.05 } },
+            {
+              attr: { "stroke-opacity": 0.4 },
+              duration: 2.0,
+              stagger: { each: 0.06, from: "random" },
+              yoyo: true,
+              repeat: 1,
+              ease: "sine.inOut",
+            }
+          );
+        }
+
+        /* the strike is pure heat: the whole gate flashes forge-orange and
+           cools to gold — color only, one event, ≥2s cycle (2.3.1-safe) */
+        let lastHeat = 0;
+        function heatStrike() {
+          const now = Date.now();
+          if (now - lastHeat < 20_000) return;
+          lastHeat = now;
+          gsap.fromTo(
+            q(".ms-struct path"),
+            { stroke: "#C15A2C" },
+            { stroke: "#C9A24C", duration: 1.9, stagger: 0.05, ease: "power1.out" }
+          );
+        }
+
+        schedule(cycleFact, 9, 14);
+        schedule(() => exposurePulse(0.4), 26, 33);
+        schedule(heatStrike, 48, 60);
+
+        const ctaRow = section!.querySelector("[data-ms-strike]");
+        const onCta = () => heatStrike();
+        ctaRow?.addEventListener("mouseenter", onCta);
+
+        /* the surveyor's lens still finds what's camouflaged — pointer-
+           attached glow (the user's own hand, not autonomous motion);
+           parallax and magnetics stay dead in this branch */
+        const lens = root.querySelector(".ms-lens") as HTMLDivElement | null;
+        const lx = lens ? gsap.quickTo(lens, "x", { duration: 0.35, ease: "power2" }) : null;
+        const ly = lens ? gsap.quickTo(lens, "y", { duration: 0.35, ease: "power2" }) : null;
+        const glyphs = q(".ms-glyph") as unknown as SVGGElement[];
+        const onMove = (e: PointerEvent) => {
+          if (e.pointerType !== "mouse" || gates.current.user) return;
+          const r = section!.getBoundingClientRect();
+          if (lx && ly && lens) {
+            lx(e.clientX - r.left - 110);
+            ly(e.clientY - r.top - 110);
+            gsap.to(lens, { opacity: 1, duration: 0.3, overwrite: "auto" });
+          }
+          for (const gEl of glyphs) {
+            const b = gEl.getBoundingClientRect();
+            const d = Math.hypot(b.left + b.width / 2 - e.clientX, b.top + b.height / 2 - e.clientY);
+            if (d < 170) {
+              gsap.to(gEl, {
+                attr: { "stroke-opacity": 0.5 - (d / 170) * 0.4 },
+                duration: 0.25,
+                overwrite: "auto",
+              });
+              gsap.to(gEl, { attr: { "stroke-opacity": 0.05 }, duration: 0.9, delay: 0.6, overwrite: false });
+            }
+          }
+        };
+        const onLeave = (e: PointerEvent) => {
+          if (e.pointerType !== "mouse") return;
+          if (lens) gsap.to(lens, { opacity: 0, duration: 0.4, overwrite: "auto" });
+        };
+        section!.addEventListener("pointermove", onMove);
+        section!.addEventListener("pointerleave", onLeave);
+
+        if (gates.current.user) {
+          enter.progress(1);
+          applyPlayState();
+        }
+
+        return () => {
+          alive.on = false;
+          window.clearTimeout(watchdog);
+          section!.removeEventListener("pointermove", onMove);
+          section!.removeEventListener("pointerleave", onLeave);
+          ctaRow?.removeEventListener("mouseenter", onCta);
         };
       });
 

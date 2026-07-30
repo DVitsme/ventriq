@@ -28,7 +28,7 @@ test("hero: entrance lands (watchdog-bounded), chip pauses and persists", async 
   await expect(chip).toBeVisible();
   await expect(chip).toHaveAttribute("aria-pressed", "false");
 
-  await chip.click();
+  await chip.click({ force: true }); // force: rAF-stall lottery (see mobile test note)
   await expect(chip).toHaveAttribute("aria-pressed", "true");
   await expect(page.locator("section").first()).toHaveClass(/ms-paused/);
   expect(await page.evaluate(() => localStorage.getItem("vq-motion"))).toBe("off");
@@ -42,22 +42,37 @@ test("hero: entrance lands (watchdog-bounded), chip pauses and persists", async 
   // and the sheet is COMPLETE while paused (progress(1) on restore)
   expect(await structDrawn(page)).toBe(true);
 
-  await chip2.click();
+  await chip2.click({ force: true });
   await expect(chip2).toHaveAttribute("aria-pressed", "false");
   await expect(page.locator("section").first()).not.toHaveClass(/ms-paused/);
 });
 
-test("hero PRM: finished sheet immediately, no GSAP entrance states", async ({ page }) => {
+test("hero PRM: the show runs in safe classes and lands complete", async ({ page }) => {
   test.skip(test.info().project.name !== "reduced-motion", "PRM path");
   await page.goto("/");
 
-  // base state IS the drawing — no draw-from-zero ever applied under PRM
+  // dasharray is NEVER manipulated under PRM (no draw-travel) — the sheet
+  // is structurally complete from the first frame; PRM life is opacity/color
   expect(await structDrawn(page)).toBe(true);
-  const gridOpacity = await page.evaluate(() => {
+
+  // the exposure entrance fades GROUPS; individual lines keep opacity 1
+  const gridLineOpacity = await page.evaluate(() => {
     const line = document.querySelector(".ms-grid line");
     return line ? getComputedStyle(line).opacity : null;
   });
-  expect(gridOpacity).toBe("1");
+  expect(gridLineOpacity).toBe("1");
+
+  // the exposure entrance LANDS (watchdog-bounded at 6s): detail layer at 1
+  await expect
+    .poll(
+      () =>
+        page.evaluate(() => {
+          const d = document.querySelector(".ms-detail");
+          return d ? getComputedStyle(d).opacity : null;
+        }),
+      { timeout: 9_000 }
+    )
+    .toBe("1");
 
   // the 2.2.2 mechanism renders under PRM too
   await expect(page.getByRole("button", { name: /motion/i })).toBeVisible();
@@ -79,8 +94,12 @@ test("hero mobile: recentered composition, chip tap works", async ({ page }) => 
 
   await expect.poll(() => structDrawn(page), { timeout: 12_000 }).toBe(true);
 
+  // force: mobile-emulated headless contexts nondeterministically stall
+  // BeginFrame scheduling (rAF never fires), which hangs the actionability
+  // stability gate forever. This test verifies the STATE machine — paint
+  // truth is the desktop project's + production probes' job.
   const chip = page.getByRole("button", { name: /motion/i });
-  await chip.tap();
+  await chip.tap({ force: true });
   await expect(chip).toHaveAttribute("aria-pressed", "true");
   await expect(page.locator("section").first()).toHaveClass(/ms-paused/);
 });

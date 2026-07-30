@@ -137,7 +137,7 @@ function PlaneA() {
 function PlaneB() {
   return (
     <svg aria-hidden viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid slice" className="h-full w-full" fill="none">
-      <g strokeWidth="0.75">
+      <g className="ms-rays" strokeWidth="0.75">
         {RAY_EDGES.map(([x, y], i) => (
           <line key={i} className="ms-ray" pathLength={1} x1={x} y1={y} x2={VP.x} y2={VP.y} stroke="#C9A24C" strokeOpacity="0.26" />
         ))}

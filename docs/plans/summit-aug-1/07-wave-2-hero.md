@@ -83,9 +83,17 @@ gold-on-midnight secret from the CSS research).
   `data-vq-motion="off"` on `<html>` pre-hydration via inline snippet? NO —
   no inline scripts (CSP); read in driver on mount, apply before first
   ambient tick (entrance may run once; acceptable — persistence is SHOULD).
-- PRM: full composed FINISHED sheet (everything drawn + solid), atmosphere
-  static, one ≥6s opacity-only breathing on the gold linework; chip still
-  rendered; live matchMedia reaction (gsap.matchMedia).
+- PRM (amended Jul 30, Derrick: "make it work on reduced motion machines"):
+  a FULL PARALLEL SHOW in the vestibular-safe classes only — opacity +
+  color. Exposure entrance (rays → field → dashed plan → crossfade into
+  the built → details), in-place ray warmth on offset ≥3.5s cycles (never
+  ordered neighbors — phi motion), glyph develops in RANDOM stagger,
+  sweeps become in-place light swells, strikes become whole-gate
+  orange→gold color cools, facts still cycle (opacity floored at 0.7 — axe
+  scans forever under the reduce project and mid-fade text below AA is a
+  real flake), lens still reveals. No translation/rotation/parallax/draw-
+  travel/spark-flight anywhere in the branch. Chip pauses it all; live
+  matchMedia reaction; 6s watchdog.
 - 2.3.1: every luminance cycle ≥2s; sweeps never flash; sparks are tiny
   area, sub-1s single events, not repeating at 3+/s.
 - Delta-time only (GSAP ticker). Pause on `visibilitychange` hidden + IO

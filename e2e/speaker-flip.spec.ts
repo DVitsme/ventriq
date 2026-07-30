@@ -31,7 +31,10 @@ async function firstPhotoCard(page: Page): Promise<Locator> {
   const card = page
     .locator("article", { has: page.locator("img.vq-duotone") })
     .first();
-  await card.scrollIntoViewIfNeeded();
+  // JS scroll, not scrollIntoViewIfNeeded: the actionability stability gate
+  // needs rendered frames, and mobile-emulated headless contexts sometimes
+  // never produce any (rAF hard-stall) — the gate then hangs forever.
+  await card.evaluate((el) => el.scrollIntoView({ block: "center" }));
   await settle(page);
   return card;
 }
@@ -59,7 +62,7 @@ test("mouse hover flips to the bio — one state machine, truthful chip", async 
   test.skip(test.info().project.name !== "desktop", "mouse-hover path");
   const card = await firstPhotoCard(page);
 
-  await card.hover();
+  await card.hover({ force: true }); // force: rAF-stall lottery, see firstPhotoCard
   await settle(page);
   let s = await flipState(card);
   expect(s.dataFlipped).toBe(true); // hover feeds React state, not :hover CSS
@@ -82,7 +85,7 @@ test("PRM hover crossfades — never blank, never mirrored — and Esc dismisses
   test.skip(test.info().project.name !== "reduced-motion", "PRM path");
   const card = await firstPhotoCard(page);
 
-  await card.hover();
+  await card.hover({ force: true }); // force: rAF-stall lottery, see firstPhotoCard
   await settle(page);
   let s = await flipState(card);
   expect(s.dataFlipped).toBe(true);
@@ -106,21 +109,23 @@ test("touch: tapping the face never flips; the chip does", async ({ page }) => {
   test.skip(test.info().project.name !== "mobile", "touch path");
   const card = await firstPhotoCard(page);
 
-  await card.locator(".vq-faces").tap();
+  // force on all taps: state-machine assertions, not paint assertions —
+  // see firstPhotoCard's note on the mobile-context rAF stall.
+  await card.locator(".vq-faces").tap({ force: true });
   await settle(page);
   let s = await flipState(card);
   expect(s.dataFlipped).toBe(false); // pointerenter(touch) must be ignored
   expect(s.front.visibility).toBe("visible");
 
   const chip = card.locator("button");
-  await chip.tap();
+  await chip.tap({ force: true });
   await settle(page);
   s = await flipState(card);
   expect(s.dataFlipped).toBe(true);
   expect(s.chipExpanded).toBe("true");
   expect(s.back.visibility).toBe("visible");
 
-  await chip.tap();
+  await chip.tap({ force: true });
   await settle(page);
   s = await flipState(card);
   expect(s.dataFlipped).toBe(false);

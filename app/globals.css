@@ -215,21 +215,17 @@
   @keyframes ms-glyph-breathe { 50% { opacity: 0.55; } }
 }
 
-/* Reduced motion: the finished sheet, breathing — opacity-only (the
-   vestibular-safe class), ≥6s cycles, per the compliance research. The
-   sweep layer and lens never move; the chip still works (class below). */
-@media (prefers-reduced-motion: reduce) {
-  .ms-plane-b,
-  .ms-plane-c { animation: ms-prm-breathe 8s ease-in-out infinite; }
-  @keyframes ms-prm-breathe { 50% { opacity: 0.82; } }
-}
+/* Reduced motion: the driver runs a full PRM SHOW in the vestibular-safe
+   classes (opacity + color only — exposure entrance, in-place ray warmth,
+   glyph develops, color heat-strikes; see hero-driver.tsx). No CSS ambient
+   here: whole-plane breathing would fight that choreography, and the
+   no-preference blocks above never match under reduce. No-JS PRM users get
+   the complete static sheet (base state law). */
 
 /* WCAG 2.2.2 pause — set by the chip alongside gsap.globalTimeline.paused().
    Freezes every CSS-owned layer in place (pause-and-resume, not remove). */
 .ms-paused .ms-atmo-1,
-.ms-paused .ms-glyphs,
-.ms-paused .ms-plane-b,
-.ms-paused .ms-plane-c { animation-play-state: paused; }
+.ms-paused .ms-glyphs { animation-play-state: paused; }
 
 @media print {
   .ms-atmo-1,
