@@ -719,6 +719,21 @@ hardcoded `lastmod: 2026-07-23` going stale — wire to real dates or drop.
 
 ## §10 · The build order — synthesized from all eight
 
+> **BUILD RECORD (Jul 29, same day):** Waves 0 + 1 are **BUILT and gated** —
+> items 1–4 and 6–9 below all ✅ (utm guard shipped as `useSyncExternalStore`;
+> JSON-LD performer/image/organizer live; /about deleted with 301 + nav gains
+> Contact; FAH times/$99/pillars/midnight-premium-card applied; homepage
+> APP-OPEN chip cut-don't-chipped; lighthouserc replaced; AGENTS.md amended
+> per O22; O23 = beacon kept until ~Sept). Wave 1: `lib/brand.ts` ·
+> **the flip on all five plates** (2 featured + 3, revision line, initials
+> type-ground) · countdown · desktop sub-nav + mobile sheet index +
+> safe-area fix. **Gates: tsc clean, lint clean, e2e 43/0, visual pass at
+> 1280 + 375.** Two findings during build: axe caught my `cream/40`
+> denominator (3.4:1 — fixed to /60 with the borderline /50s bumped too), and
+> the smoke spec's bar regex still expected the pre-standardization CTA label
+> (updated, including the "Summit is live" state). Remaining: Wave 2 (hero
+> motion + pause toggle + FAH chunk diet) and Wave 3 (Foundry toggle).
+
 **Wave 0 — pre-partner-wave fires (this week, before Aug 1 traffic):**
 1. **Fix the `utm_source` clobber** in `luma-register-button.tsx` (§8 bug) —
    prefer the page's `utm_source`, two-pass client read. Before ANY ambassador

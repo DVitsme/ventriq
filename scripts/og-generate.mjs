@@ -11,7 +11,7 @@ const PAGES = [
   ["summit", "Forge The Future Summit", "Eight nights. Two weeks. Free. · Aug 10–20 · Forged together. Built to last."],
   ["founders-after-hours", "Founders After Hours", "The founder community that does the work — from $39/month."],
   ["mastermind", "The Mastermind", "Ten founders. Ninety days. A scoreboard. · Cohort 2, September 2026."],
-  ["about", "Built by a founder nobody handed a map.", "Ventriq — the story, the name, the why."],
+  
   ["contact", "Talk to us.", "A real person reads every message — expect a reply within two business days."],
 ];
 

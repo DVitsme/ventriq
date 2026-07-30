@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk } from "next/font/google";
 import { DeferredGA } from "@/components/deferred-ga";
 import "./globals.css";
@@ -23,6 +23,13 @@ export const metadata: Metadata = {
     images: [{ url: "/og/home.png", width: 1200, height: 630 }],
   },
   twitter: { card: "summary_large_image" },
+};
+
+/** viewport-fit=cover so env(safe-area-inset-bottom) is non-zero on notched
+ *  phones — the mobile CTA bar pads with it (research doc §5). */
+export const viewport: Viewport = {
+  themeColor: "#101B2D",
+  viewportFit: "cover",
 };
 
 import { TopChrome } from "@/components/chrome";

@@ -4,13 +4,16 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Wordmark } from "./wordmark";
 import { LumaRegisterButton } from "./luma-register-button";
+import { MEMBERSHIP_NAME } from "@/lib/brand";
 import type { NavCta } from "@/lib/calendar";
 
 const LINKS = [
+  // /about removed for v1 (D21); Contact takes the slot — Derrick flagged it
+  // missing on the Jul 23 call ("I need to put it on the nav bar. Slipping.")
   { href: "/summit", label: "The Summit" },
-  { href: "/founders-after-hours", label: "Founders After Hours" },
+  { href: "/founders-after-hours", label: MEMBERSHIP_NAME },
   { href: "/mastermind", label: "The Mastermind" },
-  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 /** 78px desktop / 60px mobile; ONE time-aware button (single-button nav is a

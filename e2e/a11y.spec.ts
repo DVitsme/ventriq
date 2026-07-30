@@ -11,7 +11,7 @@ const ROUTES = [
   "/summit",
   "/founders-after-hours",
   "/mastermind",
-  "/about",
+
   "/contact",
   "/definitely-404", // not-found.tsx must render real, accessible copy too
 ];

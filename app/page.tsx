@@ -215,17 +215,14 @@ export default function Home() {
               cta={{ label: "Join Founders After Hours", href: "/founders-after-hours" }}
               className="md:mt-[30px]"
             />
+            {/* APP-OPEN chip → brief-style cut-don't-chip ("a visible
+                placeholder costs more than a missing date"). No value
+                invented; the exact date is still Justin's. */}
             <ThresholdCard
               numeral="Sep"
               title="The Mastermind"
               strap="Ten founders. Ninety days. A scoreboard."
-              body={
-                <>
-                  Weekly working sessions, a performance dashboard, and a
-                  graduation bar you have to earn. Applications for cohort 2
-                  open <RedlineChip onCream>APP-OPEN DATE</RedlineChip>.
-                </>
-              }
+              body="Weekly working sessions, a performance dashboard, and a graduation bar you have to earn. Applications for cohort 2 open ahead of the September start."
               meta="September · 10 seats · application-gated"
               cta={{ label: "Start your application", href: "/mastermind" }}
               className="md:mt-[56px]"
@@ -267,12 +264,10 @@ export default function Home() {
               If you&rsquo;re building something real, you belong in this room.
             </p>
             <p className="mt-6 font-semibold">— Justin Shaw, Founder</p>
+            {/* "Read Justin's story" link removed with /about (D21). The full
+                Ventriq-centric rewrite of this section is design brief §3.4 —
+                separate, later pass. */}
             <span aria-hidden className="mt-2 block h-px w-14 bg-gold" />
-            <p className="mt-4">
-              <a href="/about" className="font-medium text-accent-deep hover:underline">
-                Read Justin&rsquo;s story →
-              </a>
-            </p>
           </div>
           <PhotoGrade
             label="Justin Shaw — warm, navy-tinted grade"

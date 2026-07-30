@@ -1,7 +1,10 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useSyncExternalStore } from "react";
+
+// The URL search string never changes within a page load — no notifications.
+const subscribeNever = () => () => {};
 import { track } from "@/lib/analytics";
 import { LUMA_URL } from "@/lib/agenda";
 
@@ -31,6 +34,21 @@ export function LumaRegisterButton({
     window.luma?.initCheckout();
   }, []);
 
+  // Ambassador-attribution guard (research doc §8): Luma's checkout-button.js
+  // gives data-luma-utm-source PRECEDENCE over the page's ?utm_source, and
+  // utm_source is the ONLY UTM Luma stores per-guest. Hardcoding our
+  // cta-location tag was silently overwriting ambassador IDs
+  // (?utm_source=speaker-jane → recorded as "site-summit-hero").
+  // Fix: when the page URL carries a utm_source, let it through; tag with the
+  // cta location only for untagged traffic. useSyncExternalStore = the
+  // sanctioned two-pass: server snapshot null, client reads the (static per
+  // page load) query string — no hydration mismatch, no setState-in-effect.
+  const pageUtmSource = useSyncExternalStore(
+    subscribeNever,
+    () => new URLSearchParams(window.location.search).get("utm_source"),
+    () => null,
+  );
+
   const styles =
     variant === "primary"
       ? "bg-gold text-ink hover:bg-gold-hover font-semibold"
@@ -48,7 +66,7 @@ export function LumaRegisterButton({
         href={LUMA_URL}
         data-luma-action="checkout"
         data-luma-event-id={LUMA_EVENT_ID}
-        data-luma-utm-source={`site-${ctaLocation}`}
+        data-luma-utm-source={pageUtmSource ?? `site-${ctaLocation}`}
         onClick={() =>
           track("luma_register_click", {
             cta_location: ctaLocation,

@@ -14,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     { url: "https://ventriq.io/founders-after-hours", lastModified: new Date("2026-07-23"), priority: 0.7 },
     { url: "https://ventriq.io/mastermind", lastModified: new Date("2026-07-23"), priority: 0.7 },
-    { url: "https://ventriq.io/about", lastModified: new Date("2026-07-23"), priority: 0.6 },
-    { url: "https://ventriq.io/contact", lastModified: new Date("2026-07-23"), priority: 0.4 },
+    { url: "https://ventriq.io/contact", lastModified: new Date("2026-07-29"), priority: 0.4 },
   ];
 }

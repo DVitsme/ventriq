@@ -26,7 +26,7 @@ export function Footer() {
             pages
           </h2>
           <ul className="mt-3 space-y-2 text-[15px]">
-            <li><a href="/about" className="text-cream/85 hover:text-cream">About</a></li>
+            {/* /about removed for v1 (D21) — returns in phase 2 */}
             <li><a href="/contact" className="text-cream/85 hover:text-cream">Contact</a></li>
           </ul>
         </nav>

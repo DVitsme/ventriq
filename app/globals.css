@@ -80,3 +80,39 @@
     @keyframes vq-light { to { color: var(--color-cream); } }
   }
 }
+
+/* ── The speaker-card flip (research doc §3) ──────────────────────────────
+   Structure is unconditional; only the rotation + visibility choreography is
+   motion-gated. Faces stack via grid (card sizes to the taller face); the 3D
+   wrapper carries NO overflow/opacity/filter/radius — those silently flatten
+   preserve-3d in every engine (radius lives on .vq-face). Away face is
+   visibility-hidden at rest: backface-visibility is visual-only and would
+   leave the hidden side in the AT tree and tab order. */
+.vq-scene { perspective: 1000px; }
+.vq-faces {
+  display: grid;
+  position: relative;
+  transform-style: preserve-3d;
+}
+.vq-face {
+  grid-area: 1 / 1;
+  backface-visibility: hidden;
+  position: relative;
+}
+/* explicit 0deg: Firefox ignores backface-visibility on untransformed faces */
+.vq-face-front { transform: rotateY(0deg); }
+.vq-face-back { transform: rotateY(180deg); visibility: hidden; }
+.vq-faces[data-flipped] { transform: rotateY(180deg); }
+.vq-faces[data-flipped] .vq-face-front { visibility: hidden; }
+.vq-faces[data-flipped] .vq-face-back { visibility: visible; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .vq-faces { transition: transform 500ms cubic-bezier(0.45, 0, 0.25, 1); }
+  /* Both faces stay visible for the flight: hiding is delayed until the
+     rotation lands (500ms); showing is immediate. Reduced-motion users get
+     the instant swap from the unconditional rules above. */
+  .vq-face-front { transition: visibility 0s 0s; }
+  .vq-faces[data-flipped] .vq-face-front { transition: visibility 0s 500ms; }
+  .vq-face-back { transition: visibility 0s 500ms; }
+  .vq-faces[data-flipped] .vq-face-back { transition: visibility 0s 0s; }
+}

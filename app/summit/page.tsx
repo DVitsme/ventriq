@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Eyebrow } from "@/components/primitives";
 import { LumaRegisterButton } from "@/components/luma-register-button";
 import { MobileCtaBar } from "@/components/mobile-cta-bar";
+import { SpeakerPlate, type Speaker } from "@/components/speaker-plate";
+import { DoorsCountdown } from "@/components/doors-countdown";
+import { SummitSubnav, SheetIndex } from "@/components/summit-subnav";
 import { NIGHTS, LUMA_URL } from "@/lib/agenda";
 import { eventPhase, nightOf, nextNight, agendaRowState } from "@/lib/calendar";
 import { CountUp, Reveal, ScrollLit } from "@/components/motion";
@@ -16,6 +19,58 @@ export const metadata: Metadata = {
   openGraph: { images: [{ url: "/og/summit.png", width: 1200, height: 630 }] },
 };
 
+/** The five speakers Justin named in his Jul 23 Kit broadcast — already sent
+ *  to his list, so cleared for print. Names, titles and proof lines are his
+ *  wording, verbatim (note "Jerone Anthony Tyler" and "Jeffrey", which differ
+ *  from the shorter forms in his speakers tracker). Featured pair = the two
+ *  with named summit roles. Sheet numbers are drafting metadata; initials are
+ *  the type-as-ground stand-in until real headshots land.
+ *  Source: docs/plans/summit-aug-1/01-phase-1-research.md §10.1 */
+const SPEAKERS: Speaker[] = [
+  {
+    name: "Theodore Savage",
+    title: "Founder, The Cultivation Effect®",
+    proof: "Former global executive who led 1,500+ employees across 90+ locations.",
+    role: "opening the summit",
+    initials: "TS",
+    sheet: "S-01",
+    featured: true,
+  },
+  {
+    name: "Jerone Anthony Tyler",
+    title: "Founder, Posteridy.ai",
+    proof: "Has helped entrepreneurs secure $30M+ in funding.",
+    role: "hosting Capital & Command",
+    initials: "JT",
+    sheet: "S-02",
+    featured: true,
+  },
+  {
+    name: "Cedric Powell",
+    title: "M&A Partner, Squire Patton Boggs",
+    proof: "Advises private equity buyers and sellers on acquisitions, divestitures, and recapitalizations.",
+    role: "",
+    initials: "CP",
+    sheet: "S-03",
+  },
+  {
+    name: "Tiffany Bethea",
+    title: "Executive Director, Baltimore City Chamber of Commerce",
+    proof: "Brand strategist whose clients double revenue in 30–60 days.",
+    role: "",
+    initials: "TB",
+    sheet: "S-04",
+  },
+  {
+    name: "Jeffrey Scruggs",
+    title: "Founder, Majestic Light Group",
+    proof: "AI engineer built at the Department of Defense and Booz Allen Hamilton.",
+    role: "",
+    initials: "JS",
+    sheet: "S-05",
+  },
+];
+
 const eventJsonLd = {
   "@context": "https://schema.org",
   "@type": "Event",
@@ -27,7 +82,14 @@ const eventJsonLd = {
   location: { "@type": "VirtualLocation", url: LUMA_URL },
   startDate: "2026-08-10T18:30:00-04:00",
   endDate: "2026-08-20T20:00:00-04:00",
-  organizer: { "@id": "https://ventriq.io/#org", name: "Ventriq", url: "https://ventriq.io" },
+  // Rich-results note (research doc §9): Google withdrew virtual-event rich
+  // results in Jun 2025, so this markup can never produce an event snippet —
+  // by Google's rule, not our defect. It stays polished for AI answer
+  // engines: image, typed organizer (cross-page @id refs don't resolve —
+  // Google parses per-page), and the named speakers as performers.
+  image: ["https://ventriq.io/og/summit.png"],
+  organizer: { "@type": "Organization", "@id": "https://ventriq.io/#org", name: "Ventriq", url: "https://ventriq.io" },
+  performer: SPEAKERS.map((s) => ({ "@type": "Person", name: s.name })),
   offers: { "@type": "Offer", price: 0, priceCurrency: "USD", availability: "https://schema.org/InStock", url: LUMA_URL, validFrom: "2026-07-20T00:00:00-04:00" },
   description:
     "Eight nights, two weeks — brand, PR, sales, technology, capital, exit. Every session ends with a move you can make the next morning. Free, virtual, live on Zoom.",
@@ -162,54 +224,16 @@ function Hero() {
       {/* Watched by MobileCtaBar: while this is on screen the sticky bar stays
           down, so a phone never shows two identical buttons at once. */}
       <div id="vq-hero-cta-sentinel" aria-hidden className="h-px w-px" />
-      <p className="mt-8 text-sm tracking-[0.1em] text-cream/60 [font-variant:small-caps]">doors open in</p>
-      <p className="mt-1 text-sm tracking-[0.14em] text-cream/80 [font-variant:small-caps] [font-variant-numeric:tabular-nums]">
+      {/* The countdown the Jul 23 call asked for — the "doors open in" label
+          finally has a number under it. Server/no-JS render is the complete
+          static date sentence; the tick mounts after hydration. */}
+      <DoorsCountdown />
+      <p className="mt-2 text-sm tracking-[0.14em] text-cream/80 [font-variant:small-caps] [font-variant-numeric:tabular-nums]">
         aug 10–20 · 6:30–8:00 pm et · zoom · free
       </p>
     </>
   );
 }
-
-/** The five speakers Justin named in his Jul 23 Kit broadcast — already sent
- *  to his list, so cleared for print. Names, titles and proof lines are his
- *  wording, verbatim (note "Jerone Anthony Tyler" and "Jeffrey", which differ
- *  from the shorter forms in his speakers tracker).
- *  Source: docs/plans/summit-aug-1/01-phase-1-research.md §10.1 */
-const SPEAKERS = [
-  {
-    name: "Jerone Anthony Tyler",
-    title: "Founder, Posteridy.ai",
-    proof: "Has helped entrepreneurs secure $30M+ in funding.",
-    role: "hosting Capital & Command",
-  },
-  {
-    name: "Cedric Powell",
-    title: "M&A Partner, Squire Patton Boggs",
-    proof:
-      "Advises private equity buyers and sellers on acquisitions, divestitures, and recapitalizations.",
-    role: "",
-  },
-  {
-    name: "Theodore Savage",
-    title: "Founder, The Cultivation Effect®",
-    proof:
-      "Former global executive who led 1,500+ employees across 90+ locations.",
-    role: "opening the summit",
-  },
-  {
-    name: "Tiffany Bethea",
-    title: "Executive Director, Baltimore City Chamber of Commerce",
-    proof: "Brand strategist whose clients double revenue in 30–60 days.",
-    role: "",
-  },
-  {
-    name: "Jeffrey Scruggs",
-    title: "Founder, Majestic Light Group",
-    proof:
-      "AI engineer built at the Department of Defense and Booz Allen Hamilton.",
-    role: "",
-  },
-];
 
 const FAQ: [string, React.ReactNode][] = [
   ["What does it cost?", "Nothing — the seat is free. Register on Luma and you're in every night live."],
@@ -242,6 +266,12 @@ export default function SummitPage() {
           <Hero />
         </div>
       </section>
+
+      {/* Section nav — brief §16, research doc §5. Desktop: the slim sticky
+          bar (once scrolled it's the only top chrome). Mobile: an in-flow
+          sheet index instead of a third chrome layer. */}
+      <SummitSubnav />
+      <SheetIndex />
 
       {/* Ticker — the page's one festival gesture */}
       <div className="overflow-hidden border-b border-cream/10 bg-midnight py-3">
@@ -324,15 +354,22 @@ export default function SummitPage() {
         </div>
       </section>
 
-      {/* The 2026 speakers — the five named in Justin's Jul 23 broadcast.
-          Already public, so cleared to print; his spellings, his proof lines.
-          Text-first by decision (Phase 2 D-B) — the photo grid and flip cards
-          wait on real headshots. Corner ticks carry the drafting register in
-          place of the portrait. */}
-      <section className="bg-midnight">
+      {/* The 2026 speakers — plates + THE FLIP (Justin: "the flip would go
+          crazy"). Featured pair (named summit roles) spans wider; the 2+3
+          layout closes every row at five (the modulo-sink rule — recompute
+          the featured count server-side as the roster grows: 17 = 2+15,
+          29 = 2+27). Front carries every published fact, so no-JS loses
+          nothing; the revision line is the drafting-native "announced
+          weekly" device. Spec: research doc §3–§4. */}
+      <section id="speakers" className="scroll-mt-[72px] bg-midnight">
         <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-20 md:py-28">
           <div className="flex flex-wrap items-end justify-between gap-6">
-            <h2 className="text-3xl font-medium md:text-[40px]">The 2026 speakers</h2>
+            <div>
+              <h2 className="text-3xl font-medium md:text-[40px]">The 2026 speakers</h2>
+              <p className="mt-2 text-xs tracking-[0.18em] text-gold/85 [font-variant:small-caps] [font-variant-numeric:tabular-nums]">
+                rev 02 · jul 29 · five of seventeen-plus named
+              </p>
+            </div>
             <p className="max-w-[44ch] text-[15px] text-cream/75">
               Seventeen-plus builders, operators, and funders — no professional
               motivators. More announced weekly.{" "}
@@ -341,23 +378,13 @@ export default function SummitPage() {
               </a>
             </p>
           </div>
-          <ul className="mt-10 grid gap-px bg-cream/13 sm:grid-cols-2 lg:grid-cols-3">
-            {SPEAKERS.map((s) => (
-              <li key={s.name} className="relative bg-midnight px-6 py-7">
-                <svg aria-hidden className="absolute left-2 top-2 h-3 w-3" fill="none" viewBox="0 0 12 12">
-                  <path d="M0 4 V0 H4" stroke="#C9A24C" strokeWidth="1" />
-                </svg>
-                <h3 className="text-lg font-semibold leading-snug">{s.name}</h3>
-                <p className="mt-1 text-sm text-gold">{s.title}</p>
-                <p className="mt-3 text-[15px] leading-relaxed text-cream/78">{s.proof}</p>
-                {s.role && (
-                  <p className="mt-3 text-xs tracking-[0.14em] text-cream/55 [font-variant:small-caps]">
-                    {s.role}
-                  </p>
-                )}
-              </li>
-            ))}
-          </ul>
+          <Reveal>
+            <div className="mt-10 grid gap-4 md:grid-cols-6">
+              {SPEAKERS.map((s, i) => (
+                <SpeakerPlate key={s.name} s={s} index={i} />
+              ))}
+            </div>
+          </Reveal>
           <p className="mt-8 text-[15px] text-cream/70">
             And that&rsquo;s five of seventeen. Goldman Sachs advisors. Angel
             investors. Luxury brand strategists. Tax and capital specialists.
@@ -366,7 +393,7 @@ export default function SummitPage() {
       </section>
 
       {/* Two weeks, mapped — agenda with live row states */}
-      <section className="bg-cream text-ink">
+      <section id="schedule" className="scroll-mt-[72px] bg-cream text-ink">
         <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-20 md:py-28">
           <h2 className="text-3xl font-medium md:text-[40px]">Two weeks, mapped</h2>
           <div className="mt-10 grid gap-12 md:grid-cols-2 md:gap-16">
@@ -487,7 +514,7 @@ export default function SummitPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-cream text-ink">
+      <section id="faq" className="scroll-mt-[72px] bg-cream text-ink">
         <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-20 md:grid-cols-[4fr_8fr] md:px-20 md:py-28">
           <h2 className="text-3xl font-medium md:text-[40px]">Questions, answered</h2>
           <div>

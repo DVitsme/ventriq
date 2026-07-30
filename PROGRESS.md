@@ -3,6 +3,41 @@
 A running, plain-language record of everything done on this engagement. Newest
 first. Written so it can be pasted straight into a client update for Justin.
 
+## July 29, 2026 — night (the polish build, ready to publish)
+
+- **Built the card flip Justin asked for.** Every speaker card on the summit
+  page now turns over like a physical card — front is the speaker, back is
+  their credentials — with a labeled "Bio" button so nobody has to guess it's
+  there. It works by keyboard, respects reduced-motion settings (instant swap
+  instead of a rotation), and loses nothing if scripts are off.
+- **The speaker section got the full plate treatment** — two featured cards
+  for the summit's opener and the Capital & Command host, three alongside,
+  every row closing cleanly, each card with a drafting sheet number and the
+  speaker's initials set large as the ground until their photo arrives. A
+  small "rev 02 · jul 29" line tracks roster updates the way architects track
+  drawing revisions — and gives visitors a reason to come back.
+- **The countdown finally exists.** "Doors open in" now has a live number
+  under it — one clean line, down to the minute (seconds appear on the final
+  day), silent for screen readers except one polite announcement the moment
+  doors actually open.
+- **Section navigation:** desktop gets a slim bar (Schedule · Speakers · FAQ ·
+  Register) that follows the scroll; phones get a compact index under the
+  hero instead of a third bar eating the screen — the research was firm that
+  stacking three bars on a phone drives people away.
+- **Deleted the About page** (as agreed on the call) — its address now
+  forwards to the homepage, Contact took its menu slot, and the internal
+  editorial notes it was showing the public are gone with it.
+- **Applied the decided community-page fixes:** $99 confirmed on the page,
+  the real run-of-show times (6:00 brief · 6:15 the hour · 7:15 tally · 8:15
+  the room), the three pillars renamed to what Justin actually calls them
+  (Office hours · Live sessions · Founders After Hours), and the in-person
+  card now sits equal-width in midnight blue — "make it rich."
+- **Fixed the registration-button tracking bug** found in the research sweep,
+  so ambassador links will be credited correctly.
+- **Every change passed the full accessibility suite** (43 checks, zero
+  failures) and was eyeballed at desktop and phone sizes before being called
+  done. Not yet published — awaiting the word.
+
 ## July 29, 2026 — evening (research sweep before the polish build)
 
 - **Ran an eight-track research sweep before building the next round** — the

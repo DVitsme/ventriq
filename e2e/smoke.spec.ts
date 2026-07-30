@@ -10,7 +10,7 @@ const ROUTES = [
   "/summit",
   "/founders-after-hours",
   "/mastermind",
-  "/about",
+
   "/contact",
 ];
 
@@ -42,7 +42,7 @@ test("announcement bar is visible on /", async ({ page }) => {
   // screen — phase-proof so this doesn't rot on Aug 10 or Aug 21.
   await expect(
     page
-      .getByText(/Save your seat|Forge The Future is live|Missed the summit/)
+      .getByText(/Save My Free Seat|Forge The Future Summit is live|Missed the summit/)
       .first(),
   ).toBeVisible();
 });

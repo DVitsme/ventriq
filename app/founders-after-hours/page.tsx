@@ -2,16 +2,12 @@ import type { Metadata } from "next";
 import { Eyebrow, RedlineChip, PhotoGrade } from "@/components/primitives";
 import { ChapterForm } from "@/components/chapter-form";
 import { CountUp } from "@/components/motion";
+// SKOOL_URL: live since Jul 29 (Derrick's call, group still free +
+// IAMJS-branded); the "SKOOL CHECKOUT — pending group setup" chip stays until
+// Justin sets the tiers. Rename-vs-URL truth + history: lib/brand.ts.
+import { SKOOL_URL } from "@/lib/brand";
 
 export const dynamic = "force-dynamic";
-
-/** Live at Derrick's direction Jul 29 with the group still free, IAMJS-branded,
- *  and 1-member (concern flagged, his call — seed early members). The
- *  "SKOOL CHECKOUT — pending group setup" chip stays until Justin sets the
- *  tiers. ⚠️ CORRECTED Jul 29 (research doc §8): renaming the group is SAFE —
- *  name and URL are independent Skool settings. What breaks this href is the
- *  "CLAIM URL" flow (no redirects; old links 404) — coordinate THAT same-day. */
-const SKOOL_URL = "https://www.skool.com/iamjs-collective-9599/about";
 
 export const metadata: Metadata = {
   title: { absolute: "Founders After Hours — the founder community that does the work" },
@@ -80,15 +76,19 @@ export default function FahPage() {
         </div>
       </section>
 
-      {/* Three doors in — role cards, no numerals (roles aren't a sequence) */}
+      {/* The three pillars — renamed to Justin's real program names (D16,
+          dictated on the Jul 23 call at 54:00–58:28). These are nouns — a
+          contents list, not a journey — so the heading changed with them.
+          ("What's inside" was the design brief's suggestion; the digital-home
+          section's eyebrow below renames to clear the collision.) */}
       <section className="bg-cream text-ink">
         <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-20 md:py-28">
-          <h2 className="text-3xl font-medium md:text-[40px]">Three doors in</h2>
+          <h2 className="text-3xl font-medium md:text-[40px]">What&rsquo;s inside</h2>
           <div className="mt-10 grid gap-8 md:grid-cols-3 md:gap-6">
             {[
-              ["Join the room.", "The digital home: every Summit replay 24 hours after it airs, monthly webinars, advisor office hours, and founders worth knowing between meetups.", "md:mt-0"],
-              ["Show up.", "One night a month, in person. Baltimore first, then wherever founders raise their hands. The hour is the point — see below.", "md:mt-[30px]"],
-              ["Bring your challenge.", "Each night has a focus — sales, funding, hiring. You come with your list: the prospects to call, the emails to send, the asks you've been sitting on.", "md:mt-[56px]"],
+              ["Office hours", "An hour to get your questions answered on specific subjects — marketing, sales, operations, funding — with advisors who've done the thing.", "md:mt-0"],
+              ["Live sessions", "Live training sessions on the month's focus, every one saved to the digital library — along with every Summit replay 24 hours after it airs.", "md:mt-[30px]"],
+              ["Founders After Hours", "Our in-person production experience, built to help you drive results. One night a month: the hour, the board, the room. Baltimore first.", "md:mt-[56px]"],
             ].map(([t, b, m]) => (
               <article key={t as string} className={`border border-ink/18 border-t-2 border-t-gold bg-cream px-7 py-6 rounded-[2px] ${m}`}>
                 <h3 className="text-xl font-semibold">{t}</h3>
@@ -104,13 +104,14 @@ export default function FahPage() {
         <div className="mx-auto grid max-w-[1440px] gap-12 px-5 md:grid-cols-[6fr_5fr] md:gap-20 md:px-20">
           <div>
             <h2 className="text-3xl font-medium md:text-[40px]">The hour, mapped</h2>
-            <p className="mt-3"><RedlineChip onCream>TIMES — confirm run-of-show with Justin; drafted from his format description</RedlineChip></p>
+            {/* Times confirmed by Justin on the Jul 23 call (58:30, D17):
+                6:00 brief · 6:15 hour · 7:15 tally · 8:15 room. Chip retired. */}
             <ul className="mt-8">
               {[
-                ["7:00", "The brief.", "The month's focus and the room's targets. You brought your list; everyone did."],
-                ["7:15", "The hour.", "Phones out, laptops open. Calls get made. Emails get sent. Asks get asked. Nobody's networking at you — everyone's working."],
-                ["8:15", "The tally.", "Results go on the board: calls, sends, booked meetings, closed work. Wins get loud."],
-                ["8:30", "The room.", "Food, founders, and the conversations that only happen after the work — because by then, you've got something real to talk about."],
+                ["6:00", "The brief.", "The month's focus and the room's targets. You brought your list; everyone did."],
+                ["6:15", "The hour.", "Phones out, laptops open. Calls get made. Emails get sent. Asks get asked. Nobody's networking at you — everyone's working."],
+                ["7:15", "The tally.", "Results go on the board: calls, sends, booked meetings, closed work. Wins get loud."],
+                ["8:15", "The room.", "Food, founders, and the conversations that only happen after the work — because by then, you've got something real to talk about."],
               ].map(([t, h, b]) => (
                 <li key={t} className="border-t-[1.5px] border-gold py-5">
                   <div className="flex flex-col gap-1 md:flex-row md:gap-6">
@@ -160,7 +161,14 @@ export default function FahPage() {
       <section className="bg-cream pb-20 text-ink md:pb-28">
         <div className="mx-auto max-w-[1440px] px-5 md:px-20">
           <h2 className="text-3xl font-medium md:text-[40px]">Two ways to hold a seat.</h2>
-          <div className="mt-10 grid gap-8 md:grid-cols-[1.15fr_1fr] md:gap-6">
+          {/* D18 ($99 — "everything else is premium") + D19: equal widths
+              (Justin's complaint was the size mismatch) and the premium card
+              goes midnight ("if it's going to go to one, go to the premium…
+              make it rich"). The stagger is dropped on THIS PAIR ONLY — a
+              colour difference plus a vertical offset is two emphasis systems
+              fighting (design brief §5.5). Accent fails AA on midnight, so
+              the dark card's link is cream-underlined. */}
+          <div className="mt-10 grid gap-8 md:grid-cols-2 md:gap-6">
             <article className="border border-ink/18 border-t-2 border-t-gold bg-cream px-7 py-6 rounded-[2px]">
               <p className="text-4xl font-semibold text-ink [font-variant-numeric:tabular-nums]">$39<span className="text-lg text-ink/65">/month</span></p>
               <h3 className="mt-3 text-2xl font-medium">Digital</h3>
@@ -172,17 +180,20 @@ export default function FahPage() {
               </p>
               <p className="mt-4"><a href={SKOOL_URL} className="font-medium text-accent-deep hover:underline">Join Founders After Hours →</a></p>
             </article>
-            <article className="border border-ink/18 border-t-2 border-t-gold bg-cream px-7 py-6 rounded-[2px] md:mt-[34px]">
-              <p className="text-4xl font-semibold text-ink [font-variant-numeric:tabular-nums]">$[89–99]<span className="text-lg text-ink/65">/month</span></p>
-              <p className="mt-1"><RedlineChip onCream>PRICE — confirm exact figure</RedlineChip></p>
-              <h3 className="mt-2 text-2xl font-medium">In person</h3>
-              <p className="mt-3 text-[15.5px] leading-relaxed text-ink/78">
+            <article className="border border-gold/60 border-t-2 border-t-gold bg-midnight px-7 py-6 rounded-[2px] text-cream">
+              <p className="text-4xl font-semibold [font-variant-numeric:tabular-nums]">$99<span className="text-lg text-cream/65">/month</span></p>
+              <h3 className="mt-3 text-2xl font-medium">In person</h3>
+              <p className="mt-3 text-[15.5px] leading-relaxed text-cream/80">
                 Everything in digital, plus your seat at the monthly chapter
                 night — the hour, the board, the room. Fifteen to twenty-five
                 founders, capped on purpose. Baltimore first; your city when it
                 opens.
               </p>
-              <p className="mt-4"><a href={SKOOL_URL} className="font-medium text-accent-deep hover:underline">Join Founders After Hours →</a></p>
+              <p className="mt-4">
+                <a href={SKOOL_URL} className="font-medium text-cream underline decoration-cream/40 underline-offset-4 hover:decoration-cream">
+                  Join Founders After Hours →
+                </a>
+              </p>
             </article>
           </div>
           <p className="mt-8 max-w-[64ch] text-[15px] text-ink/70">
@@ -216,7 +227,9 @@ export default function FahPage() {
       <section className="bg-cream text-ink">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-20 md:grid-cols-2 md:gap-20 md:px-20 md:py-28">
           <div>
-            <p className="text-sm tracking-[0.14em] text-ink/65 [font-variant:small-caps]">what&rsquo;s inside</p>
+            {/* was "what's inside" — that heading moved up to the pillars
+                section; this one is literally the digital home. */}
+            <p className="text-sm tracking-[0.14em] text-ink/65 [font-variant:small-caps]">the digital home</p>
             <ul className="mt-4">
               {[
                 "Summit session replays (24 hours after each airs)",
@@ -279,7 +292,7 @@ export default function FahPage() {
           <h2 className="text-3xl font-medium md:text-[40px]">Questions, answered</h2>
           <div>
             {([
-              ["What does it cost?", <>$39 a month for the digital membership. $[89–99] a month adds the in-person chapter night. <RedlineChip onCream>PRICE — confirm</RedlineChip> Cancel anytime. <RedlineChip onCream>POLICY — confirm, Q73</RedlineChip></>],
+              ["What does it cost?", <>$39 a month for the digital membership. $99 a month adds the in-person chapter night. Cancel anytime. <RedlineChip onCream>POLICY — confirm, Q73</RedlineChip></>],
               ["Why isn't it free?", "Because the board is the product. A membership buys the replays, the advisors, and a room where everybody showed up to work — and people who pay for the hour protect the hour."],
               ["What do I bring?", "Your laptop or phone, and the list you've been avoiding: prospects, follow-ups, asks. The night works because you arrive loaded."],
               ["I'm not in Baltimore.", "Start with the digital membership — replays, office hours, and webinars aren't city-bound. And raise your hand for your city; chapters go where founders ask."],

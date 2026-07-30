@@ -7,6 +7,13 @@ export function middleware(request: NextRequest) {
     url.host = "ventriq.io";
     return NextResponse.redirect(url, 301);
   }
+  // /about removed for v1 (D21 — Justin's bandwidth; phase-2 rebuild agreed).
+  // 301 because the URL was live, sitemapped and possibly crawled for 6 days.
+  if (request.nextUrl.pathname === "/about") {
+    const url = new URL(request.url);
+    url.pathname = "/";
+    return NextResponse.redirect(url, 301);
+  }
   return NextResponse.next();
 }
 

@@ -53,8 +53,8 @@ export function MobileCtaBar() {
 
   return (
     <>
-      {/* Keeps the footer clear of the bar when it's up. */}
-      <div aria-hidden className="h-[68px] md:hidden" />
+      {/* Keeps the footer clear of the bar when it's up (bar height + inset). */}
+      <div aria-hidden className="h-[calc(68px+env(safe-area-inset-bottom))] md:hidden" />
       {/* `inert` while parked off-screen. translate-y-full only moves it
           visually — without this the link stays in the tab order and a
           keyboard user lands on an invisible button at the end of the page.
@@ -72,7 +72,7 @@ export function MobileCtaBar() {
           `visibility: hidden` removes it from both focus order and the
           accessibility tree, and unlike `display: none` it still transitions. */}
       <div
-        className={`fixed inset-x-0 bottom-0 z-40 border-t border-gold/60 bg-midnight px-4 py-3 transition-[transform,visibility] duration-300 md:hidden ${
+        className={`fixed inset-x-0 bottom-0 z-40 border-t border-gold/60 bg-midnight px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] transition-[transform,visibility] duration-300 md:hidden ${
           visible ? "visible translate-y-0" : "invisible translate-y-full"
         } motion-reduce:transition-none`}
       >

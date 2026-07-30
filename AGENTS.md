@@ -26,4 +26,11 @@ Next.js 16 marketing site for Ventriq (Baltimore nonprofit for founders). App co
 - No tax-deductibility claims. No fake scarcity. `[BRACKETED]` copy tokens render as visible redline chips — never invent values.
 - Space Grotesk only (400/500/600), the 7 locked colors, 2px radius, no shadows except focus rings — full system in `docs/design/ventriq-design-system-brief.md` + its refusal catalog.
 - Prototype JS-gating must be inverted in production: content visible by default, motion as enhancement, `prefers-reduced-motion` honored (see `docs/design/design-export-review.md` §7).
-- pnpm, RSC-first, Server Actions + zod, SSR'd content, Lighthouse ≥95, AA contrast.
+- pnpm, RSC-first, Server Actions + zod, SSR'd content, AA contrast.
+- **Lighthouse: ≥95 desktop / ≥80 mobile lab, third parties documented** —
+  amended Jul 29 with Derrick's approval (O22): the original flat "≥95" is
+  unreachable on mobile with GA4 in-trace (gtag alone is 164KB + ~400–800ms
+  PSI-grade TBT; production baseline in
+  `docs/plans/summit-aug-1/06-phase-5-research.md` §7). Budgets are enforced
+  by `lighthouserc.json` — per-page script fences, a 200KB third-party fence,
+  and **`media:size = 0`** (hero video is a reviewed decision, never a drift).

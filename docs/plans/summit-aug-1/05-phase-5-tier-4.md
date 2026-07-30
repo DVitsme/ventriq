@@ -1,7 +1,12 @@
 # Phase 5 — Tier 4: after launch
 
 **Justin's framing:** *"After launch — improves the page, does not block it."*
-**When:** after Aug 1 · **Status:** 🟥 not started · **Items:** 4
+**When:** after Aug 1 · **Status:** 🟨 **3 of 4 BUILT Jul 29** (T4·1, T4·2 at
+current count, T4·4) — **T4·3 (the Foundry toggle) remains**, gated on
+O10–O12, hard deadline Aug 10. `lib/brand.ts` prerequisite is DONE. Gates:
+tsc clean · lint clean · **e2e 43 passed / 0 failed** · desktop + 375px
+screenshot pass. Build notes in research doc §10; deviations flagged there.
+· **Items:** 4
 **Prev:** [`04-phase-4-tier-3.md`](./04-phase-4-tier-3.md) ·
 **Index:** [`00-README.md`](./00-README.md)
 
@@ -18,7 +23,7 @@ Jul 23 backlog the brief didn't touch.
 ## T4·1 — Sticky anchor sub-navigation
 `brief §16` · tag: **`COPY AUDIT`**
 
-- [ ] **Slim persistent sub-nav: Schedule · Speakers · FAQ · Register**
+- [x] **Slim persistent sub-nav** *(built Jul 29 — DESKTOP sticky bar + mobile in-flow sheet index; a third mobile chrome layer refused on NN/g evidence — research doc §5)*
 
 Brief: *"The page is long; **a slim persistent sub-nav measurably reduces
 mobile bounce.**"*
@@ -48,7 +53,7 @@ sequential focus order. Skip-link interaction matters — we pass 100/100 today.
 ## T4·2 — Rebuild the speaker grid to render at any count
 `brief §08` · tag: **`COPY AUDIT`**
 
-- [ ] **Grid looks deliberate at six, twelve, and seventeen — not assuming fifteen tiles**
+- [x] **Grid looks deliberate at any count** *(built Jul 29 — featured-tier modulo sink: 2 featured + closed rows; type-as-ground initials make photoless plates first-class; THE FLIP shipped on all five — research doc §3–§4)*
 
 Brief: *"**Names arrive in waves, not all at once.** The grid should look
 deliberate at six, twelve, and seventeen — not assume fifteen tiles."*
@@ -161,8 +166,8 @@ Eventbrite one time and I've loved it ever since"*), was never built, and its
 orphaned label is still sitting in the hero.
 
 **So this item is really two:**
-- [ ] QA the marquee at 375px *(what he asked for)*
-- [ ] **Build the countdown, or remove the orphaned label** *(what he actually
+- [x] QA the marquee at 375px *(Jul 29 — mobile axe + 375px screenshot pass clean)*
+- [x] **Countdown BUILT Jul 29** — single tabular line under the repaired label, minute→second granularity, role="timer" quiet pattern, SSR static-date fallback *(what he actually
       needs)* — design direction in the design brief §4.1a: read as a
       *measurement*, not Eventbrite digit-tiles. Tabular numerals, hairline
       rule, small-caps units. Needs defined during-event and post-event states,

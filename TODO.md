@@ -288,7 +288,12 @@ important, not yet blocking · 🟡 watch / later.
   DNS. 2–3 weeks of reputation wobble per Kit = do it NOW, not Aug 9.
   *(Suspected Jul 29 from the .eml; confirmed by DNS audit same day —
   research doc §9.)*
-- [ ] **🔴 Our Luma button clobbers ambassador attribution — fix before any
+- [x] ~~**Our Luma button clobbers ambassador attribution**~~ *(FIXED Jul 29 —
+  the button now lets the page's `?utm_source` through and tags
+  `site-{ctaLocation}` only for untagged traffic, via `useSyncExternalStore`
+  so SSR never mismatches. Ambassador links still must ride `utm_source=` and
+  land on a page with the button.)*
+- [ ] **(history) Our Luma button clobbers ambassador attribution — fix before any
   ambassador push.** Agent read `checkout-button.js` source Jul 29:
   `data-luma-utm-source` **takes precedence over the page's `?utm_source`**,
   and `components/luma-register-button.tsx` hardcodes it to
