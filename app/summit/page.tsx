@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Eyebrow } from "@/components/primitives";
 import { LumaRegisterButton } from "@/components/luma-register-button";
+import { SpeakerWall } from "@/components/hero/speaker-wall";
+import { WallDriver } from "@/components/hero/wall-driver";
 import { MobileCtaBar } from "@/components/mobile-cta-bar";
 import { SpeakerPlate, type Speaker } from "@/components/speaker-plate";
 import { DoorsCountdown } from "@/components/doors-countdown";
@@ -19,18 +21,8 @@ export const metadata: Metadata = {
   openGraph: { images: [{ url: "/og/summit.png", width: 1200, height: 630 }] },
 };
 
-/** The full 21-speaker roster, in the order of Justin's bios delivery
- *  (docs/notes-from-justin/7-29/FORGE THE FUTURE SPEAKER BIOS.md — the
- *  canonical names doc; it corrected several tracker spellings: Quintel
- *  HARCUM, Lyndsae' Peele, Lake Mitchell, Erika BAEZ-GRIMES, and the bio text
- *  says Margo BURR where the heading said Burley — flagged to Justin, bio
- *  text + her headshot filename win until he says otherwise).
- *  `bio` lines are card-length credentials derived from the full bios (full
- *  texts preserved in the source file for a future /speakers page). Roles =
- *  the night-host assignments from his speakers tracker. Tony Wagner and
- *  Claudius Taylor arrived with headings + headshots but NO bio text — their
- *  backs carry the next-revision line. 16 of 21 have processed headshots in
- *  /public/speakers; the rest run initials plates. */
+
+
 const SPEAKERS: Speaker[] = [
   { name: "Theodore Savage", title: "Founder, The Cultivation Effect®", bio: "Two decades developing leaders across corporate, fitness, and education — featured on Good Morning America and the Today Show.", role: "opening the summit", initials: "TS", sheet: "S-01" },
   { name: "Darren Willoughby", title: "Brand & business strategist", bio: "A decade helping companies find their voice, sharpen their message, and show up with intention — equal parts analytical and human.", role: "hosting The Art of Desire", initials: "DW", sheet: "S-02", img: "darren-willoughby" },
@@ -79,21 +71,8 @@ const eventJsonLd = {
     "Eight nights, two weeks — brand, PR, sales, technology, capital, exit. Every session ends with a move you can make the next morning. Free, virtual, live on Zoom.",
 };
 
-function Rays() {
-  const vp = { x: 1120, y: 260 };
-  const edges = [[0, 40], [0, 260], [0, 520], [300, 620], [760, 620], [1180, 620], [1440, 560], [1440, 60], [900, 0], [420, 0]];
-  return (
-    <svg aria-hidden viewBox="0 0 1440 620" preserveAspectRatio="xMidYMid slice" className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.26]" fill="none">
-      {edges.map(([x, y], i) => (
-        <line key={i} className="vq-draw" pathLength={1} style={{ ["--vqd" as string]: `${i * 0.07}s` }} x1={x} y1={y} x2={vp.x} y2={vp.y} stroke="#C9A24C" strokeWidth="0.75" />
-      ))}
-      <circle cx={vp.x} cy={vp.y} r="2.2" fill="#C9A24C" />
-      {[[-14, 0, -6, 0], [6, 0, 14, 0], [0, -14, 0, -6], [0, 6, 0, 14]].map(([a, b, c, d], i) => (
-        <line key={`c${i}`} x1={vp.x + a} y1={vp.y + b} x2={vp.x + c} y2={vp.y + d} stroke="#C9A24C" strokeWidth="1" />
-      ))}
-    </svg>
-  );
-}
+/* Rays retired Jul 30 — the summit hero's subject is now the Speaker
+   Wall (components/hero/speaker-wall.tsx); plan doc 08. */
 
 function Hero() {
   const now = new Date();
@@ -243,12 +222,18 @@ export default function SummitPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }} />
 
-      {/* Hero — state machine, rays behind */}
-      <section className="relative overflow-hidden bg-midnight">
-        <Rays />
-        <div className="vq-hero relative mx-auto max-w-[1440px] px-5 py-24 md:px-20 md:py-32">
-          <Hero />
+      {/* Hero — state machine + THE SPEAKER WALL (Wave 2b, plan doc 08):
+          eight duotone plates pinned beside the copy. Desktop: absolute
+          field right of the copy's exclusion zone; mobile: in-flow contact
+          strip below the copy. The copy machine is untouched. */}
+      <section className="relative overflow-hidden bg-midnight md:min-h-[74vh]">
+        <div className="relative mx-auto h-full max-w-[1440px]">
+          <div className="vq-hero relative z-[1] px-5 py-24 md:px-20 md:py-32 lg:max-w-[50%]">
+            <Hero />
+          </div>
+          <SpeakerWall />
         </div>
+        <WallDriver />
       </section>
 
       {/* Section nav — brief §16, research doc §5. Desktop: the slim sticky

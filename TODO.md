@@ -292,10 +292,6 @@ important, not yet blocking · 🟡 watch / later.
 
 ## 🟡 Watch / later
 
-- [ ] **Summit hero should adopt the Master Sheet field system** (G1's "one
-  recognizable system" — the scene is componentized for exactly this).
-  Post-verification pass, before Aug 10 ideally; keep the summit's phase
-  machine + countdown host intact. *(Raised Jul 30.)*
 - [ ] **Dev-only hydration warning on the Luma button's hidden utm input**
   (`caret-color` style diff in the Next dev overlay — spotted Jul 30 while
   building the hero). Production is unaffected (suite green, live site
@@ -394,6 +390,18 @@ important, not yet blocking · 🟡 watch / later.
   build.
 
 ## ✅ Done (moved from above)
+
+- [x] *Jul 30 (later)* — **Wave 2b SHIPPED: the summit "Speaker Wall" hero**
+  — 8 duotone plates (4 photo-hosts + 4 operators; Margo Burr held out
+  pending name confirm) pinned beside the conversion copy: recession-scrim
+  camouflage at rest, proximity lean + warm field, hover develop (veil
+  lifts, gold frame draws, caption reveals), featured Willoughby plate
+  with dashed→solid leader, mobile contact strip, PRM glow-breathe twin,
+  shared vq-motion chip. 7-agent research (plan doc 08); baked-duotone
+  384×480 thumbs (8 ≈ 105KB, fences untouched); wall fully aria-hidden,
+  zero focusables. Suite 52 passed / 20 skipped; deployed `5350dfd1`,
+  production-verified (hover state + strip + video). Wrangler 4.114→4.115
+  (dev-server crash mitigation; survives full runs ~4min now).
 
 - [x] *Jul 30* — **Wave 2 SHIPPED: "The Master Sheet" hero** — the wow
   mandate (grandeur, >5s loop, budgets waived) delivered as a

@@ -28,8 +28,10 @@ async function settle(page: Page) {
 
 async function firstPhotoCard(page: Page): Promise<Locator> {
   await page.goto("/summit");
+  // scoped to #speakers: the hero's Speaker Wall (Wave 2b) also renders
+  // portrait articles/imgs above this section and would steal .first()
   const card = page
-    .locator("article", { has: page.locator("img.vq-duotone") })
+    .locator("#speakers article", { has: page.locator("img.vq-duotone") })
     .first();
   // JS scroll, not scrollIntoViewIfNeeded: the actionability stability gate
   // needs rendered frames, and mobile-emulated headless contexts sometimes

@@ -3,6 +3,32 @@
 A running, plain-language record of everything done on this engagement. Newest
 first. Written so it can be pasted straight into a client update for Justin.
 
+## July 30, 2026 — the summit hero: "The Speaker Wall"
+
+- **The summit page now opens on the people.** Eight real speaker
+  portraits — the four night hosts with photos plus four more operators —
+  hang like archival plates pinned to the drafting sheet beside the
+  headline: sheet numbers, corner ticks, hairline frames, all in the
+  site's unified duotone. At rest they sit camouflaged into the midnight;
+  as your mouse moves through the wall they lean toward it and warm, and
+  hovering any portrait "develops" it like a print — the veil lifts, a
+  gold frame draws itself around the plate, and the speaker's name,
+  credential, and hosting night appear. Darren Willoughby anchors the
+  wall as the featured plate with his caption always visible, connected
+  by a dashed gold line that turns solid as his portrait develops.
+- **Phones get a contact-sheet strip** below the signup button — swipe
+  through the plates, tap one to develop it. The live countdown, copy,
+  and one gold button are untouched; conversion stays the hero's job.
+- **Accessibility held again:** the wall is pure decoration to assistive
+  tech (the full speaker roster below remains the accessible record — no
+  extra tab stops before the signup button), reduced-motion visitors get
+  the developed wall with gentle one-at-a-time glows instead of movement,
+  and the same motion on/off switch controls both heroes site-wide. The
+  suite — now 52 checks — passed before shipping, and hover, captions,
+  and the pause switch were verified working on the live site.
+- Also fixed tonight: updated the local preview tool whose crashes were
+  disrupting test runs (the live site was never affected).
+
 ## July 30, 2026 — the hero's reduced-motion show (same day, follow-up)
 
 - **People with "reduce animations" turned on now get the full experience
