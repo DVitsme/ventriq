@@ -10,7 +10,7 @@ first. Written so it can be pasted straight into a client update for Justin.
   processed into a matched black-and-white treatment so photos taken in
   totally different conditions read as one set. Speakers without photos get
   a dignified initials plate — the cards look like siblings, not gaps.
-  (Built and tested; publishing on the word.)
+  **Published to ventriq.io the same night** — all 21 verified live, every headshot confirmed serving, and the flip captured working on the production page.
 - **The flip got two upgrades Justin asked for:** cards now flip when the
   mouse moves over them (desktop), and people with "reduce motion" switched
   on now SEE the flip too — as a quick crossfade instead of a rotation,
