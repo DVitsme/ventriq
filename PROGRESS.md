@@ -3,7 +3,7 @@
 A running, plain-language record of everything done on this engagement. Newest
 first. Written so it can be pasted straight into a client update for Justin.
 
-## July 29, 2026 — night (the polish build, ready to publish)
+## July 29, 2026 — night (the polish build — LIVE)
 
 - **Built the card flip Justin asked for.** Every speaker card on the summit
   page now turns over like a physical card — front is the speaker, back is
@@ -36,7 +36,7 @@ first. Written so it can be pasted straight into a client update for Justin.
   so ambassador links will be credited correctly.
 - **Every change passed the full accessibility suite** (43 checks, zero
   failures) and was eyeballed at desktop and phone sizes before being called
-  done. Not yet published — awaiting the word.
+  done. **Published to ventriq.io the same night and re-verified live, page by page.**
 
 ## July 29, 2026 — evening (research sweep before the polish build)
 
