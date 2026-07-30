@@ -1,36 +1,37 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /** The countdown the Jul 23 call asked for ("I want this to count down") —
- *  repairing the orphaned "doors open in" label that shipped with a static
- *  date under it. Spec + sources: docs/plans/summit-aug-1/06-phase-5-research.md §5.
- *
- *  Drafting register, not Eventbrite: a single line of tabular-numeral type
- *  (Space Grotesk ships `tnum`), unit letters as small gold small-caps
- *  suffixes — a countdown as annotation, like a dimension string. No digit
- *  tiles (refusal list), no per-digit animation.
+ *  and, since Jul 30, VISIBLY counting: Derrick's stress-test note ("it is
+ *  not yet animating down") retired the original minute-granularity
+ *  restraint. Seconds are always on; each changing value slides up into
+ *  place (a keyed span + one CSS entrance — .cd-roll in globals). Rolling
+ *  is HAND-ROLLED, not NumberFlow: in the Jul 30 stress test the
+ *  number-flow-react custom element rendered ZERO-HEIGHT with an empty
+ *  light DOM and null aria-label in frame-starved contexts — digits that
+ *  can silently not paint are disqualified from a countdown. Light-DOM
+ *  text always paints, tests can read it, and PRM gets the instant swap
+ *  via the media query on the animation. Still the drafting register:
+ *  tabular numerals, gold unit suffixes, no digit tiles.
  *
  *  Hydration-safe by design: the server (and no-JS) render is the complete
  *  static sentence "doors open aug 10 · 6:30 pm et" — real content, identical
- *  pre-hydration, so no mismatch and no suppressHydrationWarning. The ticking
- *  line mounts after hydration (Comeau two-pass).
+ *  pre-hydration, so no mismatch. The ticking line mounts after hydration
+ *  (Comeau two-pass).
  *
  *  Tick discipline: display is always derived from target − Date.now() (never
- *  accumulated — setInterval drifts and background tabs throttle), scheduled
- *  by a self-adjusting setTimeout to the next minute boundary (second
- *  boundary inside the final 24h), resynced instantly on visibilitychange.
+ *  accumulated), re-armed by a self-adjusting setTimeout to the next second
+ *  boundary, resynced on visibilitychange. tick() clears any pending timer
+ *  first — the old resync path could stack parallel tick chains, one per
+ *  tab return (found in the Jul 30 stress test).
  *
- *  A11y — the quiet pattern: role="timer" has implicit aria-live="off", so
- *  screen readers never hear ticks; aria-label carries the fact; a static
- *  <time> is always in the DOM. WCAG 2.2.2 churn stays trivial at minute
- *  granularity. Informational only — real date, free event, no urgency
- *  adjectives (house no-fake-scarcity law).
- *
- *  The wider pre/live/between/post state machine belongs to lib/calendar's
- *  eventPhase(), which owns the hero. This component only lives inside the
- *  pre-event hero; if a visitor sits across the 6:30 PM boundary it swaps to
- *  a "doors are open" line until the next server render catches up. */
+ *  WCAG 2.2.2: per-second updates are auto-updating information, so the
+ *  hero's motion chip governs this too — while the section carries
+ *  .ms-paused, ticks skip (display freezes; resumes derived-correct).
+ *  role="timer" keeps implicit aria-live="off" — screen readers never hear
+ *  ticks; the aria-label carries the fact. Informational only — real date,
+ *  free event, no urgency adjectives (house no-fake-scarcity law). */
 
 // Aug 10 2026, 6:30 PM ET — matches the Event JSON-LD startDate exactly.
 const TARGET_MS = Date.parse("2026-08-10T18:30:00-04:00");
@@ -47,22 +48,21 @@ function remaining(now: number) {
   };
 }
 
-const pad = (n: number) => String(n).padStart(2, "0");
-
 export function DoorsCountdown() {
   const [now, setNow] = useState<number | null>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
     const tick = () => {
+      clearTimeout(timer); // resync must never stack a second chain
       const t = Date.now();
-      setNow(t);
+      const paused = rootRef.current?.closest("section")?.classList.contains("ms-paused");
+      if (!paused) setNow(t);
       const { diff } = remaining(t);
       if (diff <= 0) return; // terminal — line swaps below, no more ticks
-      // Wake exactly at the next boundary: seconds inside the final 24h,
-      // minutes before that. +20ms guard against early timer fire.
-      const unit = diff <= DAY_MS ? 1000 : 60_000;
-      timer = setTimeout(tick, (diff % unit) + 20);
+      // Wake exactly at the next second boundary (+20ms early-fire guard).
+      timer = setTimeout(tick, (diff % 1000) + 20);
     };
     // First tick is deferred a frame — the mount swap is not synchronous
     // inside the effect body (react-hooks/set-state-in-effect).
@@ -96,9 +96,8 @@ export function DoorsCountdown() {
     );
   }
 
-  const finalDay = diff <= DAY_MS;
   return (
-    <div className="mt-8">
+    <div className="mt-8" ref={rootRef}>
       <p className="text-sm tracking-[0.1em] text-cream/60 [font-variant:small-caps]">doors open in</p>
       <p
         role="timer"
@@ -106,10 +105,10 @@ export function DoorsCountdown() {
         aria-label="Doors open August 10 at 6:30 PM Eastern"
         className="mt-1 text-xl tracking-[0.12em] text-cream/90 [font-variant-numeric:tabular-nums] md:text-2xl"
       >
-        {!finalDay && <Unit v={pad(d)} u="d" />}
-        <Unit v={pad(h)} u="h" />
-        <Unit v={pad(m)} u="m" />
-        {finalDay && <Unit v={pad(s)} u="s" />}
+        <Unit v={d} u="d" />
+        <Unit v={h} u="h" />
+        <Unit v={m} u="m" />
+        <Unit v={s} u="s" />
       </p>
       <span className="sr-only">
         <time dateTime="2026-08-10T18:30:00-04:00">August 10, 2026, 6:30 PM Eastern Time</time>
@@ -118,10 +117,13 @@ export function DoorsCountdown() {
   );
 }
 
-function Unit({ v, u }: { v: string; u: string }) {
+const pad = (n: number) => String(n).padStart(2, "0");
+
+function Unit({ v, u }: { v: number; u: string }) {
   return (
     <span className="mr-3 last:mr-0">
-      {v}
+      {/* key swaps the node each change → the .cd-roll entrance replays */}
+      <span key={v} className="cd-roll inline-block">{pad(v)}</span>
       <span aria-hidden className="ml-0.5 align-[0.35em] text-[0.55em] tracking-[0.18em] text-gold [font-variant:small-caps]">
         {u}
       </span>

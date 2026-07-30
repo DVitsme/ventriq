@@ -168,6 +168,15 @@ function Hero() {
       <p style={{ ["--vqd" as string]: "1.3s" }} className="vq-in mt-6 max-w-[54ch] text-lg leading-relaxed text-cream/85">
         Eight nights across two weeks — one session a night, ninety minutes each. Each one pointed at something you can do the next morning.
       </p>
+      {/* The countdown the Jul 23 call asked for — moved UP the column Jul 30
+          (Derrick's stress test): at 1440×900 its old slot at the column's
+          foot sat at y≈899 — one pixel above the fold, animating for nobody.
+          Under the support line it reads as instrumentation (composition
+          research) and is visible without scrolling. */}
+      <DoorsCountdown />
+      <p className="mt-2 text-sm tracking-[0.14em] text-cream/80 [font-variant:small-caps] [font-variant-numeric:tabular-nums]">
+        aug 10–20 · 6:30–8:00 pm et · zoom · free
+      </p>
       {/* §02b — a cold visitor from an Instagram link self-identifies in under
           two seconds or leaves. Says "founders"; the trust line below says
           "entrepreneurs". Both are the brief's own wording — O1, ship as
@@ -187,13 +196,7 @@ function Hero() {
       {/* Watched by MobileCtaBar: while this is on screen the sticky bar stays
           down, so a phone never shows two identical buttons at once. */}
       <div id="vq-hero-cta-sentinel" aria-hidden className="h-px w-px" />
-      {/* The countdown the Jul 23 call asked for — the "doors open in" label
-          finally has a number under it. Server/no-JS render is the complete
-          static date sentence; the tick mounts after hydration. */}
-      <DoorsCountdown />
-      <p className="mt-2 text-sm tracking-[0.14em] text-cream/80 [font-variant:small-caps] [font-variant-numeric:tabular-nums]">
-        aug 10–20 · 6:30–8:00 pm et · zoom · free
-      </p>
+
     </>
   );
 }

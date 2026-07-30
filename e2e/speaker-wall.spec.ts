@@ -58,6 +58,29 @@ test("wall: decorative contract + entrance lands + chip pauses", async ({ page }
   expect(await page.evaluate(() => localStorage.getItem("vq-motion"))).toBe("off");
 });
 
+test("countdown animates down every second; chip freezes it", async ({ page }) => {
+  test.skip(test.info().project.name !== "desktop", "primary path");
+  await page.goto("/summit");
+
+  // setTimeout-driven ticking — immune to the rAF-stall lottery, so plain
+  // text sampling is deterministic here.
+  const timer = page.getByRole("timer");
+  await expect(timer).toBeVisible({ timeout: 10_000 });
+  const a = await timer.textContent();
+  await page.waitForTimeout(2300);
+  const b = await timer.textContent();
+  expect(a).not.toBe(b); // seconds are visibly counting down
+
+  // 2.2.2: the motion chip governs auto-updating info too
+  const chip = page.getByRole("button", { name: /motion/i });
+  await chip.click({ force: true });
+  const c = await timer.textContent();
+  await page.waitForTimeout(2300);
+  const d = await timer.textContent();
+  expect(c).toBe(d); // frozen while paused
+  await chip.click({ force: true }); // restore for other tests
+});
+
 test("wall PRM: complete immediately, no transforms, chip present", async ({ page }) => {
   test.skip(test.info().project.name !== "reduced-motion", "PRM path");
   await page.goto("/summit");

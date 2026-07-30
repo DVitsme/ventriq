@@ -391,6 +391,19 @@ important, not yet blocking · 🟡 watch / later.
 
 ## ✅ Done (moved from above)
 
+- [x] *Jul 30 (night)* — **Countdown stress test (Derrick: "not yet
+  animating down") — three root causes fixed.** (1) By design it ticked
+  once a MINUTE (seconds only inside the final 24h) → seconds always on,
+  slide-per-tick (.cd-roll, transform-only — an opacity entrance is a 1Hz
+  blink). (2) NumberFlow rendered ZERO-HEIGHT/empty-light-DOM digits in
+  frame-starved contexts → replaced with hand-rolled light-DOM text
+  (always paints, testable). (3) The countdown sat at y≈899 in a 900px
+  viewport — one pixel above the fold → moved under the support line with
+  its meta caption (y≈658). Bonus: visibilitychange no longer stacks
+  parallel tick chains; the motion chip now freezes the countdown (2.2.2
+  auto-updating info). New spec asserts real ticking + chip-freeze.
+  Deployed `82fc73c2`, verified ticking on production. Suite 53/22.
+
 - [x] *Jul 30 (later)* — **Wave 2b SHIPPED: the summit "Speaker Wall" hero**
   — 8 duotone plates (4 photo-hosts + 4 operators; Margo Burr held out
   pending name confirm) pinned beside the conversion copy: recession-scrim

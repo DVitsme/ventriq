@@ -3,6 +3,26 @@
 A running, plain-language record of everything done on this engagement. Newest
 first. Written so it can be pasted straight into a client update for Justin.
 
+## July 30, 2026 — the countdown now counts (stress test)
+
+- **Derrick flagged that the summit countdown wasn't visibly moving — the
+  stress test found three real causes and fixed all of them.** First, it
+  was built to be still: it only updated once per minute, with seconds
+  hidden until the final day. Seconds are now always on, ticking down
+  every second with a subtle slide as each number changes. Second, a
+  library we'd used for rolling digits turned out to be capable of
+  silently rendering nothing in stressed browsers — it was replaced with
+  plain text that cannot fail to paint. Third, and sneakiest: the
+  countdown sat one pixel above the bottom of a typical laptop screen —
+  animating for nobody. It now sits right under the headline block,
+  visible the moment the page opens.
+- Two smaller wins from the same sweep: a tab-switching bug that could
+  quietly stack duplicate timers is fixed, and the motion on/off switch
+  now freezes the countdown too (and resumes it accurate to the second).
+- Verified ticking on the live site — three samples over five seconds all
+  counting down — and a new automated check watches for exactly this
+  ("did the number actually change?") on every future release.
+
 ## July 30, 2026 — the summit hero: "The Speaker Wall"
 
 - **The summit page now opens on the people.** Eight real speaker

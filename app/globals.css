@@ -241,6 +241,20 @@
 .sw-warm { opacity: calc(var(--warm, 0) * 0.1); }
 .sw-cap-hidden { visibility: hidden; opacity: 0; }
 
+/* Countdown tick — the new value slides up into place. Entrance-only on a
+   keyed span; reduced motion gets the instant swap (information updates,
+   nothing travels). */
+@media (prefers-reduced-motion: no-preference) {
+  /* slide only, NEVER opacity: a keyed span replays this every second, and
+     an opacity-from-0 entrance is a 1Hz blink — digits must be painted at
+     every instant (Jul 30 stress test caught the seconds cell invisible
+     mid-frame on production). */
+  .cd-roll { animation: cd-roll 200ms ease-out; }
+  @keyframes cd-roll {
+    from { transform: translateY(0.3em); }
+  }
+}
+
 /* Midnight/cream duotone for speaker portraits — grayscale here on the img,
    color-blend veil in the component. Two knobs, both CSS, per research §4. */
 .vq-duotone { filter: grayscale(1) contrast(1.04) brightness(0.96); }
