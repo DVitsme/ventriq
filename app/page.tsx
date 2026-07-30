@@ -5,10 +5,11 @@ import {
   ThresholdCard,
   PhotoGrade,
   PrimaryLink,
-  OutlineLink,
 } from "@/components/primitives";
 import { LumaRegisterButton } from "@/components/luma-register-button";
 import { Reveal } from "@/components/motion";
+import { MasterSheet } from "@/components/hero/master-sheet";
+import { HeroDriver } from "@/components/hero/hero-driver";
 import { EMAIL } from "@/content/placeholders";
 
 export const dynamic = "force-dynamic";
@@ -49,35 +50,9 @@ const orgJsonLd = {
   ],
 };
 
-/** Static corridor rays (motion draws them in Phase 4): hairlines converging
- *  on a vanishing-point crosshair, upper right — one drawing system. */
-function CorridorRays() {
-  const vp = { x: 1060, y: 300 };
-  const edges = [
-    [0, 60], [0, 240], [0, 470], [0, 660], [340, 720], [780, 720], [1200, 720], [1440, 640], [1440, 90], [1050, 0], [620, 0], [220, 0],
-  ];
-  return (
-    <svg
-      aria-hidden
-      viewBox="0 0 1440 720"
-      preserveAspectRatio="xMidYMid slice"
-      className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.28]"
-      fill="none"
-    >
-      {edges.map(([x, y], i) => (
-        <line key={i} className="vq-draw" pathLength={1} style={{ ["--vqd" as string]: `${i * 0.06}s` }} x1={x} y1={y} x2={vp.x} y2={vp.y} stroke="#C9A24C" strokeWidth="0.75" />
-      ))}
-      {/* dimension ticks on two rays */}
-      <line x1="368" y1="216" x2="374" y2="228" stroke="#C9A24C" strokeWidth="1" />
-      <line x1="704" y1="504" x2="712" y2="514" stroke="#C9A24C" strokeWidth="1" />
-      {/* vanishing-point crosshair */}
-      <circle className="vq-tick" cx={vp.x} cy={vp.y} r="2.2" fill="#C9A24C" />
-      {[[-14, 0, -6, 0], [6, 0, 14, 0], [0, -14, 0, -6], [0, 6, 0, 14]].map(([a, b, c, d], i) => (
-        <line key={`c${i}`} className="vq-tick" x1={vp.x + a} y1={vp.y + b} x2={vp.x + c} y2={vp.y + d} stroke="#C9A24C" strokeWidth="1" />
-      ))}
-    </svg>
-  );
-}
+/* CorridorRays retired Jul 30 — its geometry lives on, densified, as plane B
+ * of the Master Sheet (components/hero/master-sheet.tsx). Wave 2 plan doc:
+ * docs/plans/summit-aug-1/07-wave-2-hero.md. */
 
 /** S4 diagram: three labeled lines converge through a crosshair into a
  *  drawn doorway (jambs, lintel, threshold, exit arrow). */
@@ -130,9 +105,13 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
       />
 
-      {/* S1 · Hero — midnight, asymmetric 5/7, corridor rays behind */}
-      <section className="relative overflow-hidden bg-midnight">
-        <CorridorRays />
+      {/* S1 · Hero — THE MASTER SHEET (Wave 2's wow): one enormous drawing
+          drafting the way in. Scene is server-rendered and complete; the
+          driver adds the life + the 2.2.2 pause chip. min-h reserves the
+          stage so the scene breathes at every viewport (CLS-free). */}
+      <section className="relative min-h-[560px] overflow-hidden bg-midnight md:min-h-[78vh]">
+        <MasterSheet />
+        <HeroDriver />
         <div className="vq-hero relative mx-auto max-w-[1440px] px-5 py-24 md:px-20 md:py-36">
           {/* "nonprofit" out (for-profit until the Q4 arm); "ven-treek" out per D2. */}
           <div className="vq-in"><Eyebrow>ventriq · built for founders</Eyebrow></div>
@@ -146,7 +125,7 @@ export default function Home() {
             old models overlook.{" "}
             <RedlineChip>COUNSEL-REVIEW</RedlineChip>
           </p>
-          <div style={{ ["--vqd" as string]: "0.95s" }} className="vq-in mt-10 flex flex-wrap items-center gap-6">
+          <div data-ms-strike style={{ ["--vqd" as string]: "0.95s" }} className="vq-in mt-10 flex flex-wrap items-center gap-6">
             <LumaRegisterButton ctaLocation="home-hero">
               Save My Free Seat
             </LumaRegisterButton>

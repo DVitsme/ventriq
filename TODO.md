@@ -74,9 +74,10 @@ important, not yet blocking · 🟡 watch / later.
   pain-point band, membership card symmetry, the colour pass). §5 sequences it
   in the order Derrick agreed on the call (copy we already have → assets from
   Justin → video/motion → mobile last). ✅ **Phase A shipped Jul 29 with the
-  Aug-1 brief — every item below is live**; what remains from meeting 3 is the
-  visual half (Wave 2 hero motion, agenda face cards, testimonials carousel,
-  navy pain-point band) per `build-queue.md`. The shipped list: delete the "about a minute, free" note that shipped
+  Aug-1 brief — every item below is live**; ✅ **Wave 2 hero motion shipped
+  Jul 30 (the Master Sheet)**; what remains from meeting 3 is agenda face
+  cards, testimonials carousel, navy pain-point band per `build-queue.md`.
+  The shipped list: delete the "about a minute, free" note that shipped
   from Derrick's own scratchpad · add the missing "Who is this for?" heading on
   `/summit` · CTA → "Save your free **virtual** seat" (Justin: *"if you're still
   hearing it, it's not enough"*) · rewrite the "Will I be pitched?" FAQ, which
@@ -291,6 +292,15 @@ important, not yet blocking · 🟡 watch / later.
 
 ## 🟡 Watch / later
 
+- [ ] **Summit hero should adopt the Master Sheet field system** (G1's "one
+  recognizable system" — the scene is componentized for exactly this).
+  Post-verification pass, before Aug 10 ideally; keep the summit's phase
+  machine + countdown host intact. *(Raised Jul 30.)*
+- [ ] **Dev-only hydration warning on the Luma button's hidden utm input**
+  (`caret-color` style diff in the Next dev overlay — spotted Jul 30 while
+  building the hero). Production is unaffected (suite green, live site
+  verified); tidy when next inside `luma-register-button.tsx`. *(Raised
+  Jul 30.)*
 - [ ] **Membership platform (the "four year project")** — requirements captured
   Jul 23 (1:01:11): auth, role tiers (**super admin / coordinator / teacher /
   student**, plus guest speakers and one more Justin will name), rooms, and a
@@ -384,6 +394,19 @@ important, not yet blocking · 🟡 watch / later.
   build.
 
 ## ✅ Done (moved from above)
+
+- [x] *Jul 30* — **Wave 2 SHIPPED: "The Master Sheet" hero** — the wow
+  mandate (grandeur, >5s loop, budgets waived) delivered as a
+  self-drafting monumental gateway: dashed→solid entrance, pen-light
+  glints, coprime ambient periods + clock-true T-minus (loop has no seam),
+  randomized re-drafts/fact-cycles/sweeps, forge-strike beats
+  (CTA-hover + ~50s schedule), surveyor's-lens camouflage reveal, 3-plane
+  pointer parallax, mobile recentered composition. GSAP 3.15 + DrawSVG
+  (~37KB gz); NO video, NO WebGL — `media:size=0` intact; O24 = script
+  fence 380→440KB / total 600→660KB, measured. WCAG 2.2.2 pause chip
+  (persisted), PRM = finished sheet + ≥6s opacity breathe, 8s rAF-starve
+  watchdog, visibility/offscreen pause. Suite 49 passed / 14 skipped,
+  axe 100 mid-flight. Research: 9 agents → plan doc 07.
 
 - [x] *Jul 29 (late)* — **Speaker-card hover bug found by Derrick, root-caused
   and fixed same night.** Under OS "reduce animations" (prefers-reduced-motion)

@@ -34,3 +34,8 @@ Next.js 16 marketing site for Ventriq (Baltimore nonprofit for founders). App co
   `docs/plans/summit-aug-1/06-phase-5-research.md` §7). Budgets are enforced
   by `lighthouserc.json` — per-page script fences, a 200KB third-party fence,
   and **`media:size = 0`** (hero video is a reviewed decision, never a drift).
+  **O24 (Jul 30, Derrick):** Wave 2's Master Sheet hero is the sanctioned
+  exception — home/summit script fence 380→440KB, total 600→660KB (GSAP +
+  driver, measured 232.5KB first-party transfer on `/`). `media:size = 0`
+  UNCHANGED — the "video" is live geometry, no media files. Plan + research
+  provenance: `docs/plans/summit-aug-1/07-wave-2-hero.md`.

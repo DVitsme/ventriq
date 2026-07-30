@@ -3,6 +3,40 @@
 A running, plain-language record of everything done on this engagement. Newest
 first. Written so it can be pasted straight into a client update for Justin.
 
+## July 30, 2026 — the new homepage hero: "The Master Sheet"
+
+- **The homepage opening is now the site's showpiece.** One enormous
+  architectural drawing — a monumental gateway at the end of a corridor of
+  survey lines — drafts itself the moment the page opens: construction
+  lines appear dashed (the plan), then solidify into gold (the built),
+  dimension arrows stamp in, and a light sweep crosses the sheet. After
+  the opening, the drawing never sleeps: a pen-light travels the lines, a
+  live countdown ticks inside the drawing's title block ("T-11d …" to
+  opening night), dimension labels rotate through the summit's real
+  numbers (8 nights · 21 speakers · 90 min · $0), and hidden survey marks
+  fade into view wherever the mouse passes — the headline's "camouflaged"
+  resources, found by light. Moving the mouse gives the whole scene
+  gentle depth, and hovering "Save My Free Seat" strikes the forge:
+  sparks kick off the gateway's base and the metal cools from
+  burnt-orange back to gold.
+- **No video files.** The entire scene is drawn live by code, so it
+  stays razor-sharp on every screen, loads like a static page, and the
+  "no media" performance tripwire stays intact. The one budget change
+  (a documented script allowance for the animation engine) was measured
+  and recorded, not guessed.
+- **Accessibility held to law while adding all of it:** a "motion on/off"
+  switch sits in the hero (required for any animation over 5 seconds — it
+  also remembers the choice), people with "reduce animations" enabled get
+  the finished drawing with a slow, gentle glow instead of movement, and
+  the animation pauses itself when the tab is hidden or the hero scrolls
+  away to save phone batteries. The automated suite — now 49 checks,
+  including new ones for this hero — passed clean before shipping, with
+  the accessibility scans running while the scene animates.
+- Research behind the design: nine parallel research tracks (award-site
+  patterns, technical-drawing motion, choreography science, event-page
+  energy, accessibility rules, and the engineering routes) distilled into
+  `docs/plans/summit-aug-1/07-wave-2-hero.md`.
+
 ## July 29, 2026 — later still (speaker-card hover bug, caught and fixed)
 
 - **Derrick caught a real bug on the new speaker cards and it's fixed on the
